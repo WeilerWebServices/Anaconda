@@ -1,0 +1,79 @@
+{% set version = "2.13.0" %}
+
+package:
+  name: fontconfig
+  version: {{ version }}
+
+source:
+  url: http://www.freedesktop.org/software/fontconfig/release/fontconfig-{{ version }}.tar.bz2
+  sha256: 91dde8492155b7f34bb95079e79be92f1df353fcc682c19be90762fd3e12eeb9
+  patches:
+    # This patch won't be submitted upstream. It's use here is to ensure the prefix used
+    # to refer to the `fonts.conf` file.
+    - fcf.patch       # [linux]
+
+build:
+  number: 1
+  skip: True                      # [win]
+  binary_has_prefix_files:        # [unix]
+    - lib/libfontconfig.so.1.*    # [linux]
+    - lib/libfontconfig.*.dylib*  # [osx]
+  run_exports:
+    # remove symbols basically never (once, in 2006).
+    #    https://abi-laboratory.pro/tracker/timeline/fontconfig/
+    - {{ pin_subpackage('fontconfig') }}
+
+requirements:
+  build:
+    - {{ compiler('c') }}
+    - make
+    - pkg-config
+    - gperf
+    - gettext                     # [not win]
+    - libtool
+    - automake
+    - autoconf
+
+  host:
+    - freetype
+    - icu                         # [not win]
+    - libpng
+    - libxml2
+    - libiconv                    # [not linux and not win]
+    - libuuid                     # [linux]
+
+test:
+  commands:
+    # Test CLI.
+    - fc-cache --help
+    - fc-cat --help
+    - fc-list --help
+    - fc-match --help
+    - fc-pattern --help
+    - fc-query --help
+    - fc-scan --help
+    - fc-validate --help
+
+    # Test for libraries.
+    - test -f "${PREFIX}/lib/libfontconfig.a"
+    - test -f "${PREFIX}/lib/libfontconfig.dylib"  # [osx]
+    - test -f "${PREFIX}/lib/libfontconfig.so"     # [linux]
+
+about:
+  home: http://www.freedesktop.org/wiki/Software/fontconfig/
+  license: MIT
+  license_file: COPYING
+  summary: 'A library for configuring and customizing font access.'
+  description: |
+    Fontconfig is a library designed to provide system-wide font configuration,
+    customization and application access.
+  doc_url: https://www.freedesktop.org/software/fontconfig/fontconfig-user.html
+  dev_url: https://cgit.freedesktop.org/fontconfig/
+
+extra:
+  recipe-maintainers:
+    - ccordoba12
+    - jakirkham
+    - mingwandroid
+    - ocefpaf
+    - pkgw

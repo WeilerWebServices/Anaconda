@@ -1,0 +1,44 @@
+package:
+  name: sqlite
+  version: 3.13.0
+
+source:
+  fn: sqlite-autoconf-3130000.tar.gz
+  url: https://www.sqlite.org/2016/sqlite-autoconf-3130000.tar.gz
+  sha256: e2797026b3310c9d08bd472f6d430058c6dd139ff9d4e30289884ccd9744086b
+  patches:
+    - expose_symbols.patch    [win]
+
+build:
+  number: 1   [win]
+  features:
+    - vc9     [win and py27]
+    - vc10    [win and py34]
+    - vc14    [win and (py35 or py36)]
+
+requirements:
+  build:
+    # python is for lining up vc feature (runtime)
+    - python         [win]
+
+test:
+  requires:
+    - python 2.7*    [win and py27]
+    - python 3.4*    [win and py34]
+    - python 3.5*    [win and py35]
+    - python 3.6*    [win and py36]
+  commands:
+    - sqlite3 --version
+
+about:
+  home: http://www.sqlite.org/
+  license: Public-Domain
+  license_url: http://www.sqlite.org/copyright.html
+  license_family: Public-Domain
+  summary: SQL database engine
+  description: |
+    SQLite is a self-contained, high-reliability, embedded, full-featured,
+    public-domain, SQL database engine.It is the most used database engine in the world.
+  doc_url: http://www.sqlite.org/docs.html
+  doc_source_url: https://github.com/mackyle/sqlite/tree/master/doc
+  dev_url: https://github.com/mackyle/sqlite

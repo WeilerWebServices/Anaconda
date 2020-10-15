@@ -1,0 +1,35 @@
+package:
+  name: nltk
+  version: 3.2.4
+
+source:
+  fn: nltk-3.2.4.tar.gz
+  url: https://pypi.python.org/packages/cd/c2/858e0708b497116ae45cf5c6b1f66984ac60729c61e49df6c1c0b808d1e4/nltk-3.2.4.tar.gz
+  md5: 4b883257f586425f78579045a0ed036a
+
+requirements:
+  build:
+    - python
+    - setuptools
+  run:
+    - python
+    - requests
+    - six
+
+test:
+  imports:
+    - nltk
+
+about:
+  home: http://nltk.org/
+  license: Apache Software License
+  license_family: Apache
+  license_file: LICENSE.txt
+  summary: Build Python programs to work with human language data
+  description: |
+    NLTK has been called a wonderful tool for teaching and working in
+    computational linguistics using Python and an amazing library to play with
+    natural language.
+  doc_url: http://www.nltk.org/
+  doc_source_url: https://github.com/nltk/nltk/blob/develop/web/index.rst
+  dev_url: https://github.com/nltk/nltk

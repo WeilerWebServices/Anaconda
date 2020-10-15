@@ -1,0 +1,30 @@
+package:
+  name: munch
+  version: 2.2.0
+
+source:
+  fn: munch-2.2.0.tar.gz
+  url: https://pypi.python.org/packages/92/58/c17cf679a2b9b65541cc71ba13a950289b7d34dd0967e34b8816a4d87044/munch-2.2.0.tar.gz
+  md5: 682e1ac873daa78eb8c9fb4f006893b7
+
+requirements:
+  build:
+    - python
+    - setuptools
+  run:
+    - python
+    - six
+
+test:
+  imports:
+    - munch
+
+about:
+  home: http://github.com/Infinidat/munch
+  license: MIT
+  license_file: LICENSE.txt
+  summary: dot-accessible dictionary (a la JavaScript objects)
+  description: |
+    Munch is a dictionary that supports attribute-style access, a la JavaScript.
+  doc_url: https://pypi.python.org/pypi/munch/
+  doc_source_url: https://github.com/Infinidat/munch/blob/master/README.md

@@ -1,0 +1,42 @@
+package:
+  name: babel
+  version: 2.5.0
+
+source:
+  fn: Babel-2.5.0.tar.gz
+  url: https://pypi.python.org/packages/3a/cb/46b76381ebda237c1b08d1c94394659679a4f1bd6475fe3703b303830ee0/Babel-2.5.0.tar.gz
+  md5: 03da8249c2684abcbd208a8d0f979939
+
+build:
+  entry_points:
+    - pybabel = babel.messages.frontend:main
+
+requirements:
+  build:
+    - python
+    - setuptools
+    - pytz
+  run:
+    - python
+    - pytz
+
+test:
+  commands:
+    - pybabel -h
+  imports:
+    - babel
+    - babel.messages
+    - babel.localtime
+
+about:
+  home: http://babel.pocoo.org/
+  license: BSD
+  license_file: LICENSE
+  summary: Utilities to internationalize and localize Python applications
+  description: |
+    Babel is an integrated collection of utilities that assist in
+    internationalizing and localizing Python applications, with an emphasis
+    on web-base applications.
+  doc_url: http://babel.pocoo.org/en/latest/#user-documentation
+  doc_source_url: https://github.com/python-babel/babel/blob/master/docs/index.rst
+  dev_url: https://github.com/python-babel/babel

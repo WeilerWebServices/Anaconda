@@ -1,0 +1,44 @@
+package:
+  name: coverage
+  version: 4.4.1
+
+source:
+  fn: coverage-4.4.1.tar.gz
+  url: https://pypi.python.org/packages/36/db/690ee79312bb60f121c0da1c973856ddb751afe09cc10caec1452208eaf4/coverage-4.4.1.tar.gz
+  md5: 4c4d997cb32be4703f1fde54e6cd1b1c
+
+build:
+  detect_binary_files_with_prefix: False
+  entry_points:
+    - coverage = coverage.cmdline:main
+
+requirements:
+  build:
+    - python
+    - setuptools
+  run:
+    - python
+
+test:
+  commands:
+    - coverage --version
+  imports:
+    - coverage
+    - coverage.tracer
+
+about:
+  home: http://coverage.readthedocs.org
+  license: Apache 2.0
+  license_family: Apache
+  license_file: LICENSE.txt
+  summary: Code coverage measurement for Python
+  description: |
+    Coverage.py is a tool for measuring code coverage of Python programs. It
+    monitors your program, noting which parts of the code have been executed,
+    then analyzes the source to identify code that could have been executed
+    but was not. Coverage measurement is typically used to gauge the
+    effectiveness of tests. It can show which parts of your code are being
+    exercised by tests, and which are not.
+  doc_url: http://coverage.readthedocs.org
+  doc_source_url: https://bitbucket.org/ned/coveragepy/src/coverage-4.3.4/doc/index.rst?fileviewer=file-view-default
+  dev_url: https://bitbucket.org/ned/coveragepy

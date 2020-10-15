@@ -1,0 +1,40 @@
+package:
+  name: mercurial
+  version: 4.1.1
+
+source:
+  fn: mercurial-4.1.1.tar.gz
+  url: https://pypi.python.org/packages/53/62/73cabfea5e36a5c8be371d540d8376f208f523dfe125d45f30e77965a206/mercurial-4.1.1.tar.gz
+  md5: 7ed649e02aab5d5e532b4fe1617a2a26
+
+build:
+  detect_binary_files_with_prefix: False
+
+requirements:
+  build:
+    - python
+  run:
+    - python
+
+test:
+  commands:
+    - hg --version
+  imports:
+    - hgext.fsmonitor.pywatchman.bser
+    - mercurial.base85
+    - mercurial.bdiff
+    - mercurial.diffhelpers
+    - mercurial.mpatch
+    - mercurial.osutil
+    - mercurial.parsers
+
+about:
+  home: http://mercurial.selenic.com/
+  license: GPL2
+  license_file: COPYING
+  summary: Source control management tool
+  description: |
+    Mercurial is a free, distributed source control management tool. It
+    efficiently handles projects of any size and offers an easy and intuitive
+    interface.
+  doc_url: https://www.mercurial-scm.org/guide

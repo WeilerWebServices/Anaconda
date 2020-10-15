@@ -1,0 +1,51 @@
+{% set version = "0.11.1" %}
+
+package:
+  name: toolz
+  version: {{ version }}
+
+source:
+  url: https://pypi.io/packages/source/t/toolz/toolz-{{ version }}.tar.gz
+  sha256: c7a47921f07822fe534fb1c01c9931ab335a4390c782bd28c6bcc7c2f71f3fbf
+
+build:
+  number: 0
+  noarch: python
+  script: {{ PYTHON }} -m pip install . -vv
+
+requirements:
+  host:
+    - python >=3.5
+    - pip
+  run:
+    - python >=3.5
+
+test:
+  imports:
+    - toolz
+    - toolz.curried
+    - toolz.functoolz
+    - toolz.sandbox
+
+about:
+  home: http://toolz.readthedocs.org/
+  license: BSD-3-Clause
+  license_file: LICENSE.txt
+  summary: A functional standard library for Python
+  description: |
+    Toolz provides a set of utility functions for iterators, functions, and
+    dictionaries. These functions interoperate well and form the building
+    blocks of common data analytic operations. They extend the standard
+    libraries itertools and functools and borrow heavily from the standard
+    libraries of contemporary functional languages.
+  doc_url: http://toolz.readthedocs.org/en/latest/
+  doc_source_url: https://github.com/pytoolz/toolz/blob/master/doc/source/index.rst
+  dev_url: https://github.com/pytoolz/toolz
+
+extra:
+  recipe-maintainers:
+    - mrocklin
+    - eriknw
+    - jcrist
+    - jakirkham
+    - ocefpaf

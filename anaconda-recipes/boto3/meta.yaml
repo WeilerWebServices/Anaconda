@@ -1,0 +1,39 @@
+package:
+  name: boto3
+  version: 1.4.5
+
+source:
+  fn: boto3-1.4.5.tar.gz
+  url: https://pypi.python.org/packages/c7/ba/37e3657129590191ab2a8fade26355d56b8811bbac8bf446ef6d6bc6f0c8/boto3-1.4.5.tar.gz
+  md5: c066c59b424a8810c244d32a16d91068
+
+requirements:
+  build:
+    - python
+    - setuptools
+    - botocore
+    - jmespath
+    - s3transfer
+  run:
+    - python
+    - botocore >=1.5.0,<1.6.0
+    - jmespath >=0.7.1,<1.0.0
+    - s3transfer >=0.1.10,<0.2.0
+
+test:
+  imports:
+    - boto3
+
+about:
+  home: http://aws.amazon.com/sdk-for-python/
+  license: Apache 2.0
+  license_family: Apache
+  license_file: LICENSE
+  summary: Amazon Web Services SDK for Python
+  description: |
+    Boto3 makes it easy to integrate you Python application, library or script
+    with AWS services. It allows Python developers to write softare that makes
+    use of services like Amazon S3 and Amazon EC2.
+  doc_url: https://boto3.readthedocs.org
+  doc_source_url: https://github.com/boto/boto3/blob/develop/README.rst
+  dev_url: https://github.com/boto/boto3

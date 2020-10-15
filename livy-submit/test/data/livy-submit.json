@@ -1,0 +1,11 @@
+{
+    "namenode_url": "http://ec2-3-93-61-21.compute-1.amazonaws.com:50070",
+    "livy_url": "http://livy.demo.anaconda.com:8998",
+    "driverMemory": "4g",
+    "driverCores": 2,
+    "executorMemory": "2g",
+    "executorCores": 1,
+    "conf": {
+        "spark.yarn.preserve.staging.files": "true"
+    }
+}

@@ -1,0 +1,83 @@
+/******************************************************************************/
+/* 3RDPARTY-OVERRIDES
+/*     Overrides for 3rd party libs.
+/***********************************/
+
+
+// NGX Toastr Overrides
+// https://github.com/scttcper/ngx-toastr
+#toast-container {
+    @include media-breakpoint-up(md) {
+        width: 30%;
+        &.toast-top-center {
+            width: 100% !important;
+            .toast {
+                width: 75%;
+                margin: 0px auto;
+            }
+        }
+    }
+    @include media-breakpoint-down(md) {
+        width: calc(100% - 2rem);
+    }
+    .toast:last-child {
+        margin-bottom: 0;
+    }
+    .toast {
+        margin: 0 0 1rem;
+        padding: 1rem 3rem 1rem 3.5rem;
+        width: 100%;
+        .toast-message {
+        }
+        .toast-close-button {
+            font-size: 1.5rem;
+            background-color: transparent;
+            border: none;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            right: .5rem;
+        }
+    }
+    .toast:hover {
+        cursor: default;
+    }
+    .toast-anaconda {
+        padding: 1rem 3rem 1rem 1rem;
+        background: $ae-blue-dark;
+        border: 1px solid $ae-blue-dark;
+        color: $white;
+        .toast-close-button:hover,
+        .toast-close-button:focus {
+            color: $white;
+            opacity: .9;
+            outline: none;
+        }
+        a,
+        a:visited,
+        a:hover,
+        a:focus {
+            color: $white;
+        }
+    }
+
+    toast-bottom-left {
+        bottom: 1rem;
+        left: 1rem;
+    }
+
+    // Little ol' fix from the magic internet, class conflict with bootstrap
+    // This makes it so that we can actually see the toast - "Trust me"
+    & > div {
+        opacity:1;
+    }
+}
+
+// Ng-select Overrides
+// Making the input heights match that of Bootstrap
+.ng-select.ng-select-single .ng-select-container {
+    height: $input-height;
+}
+.ng-select .ng-select-container {
+    min-height: $input-height;
+}

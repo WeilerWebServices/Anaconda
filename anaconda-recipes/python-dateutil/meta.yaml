@@ -1,0 +1,35 @@
+package:
+  name: python-dateutil
+  version: 2.6.1
+
+source:
+  fn: python-dateutil-2.6.1.tar.gz
+  url: https://pypi.python.org/packages/54/bb/f1db86504f7a49e1d9b9301531181b00a1c7325dc85a29160ee3eaa73a54/python-dateutil-2.6.1.tar.gz
+  md5: db38f6b4511cefd76014745bb0cc45a4
+
+requirements:
+  build:
+    - python
+    - setuptools
+    - six
+  run:
+    - python
+    - six
+
+test:
+  imports:
+    - dateutil
+    - dateutil.rrule
+
+about:
+  home: https://dateutil.readthedocs.org/
+  license: Simplified BSD
+  license_family: BSD
+  license_file: LICENSE
+  summary: extensions to the standard Python datetime module
+  description: |
+    The dateutil module provides powerful extensions to the standard datetime
+    module, available in Python.
+  doc_url: https://dateutil.readthedocs.org/en/latest/
+  doc_source_url: https://github.com/dateutil/dateutil/blob/master/docs/index.rst
+  dev_url: https://github.com/dateutil/dateutil/

@@ -1,0 +1,38 @@
+package:
+  name: colander
+  version: 1.2
+
+source:
+  fn: colander-1.2.tar.gz
+  url: https://pypi.python.org/packages/source/c/colander/colander-1.2.tar.gz
+  md5: 83db21b07936a0726e588dae1914b9ed
+
+requirements:
+  build:
+    - python
+    - setuptools
+    - iso8601
+    - translationstring
+  run:
+    - python
+    - translationstring
+    - iso8601
+
+test:
+  imports:
+    - colander
+
+about:
+  home: https://github.com/Pylons/colander
+  license: BSD-like
+  license_family: BSD
+  license_url: http://www.repoze.org/LICENSE.txt
+  license_file: LICENSE.txt
+  summary: A serialization, deserialization, and validation library
+  description: |
+    Colander is useful as a system for validating and deserializing data
+    obtained via XML, JSON, an HTML form post or any other equally simple
+    data serialization.
+  doc_url: http://docs.pylonsproject.org/projects/colander/
+  doc_source_url: https://github.com/Pylons/colander/blob/master/docs/index.rst
+  dev_url: https://github.com/Pylons/colander

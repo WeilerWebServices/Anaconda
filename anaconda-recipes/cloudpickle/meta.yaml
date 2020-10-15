@@ -1,0 +1,32 @@
+package:
+  name: cloudpickle
+  version: 0.4.0
+
+source:
+  fn: cloudpickle-0.4.0.tar.gz
+  url: https://pypi.python.org/packages/82/15/7cb15c1d0cb65ccd90510ba52e3013dad02afdd276fc20a7cd8d345e0e5e/cloudpickle-0.4.0.tar.gz
+  md5: b66e7c0839e81de9b5ac84b12e3b0033
+
+requirements:
+  build:
+    - python
+  run:
+    - python
+
+test:
+  imports:
+    - cloudpickle
+
+about:
+  home: https://github.com/cloudpipe/cloudpickle
+  license: BSD
+  license_url: https://github.com/cloudpipe/cloudpickle/blob/master/LICENSE
+  license_file: LICENSE
+  summary: extended pickling support for Python objects
+  description: |
+    cloudpickle is extended pickling support for Python objects.
+    cloudpickle makes it possible to serialize Python constructs not
+    supported by the default pickle module from the Python standard library.
+  doc_url: https://pypi.python.org/pypi/cloudpickle/0.2.2
+  doc_source_url: https://github.com/cloudpipe/cloudpickle/blob/master/README.md
+  dev_url: https://github.com/cloudpipe/cloudpickle

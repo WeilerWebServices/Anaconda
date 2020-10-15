@@ -1,0 +1,34 @@
+package:
+  name: posix_ipc
+  version: 1.0.0
+
+source:
+  fn: posix_ipc-1.0.0.tar.gz
+  url: https://pypi.python.org/packages/source/p/posix_ipc/posix_ipc-1.0.0.tar.gz
+  md5: 85607a392087715ac3a3c7ded2492d06
+
+build:
+  detect_binary_files_with_prefix: False
+
+requirements:
+  build:
+    - python
+  run:
+    - python
+
+test:
+  imports:
+    - posix_ipc
+
+about:
+  home: http://semanchuk.com/philip/posix_ipc/
+  license: BSD
+  license_file: LICENSE
+  summary: POSIX IPC for Python
+  description: |
+    The Python extension module posix_ipc gives Python access to POSIX
+    inter-process semaphores, shared memory and message queues on systems that
+    support the POSIX Realtime Extensions.
+  doc_url: http://semanchuk.com/philip/posix_ipc/
+  doc_source_url: https://bitbucket.org/philip_semanchuk/posix_ipc
+  dev_url: https://bitbucket.org/philip_semanchuk/posix_ipc

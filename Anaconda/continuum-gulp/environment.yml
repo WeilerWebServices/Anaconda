@@ -1,0 +1,5 @@
+name: continuum-gulp
+channels:
+  - javascript
+dependencies:
+  - gulp

@@ -1,0 +1,56 @@
+package:
+  name: thinc
+  version: 6.5.2
+
+source:
+  fn: thinc-6.5.2.tar.gz
+  url: https://pypi.python.org/packages/f7/9b/78fab962e0c8b55e3a745ebf2458708dfc7922c55eca3a9bff0233b25294/thinc-6.5.2.tar.gz
+  md5: 6424d805ec572c881135cd634af59a7e
+
+build:
+  detect_binary_files_with_prefix: False
+
+requirements:
+  build:
+    - python
+    - setuptools
+    - cython
+    - numpy
+    - wrapt
+    - murmurhash >=0.26,<0.27
+    - cymem >=1.30,<1.32
+    - preshed >=1.0.0,<2.0.0
+    - tqdm >=4.10.0,<5.0.0
+    - cytoolz >=0.8,<0.9
+    - plac >=0.9.6,<1.0.0
+    - six >=1.10.0,<2.0.0
+    - dill
+    - termcolor
+    - pathlib >=1.0.0,<2.0.0
+  run:
+    - python
+    - numpy
+    - wrapt
+    - murmurhash >=0.26,<0.27
+    - cymem >=1.30,<1.32
+    - preshed >=1.0.0,<2.0.0
+    - tqdm >=4.10.0,<5.0.0
+    - cytoolz >=0.8,<0.9
+    - plac >=0.9.6,<1.0.0
+    - six >=1.10.0,<2.0.0
+    - dill
+    - termcolor
+    - pathlib >=1.0.0,<2.0.0
+
+test:
+  imports:
+    - thinc
+
+about:
+  home: https://github.com/explosion/thinc
+  license: MIT
+  license_file: LICENSE
+  summary: Learn sparse linear models
+  description: |
+    thinc is a Cython library for learning models with millions of parameters
+    and dozens of classes.

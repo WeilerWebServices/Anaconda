@@ -1,0 +1,49 @@
+package:
+  name: ipyparallel
+  version: 6.0.2
+
+source:
+  fn: ipyparallel-6.0.2.tar.gz
+  url: https://pypi.python.org/packages/59/58/77e0338a78d409722da2552d5657bd9cad02e23e7b83ef952def5839518d/ipyparallel-6.0.2.tar.gz
+  md5: f352068ba2fd4a538079f3523d1860a2
+
+build:
+  entry_points:
+    - ipcluster = ipyparallel.apps.ipclusterapp:launch_new_instance
+    - ipcontroller = ipyparallel.apps.ipcontrollerapp:launch_new_instance
+    - ipengine = ipyparallel.apps.ipengineapp:launch_new_instance
+
+requirements:
+  build:
+    - python
+  run:
+    - python
+    - ipython_genutils
+    - decorator
+    - pyzmq >=13.0
+    - ipython >=4.0
+    - jupyter_client
+    - ipykernel
+    - tornado >=4.0
+    - python-dateutil >=2.1
+    - futures                     [py27]
+
+test:
+  commands:
+    - ipcluster -h
+    - ipcontroller -h
+    - ipengine -h
+  imports:
+    - ipyparallel
+
+about:
+  home: http://jupyter.org
+  license: BSD
+  license_file: COPYING.md
+  summary: Interactive Parallel Computing in Python
+  description: |
+    IPython enables all types of parallel applications to be developed,
+    executed, debugged and monitored interactively.
+  doc_url: http://ipyparallel.readthedocs.org/
+  doc_source_url: https://github.com/ipython/ipyparallel/blob/master/docs/source/index.rst
+  dev_url: https://github.com/ipython/ipyparallel

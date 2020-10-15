@@ -1,0 +1,17 @@
+name: R
+
+description: A project template that contains commonly used data science packages for R.
+
+channels: []
+packages: []
+
+platforms:
+  - linux-64
+  - osx-64
+  - win-64
+
+env_specs:
+  anaconda50_r:
+    packages:
+      - r-essentials=1.7.0
+    channels: []

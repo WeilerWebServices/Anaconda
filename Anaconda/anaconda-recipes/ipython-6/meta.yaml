@@ -1,0 +1,67 @@
+package:
+  name: ipython
+  version: 6.1.0
+
+source:
+  fn: ipython-6.1.0.tar.gz
+  url: https://pypi.python.org/packages/79/63/b671fc2bf0051739e87a7478a207bbeb45cfae3c328d38ccdd063d9e0074/ipython-6.1.0.tar.gz
+  md5: 1e15e1ce3f3f722da6935d7ac0e51346
+
+build:
+  entry_points:
+    - ipython = IPython:start_ipython
+    - ipython3 = IPython:start_ipython   [py3k]
+
+requirements:
+  build:
+    - python
+  run:
+    - python
+    - decorator
+    - pickleshare
+    - simplegeneric >0.8
+    - traitlets >=4.2
+    - prompt_toolkit >=1.0.4,<2.0.0
+    - pygments
+    - jedi >=0.10
+    - pexpect                            [unix]
+    - appnope                            [osx]
+    - colorama                           [win]
+    - win_unicode_console >=0.5          [win and py < 36]
+
+test:
+  commands:
+    - ipython -h
+    - ipython3 -h                        [py3k]
+  imports:
+    - IPython
+    - IPython.core
+    - IPython.core.magics
+    - IPython.core.tests
+    - IPython.extensions
+    - IPython.extensions.tests
+    - IPython.external
+    - IPython.external.decorators
+    - IPython.lib
+    - IPython.lib.tests
+    - IPython.sphinxext
+    - IPython.terminal
+    - IPython.terminal.pt_inputhooks
+    - IPython.terminal.tests
+    - IPython.testing
+    - IPython.testing.plugin
+    - IPython.testing.tests
+    - IPython.utils
+    - IPython.utils.tests
+
+about:
+  home: http://ipython.org/
+  license: BSD
+  license_file: COPYING.rst
+  summary: Productive Interactive Computing
+  description: |
+    IPython provides a rich architecture for interactive computing with
+    a powerful interactive shell, a kernel for Jupyter, high performance
+    tools for parallel computing, and more.
+  doc_url: http://ipython.org/documentation.html
+  dev_url: https://github.com/ipython/ipython

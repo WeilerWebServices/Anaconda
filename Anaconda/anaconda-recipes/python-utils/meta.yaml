@@ -1,0 +1,23 @@
+package:
+  name: python-utils
+  version: 2.2.0
+
+source:
+  fn: python-utils-2.2.0.tar.gz
+  url: https://pypi.python.org/packages/19/f2/2c4c8c2a92325d0c70ef21647583179058ae64d07429e30ab2476624e40b/python-utils-2.2.0.tar.gz
+  md5: 1a6d9e39ad699bab2e7ee66d583bd68e
+
+requirements:
+  build:
+    - python
+    - setuptools
+    - pytest-runner
+  run:
+    - python
+    - six
+
+about:
+  home: https://github.com/WoLpH/python-utils
+  license: BSD
+  license_file: LICENSE
+  summary: module with some convenient utilities

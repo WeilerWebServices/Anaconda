@@ -1,0 +1,36 @@
+package:
+  name: ipykernel
+  version: 4.6.1
+
+source:
+  fn: ipykernel-4.6.1.tar.gz
+  url: https://pypi.python.org/packages/0c/41/67e16b243b78b49f4b1650d045b63be187c27d20a76f0f7b8e61e0fcb966/ipykernel-4.6.1.tar.gz
+  md5: 1b320ff87a1a0b049e83df2de91b7f7c
+
+requirements:
+  build:
+    - python
+    - ipython
+    - jupyter_client
+  run:
+    - python
+    - ipython >=4.0.0
+    - traitlets >=4.1.0
+    - jupyter_client
+    - tornado >=4.0
+
+test:
+  imports:
+    - ipykernel
+
+about:
+  home: http://ipython.org
+  license: BSD
+  license_file: COPYING.md
+  summary: Provides a rich toolkit to help you make the most of using Python interactively
+  description: |
+    Main components of are :A powerful interactive Python shell and a
+    Jupyter kernel to work with Python code in Jupyter notebooks and other interactive frontends.
+  doc_url: http://ipykernel.readthedocs.io/en/latest/
+  doc_source_url: https://github.com/ipython/ipykernel/blob/master/docs/index.rst
+  dev_url: https://github.com/ipython/ipython

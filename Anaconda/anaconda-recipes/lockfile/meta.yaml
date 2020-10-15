@@ -1,0 +1,29 @@
+package:
+  name: lockfile
+  version: 0.12.2
+
+source:
+  fn: lockfile-0.12.2.tar.gz
+  url: https://pypi.python.org/packages/source/l/lockfile/lockfile-0.12.2.tar.gz
+  md5: a6a1a82957a23afdf44cfdd039b65ff9
+
+requirements:
+  build:
+    - python
+    - pbr
+  run:
+    - python
+
+test:
+  imports:
+    - lockfile
+
+about:
+  home: http://launchpad.net/pylockfile
+  license: MIT
+  license_file: LICENSE
+  summary: Platform-independent file locking module
+  description: |
+    lockfile exports a LockFile class which provides a simple API for locking files.
+  doc_url: http://docs.openstack.org/developer/pylockfile/
+  doc_source_url: http://git.openstack.org/cgit/openstack/pylockfile/tree/doc/source/index.rst

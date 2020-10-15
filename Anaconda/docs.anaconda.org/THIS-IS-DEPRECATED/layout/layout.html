@@ -1,0 +1,51 @@
+{%from "_header.html" import header with context %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="description" content="{{ resource.meta.description }}">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!--[if lt IE 9]>
+        <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+
+        <link href="{{ media_url('bootstrap/css/bootstrap.css') }}" rel="stylesheet">
+        <link href="{{ media_url('style.css') }}" rel="stylesheet">
+        <link href="{{ media_url('pygments.css') }}" rel="stylesheet">
+        <title>{%block title%}{{site_title}}{%endblock%}</title>
+    </head>
+    <body data-spy="scroll" data-target="#sidenav">
+    {% include "_google_tag.html" %}
+
+    {% block body %}
+
+    {{header(page_id)}}
+
+    <div class="content-wrapper clearfix">
+    {%-    block content -%}
+      <div class="col-sm-12 single-page">
+      {%-  filter markdown -%}
+      {%-      block single_page_content -%}
+      {%-      endblock -%}
+      {%- endfilter -%}
+      </div>
+
+    {%-    endblock -%}
+    </div> <!-- content -->
+
+    <div class="navigation">
+      {% include "_left_cols.html" with context %}
+    </div> <!-- navigation -->
+
+    {% endblock %}
+
+    {% block scripts %}
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script type="text/javascript" src="{{ media_url('bootstrap/js/bootstrap.js') }}"></script>
+    {% endblock %}
+
+    {% include "_footer.html" %}
+    <div id="modalBG"></div>
+    </body>
+
+</html>

@@ -1,0 +1,25 @@
+package:
+  name: patchelf
+  version: 0.9
+
+source:
+  fn: patchelf-0.9.tar.gz
+  url: http://nixos.org/releases/patchelf/patchelf-0.9/patchelf-0.9.tar.bz2
+  md5: d02687629c7e1698a486a93a0d607947
+
+test:
+  commands:
+    - patchelf --help
+    - patchelf --version
+
+about:
+  home: http://nixos.org/patchelf.html
+  license: GPL3
+  license_file: COPYING
+  summary: Modify the dynamic linker and RPATH of ELF executables
+  description: |
+    Dynamically linked ELF executables always specify a dynamic linker or interpreter,
+    which is a program that actually loads the executable along with all its dynamically linked libraries.
+  doc_url: http://nixos.org/patchelf.html
+  doc_source_url: https://github.com/NixOS/patchelf/blob/master/README
+  dev_url: https://github.com/NixOS/patchelf

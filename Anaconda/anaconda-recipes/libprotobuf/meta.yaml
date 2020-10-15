@@ -1,0 +1,45 @@
+package:
+  name: libprotobuf
+  version: 3.2.0
+
+source:
+  git_url: https://github.com/google/protobuf.git
+  git_tag: v3.2.0
+  patches:
+    - 2599.patch
+    - gzip_stream.patch
+
+build:
+  features:
+    - vc9                 [win and py27]
+    - vc14                [win and py>34]
+
+requirements:
+  build:
+    - cmake               [win]
+    - autoconf            [unix]
+    - automake            [unix]
+    - libtool             [unix]
+    - pkg-config          [unix]
+    - zlib 1.2.*
+  run:
+    - zlib 1.2.*
+    - vc 9                [win and py27]
+    - vc 14               [win and py>34]
+
+test:
+  commands:
+    - protoc --help
+
+about:
+  home: https://developers.google.com/protocol-buffers/
+  license: New BSD License
+  license_family: BSD
+  license_file: LICENSE
+  summary: Protocol Buffers - Google's data interchange format
+  description: |
+    Protocol buffers are Google's language-neutral,
+    platform-neutral, extensible mechanism for serializing structured data-
+    think XML, but smaller, faster, and simpler.
+  doc_url: https://developers.google.com/protocol-buffers/
+  doc_source_url: https://github.com/google/protobuf/releases

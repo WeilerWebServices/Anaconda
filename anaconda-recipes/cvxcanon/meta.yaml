@@ -1,0 +1,38 @@
+package:
+  name: cvxcanon
+  version: 0.0.23.3
+
+source:
+  fn: CVXcanon-0.0.23.3.tar.gz
+  url: https://pypi.python.org/packages/source/C/CVXcanon/CVXcanon-0.0.23.3.tar.gz
+  md5: bba4c133c1c200de0d253fd4159bc60f
+
+build:
+  detect_binary_files_with_prefix: False
+
+requirements:
+  build:
+    - python
+    - setuptools
+    - numpy
+    - scipy
+  run:
+    - python
+    - numpy
+    - scipy
+
+test:
+  imports:
+    - _CVXcanon
+    - CVXcanon
+
+about:
+  home: https://github.com/jacklzhu/CVXcanon
+  license: GPL3
+  summary: Low-level library to perform the matrix building step in CVXPY
+  description: |
+    CVXcanon  is a low-level library to perform the matrix building step in cvxpy,
+    a convex optimization modeling software.
+  doc_url: https://pypi.python.org/pypi/CVXcanon/0.0.21
+  doc_source_url: https://github.com/cvxgrp/CVXcanon/blob/master/README.md
+  dev_url: https://github.com/cvxgrp/CVXcanon

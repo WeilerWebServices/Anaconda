@@ -1,0 +1,5 @@
+[run]
+omit = */test/*,*/windows_cmdline.py,anaconda_project/_version.py
+
+[report]
+precision=2

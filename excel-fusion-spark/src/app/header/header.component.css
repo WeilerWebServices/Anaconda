@@ -1,0 +1,8 @@
+.navbar #hamburger,
+.navbar li:last-child {
+    display: none;
+}
+
+.navbar #logo {
+    margin-left: 1rem;
+}

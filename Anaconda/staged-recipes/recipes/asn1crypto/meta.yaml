@@ -1,0 +1,61 @@
+{% set name = "asn1crypto" %}
+{% set version = "0.22.0" %}
+{% set sha256 = "cbbadd640d3165ab24b06ef25d1dca09a3441611ac15f6a6b452474fdf0aed1a" %}
+
+package:
+  name: {{ name|lower }}
+  version: {{ version }}
+
+source:
+  fn: {{ name }}-{{ version }}.tar.gz
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  sha256: {{ sha256 }}
+
+build:
+  number: 0
+  script: ${PYTHON} setup.py install --single-version-externally-managed --record record.txt
+
+requirements:
+  host:
+    - python
+    - setuptools
+
+  run:
+    - python
+
+test:
+  # Python imports
+  imports:
+    - asn1crypto
+    - asn1crypto._perf
+
+  # commands:
+    # You can put test commands to be run here.  Use this to test that the
+    # entry points work.
+
+
+  # You can also put a file called run_test.py in the recipe that will be run
+  # at test time.
+
+  # requires:
+    # Put any additional test requirements here.  For example
+    # - nose
+
+about:
+  home: https://github.com/wbond/asn1crypto
+  license: MIT
+  license_family: MIT
+  summary: 'Fast ASN.1 parser and serializer with definitions for private keys, public keys, certificates, CRL, OCSP, CMS, PKCS#3, PKCS#7, PKCS#8, PKCS#12, PKCS#5, X.509 and TSP'
+  description: |
+    In addition to an ASN.1 BER/DER decoder and DER serializer, asn1crypto
+    includes a bunch of ASN.1 structures for use with various common
+    cryptography standards:
+    X.509, CRL, CSR, OCSP, PKCS#12, PKCS#8, PKCS#1 v2.1 (RSA keys), DSA keys
+    Elliptic curve keys,PKCS#3 v1.4,PKCS#5 v2.1, CMS (and PKCS#7), TSP PDF
+    signatures.
+  doc_url: https://github.com/wbond/asn1crypto#documentation
+  dev_url: https://github.com/wbond/asn1crypto
+
+extra:
+  recipe-maintainers:
+    - mingwandroid

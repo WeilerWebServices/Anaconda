@@ -1,0 +1,37 @@
+package:
+  name: rope
+  version: 0.9.4
+
+source:
+  fn: rope-0.9.4.tar.gz                                                              [py2k]
+  url: http://pypi.python.org/packages/source/r/rope/rope-0.9.4.tar.gz               [py2k]
+  md5: 6c654c6892f78008e04e2d65f9f859bb                                              [py2k]
+  fn: rope_py3k-0.9.4-1.tar.gz                                                       [py3k]
+  url: https://pypi.python.org/packages/source/r/rope_py3k/rope_py3k-0.9.4-1.tar.gz  [py3k]
+  md5: f421a1ba3e57d4fcebe3640c39b0f9f0                                              [py3k]
+
+build:
+  number: 1
+
+requirements:
+  build:
+    - python
+  run:
+    - python
+
+test:
+  imports:
+    - rope
+    - rope.base
+    - rope.contrib
+    - rope.refactor
+
+about:
+  home: https://github.com/python-rope/rope
+  license: GPL
+  license_family: GPL2
+  license_file: COPYING
+  summary: A Python refactoring library
+  doc_url: https://pypi.python.org/pypi/rope
+  doc_source_url: https://github.com/python-rope/rope/tree/master/docs
+  dev_url: https://github.com/python-rope/rope

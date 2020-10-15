@@ -1,0 +1,32 @@
+# This is legacy recipe, which has not been tested using conda-build.
+# See: https://github.com/ContinuumIO/anaconda-recipes/blob/master/LEGACY.md
+
+package:
+  name: pysam
+  version: 0.6
+
+source:
+  fn: pysam-0.6.tar.gz
+  url: http://pysam.googlecode.com/files/pysam-0.6.tar.gz
+  md5: 395f59d7b765d9f625f6d82fce905dc7
+  patches:
+    - no_setuptools.patch
+    - pysam_windows.patch  [win]
+
+requirements:
+  build:
+    - cython
+    - zlib
+  run:
+    - python
+
+about:
+  home: https://github.com/pysam-developers/pysam
+  license: MIT
+  license_file: COPYING
+  summary: htslib interface for python
+  description: |
+    Pysam is a python module for reading, manipulating and writing genomic data sets.
+  doc_url: http://pysam.readthedocs.org/en/latest/
+  doc_source_url: https://github.com/pysam-developers/pysam/blob/master/doc/index.rst
+  dev_url: https://github.com/pysam-developers/pysam

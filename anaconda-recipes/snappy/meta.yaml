@@ -1,0 +1,32 @@
+package:
+  name: snappy
+  version: 1.1.6
+
+source:
+  git_url: https://github.com/google/snappy.git
+  git_tag: 1.1.6
+
+build:
+  features:
+    - vc9             [win and py27]
+    - vc14            [win and (py35 or py36)]
+
+requirements:
+  build:
+    - cmake >3.4
+    - python     [win]
+    - git        [win]
+  run:
+    - vc 9     [win and py27]
+    - vc 14    [win and (py35 or py36)]
+
+about:
+  home: https://github.com/google/snappy
+  license: Other
+  license_family: Other
+  summary: fast compressor/decompressor
+  description: |
+    snappy does not aim for maximum compression, or compatibility with any other
+    compression library.Instead, it aims for very high speeds and reasonable compression.
+  doc_url: http://google.github.io/snappy/
+  doc_source_url: https://github.com/google/snappy

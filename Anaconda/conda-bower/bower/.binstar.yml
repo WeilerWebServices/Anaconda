@@ -1,0 +1,18 @@
+package: bower
+user: javascript
+
+platform:
+  # - linux-32
+  - linux-64
+  - osx-64
+
+install:
+  - conda config --file "$CONDARC" -f --add channels https://conda.binstar.org/javascript
+
+engine:
+  - python=2
+
+script:
+  - conda build .
+
+build_targets: conda

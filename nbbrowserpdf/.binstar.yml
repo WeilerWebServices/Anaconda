@@ -1,0 +1,14 @@
+package: nbbrowserpdf
+
+platform:
+  - linux-64
+
+engine:
+  - python=2.7
+  - python=3.4
+  - python=3.5
+
+script:
+  - conda build conda.recipe -c javascript -c anaconda-nb-extensions
+
+build_targets: conda

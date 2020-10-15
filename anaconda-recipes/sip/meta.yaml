@@ -1,0 +1,43 @@
+package:
+  name: sip
+  version: 4.18
+
+source:
+  fn: sip-4.18.tar.gz                                           [unix]
+  url: http://sourceforge.net/projects/pyqt/files/sip/sip-4.18/sip-4.18.tar.gz  [unix]
+  md5: 78724bf2a79878201c3bc81a1d8248ea                         [unix]
+  fn: sip-4.18.zip                                              [win]
+  url: http://sourceforge.net/projects/pyqt/files/sip/sip-4.18/sip-4.18.zip     [win]
+  md5: e860d06782962fa02f81aeecba3d82a7                         [win]
+
+requirements:
+  build:
+    - python
+    - python.app    [osx]
+  run:
+    - python
+
+test:
+  files:
+    - word.h
+    - word.sip
+  commands:
+    - sip word.sip
+  imports:
+    - sip
+
+about:
+  home: http://www.riverbankcomputing.com/software/sip/intro
+  license: GPL3
+  license_file: LICENSE
+  summary: Create Python bindings for C and C++ libraries
+  description: |
+    SIP is a tool that makes it very easy to create Python bindings for C and
+    C++ libraries. SIP comprises a code generator and a Python module. The
+    code generator processes a set of specification files and generates C or
+    C++ code which is then compiled to create the bindings extension module.
+    The SIP Python module provides support functions to the automatically
+    generated code.
+  doc_url: http://pyqt.sourceforge.net/Docs/sip4/
+  doc_source_url: https://github.com/ifwe/sip/tree/master/doc
+  dev_url: https://github.com/ifwe/sip

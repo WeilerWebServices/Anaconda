@@ -1,0 +1,42 @@
+package:
+  name: wheel
+  version: 0.29.0
+
+source:
+  fn: wheel-0.29.0.tar.gz
+  url: https://pypi.python.org/packages/source/w/wheel/wheel-0.29.0.tar.gz
+  md5: 555a67e4507cedee23a0deb9651e452f
+
+build:
+  entry_points:
+    - wheel = wheel.tool:main
+
+requirements:
+  build:
+    - python
+    - setuptools
+  run:
+    - python
+
+test:
+  commands:
+    - wheel -h
+  imports:
+    - wheel
+
+about:
+  home: http://bitbucket.org/pypa/wheel/
+  license: MIT
+  license_file: LICENSE.txt
+  summary: Built-package format for Python
+  description: |
+    A wheel is a ZIP-format archive with a specially formatted filename and
+    the .whl extension. It is designed to contain all the files for a PEP
+    376 compatible install in a way that is very close to the on-disk format.
+    Many packages will be properly installed with only the "Unpack" step
+    (simply extracting the file onto sys.path), and the unpacked archive
+    preserves enough information to "Spread" (copy data and scripts to their
+    final locations) at any later time.
+  doc_url: http://wheel.readthedocs.org/en/latest/
+  doc_source_url: https://bitbucket.org/pypa/wheel/src/default/docs/
+  dev_url: https://bitbucket.org/pypa/wheel/

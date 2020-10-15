@@ -1,0 +1,39 @@
+package:
+  name: constructor
+  version: 1.5.5
+
+source:
+  git_url: https://github.com/conda/constructor.git
+  git_tag: 1.5.5
+
+build:
+  entry_points:
+    - constructor = constructor.main:main
+
+requirements:
+  build:
+    - python
+  run:
+    - python
+    - libconda
+    - pycosat >=0.6.1
+    - pillow >=3.1      [win]
+    - nsis >=3.01       [win]
+
+test:
+  commands:
+    - constructor --test
+  imports:
+    - constructor
+
+about:
+  home: https://github.com/conda/constructor
+  license: BSD
+  license_file: LICENSE.txt
+  summary: Tool for  creating installers for conda packages
+  description: |
+    Constructor is a tool which allows constructing an installer for a collection of
+    conda packages. It creates an Anaconda-like installer consisting of conda
+    packages.
+  dev_url: https://github.com/conda/constructor
+  doc_source_url: https://github.com/conda/constructor/blob/master/README.md

@@ -1,0 +1,34 @@
+package:
+  name: mccabe
+  version: 0.6.1
+
+source:
+  fn: mccabe-0.6.1.tar.gz
+  url: https://pypi.python.org/packages/06/18/fa675aa501e11d6d6ca0ae73a101b2f3571a565e0f7d38e062eec18a91ee/mccabe-0.6.1.tar.gz
+  md5: 723df2f7b1737b8887475bac4c763e1e
+
+build:
+  preserve_egg_dir: True
+
+requirements:
+  build:
+    - python
+    - setuptools
+    - pytest-runner
+  run:
+    - python
+
+test:
+  imports:
+    - mccabe
+
+about:
+  home: https://github.com/PyCQA/mccabe
+  license: MIT
+  license_file: LICENSE
+  summary: McCabe complexity checker for Python
+  description: |
+    mccabe module provides a plugin for flake8, the Python code checker.
+  doc_url: https://pypi.python.org/pypi/mccabe
+  doc_source_url: https://github.com/PyCQA/mccabe/blob/master/README.rst
+  dev_url: https://github.com/PyCQA/mccabe

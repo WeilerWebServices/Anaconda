@@ -1,0 +1,46 @@
+{% set data = load_setup_py_data() %}
+
+package:
+  name: livy-submit
+  version: {{ data.get('version') }}
+
+source:
+  path: ../
+
+build:
+  number: 0
+  noarch: python
+  script:
+    - {{ PYTHON }} -m pip install . --no-deps -vv
+  entry_points:
+    - livy = livy_submit.cli:cli
+
+requirements:
+  host:
+    - python >=3.6
+    - pip
+  run:
+    - python >=3.6
+    - pexpect
+    - python-hdfs
+    - requests
+    - requests-kerberos
+
+test:
+  imports:
+    - livy_submit
+    - livy_submit.cli
+    - livy_submit.hdfs_api
+    - livy_submit.krb
+    - livy_submit.livy_api
+  commands:
+    - livy submit -h
+    - livy info -h
+    - livy kill -h
+    - livy log -h
+
+about:
+  home: https://github.com/Anaconda-Platform/livy-submit
+  license: BSD 3-Clause
+  license_file: LICENSE
+  summary: 'CLI for submitting batch spark jobs to livy. Think spark-submit'

@@ -1,0 +1,42 @@
+package:
+  name: datashape
+  version: 0.5.4
+
+source:
+  git_url: https://github.com/blaze/datashape.git
+  git_tag: 0.5.4
+
+requirements:
+  build:
+    - python
+    - setuptools
+    - numpy >=1.7
+    - multipledispatch >=0.4.7
+    - python-dateutil
+  run:
+    - python
+    - numpy >=1.7
+    - multipledispatch >=0.4.7
+    - python-dateutil
+
+test:
+  requires:
+    - pytest
+    - mock
+  imports:
+    - datashape
+  commands:
+    - py.test -vx --doctest-modules --pyargs datashape
+
+about:
+  home: http://datashape.pydata.org
+  license: BSD
+  license_file: LICENSE
+  summary: Language defining a data description protocol
+  description: |
+    Datashape is a data layout language for array programming.
+    It is designed to describe in-situ structured data without requiring
+    transformation into a canonical form.
+  doc_url: http://datashape.pydata.org
+  doc_source_url: https://github.com/blaze/datashape/blob/master/docs/source/index.rst
+  dev_url: https://github.com/blaze/datashape

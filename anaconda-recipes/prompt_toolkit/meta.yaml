@@ -1,0 +1,33 @@
+package:
+  name: prompt_toolkit
+  version: 1.0.15
+
+source:
+  fn: prompt_toolkit-1.0.15.tar.gz
+  url: https://pypi.python.org/packages/8a/ad/cf6b128866e78ad6d7f1dc5b7f99885fb813393d9860778b2984582e81b5/prompt_toolkit-1.0.15.tar.gz
+  md5: 8fe70295006dbc8afedd43e5eba99032
+
+requirements:
+  build:
+    - python
+    - setuptools
+    - six >=1.9.0
+    - wcwidth
+  run:
+    - python
+    - six >=1.9.0
+    - wcwidth
+
+test:
+  imports:
+    - prompt_toolkit
+
+about:
+  home: https://github.com/jonathanslenders/python-prompt-toolkit
+  license: BSD
+  license_file: LICENSE
+  summary: library for building powerful interactive command lines in Python
+  description: |
+    prompt_toolkit could be a replacement for GNU readline, but it can be much more than that.
+  doc_url: http://python-prompt-toolkit.readthedocs.io/en/stable/
+  doc_source_url: https://github.com/jonathanslenders/python-prompt-toolkit/blob/master/docs/index.rst

@@ -1,0 +1,61 @@
+{% set version = "1.13.16" %}
+
+package:
+  name: dbus
+  version: {{ version }}
+
+source:
+  url: http://dbus.freedesktop.org/releases/dbus/dbus-{{ version }}.tar.xz
+  sha256: f56b0aa015d0cd13e235225484f411e3c587a0f852c12da03852a324dd1cafb3
+  patches:
+    - patches/0001-Add-var-lib-dbus-machine-id-as-a-fallback.patch  # [linux]
+    - patches/0002-Make-it-possible-to-read-files-on-proc-which-reports.patch  # [linux]
+    - patches/0003-Use-proc-sys-kernel-random-boot_id-as-last-resort-fa.patch  # [linux]
+    - patches/0004-disable-fd-limit-tests-not-supported-in-docker.patch  # [linux]
+
+build:
+  skip: true  # [win]
+  number: 0
+  run_exports:
+    # Has maintained compatibility basically forever.
+    #    https://abi-laboratory.pro/tracker/timeline/dbus/
+    - {{ pin_subpackage('dbus') }}
+
+requirements:
+  build:
+    - {{ compiler('c') }}
+    - pkg-config
+    - make
+  host:
+    - glib
+    - expat
+  run:
+    - glib
+    - expat
+
+test:
+  commands:
+    - dbus-daemon --version
+    - dbus-uuidgen
+
+about:
+  home: http://www.freedesktop.org/wiki/Software/dbus/
+  license: GPL2
+  license_file: COPYING
+  summary: "Simple message bus system for applications to talk to one another"
+  description: |
+    D-Bus is a message bus system, a simple way for applications
+    to talk to one another. In addition to interprocess communication, D-Bus helps
+    coordinate process lifecycle; it makes it simple and reliable to code a "single
+    instance" application or daemon, and to launch applications and daemons on
+    demand when their services are needed.
+  dev_url: git://anongit.freedesktop.org/dbus/dbus
+  doc_url: https://www.freedesktop.org/wiki/IntroductionToDBus/
+  doc_source_url: https://cgit.freedesktop.org/dbus/dbus/tree/doc
+
+extra:
+  recipe-maintainers:
+    - mingwandroid
+    - ccordoba12
+    - nehaljwani
+    - ocefpaf

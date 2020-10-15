@@ -1,0 +1,19 @@
+name: data_clustering
+description: An example Bokeh application for data clustering.
+
+commands:
+  default:
+    bokeh_app: .
+
+packages: []
+channels: []
+
+env_specs:
+  anaconda44_py35:
+    channels: []
+    packages:
+      - python=3.5
+      - ipykernel=4.6
+      - bokeh=0.12.5
+      - tornado=4.5.1
+      - scikit-learn=0.18.1

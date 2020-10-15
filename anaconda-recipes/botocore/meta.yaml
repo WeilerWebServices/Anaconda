@@ -1,0 +1,37 @@
+package:
+  name: botocore
+  version: 1.5.92
+
+source:
+  fn: botocore-1.5.92.tar.gz
+  url: https://pypi.python.org/packages/c1/e1/41ef823f724d879d058f85dce2d932bd9701044f5ddc85e3e79a9652bf5b/botocore-1.5.92.tar.gz
+  md5: c27bb43772b8a3c171c21fdd42d6aba7
+
+requirements:
+  build:
+    - python
+    - setuptools
+    - jmespath >=0.7.1,<1.0.0
+    - python-dateutil >=2.1,<3.0.0
+    - docutils >=0.10
+  run:
+    - python
+    - jmespath >=0.7.1,<1.0.0
+    - python-dateutil >=2.1,<3.0.0
+    - docutils >=0.10
+
+test:
+  imports:
+    - botocore
+
+about:
+  home: http://aws.amazon.com/sdk-for-python/
+  license: Apache License 2.0
+  license_url: http://aws.amazon.com/apache2.0/
+  license_family: Apache
+  license_file: LICENSE.txt
+  summary: low-level, core functionality of boto3
+  description: |
+    Provides the core functionality of Boto3, the AWS SDK for Python
+  doc_url: https://boto3.readthedocs.org
+  dev_url: https://github.com/boto/boto3

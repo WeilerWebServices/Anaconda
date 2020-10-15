@@ -1,0 +1,19 @@
+package: mtq
+
+platform:
+  - linux-64
+  # - osx-64
+  # - win-64
+
+engine:
+ - python=2.7
+
+test: 
+  - conda install -q pip setuptools pymongo dateutil pytz
+  - pip install mock > pip-install.log
+  - python setup.py develop  > setup.log
+  - python -m unittest discover
+script:
+  - conda build conda.recipe
+
+build_targets: [conda]

@@ -1,0 +1,52 @@
+package:
+  name: cryptography
+  version: 1.8.1
+
+source:
+  fn: cryptography-1.8.1.tar.gz
+  url: https://pypi.python.org/packages/ec/5f/d5bc241d06665eed93cd8d3aa7198024ce7833af7a67f6dc92df94e00588/cryptography-1.8.1.tar.gz
+  md5: 9f28a9c141995cd2300d0976b4fac3fb
+
+build:
+  detect_binary_files_with_prefix: False
+
+requirements:
+  build:
+    - python
+    - setuptools
+    - idna
+    - asn1crypto
+    - six
+    - cffi
+    - openssl 1.0.2*
+    - enum34           [py < 34]
+    - ipaddress        [py < 33]
+  run:
+    - python
+    - idna >=2.1
+    - asn1crypto >=0.21.0
+    - packaging
+    - six >=1.4.1
+    - setuptools
+    - cffi >=1.4.1
+    - openssl 1.0.2*
+    - enum34           [py < 34]
+    - ipaddress        [py < 33]
+
+test:
+  imports:
+    - cryptography
+    - cryptography.fernet
+
+about:
+  home: https://cryptography.io
+  license: Apache and BSD
+  license_family: Apache
+  license_file: LICENSE
+  summary: Provides cryptographic recipes and primitives to Python developers
+  description: |
+    Cryptography is a Python library which exposes cryptographic recipes and
+    primitives. The goal is for it to be your "cryptographic standard library".
+  doc_url: https://cryptography.io
+  doc_source_url: https://github.com/pyca/cryptography/blob/master/docs/index.rst
+  dev_url: https://github.com/pyca/cryptography

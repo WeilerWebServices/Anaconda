@@ -1,0 +1,33 @@
+package:
+  name: configparser
+  version: 3.5.0
+
+source:
+  fn: configparser-3.5.0.tar.gz
+  url: https://pypi.python.org/packages/7c/69/c2ce7e91c89dc073eb1aa74c0621c3eefbffe8216b3f9af9d3885265c01c/configparser-3.5.0.tar.gz
+  md5: cfdd915a5b7a6c09917a64a573140538
+
+requirements:
+  build:
+    - python
+    - setuptools
+    - backports
+  run:
+    - python
+    - backports
+
+test:
+  imports:
+    - backports
+    - backports.configparser
+
+about:
+  home: http://docs.python.org/3/library/configparser.html
+  license: MIT
+  summary: brings the updated configparser from Python 3.5 to Python 2.6-3.5
+  description: |
+    This module provides the ConfigParser class which implements a basic
+    configuration language which provides a structure similar to what's
+    found in Microsoft Windows INI files.
+  doc_url: https://docs.python.org/3/library/configparser.html#interpolation-of-values
+  doc_source_url: https://github.com/python/cpython/blob/3.6/Doc/library/configparser.rst

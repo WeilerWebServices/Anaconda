@@ -1,0 +1,24 @@
+# This is legacy recipe, which has not been tested using conda-build.
+# See: https://github.com/ContinuumIO/anaconda-recipes/blob/master/LEGACY.md
+
+package:
+  name: mpich2
+  version: 1.4.1p1
+
+source:
+  fn: mpich2-1.4.1p1.tar.gz
+  md5: b470666749bcb4a0449a072a18e2c204
+
+about:
+  home: http://www.mpich.org/
+  license: BSD
+  license_file: COPYRIGHT
+  summary: A high performance widely portable implementation of the MPI standard
+  description: |
+    MPICH goals are 1.to provide an MPI implementation that efficiently supports
+    different computation and communication platforms including commodity clusters
+    ,high-speed networks2. to enable cutting-edge research in MPI through an easy-to-extend modular
+    framework for other derived implementations.
+  doc_url: http://www.mpich.org/documentation/guides/
+  doc_source_url: https://github.com/pmodels/mpich/tree/master/doc
+  dev_url: https://wiki.mpich.org/mpich/index.php/Main_Page

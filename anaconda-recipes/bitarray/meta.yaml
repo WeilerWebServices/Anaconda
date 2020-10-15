@@ -1,0 +1,36 @@
+package:
+  name: bitarray
+  version: 0.8.1
+
+source:
+  fn: bitarray-0.8.1.tar.gz
+  url: http://pypi.python.org/packages/source/b/bitarray/bitarray-0.8.1.tar.gz
+  md5: 3825184f54f4d93508a28031b4c65d3b
+
+build:
+  detect_binary_files_with_prefix: False
+  number: 1            [win]
+
+requirements:
+  build:
+    - python
+    - cio-bt
+  run:
+    - python
+
+test:
+  imports:
+    - bitarray
+
+about:
+  home: https://github.com/ilanschnell/bitarray
+  license: PSF
+  license_file: LICENSE
+  summary: efficient representation of arrays of booleans -- C extension
+  description: |
+    Bitarray provides an object type which efficiently represents an array of
+    booleans. Bitarrays are sequence types that behave very similarly
+    to usual lists. All functionality is implemented in C.
+  doc_url: https://pypi.python.org/pypi/bitarray/0.8.1
+  doc_source_url: https://github.com/ilanschnell/bitarray/blob/master/README.rst
+  dev_url: https://github.com/ilanschnell/bitarray

@@ -1,0 +1,17 @@
+c_compiler:
+- vs2017
+channel_sources:
+- conda-forge,defaults
+channel_targets:
+- conda-forge main
+krb5:
+- 1.17.1
+libssh2:
+- '1'
+pin_run_as_build:
+  krb5:
+    max_pin: x.x
+  zlib:
+    max_pin: x.x
+zlib:
+- '1.2'

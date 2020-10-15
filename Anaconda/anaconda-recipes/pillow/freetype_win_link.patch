@@ -1,0 +1,13 @@
+diff --git setup.py setup.py
+index e014c4b..b2c2113 100755
+--- setup.py
++++ setup.py
+@@ -613,7 +613,7 @@ class pil_build_ext(build_ext):
+         # additional libraries
+ 
+         if feature.freetype:
+-            libs = ["freetype"]
++            libs = ["freetype", "bzip2", "zlib", "libpng"]
+             defs = []
+             if feature.raqm:
+                 libs.extend(feature.raqm)

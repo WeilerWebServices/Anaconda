@@ -1,0 +1,39 @@
+{% from "macros.html" import json_command_line_method, section, subsection with context %}
+
+Anaconda client is the command line interface (CLI) to Anaconda Cloud, and can be used for logging in, 
+logging out, managing your account, uploading files, generating access tokens, viewing tokens, and other tasks as 
+shown by running
+
+  anaconda -h
+
+The full command reference is shown below.
+
+<section>
+
+<div class="sub-section">
+{{json_command_line_method('anaconda', 'anaconda --json-help' , 1, self)}}
+</div>
+
+{% call subsection('Authentication') %}
+
+{{ json_command_line_method('auth', 'anaconda auth --json-help', 3) }}
+{{ json_command_line_method('login', 'anaconda login --json-help', 3) }}
+{{ json_command_line_method('whoami', 'anaconda whoami --json-help', 3) }}
+
+{%   endcall  %}
+{%   call subsection('Informational') %}
+
+{{ json_command_line_method('show', 'anaconda show --json-help', 3) }}
+{{ json_command_line_method('search', 'anaconda search --json-help', 3) }}
+{{ json_command_line_method('config', 'anaconda config --json-help', 3) }}
+
+{%   endcall  %}
+{%   call subsection('Managing Packages') %}
+
+{{ json_command_line_method('package', 'anaconda package --json-help', 3) }}
+{{ json_command_line_method('upload', 'anaconda upload --json-help', 3) }}
+{{ json_command_line_method('label', 'anaconda label --json-help', 3) }}
+{{ json_command_line_method('copy', 'anaconda copy --json-help', 3) }}
+
+{%   endcall  %}
+</section>

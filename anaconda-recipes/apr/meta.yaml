@@ -1,0 +1,28 @@
+package:
+  name: apr
+  version: 1.5.2
+
+build:
+  number:  1
+  features:
+    - vc9     [win and py27]
+    - vc10    [win and py34]
+    - vc14    [win and (py35 or py36)]
+
+requirements:
+  build:
+    - python  [win]
+    - curl
+    - 7za     [win]
+
+about:
+  home: http://apr.apache.org/
+  license: Apache License 2.0
+  license_family: Apache
+  summary: Maintains a consistent API with predictable behaviour
+  description: |
+    Apache Portable Run-time libraries have been designed to provide a common
+    interface to low level routines across any platform.The original goal of APR
+    was to combine all code in Apache to one common code base.
+  doc_url: https://apr.apache.org/docs/apr/1.5/index.html
+  doc_source_url: https://github.com/apache/apr/tree/trunk/docs

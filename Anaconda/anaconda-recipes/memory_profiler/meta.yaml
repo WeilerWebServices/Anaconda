@@ -1,0 +1,36 @@
+package:
+  name: memory_profiler
+  version: 0.43
+
+source:
+  fn: memory_profiler-0.43.tar.gz
+  url: https://pypi.python.org/packages/ac/71/cb4cdac45861d7497e3bd6500b49fccfe5a3f2e57ba69933cba74abfef37/memory_profiler-0.43.tar.gz
+  md5: 7b6cf03cbee3ad7f366261831282651a
+  patches:
+    - setup.patch
+
+requirements:
+  build:
+    - python
+  run:
+    - python
+    - psutil
+
+test:
+  commands:
+    - mprof run --help
+  imports:
+    - memory_profiler
+
+about:
+  home: http://pypi.python.org/pypi/memory_profiler
+  license: BSD
+  license_file: COPYING
+  summary: Module for monitoring memory usage of a Python program
+  description: |
+    Memory_profiler is a Python module for monitoring memory consumption of a
+    process as well as line-by-line analysis of memory consumption for Python
+    programs.
+  doc_url: https://pypi.python.org/pypi/memory_profiler
+  doc_source_url: https://github.com/fabianp/memory_profiler/blob/master/README.rst
+  dev_url: https://github.com/fabianp/memory_profiler

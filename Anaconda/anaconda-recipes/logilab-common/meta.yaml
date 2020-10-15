@@ -1,0 +1,37 @@
+package:
+  name: logilab-common
+  version: 1.0.2
+
+source:
+  fn: logilab-common-1.0.2.tar.gz
+  url: https://pypi.python.org/packages/source/l/logilab-common/logilab-common-1.0.2.tar.gz
+  md5: 7c9b10d171a8342c3629609ec214e4fe
+
+requirements:
+  build:
+    - python
+    - setuptools
+    - six
+    - colorama        [win]
+  run:
+    - python
+    - setuptools
+    - six
+    - colorama        [win]
+
+test:
+  imports:
+    - logilab.common
+
+about:
+  home: http://www.logilab.org/project/logilab-common
+  license: LGPL
+  license_file: COPYING
+  summary: collection of Python packages and modules used by Logilab projects
+  description: |
+    This package contains some modules used by different Logilab projects.
+    It is designed to ease handling command line options and configuration
+    files, writing interactive command line tools, manipulation of files and
+    character strings, and more.
+  doc_url: https://www.logilab.org/project/logilab-common
+  dev_url: http://hg.logilab.org/review/logilab/common/

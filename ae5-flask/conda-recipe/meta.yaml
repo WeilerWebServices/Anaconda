@@ -1,0 +1,20 @@
+package:
+  name: ae5-flask
+  version: 1.0
+
+source:
+  path: ../
+
+build:
+  number: 0
+  noarch: generic
+
+requirements:
+  run:
+    - flask
+
+about:
+  home: https://github.com/Anaconda-Platform/ae5_flask
+  license: BSD 3-Clause
+  license_file: LICENSE
+  summary: 'Provides more convenient development of Flask apps in AE5.'

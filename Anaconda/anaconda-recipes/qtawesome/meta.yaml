@@ -1,0 +1,32 @@
+package:
+  name: qtawesome
+  version: 0.4.4
+
+source:
+  fn: QtAwesome-0.4.4.tar.gz
+  url: https://pypi.python.org/packages/28/be/cadd6e06a6219f31d6153eb43e9f17dadb7c968835b10180a7bca39ae8ab/QtAwesome-0.4.4.tar.gz
+  md5: 7e20208e11c15b24b771e5f989e16e91
+
+requirements:
+  build:
+    - python
+    - setuptools
+  run:
+    - python
+    - qtpy
+    - six
+
+test:
+  requires:
+    - pyqt
+  imports:
+    - qtawesome
+
+about:
+  home: https://github.com/spyder-ide/qtawesome
+  license: MIT
+  summary: Iconic Fonts for PyQt
+  description: |
+    QtAwesome enables iconic fonts such as Font Awesome and Elusive Icons in PyQt and PySide applications.
+  doc_url: http://qtawesome.readthedocs.io/en/latest/?badge=latest
+  doc_source_url: https://github.com/spyder-ide/qtawesome/blob/master/docs/source/index.rst

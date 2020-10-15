@@ -1,0 +1,38 @@
+name: Hello Anaconda Enterprise
+
+description: A simple "hello world" anaconda-project app with only python as a dependency.
+
+commands:
+  default:
+    unix: python ${PROJECT_DIR}/hello.py
+    windows: python %PROJECT_DIR%\hello.py
+    supports_http_options: true
+  run:
+    unix: python ${PROJECT_DIR}/run.py
+    windows: python %PROJECT_DIR%\run.py
+  run_with_env_vars:
+    unix: python ${PROJECT_DIR}/run_with_env_vars.py
+    windows: python %PROJECT_DIR%\run_with_env_vars.py
+
+
+  my-command:
+    unix: python ${PROJECT_DIR}/test.py
+    supports_http_options: true
+channels: []
+packages: []
+platforms:
+- linux-64
+- osx-64
+- win-64
+
+env_specs:
+  anaconda44_py36:
+    channels: []
+    packages:
+    - python>=3.6,<3.7
+
+variables:
+  INTEGRATION_TEST_ANACONDA:
+    default: anaconda
+  INTEGRATION_TEST_VERSION:
+    default: test

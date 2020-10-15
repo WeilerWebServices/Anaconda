@@ -1,0 +1,34 @@
+package:
+  name: pkginfo
+  version: 1.4.1
+
+source:
+  fn: pkginfo-1.4.1.tar.gz
+  url: https://pypi.python.org/packages/58/54/57f7c5638fecdf232a5b6b767da467b0ff31467d7f86a7364c252acf2321/pkginfo-1.4.1.tar.gz
+  md5: 3d093d5b51c7902e7dd1736100e0ce87
+
+build:
+  entry_points:
+    - pkginfo = pkginfo.commandline:main
+
+requirements:
+  build:
+    - python
+  run:
+    - python
+
+test:
+  commands:
+    - pkginfo -h
+  imports:
+    - pkginfo
+
+about:
+  home: https://pypi.python.org/pypi/pkginfo/
+  license: PSF
+  license_file: LICENSE.txt
+  summary: query metadatdata from sdists or bdists installed packages
+  description: |
+    pkginfo provides an API for querying the distutils metadata written in the PKG-INFO
+    file inside a source distriubtion (an sdist) or a binary distribution.
+  doc_url: http://pythonhosted.org/pkginfo/

@@ -1,0 +1,22 @@
+diff --git setupext.py setupext.py
+index 3819636..21aa897 100644
+--- setupext.py
++++ setupext.py
+@@ -175,7 +175,7 @@ def get_base_dirs():
+         return options['basedirlist']
+ 
+     basedir_map = {
+-        'win32': ['win32_static', ],
++        'win32': ['win32_static', os.path.join(sys.prefix, "Library")],
+         'darwin': ['/usr/local/', '/usr', '/usr/X11',
+                    '/opt/X11', '/opt/local'],
+         'sunos5': [os.getenv('MPLIB_BASE') or '/usr/local', ],
+@@ -1021,7 +1021,7 @@ class FreeType(SetupPackage):
+                     'lib/freetype2/include/freetype2'],
+                 default_library_dirs=[
+                     'freetype2/lib'],
+-                default_libraries=['freetype', 'z'])
++                default_libraries=['freetype', 'z', 'libpng', 'bzip2'])
+             ext.define_macros.append(('FREETYPE_BUILD_TYPE', 'system'))
+ 
+     def do_custom_build(self):

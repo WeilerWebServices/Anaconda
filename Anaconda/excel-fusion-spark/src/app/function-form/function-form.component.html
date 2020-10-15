@@ -1,0 +1,86 @@
+<div class="container">
+  <div id="loading" *ngIf="isLoading">
+    <div class="loading-wrapper">
+      <div class="loading-spinner"></div>
+      <div class="loading-message">Loading...</div>
+    </div>
+  </div>
+
+  <div class="container--content">
+    <div class="row">
+      <div class="col-12 col-md-6 mt-3">
+        <!-- <h3>{{ selectedCatalogFunctionName }}</h3> -->
+        <div class="form-group">
+          <ng-select 
+            [(ngModel)]="selectedCatalogFunctionName"  
+            [items]="allCatalogFunctions"
+            placeholder="{{ selectedCatalogFunctionName }}">
+          </ng-select>
+        </div>
+
+        <div class="alert alert-danger" *ngIf="hasErrors" [textContent]="errorMessage">
+          {{ errorResponse }}
+        </div>
+
+        <h4>Inputs</h4>
+        <!-- Create New Project -->
+        <form (ngSubmit)="onSubmit()" [formGroup]="functionFormGroup">
+            <div class="form-group form-catalogue-function">
+              <a (click)="excelSyncToggle()" class="btn-toggle form-control-plaintext noselect">
+                <i
+                  class="far fa-fw fa-2x"
+                  [ngClass]="{
+                    'fa-toggle-on': excelSync,
+                    'fa-toggle-off': !excelSync
+                  }"
+                >
+                </i>
+                <span *ngIf="excelSyncToggle">Excel Sync</span>
+              </a>
+
+              <a (click)="autoRunToggle()" class="btn-toggle form-control-plaintext noselect">
+                  <i
+                    class="far fa-fw fa-2x"
+                    [ngClass]="{
+                      'fa-toggle-off': !autoRun,
+                      'fa-toggle-on': autoRun
+                    }"
+                  >
+                  </i>
+                  <span *ngIf="autoRunToggle">Auto Run</span>
+                </a>
+            </div>
+            
+            <div class="form-groupings" *ngIf="hasInputs">
+              <div class="form-group" *ngFor="let field of selectedCatalogFunctionObject.meta.inputs">
+                <label for="{{ field.name }}">{{ field.name }}</label>
+                <div class="form-group--input" *ngIf="field.type === 'str'">
+                  <input type="text" formControlName="{{ field.name }}" name="{{ field.name }}" />
+                </div>
+              </div>
+            </div>
+
+          <button class="btn btn-primary" (click)="onSubmit()" ngbTooltip="Run" container="body" placement="bottom">Run</button>
+        </form>
+
+        <hr />
+
+        <h4>Output</h4>
+
+        <div class="function-form-output">
+          <div id="output-loading" *ngIf="isOutputLoading">
+            <div class="loading-wrapper">
+              <div class="loading-spinner"></div>
+              <div class="loading-message">Loading...</div>
+            </div>
+          </div>
+          
+          <!-- <app-function-form-output></app-function-form-output> -->
+          <div class="function-form-response">
+            <!-- @Fabio - Append to this div for response -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

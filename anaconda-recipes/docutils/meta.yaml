@@ -1,0 +1,35 @@
+package:
+  name: docutils
+  version: 0.14
+
+source:
+  fn: docutils-0.14.tar.gz
+  url: https://pypi.python.org/packages/84/f4/5771e41fdf52aabebbadecc9381d11dea0fa34e4759b4071244fa094804c/docutils-0.14.tar.gz
+  md5: c53768d63db3873b7d452833553469de
+
+requirements:
+  build:
+    - python
+  run:
+    - python
+
+test:
+  imports:
+    - docutils
+    - docutils.core
+    - docutils.parsers
+    - docutils.writers
+
+about:
+  home: http://docutils.sourceforge.net
+  license: Public-Domain, PSF, 2-clause BSD, GPLv3
+  license_family: GPL3
+  license_file: COPYING.txt
+  summary: Utilities for general- and special-purpose documentation
+  description: |
+    Docutils is an open-source text processing system for processing plaintext
+    documentation into useful formats, such as HTML, LaTeX, man-pages, open-
+    document, or XML.
+  doc_url: http://docutils.sourceforge.net/docs/index.html
+  doc_source_url: https://sourceforge.net/p/docutils/code/HEAD/tree/trunk/docutils/docs/index.txt
+  dev_url: http://repo.or.cz/w/docutils.git

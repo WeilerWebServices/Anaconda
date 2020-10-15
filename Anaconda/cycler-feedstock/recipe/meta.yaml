@@ -1,0 +1,43 @@
+package:
+  name: cycler
+  version: 0.10.0
+
+source:
+  url: https://github.com/matplotlib/cycler/archive/v0.10.0.tar.gz
+  fn: cycler-v0.10.0.tar.gz
+  sha256: b6d217635e03024196225367b1a438996dbbf0271bec488f00584f0e7dc15cfa
+
+build:
+  number: 0
+  script: python setup.py install --single-version-externally-managed --record record.txt
+
+requirements:
+  host:
+    - python
+    - setuptools
+    - six
+  run:
+    - python
+    - six
+
+test:
+  imports:
+    - cycler
+
+about:
+  home: http://matplotlib.org/cycler
+  license: BSD 3-Clause
+  license_file: LICENSE
+  summary: 'Composable style cycles.'
+  description: |
+    Cycler is a package used to create composable style cycles.
+  doc_url: http://matplotlib.org/cycler/
+  doc_source_url: https://github.com/matplotlib/cycler/blob/master/doc/source/index.rst
+  dev_url: https://github.com/matplotlib/cycler
+
+extra:
+  recipe-maintainers:
+    - pelson
+    - tacaswell
+    - janschulz
+    - ocefpaf

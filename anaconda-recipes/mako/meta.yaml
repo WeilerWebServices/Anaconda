@@ -1,0 +1,40 @@
+package:
+  name: mako
+  version: 1.0.6
+
+source:
+  fn: Mako-1.0.6.tar.gz
+  url: https://pypi.python.org/packages/56/4b/cb75836863a6382199aefb3d3809937e21fa4cb0db15a4f4ba0ecc2e7e8e/Mako-1.0.6.tar.gz
+  md5: a28e22a339080316b2acc352b9ee631c
+
+build:
+  entry_points:
+    - mako-render = mako.cmd:cmdline
+
+requirements:
+  build:
+    - python
+    - setuptools
+    - markupsafe
+  run:
+    - python
+    - markupsafe >=0.9.2
+
+test:
+  commands:
+    - mako-render -h
+  imports:
+    - mako
+    - mako.template
+
+about:
+  home: http://www.makotemplates.org
+  license: MIT
+  license_family: MIT
+  license_file: LICENSE
+  summary: Template library written in Python
+  description: |
+    Mako provides a familiar,non-XML syntax which compiles into Python modules for maximum performance.
+  doc_url: http://docs.makotemplates.org/en/latest/
+  doc_source_url: https://github.com/zzzeek/mako/blob/master/doc/build/index.rst
+  dev_url: https://bitbucket.org/zzzeek/mako/

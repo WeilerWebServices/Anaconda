@@ -1,0 +1,89 @@
+{
+  "author": {
+    "name": "Nicholas Bollweg",
+    "url": "https://github.com/bollwyvl"
+  },
+  "bugs": {
+    "url": "https://github.com/Anaconda-Platform/nbpresent/issues"
+  },
+  "chat": "https://gitter.im/Anaconda-Platform/nbpresent",
+  "dependencies": {
+    "baobab": "^2.2.1",
+    "d3": "~3.5.12",
+    "html2canvas": "^0.5.0-beta4",
+    "phantomjs-polyfill": "0.0.1",
+    "underscore": "^1.8.3",
+    "uuid": "^2.0.1",
+    "webfontloader": "^1.6.21"
+  },
+  "description": "This will be the home of the next generation of slide authoring presentation for [Jupyter Notebooks](https://github.com/jupyter/notebook).",
+  "devDependencies": {
+    "babel": "^6.1.18",
+    "babel-eslint": "^4.1.8",
+    "babel-preset-es2015": "^6.1.18",
+    "babelify": "^7.2.0",
+    "browserify": "~11.2.0",
+    "casperjs": "^1.1.1",
+    "esdoc": "^0.4.0",
+    "eslint": "^1.10.3",
+    "jquery": "^2.2.0",
+    "less-plugin-autoprefix": "~1.5.1",
+    "less-plugin-clean-css": "~1.5.1",
+    "less": "~2.5.3",
+    "lodash": "^3.10.1",
+    "phantomjs-prebuilt": "^2.1.7",
+    "requirejs": "^2.1.22",
+    "uglifyify": "~3.0.1",
+    "watch": "~0.16.0"
+  },
+  "discussion": "https://groups.google.com/forum/#!forum/nbpresent",
+  "eslintConfig": {
+    "env": {
+      "browser": true,
+      "es6": true
+    },
+    "extends": "eslint:recommended",
+    "parser": "babel-eslint",
+    "rules": {
+      "strict": 0
+    }
+  },
+  "homepage": "https://github.com/Anaconda-Platform/nbpresent",
+  "license": "BSD-3-Clause",
+  "main": "index.js",
+  "name": "nbpresent",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/Anaconda-Platform/nbpresent.git"
+  },
+  "scripts": {
+    "all": "npm run dist && npm run lint && npm run test && npm run docs",
+    "build": "python -m nbpresent.tasks.build",
+    "build:deps": "python -m nbpresent.tasks.deps",
+    "build:dev": "python -m nbpresent.tasks.build dev",
+    "build:index": "python -m nbpresent.tasks.index",
+    "build:less": "python -m nbpresent.tasks.less",
+    "build:notebook": "python -m nbpresent.tasks.notebook",
+    "build:release": "python -m nbpresent.tasks.build release",
+    "build:requirejs": "python -m nbpresent.tasks.requirejs",
+    "build:standalone": "python -m nbpresent.tasks.standalone",
+    "clean": "python -m nbpresent.tasks.clean",
+    "docs": "npm run docs:clean && npm run docs:esdoc && npm run docs:sphinx && npm run docs:notebooks",
+    "docs:clean": "rm -rf nbpresent/static/docs",
+    "docs:esdoc": "esdoc -c .esdoc",
+    "docs:notebooks": "nbpresent -i notebooks/index.ipynb -o nbpresent/static/index.html",
+    "docs:sphinx": "sphinx-apidoc -f -o ./sphinx/source/auto nbpresent && cd sphinx && make html && mv -f build/html ../nbpresent/static/docs/sphinx",
+    "less": "python -m nbpresent.tasks.less",
+    "lint": "npm run lint:eslint && npm run lint:flake8",
+    "lint:eslint": "eslint --ext es6 ./src",
+    "lint:flake8": "flake8 nbpresent setup.py sphinx",
+    "pkg:conda": "conda build conda.recipe -c javascript -c mutirri -c cpcloud -c anaconda-nb-extensions -c bokeh -c wakari",
+    "pkg:pypi": "python setup.py register -r pypitest && python setup.py sdist && python setup.py bdist_wheel && python setup.py sdist upload -r pypitest && python setup.py bdist_wheel upload -r pypitest",
+    "pkg:pypi:release": "python setup.py register -r pypi && python setup.py sdist && python setup.py bdist_wheel && python setup.py sdist bdist_wheel upload -r pypi",
+    "readme": "jupyter nbconvert notebooks/README.ipynb --to=rst --stdout > README.rst && jupyter nbconvert notebooks/README.ipynb --to=markdown --stdout > README.md",
+    "test": "python -m nose nbpresent.tests",
+    "watch": "watch 'npm run build:dev' src",
+    "watch:test": "watch 'npm run test' ./nbpresent/static/nbpresent/js"
+  },
+  "version": "3.0.2"
+}

@@ -1,0 +1,39 @@
+package:
+  name: chalmers
+  version: 0.8.0
+
+source:
+  git_url: https://github.com/Anaconda-Server/chalmers.git
+  git_tag: 0.8.0
+
+build:
+  entry_points:
+    - chalmers = chalmers.scripts.chalmers_main:main
+
+requirements:
+  build:
+    - python
+    - setuptools
+  run:
+    - python
+    - psutil >=3
+    - pyyaml
+    - clyent
+    - pywin32                   [win]
+
+test:
+  commands:
+    - chalmers --help           [unix]
+  imports:
+    - chalmers
+
+about:
+  home: https://github.com/Anaconda-Server/chalmers
+  license: MIT
+  summary: Monitor and control a number of processes on any operating system
+  description: |
+    Chalmers is an application that allows its users to monitor and control a number of processes on *any* operating
+    system (Posix and Win32 included)
+  doc_url: https://media.readthedocs.org/pdf/chalmers/latest/chalmers.pdf
+  doc_source_url: https://github.com/Anaconda-Platform/chalmers/blob/master/docs/index.rst
+  dev_url: https://github.com/Anaconda-Server/chalmers

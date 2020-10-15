@@ -1,0 +1,19 @@
+package:
+  name: nbsetuptools
+  version: 0.1.5
+
+requirements:
+  build:
+    - python
+
+  run:
+    - python
+    - funcsigs
+    - notebook
+
+source:
+  path: ../
+
+about:
+  home: https://github.com/anaconda-server/nbsetuptools
+  license: BSD

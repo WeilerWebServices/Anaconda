@@ -1,0 +1,63 @@
+{%- block sidebarlinks %}
+
+<div class="sidebarblock">
+<h3>{{ _('Community') }}</h3>
+
+  <ul class="simple">
+    <li><a class="reference external" href="http://www.hipchat.com/ghSp7E1uY">
+            Help Chat Room</a></li>
+    <li><a class="reference external" href="http://stackoverflow.com/questions/tagged/ipython">
+            Stack Overflow</a></li>
+    <li><a class="reference external" href="http://projects.scipy.org/mailman/listinfo/ipython-dev">
+            Mailing list</a></li>
+    <li><a class="reference external" href="https://github.com/ipython/ipython/wiki">Wiki</a></li>
+    <li><a class="reference external" href="https://github.com/ipython/ipython/issues">
+            File a bug</a></li>
+  </ul>
+
+<div style="margin-top:10px">  <!-- sharing buttons -->
+  <!-- twitter -->
+<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://ipython.org" data-text="IPython - interactive computing." data-via="ipythondev" data-hashtags="ipython" data-dnt="true">Tweet</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+  <!-- google+ -->
+<g:plusone size="medium" annotation="none"></g:plusone>
+</div><!-- sharing buttons -->
+
+</div>
+
+
+
+<div class="sidebarblock">
+  <h3>{{ _('For developers') }}</h3>
+  <ul class="simple">
+    <li><a class="reference external" href="http://www.hipchat.com/ghtNzvmfC">
+            Development Chat Room</a></li>
+    <li><a class="reference external"
+    href="https://github.com/ipython/ipython/wiki/Dev:-Index">Development information</a></li>
+    <li><a class="reference external" href="https://jenkins.shiningpanda.com/ipython/">
+        Shining Panda</a></li>
+    <li><a class="reference external" href="http://travis-ci.org/#!/ipython/ipython">
+        Travis CI</a></li>
+  </ul>          
+</div>
+
+<div class="sidebarblock">
+<h3>{{ _('Donate') }}</h3>
+
+<div class="tile" id="donate">
+  <h4>Support IPython</h4>
+ 
+<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+<input type="hidden" name="cmd" value="_s-xclick">
+<input type="hidden" name="hosted_button_id" value="SMCAHLP2ST42G">
+<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif"
+    border="0" name="submit" alt="PayPal - The safer, easier way to pay online!"
+    style="display:block; margin-left:auto; margin-right:auto;">
+<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+
+<a href="{{pathto('donate')}}">Find out more...</a>
+
+</form>
+</div>
+</div>
+{%- endblock %}

@@ -1,0 +1,35 @@
+package:
+  name: param
+  version: 1.5.1
+
+source:
+  fn: param-1.5.1.tar.gz
+  url: https://pypi.python.org/packages/0e/df/3e8f25141ff084505318aa6647224536c75813a2370d4f8aec957fbf08e7/param-1.5.1.tar.gz
+  md5: 2a8ac0e86eb20431cf8fd203af0a3709
+
+requirements:
+  build:
+    - python
+  run:
+    - python
+
+test:
+  imports:
+    - param
+    - numbergen
+
+about:
+  home: http://ioam.github.com/param/
+  license: BSD
+  license_file: LICENSE.txt
+  summary: Declarative Python programming using Parameters
+  description: |
+    Param is a library providing Parameters: Python attributes extended to
+    have features such as type and range checking, dynamically generated
+    values, documentation strings, default values, etc., each of which is
+    inherited from parent classes if not specified in a subclass. Param lets
+    you program declaratively in Python, by just stating facts about each of
+    your parameters, and then using them throughout your code.
+  doc_url: http://ioam.github.io/param/
+  doc_source_url: https://github.com/ioam/param/blob/master/doc/index.rst
+  dev_url: https://github.com/ioam/param

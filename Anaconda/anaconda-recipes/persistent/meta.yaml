@@ -1,0 +1,40 @@
+package:
+  name: persistent
+  version: 4.2.4
+
+source:
+  fn: persistent-4.2.4.tar.gz
+  url: https://pypi.python.org/packages/c4/b5/af6d9224e61fb15bde140923e3ffb401902751e6104c286045f207347c89/persistent-4.2.4.tar.gz
+  md5: e9791cb9c053203abea40e2adb0020fc
+
+build:
+  detect_binary_files_with_prefix: False
+
+requirements:
+  build:
+    - python
+    - setuptools
+    - zope.interface
+  run:
+    - python
+    - zope.interface
+
+test:
+  imports:
+    - persistent
+    - persistent._timestamp
+    - persistent.cPersistence
+    - persistent.cPickleCache
+
+about:
+  home: https://pypi.python.org/pypi/persistent
+  license: ZPL 2.1
+  license_family: Other
+  license_file: LICENSE.txt
+  summary: automatic persistence for Python objects
+  description: |
+    Persistent contains a generic persistence implementation for Python. It
+    forms the core protocol for making objects interact "transparently" with
+    a database such as the ZODB.
+  doc_url: http://persistent.readthedocs.io/en/latest/
+  doc_source_url: https://github.com/zopefoundation/persistent/blob/master/docs/index.rst

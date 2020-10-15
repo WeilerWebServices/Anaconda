@@ -1,0 +1,52 @@
+{% set name = "fastcache" %}
+{% set version = "1.1.0" %}
+{% set sha256 = "6de1b16e70335b7bde266707eb401a3aaec220fb66c5d13b02abf0eab8be782b" %}
+
+package:
+  name: {{ name|lower }}
+  version: {{ version }}
+
+source:
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  sha256: {{ sha256 }}
+
+build:
+  number: 0
+  script: "{{ PYTHON }} -m pip install . --no-deps -vv"
+
+requirements:
+  build:
+    - {{ compiler('c') }}
+  host:
+    - python
+    - pip
+  run:
+    - python
+
+test:
+  imports:
+    - fastcache
+    - fastcache._lrucache
+
+  commands:
+    - python -c "import fastcache; fastcache.test()"
+
+  requires:
+    - pytest
+
+about:
+  home: https://github.com/pbrady/fastcache
+  license: MIT
+  license_family: MIT
+  license_file: LICENSE
+  summary: 'C implementation of Python 3 lru_cache'
+  description: |
+    fastcache provides speedup of 10-30x over standard library.
+    It passes test suite from standard library for lru_cache.
+  doc_url: https://pypi.python.org/pypi/fastcache/1.0.2
+  doc_source_url: https://github.com/pbrady/fastcache/blob/master/README.md
+  dev_url: https://github.com/pbrady/fastcache
+
+extra:
+  recipe-maintainers:
+    - synapticarbors

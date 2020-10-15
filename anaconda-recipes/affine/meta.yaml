@@ -1,0 +1,31 @@
+package:
+  name: affine
+  version: 2.1.0
+
+source:
+  git_url: https://github.com/sgillies/affine.git
+  git_tag: 2.1.0
+
+requirements:
+  build:
+    - python
+    - setuptools
+  run:
+    - python
+
+test:
+  imports:
+    - affine
+
+about:
+  home: https://github.com/sgillies/affine
+  license: BSD 3-clause
+  license_family: BSD
+  license_file: LICENSE.txt
+  summary: matrices describing affine transformation of the plane
+  description: |
+    The Affine package is used to produce the affine transformation
+    matrix.
+  doc_url: https://anaconda.org/anaconda/affine
+  doc_source_url: https://github.com/sgillies/affine/blob/master/README.rst
+  dev_url: https://github.com/ContinuumIO/anaconda/tree/master/packages/affine

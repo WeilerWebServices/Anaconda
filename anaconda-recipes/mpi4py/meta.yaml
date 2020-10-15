@@ -1,0 +1,39 @@
+package:
+  name: mpi4py
+  version: 2.0.0
+
+source:
+  fn: mpi4py-2.0.0.tar.gz [unix]
+  url: https://pypi.python.org/packages/source/m/mpi4py/mpi4py-2.0.0.tar.gz
+  md5: 4f7d8126d7367c239fd67615680990e3
+
+build:
+  number: 2          [linux]
+  number: 1          [win]
+  detect_binary_files_with_prefix: True
+
+requirements:
+  build:
+    - python
+    - mpich2         [linux]
+    - openmpi        [osx]
+  run:
+    - python
+    - mpich2         [linux]
+    - openmpi        [osx]
+
+test:
+  imports:
+    - mpi4py
+    - mpi4py.MPI
+
+about:
+  home: http://mpi4py.scipy.org/
+  license: BSD
+  summary: Provides bindings of the MPI standard for Python
+  description: |
+     Message Passing Interface, is a standardized and portable
+     message-passing system designed to function on a wide variety of parallel computers.
+  doc_url: http://mpi4py.readthedocs.org/
+  doc_source_url: https://bitbucket.org/mpi4py/mpi4py.git/src/1c753d8a29d58338c5e5b5d61f3da8670998ce9e/docs/source/usrman/index.rst
+  dev_url: https://bitbucket.org/mpi4py/mpi4py

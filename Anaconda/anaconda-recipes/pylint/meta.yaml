@@ -1,0 +1,43 @@
+package:
+  name: pylint
+  version: 1.7.2
+
+source:
+  fn: pylint-1.7.2.tar.gz
+  url: https://pypi.python.org/packages/0d/6b/31d4a60fad9f040da6e47a93458f69f41cd9c7367a68b596fa116ca6ed0f/pylint-1.7.2.tar.gz
+  md5: 27ee752cdcfacb05bf4940947e6b35c6
+  patches:
+    - pkginfo.patch
+
+build:
+  entry_points:
+    - pylint = pylint:run_pylint
+
+requirements:
+  build:
+    - python
+  run:
+    - python
+    - astroid >=1.5.1
+    - configparser             [py2k]
+    - six
+    - isort >=4.2.5
+
+test:
+  commands:
+    - pylint --help
+  imports:
+    - pylint
+
+about:
+  home: http://www.pylint.org/
+  license: GPL
+  license_family: GPL2
+  license_file: COPYING
+  summary: Python code static checker
+  description: |
+    Pylint is a tool that checks for errors in Python code, tries to enforce a
+    coding standard and looks for code smells.
+  doc_url: https://pylint.readthedocs.io/en/latest/
+  doc_source_url: https://github.com/PyCQA/pylint/blob/master/doc/index.rst
+  dev_url: https://github.com/PyCQA/pylint/

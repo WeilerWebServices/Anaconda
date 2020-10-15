@@ -1,0 +1,66 @@
+{% set version = "6.1.1" %}
+
+package:
+  name: pytest
+  version: {{ version }}
+
+source:
+  url: https://pypi.io/packages/source/p/pytest/pytest-{{ version }}.tar.gz
+  sha256: 8f593023c1a0f916110285b6efd7f99db07d59546e3d8c36fc60e2ab05d3be92
+
+build:
+  skip: true  # [py27]
+  number: 0
+  script: {{ PYTHON }} setup.py install --single-version-externally-managed --record record.txt
+  entry_points:
+    - py.test = py.test:main
+    - pytest = py.test:main
+
+requirements:
+  host:
+    - pip
+    - python
+    - setuptools >=40.0
+    - setuptools_scm
+  run:
+    - python
+    - attrs >=17.4.0
+    - iniconfig
+    - more-itertools >=4.0.0
+    - packaging
+    - pluggy >=0.12,<1.0
+    - py >=1.8.2
+    - toml
+    - atomicwrites >=1.0  # [win]
+    - colorama  # [win]
+    - importlib-metadata >=0.12  # [py<38]
+    - pathlib2 >=2.2.0  # [py<36]
+  run_constrained:
+    # pytest-faulthandler 2 is a dummy package.
+    # if an older version of fault-handler is installed, it will conflict with pytest >=5.
+    - pytest-faulthandler >=2
+
+test:
+  commands:
+    - pytest -h
+  imports:
+    - pytest
+
+about:
+  home: https://docs.pytest.org/en/latest/
+  license: MIT
+  license_file: LICENSE
+  summary: Simple and powerful testing with Python.
+  description: |
+    The pytest framework makes it easy to write small tests, yet scales to
+    support complex functional testing for applications and libraries.
+  doc_url: https://docs.pytest.org/en/latest/
+  dev_url: https://github.com/pytest-dev/pytest/
+
+extra:
+  recipe-maintainers:
+    - flub
+    - goanpeca
+    - nicoddemus
+    - ocefpaf
+    - mingwandroid

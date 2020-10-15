@@ -1,0 +1,47 @@
+package:
+  name: tornado
+  version: 4.5.2
+
+source:
+  fn: tornado-4.5.2.tar.gz
+  url: https://pypi.python.org/packages/fa/14/52e2072197dd0e63589e875ebf5984c91a027121262aa08f71a49b958359/tornado-4.5.2.tar.gz
+  md5: ab41f6765d58089f30ba51e8ec084a7b
+
+build:
+  number: 0
+  detect_binary_files_with_prefix: False
+
+requirements:
+  build:
+    - python
+    - singledispatch
+    - certifi
+    - backports_abc >=0.4   [py < 35]
+
+  run:
+    - python
+    - ssl_match_hostname    [py2k]
+    - singledispatch        [py < 34]
+    - backports_abc >=0.4   [py < 35]
+
+test:
+  imports:
+    - tornado
+    - tornado.netutil
+    - tornado.speedups
+
+about:
+  home: http://www.tornadoweb.org/
+  license: Apache 2.0
+  license_family: Apache
+  license_file: LICENSE
+  license_url: http://www.apache.org/licenses/LICENSE-2.0
+  summary: Tornado Web Server
+  description: |
+    Tornado is a Python web framework and asynchronous networking library.
+    By using non-blocking network I/O, Tornado can scale to tens of thousands
+    of open connections, making it ideal for long polling, WebSockets, and
+    other applications that require a long-lived connection to each user.
+  doc_url: http://www.tornadoweb.org/en/stable/
+  doc_source_url: https://github.com/tornadoweb/tornado/blob/stable/docs/index.rst
+  dev_url: https://github.com/tornadoweb/tornado

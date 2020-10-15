@@ -1,0 +1,45 @@
+package:
+  name: scikit-learn
+  version: 0.19.0
+
+source:
+  git_url: https://github.com/scikit-learn/scikit-learn.git
+  git_tag: 0.19.0
+
+build:
+  detect_binary_files_with_prefix: False
+  features:
+    - nomkl                   [x86 and nomkl]
+
+requirements:
+  build:
+    - python
+    - setuptools
+    - cython
+    - numpy x.x
+    - scipy
+    - mkl-devel 2017.0.*      [not nomkl]
+    - openblas 0.2.19         [linux and nomkl]
+  run:
+    - python
+    - numpy x.x
+    - scipy
+    - mkl 2017.0.*            [not nomkl]
+    - openblas 0.2.19         [linux and nomkl]
+
+test:
+  requires:
+    - cio-bt
+  imports:
+    - sklearn
+
+about:
+  home: http://scikit-learn.org/stable/
+  license: 3-clause BSD
+  license_family: BSD
+  license_file: COPYING
+  summary: set of python modules for machine learning and data mining
+  description: |
+    scikit-learn is built on NumPy, SciPy, and matplotlib.
+  doc_url: http://scikit-learn.org/stable/documentation.html
+  doc_source_url: https://github.com/scikit-learn/scikit-learn/tree/master/doc

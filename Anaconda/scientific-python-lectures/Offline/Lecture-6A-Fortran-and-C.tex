@@ -1,0 +1,1273 @@
+
+% Default to the notebook output style
+
+    
+
+
+% Inherit from the specified cell style.
+
+
+
+
+    
+\documentclass{article}
+
+    
+    
+    \usepackage{graphicx} % Used to insert images
+    \usepackage{adjustbox} % Used to constrain images to a maximum size 
+    \usepackage{color} % Allow colors to be defined
+    \usepackage{enumerate} % Needed for markdown enumerations to work
+    \usepackage{geometry} % Used to adjust the document margins
+    \usepackage{amsmath} % Equations
+    \usepackage{amssymb} % Equations
+    \usepackage{eurosym} % defines \euro
+    \usepackage[mathletters]{ucs} % Extended unicode (utf-8) support
+    \usepackage[utf8x]{inputenc} % Allow utf-8 characters in the tex document
+    \usepackage{fancyvrb} % verbatim replacement that allows latex
+    \usepackage{grffile} % extends the file name processing of package graphics 
+                         % to support a larger range 
+    % The hyperref package gives us a pdf with properly built
+    % internal navigation ('pdf bookmarks' for the table of contents,
+    % internal cross-reference links, web links for URLs, etc.)
+    \usepackage{hyperref}
+    \usepackage{longtable} % longtable support required by pandoc >1.10
+    \usepackage{booktabs}  % table support for pandoc > 1.12.2
+    
+
+    
+    
+    \definecolor{orange}{cmyk}{0,0.4,0.8,0.2}
+    \definecolor{darkorange}{rgb}{.71,0.21,0.01}
+    \definecolor{darkgreen}{rgb}{.12,.54,.11}
+    \definecolor{myteal}{rgb}{.26, .44, .56}
+    \definecolor{gray}{gray}{0.45}
+    \definecolor{lightgray}{gray}{.95}
+    \definecolor{mediumgray}{gray}{.8}
+    \definecolor{inputbackground}{rgb}{.95, .95, .85}
+    \definecolor{outputbackground}{rgb}{.95, .95, .95}
+    \definecolor{traceback}{rgb}{1, .95, .95}
+    % ansi colors
+    \definecolor{red}{rgb}{.6,0,0}
+    \definecolor{green}{rgb}{0,.65,0}
+    \definecolor{brown}{rgb}{0.6,0.6,0}
+    \definecolor{blue}{rgb}{0,.145,.698}
+    \definecolor{purple}{rgb}{.698,.145,.698}
+    \definecolor{cyan}{rgb}{0,.698,.698}
+    \definecolor{lightgray}{gray}{0.5}
+    
+    % bright ansi colors
+    \definecolor{darkgray}{gray}{0.25}
+    \definecolor{lightred}{rgb}{1.0,0.39,0.28}
+    \definecolor{lightgreen}{rgb}{0.48,0.99,0.0}
+    \definecolor{lightblue}{rgb}{0.53,0.81,0.92}
+    \definecolor{lightpurple}{rgb}{0.87,0.63,0.87}
+    \definecolor{lightcyan}{rgb}{0.5,1.0,0.83}
+    
+    % commands and environments needed by pandoc snippets
+    % extracted from the output of `pandoc -s`
+    \providecommand{\tightlist}{%
+      \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+    \DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+    % Add ',fontsize=\small' for more characters per line
+    \newenvironment{Shaded}{}{}
+    \newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{{#1}}}}
+    \newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.56,0.13,0.00}{{#1}}}
+    \newcommand{\DecValTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\FloatTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\CharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\StringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\CommentTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textit{{#1}}}}
+    \newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{{#1}}}
+    \newcommand{\AlertTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
+    \newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.02,0.16,0.49}{{#1}}}
+    \newcommand{\RegionMarkerTok}[1]{{#1}}
+    \newcommand{\ErrorTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
+    \newcommand{\NormalTok}[1]{{#1}}
+    
+    % Define a nice break command that doesn't care if a line doesn't already
+    % exist.
+    \def\br{\hspace*{\fill} \\* }
+    % Math Jax compatability definitions
+    \def\gt{>}
+    \def\lt{<}
+    % Document parameters
+    \title{Lecture-6A-Fortran-and-C}
+    
+    
+    
+
+    % Pygments definitions
+    
+\makeatletter
+\def\PY@reset{\let\PY@it=\relax \let\PY@bf=\relax%
+    \let\PY@ul=\relax \let\PY@tc=\relax%
+    \let\PY@bc=\relax \let\PY@ff=\relax}
+\def\PY@tok#1{\csname PY@tok@#1\endcsname}
+\def\PY@toks#1+{\ifx\relax#1\empty\else%
+    \PY@tok{#1}\expandafter\PY@toks\fi}
+\def\PY@do#1{\PY@bc{\PY@tc{\PY@ul{%
+    \PY@it{\PY@bf{\PY@ff{#1}}}}}}}
+\def\PY#1#2{\PY@reset\PY@toks#1+\relax+\PY@do{#2}}
+
+\expandafter\def\csname PY@tok@ni\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.60,0.60,0.60}{##1}}}
+\expandafter\def\csname PY@tok@si\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.53}{##1}}}
+\expandafter\def\csname PY@tok@c\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@gs\endcsname{\let\PY@bf=\textbf}
+\expandafter\def\csname PY@tok@ow\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.67,0.13,1.00}{##1}}}
+\expandafter\def\csname PY@tok@gd\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.63,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@vc\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@nv\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@nt\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kd\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@cp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.74,0.48,0.00}{##1}}}
+\expandafter\def\csname PY@tok@cm\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@nn\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@nf\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@gi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.63,0.00}{##1}}}
+\expandafter\def\csname PY@tok@s2\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@gt\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.27,0.87}{##1}}}
+\expandafter\def\csname PY@tok@m\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@sb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sh\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sr\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.53}{##1}}}
+\expandafter\def\csname PY@tok@il\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@kr\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@cs\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@nl\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.63,0.63,0.00}{##1}}}
+\expandafter\def\csname PY@tok@s1\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@gp\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@vg\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@mi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@vi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@gr\endcsname{\def\PY@tc##1{\textcolor[rgb]{1.00,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@mh\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@err\endcsname{\def\PY@bc##1{\setlength{\fboxsep}{0pt}\fcolorbox[rgb]{1.00,0.00,0.00}{1,1,1}{\strut ##1}}}
+\expandafter\def\csname PY@tok@na\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.49,0.56,0.16}{##1}}}
+\expandafter\def\csname PY@tok@bp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@nd\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.67,0.13,1.00}{##1}}}
+\expandafter\def\csname PY@tok@nc\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@sc\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@no\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.53,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@mo\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@nb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@ge\endcsname{\let\PY@it=\textit}
+\expandafter\def\csname PY@tok@o\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@gu\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.50,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@s\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@gh\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@ss\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@kt\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.69,0.00,0.25}{##1}}}
+\expandafter\def\csname PY@tok@w\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.73,0.73}{##1}}}
+\expandafter\def\csname PY@tok@sd\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sx\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@mb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@k\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@ne\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.82,0.25,0.23}{##1}}}
+\expandafter\def\csname PY@tok@kn\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@c1\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@go\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.53,0.53,0.53}{##1}}}
+\expandafter\def\csname PY@tok@se\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.13}{##1}}}
+\expandafter\def\csname PY@tok@kp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kc\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@mf\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+
+\def\PYZbs{\char`\\}
+\def\PYZus{\char`\_}
+\def\PYZob{\char`\{}
+\def\PYZcb{\char`\}}
+\def\PYZca{\char`\^}
+\def\PYZam{\char`\&}
+\def\PYZlt{\char`\<}
+\def\PYZgt{\char`\>}
+\def\PYZsh{\char`\#}
+\def\PYZpc{\char`\%}
+\def\PYZdl{\char`\$}
+\def\PYZhy{\char`\-}
+\def\PYZsq{\char`\'}
+\def\PYZdq{\char`\"}
+\def\PYZti{\char`\~}
+% for compatibility with earlier versions
+\def\PYZat{@}
+\def\PYZlb{[}
+\def\PYZrb{]}
+\makeatother
+
+
+    % Exact colors from NB
+    \definecolor{incolor}{rgb}{0.0, 0.0, 0.5}
+    \definecolor{outcolor}{rgb}{0.545, 0.0, 0.0}
+
+
+
+    
+    % Prevent overflowing lines due to hard-to-break entities
+    \sloppy 
+    % Setup hyperref package
+    \hypersetup{
+      breaklinks=true,  % so long urls are correctly broken across lines
+      colorlinks=true,
+      urlcolor=blue,
+      linkcolor=darkorange,
+      citecolor=darkgreen,
+      }
+    % Slightly bigger margins than the latex defaults
+    
+    \geometry{verbose,tmargin=1in,bmargin=1in,lmargin=1in,rmargin=1in}
+    
+    
+
+    \begin{document}
+    
+    
+    \maketitle
+    
+    
+
+    
+    \begin{figure}[htbp]
+\centering
+\includegraphics{./images/Continuum_Logo_0702.png}
+\caption{Continuum Logo}
+\end{figure}
+
+    \section{Using Fortran and C code with
+Python}\label{using-fortran-and-c-code-with-python}
+
+    This curriculum builds on material by J. Robert Johansson from his
+``Introduction to scientific computing with Python,'' generously made
+available under a
+\href{http://creativecommons.org/licenses/by/3.0/}{Creative Commons
+Attribution 3.0 Unported License} at
+https://github.com/jrjohansson/scientific-python-lectures. The Continuum
+Analytics enhancements use the
+\href{https://creativecommons.org/licenses/by-nc/4.0/}{Creative Commons
+Attribution-NonCommercial 4.0 International License}.
+
+\begin{center}\rule{3in}{0.4pt}\end{center}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}147}]:} \PY{o}{\PYZpc{}}\PY{k}{pylab} inline
+          \PY{k+kn}{from} \PY{n+nn}{IPython}\PY{n+nn}{.}\PY{n+nn}{display} \PY{k}{import} \PY{n}{Image}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+Populating the interactive namespace from numpy and matplotlib
+    \end{Verbatim}
+
+    The advantage of Python is that it is flexible and easy to program. The
+time it takes to setup a new calulation is therefore short. But for
+certain types of calculations Python (and any other interpreted
+language) can be very slow. It is particularly iterations over large
+arrays that is difficult to do efficiently.
+
+Such calculations may be implemented in a compiled language such as C or
+Fortran. In Python it is relatively easy to call out to libraries with
+compiled C or Fortran code. In this lecture we will look at how to do
+that.
+
+But before we go ahead and work on optimizing anything, it is always
+worthwhile to ask\ldots{}.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}148}]:} \PY{n}{Image}\PY{p}{(}\PY{n}{filename}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{images/optimizing\PYZhy{}what.png}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+\end{Verbatim}
+\texttt{\color{outcolor}Out[{\color{outcolor}148}]:}
+    
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Lecture-6A-Fortran-and-C_files/Lecture-6A-Fortran-and-C_5_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+
+    \subsection{Fortran}\label{fortran}
+
+    \subsubsection{F2PY}\label{f2py}
+
+    F2PY is a program that (almost) automatically wraps fortran code for use
+in Python: By using the \texttt{f2py} program we can compile fortran
+code into a module that we can import in a Python program.
+
+F2PY is a part of NumPy, but you will also need to have a fortran
+compiler to run the examples below.
+
+    \subsubsection{Example 0: scalar input, no
+output}\label{example-0-scalar-input-no-output}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}149}]:} \PY{o}{\PYZpc{}\PYZpc{}}\PY{k}{file} hellofortran.f
+          C File  hellofortran.f
+                  subroutine hellofortran (n)
+                  integer n
+                 
+                  do 100 i=0, n
+                      print *, \PYZdq{}Fortran says hello\PYZdq{}
+          100     continue
+                  end
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+Overwriting hellofortran.f
+    \end{Verbatim}
+
+    Generate a python module using \texttt{f2py}:
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}150}]:} \PY{o}{!}f2py3 \PYZhy{}c \PYZhy{}m hellofortran hellofortran.f
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+running build
+running config\_cc
+unifing config\_cc, config, build\_clib, build\_ext, build commands --compiler options
+running config\_fc
+unifing config\_fc, config, build\_clib, build\_ext, build commands --fcompiler options
+running build\_src
+build\_src
+building extension "hellofortran" sources
+f2py options: []
+f2py:> /tmp/tmp\_6mh2wh9/src.linux-x86\_64-3.4/hellofortranmodule.c
+creating /tmp/tmp\_6mh2wh9/src.linux-x86\_64-3.4
+Reading fortran codes{\ldots}
+	Reading file 'hellofortran.f' (format:fix,strict)
+Post-processing{\ldots}
+	Block: hellofortran
+			Block: hellofortran
+Post-processing (stage 2){\ldots}
+Building modules{\ldots}
+	Building module "hellofortran"{\ldots}
+		Constructing wrapper function "hellofortran"{\ldots}
+		  hellofortran(n)
+	Wrote C/API module "hellofortran" to file "/tmp/tmp\_6mh2wh9/src.linux-x86\_64-3.4/hellofortranmodule.c"
+  adding '/tmp/tmp\_6mh2wh9/src.linux-x86\_64-3.4/fortranobject.c' to sources.
+  adding '/tmp/tmp\_6mh2wh9/src.linux-x86\_64-3.4' to include\_dirs.
+copying /home/dhavide/anaconda3/lib/python3.4/site-packages/numpy/f2py/src/fortranobject.c -> /tmp/tmp\_6mh2wh9/src.linux-x86\_64-3.4
+copying /home/dhavide/anaconda3/lib/python3.4/site-packages/numpy/f2py/src/fortranobject.h -> /tmp/tmp\_6mh2wh9/src.linux-x86\_64-3.4
+build\_src: building npy-pkg config files
+running build\_ext
+customize UnixCCompiler
+customize UnixCCompiler using build\_ext
+customize Gnu95FCompiler
+Found executable /usr/bin/gfortran
+customize Gnu95FCompiler
+customize Gnu95FCompiler using build\_ext
+building 'hellofortran' extension
+compiling C sources
+C compiler: gcc -pthread -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC
+
+creating /tmp/tmp\_6mh2wh9/tmp
+creating /tmp/tmp\_6mh2wh9/tmp/tmp\_6mh2wh9
+creating /tmp/tmp\_6mh2wh9/tmp/tmp\_6mh2wh9/src.linux-x86\_64-3.4
+compile options: '-I/tmp/tmp\_6mh2wh9/src.linux-x86\_64-3.4 -I/home/dhavide/anaconda3/lib/python3.4/site-packages/numpy/core/include -I/home/dhavide/anaconda3/include/python3.4m -c'
+gcc: /tmp/tmp\_6mh2wh9/src.linux-x86\_64-3.4/hellofortranmodule.c
+In file included from /home/dhavide/anaconda3/lib/python3.4/site-packages/numpy/core/include/numpy/ndarraytypes.h:1804:0,
+                 from /home/dhavide/anaconda3/lib/python3.4/site-packages/numpy/core/include/numpy/ndarrayobject.h:17,
+                 from /home/dhavide/anaconda3/lib/python3.4/site-packages/numpy/core/include/numpy/arrayobject.h:4,
+                 from /tmp/tmp\_6mh2wh9/src.linux-x86\_64-3.4/fortranobject.h:13,
+                 from /tmp/tmp\_6mh2wh9/src.linux-x86\_64-3.4/hellofortranmodule.c:17:
+/home/dhavide/anaconda3/lib/python3.4/site-packages/numpy/core/include/numpy/npy\_1\_7\_deprecated\_api.h:15:2: warning: \#warning "Using deprecated NumPy API, disable it by " "\#defining NPY\_NO\_DEPRECATED\_API NPY\_1\_7\_API\_VERSION" [-Wcpp]
+ \#warning "Using deprecated NumPy API, disable it by " \textbackslash{}
+  \^{}
+gcc: /tmp/tmp\_6mh2wh9/src.linux-x86\_64-3.4/fortranobject.c
+In file included from /home/dhavide/anaconda3/lib/python3.4/site-packages/numpy/core/include/numpy/ndarraytypes.h:1804:0,
+                 from /home/dhavide/anaconda3/lib/python3.4/site-packages/numpy/core/include/numpy/ndarrayobject.h:17,
+                 from /home/dhavide/anaconda3/lib/python3.4/site-packages/numpy/core/include/numpy/arrayobject.h:4,
+                 from /tmp/tmp\_6mh2wh9/src.linux-x86\_64-3.4/fortranobject.h:13,
+                 from /tmp/tmp\_6mh2wh9/src.linux-x86\_64-3.4/fortranobject.c:2:
+/home/dhavide/anaconda3/lib/python3.4/site-packages/numpy/core/include/numpy/npy\_1\_7\_deprecated\_api.h:15:2: warning: \#warning "Using deprecated NumPy API, disable it by " "\#defining NPY\_NO\_DEPRECATED\_API NPY\_1\_7\_API\_VERSION" [-Wcpp]
+ \#warning "Using deprecated NumPy API, disable it by " \textbackslash{}
+  \^{}
+compiling Fortran sources
+Fortran f77 compiler: /usr/bin/gfortran -Wall -g -ffixed-form -fno-second-underscore -fPIC -O3 -funroll-loops
+Fortran f90 compiler: /usr/bin/gfortran -Wall -g -fno-second-underscore -fPIC -O3 -funroll-loops
+Fortran fix compiler: /usr/bin/gfortran -Wall -g -ffixed-form -fno-second-underscore -Wall -g -fno-second-underscore -fPIC -O3 -funroll-loops
+compile options: '-I/tmp/tmp\_6mh2wh9/src.linux-x86\_64-3.4 -I/home/dhavide/anaconda3/lib/python3.4/site-packages/numpy/core/include -I/home/dhavide/anaconda3/include/python3.4m -c'
+gfortran:f77: hellofortran.f
+/usr/bin/gfortran -Wall -g -Wall -g -shared /tmp/tmp\_6mh2wh9/tmp/tmp\_6mh2wh9/src.linux-x86\_64-3.4/hellofortranmodule.o /tmp/tmp\_6mh2wh9/tmp/tmp\_6mh2wh9/src.linux-x86\_64-3.4/fortranobject.o /tmp/tmp\_6mh2wh9/hellofortran.o -L/home/dhavide/anaconda3/lib -lpython3.4m -lgfortran -o ./hellofortran.cpython-34m.so
+Removing build directory /tmp/tmp\_6mh2wh9
+    \end{Verbatim}
+
+    Example of a python script that use the module:
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}151}]:} \PY{o}{\PYZpc{}\PYZpc{}}\PY{k}{file} hello.py
+          import hellofortran
+          
+          hellofortran.hellofortran(5)
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+Overwriting hello.py
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}152}]:} \PY{c}{\PYZsh{} run the script}
+          \PY{o}{!}python hello.py
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+Fortran says hello
+ Fortran says hello
+ Fortran says hello
+ Fortran says hello
+ Fortran says hello
+ Fortran says hello
+    \end{Verbatim}
+
+    \subsubsection{Example 1: vector input and scalar
+output}\label{example-1-vector-input-and-scalar-output}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}153}]:} \PY{o}{\PYZpc{}\PYZpc{}}\PY{k}{file} dprod.f
+          
+                 subroutine dprod(x, y, n)
+              
+                 double precision x(n), y
+                 y = 1.0
+              
+                 do 100 i=1, n
+                     y = y * x(i)
+          100    continue
+                 end
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+Overwriting dprod.f
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}154}]:} \PY{o}{!}rm \PYZhy{}f dprod.pyf
+          \PY{o}{!}f2py3 \PYZhy{}m dprod \PYZhy{}h dprod.pyf dprod.f
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+Reading fortran codes{\ldots}
+	Reading file 'dprod.f' (format:fix,strict)
+Post-processing{\ldots}
+	Block: dprod
+\{\}
+In: :dprod:dprod.f:dprod
+vars2fortran: No typespec for argument "n".
+			Block: dprod
+Post-processing (stage 2){\ldots}
+Saving signatures to file "./dprod.pyf"
+    \end{Verbatim}
+
+    The \texttt{f2py} program generated a module declaration file called
+\texttt{dsum.pyf}. Let's look what's in it:
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}155}]:} \PY{o}{!}cat dprod.pyf
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+!    -*- f90 -*-
+! Note: the context of this file is case sensitive.
+
+python module dprod ! in 
+    interface  ! in :dprod
+        subroutine dprod(x,y,n) ! in :dprod:dprod.f
+            double precision dimension(n) :: x
+            double precision :: y
+            integer, optional,check(len(x)>=n),depend(x) :: n=len(x)
+        end subroutine dprod
+    end interface 
+end python module dprod
+
+! This file was auto-generated with f2py (version:2).
+! See http://cens.ioc.ee/projects/f2py2e/
+    \end{Verbatim}
+
+    The module does not know what Fortran subroutine arguments is input and
+output, so we need to manually edit the module declaration files and
+mark output variables with \texttt{intent(out)} and input variable with
+\texttt{intent(in)}:
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}156}]:} \PY{o}{\PYZpc{}\PYZpc{}}\PY{k}{file} dprod.pyf
+          python module dprod ! in 
+              interface  ! in :dprod
+                  subroutine dprod(x,y,n) ! in :dprod:dprod.f
+                      double precision dimension(n), intent(in) :: x
+                      double precision, intent(out) :: y
+                      integer, optional,check(len(x)\PYZgt{}=n),depend(x),intent(in) :: n=len(x)
+                  end subroutine dprod
+              end interface 
+          end python module dprod
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+Overwriting dprod.pyf
+    \end{Verbatim}
+
+    Compile the fortran code into a module that can be included in python:
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}157}]:} \PY{o}{!}f2py3 \PYZhy{}c dprod.pyf dprod.f
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+running build
+running config\_cc
+unifing config\_cc, config, build\_clib, build\_ext, build commands --compiler options
+running config\_fc
+unifing config\_fc, config, build\_clib, build\_ext, build commands --fcompiler options
+running build\_src
+build\_src
+building extension "dprod" sources
+creating /tmp/tmpo0ulkq7s/src.linux-x86\_64-3.4
+f2py options: []
+f2py: dprod.pyf
+Reading fortran codes{\ldots}
+	Reading file 'dprod.pyf' (format:free)
+Post-processing{\ldots}
+	Block: dprod
+			Block: dprod
+Post-processing (stage 2){\ldots}
+Building modules{\ldots}
+	Building module "dprod"{\ldots}
+		Constructing wrapper function "dprod"{\ldots}
+		  y = dprod(x,[n])
+	Wrote C/API module "dprod" to file "/tmp/tmpo0ulkq7s/src.linux-x86\_64-3.4/dprodmodule.c"
+  adding '/tmp/tmpo0ulkq7s/src.linux-x86\_64-3.4/fortranobject.c' to sources.
+  adding '/tmp/tmpo0ulkq7s/src.linux-x86\_64-3.4' to include\_dirs.
+copying /home/dhavide/anaconda3/lib/python3.4/site-packages/numpy/f2py/src/fortranobject.c -> /tmp/tmpo0ulkq7s/src.linux-x86\_64-3.4
+copying /home/dhavide/anaconda3/lib/python3.4/site-packages/numpy/f2py/src/fortranobject.h -> /tmp/tmpo0ulkq7s/src.linux-x86\_64-3.4
+build\_src: building npy-pkg config files
+running build\_ext
+customize UnixCCompiler
+customize UnixCCompiler using build\_ext
+customize Gnu95FCompiler
+Found executable /usr/bin/gfortran
+customize Gnu95FCompiler
+customize Gnu95FCompiler using build\_ext
+building 'dprod' extension
+compiling C sources
+C compiler: gcc -pthread -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC
+
+creating /tmp/tmpo0ulkq7s/tmp
+creating /tmp/tmpo0ulkq7s/tmp/tmpo0ulkq7s
+creating /tmp/tmpo0ulkq7s/tmp/tmpo0ulkq7s/src.linux-x86\_64-3.4
+compile options: '-I/tmp/tmpo0ulkq7s/src.linux-x86\_64-3.4 -I/home/dhavide/anaconda3/lib/python3.4/site-packages/numpy/core/include -I/home/dhavide/anaconda3/include/python3.4m -c'
+gcc: /tmp/tmpo0ulkq7s/src.linux-x86\_64-3.4/fortranobject.c
+In file included from /home/dhavide/anaconda3/lib/python3.4/site-packages/numpy/core/include/numpy/ndarraytypes.h:1804:0,
+                 from /home/dhavide/anaconda3/lib/python3.4/site-packages/numpy/core/include/numpy/ndarrayobject.h:17,
+                 from /home/dhavide/anaconda3/lib/python3.4/site-packages/numpy/core/include/numpy/arrayobject.h:4,
+                 from /tmp/tmpo0ulkq7s/src.linux-x86\_64-3.4/fortranobject.h:13,
+                 from /tmp/tmpo0ulkq7s/src.linux-x86\_64-3.4/fortranobject.c:2:
+/home/dhavide/anaconda3/lib/python3.4/site-packages/numpy/core/include/numpy/npy\_1\_7\_deprecated\_api.h:15:2: warning: \#warning "Using deprecated NumPy API, disable it by " "\#defining NPY\_NO\_DEPRECATED\_API NPY\_1\_7\_API\_VERSION" [-Wcpp]
+ \#warning "Using deprecated NumPy API, disable it by " \textbackslash{}
+  \^{}
+gcc: /tmp/tmpo0ulkq7s/src.linux-x86\_64-3.4/dprodmodule.c
+In file included from /home/dhavide/anaconda3/lib/python3.4/site-packages/numpy/core/include/numpy/ndarraytypes.h:1804:0,
+                 from /home/dhavide/anaconda3/lib/python3.4/site-packages/numpy/core/include/numpy/ndarrayobject.h:17,
+                 from /home/dhavide/anaconda3/lib/python3.4/site-packages/numpy/core/include/numpy/arrayobject.h:4,
+                 from /tmp/tmpo0ulkq7s/src.linux-x86\_64-3.4/fortranobject.h:13,
+                 from /tmp/tmpo0ulkq7s/src.linux-x86\_64-3.4/dprodmodule.c:18:
+/home/dhavide/anaconda3/lib/python3.4/site-packages/numpy/core/include/numpy/npy\_1\_7\_deprecated\_api.h:15:2: warning: \#warning "Using deprecated NumPy API, disable it by " "\#defining NPY\_NO\_DEPRECATED\_API NPY\_1\_7\_API\_VERSION" [-Wcpp]
+ \#warning "Using deprecated NumPy API, disable it by " \textbackslash{}
+  \^{}
+/tmp/tmpo0ulkq7s/src.linux-x86\_64-3.4/dprodmodule.c:111:12: warning: ‘f2py\_size’ defined but not used [-Wunused-function]
+ static int f2py\_size(PyArrayObject* var, {\ldots})
+            \^{}
+compiling Fortran sources
+Fortran f77 compiler: /usr/bin/gfortran -Wall -g -ffixed-form -fno-second-underscore -fPIC -O3 -funroll-loops
+Fortran f90 compiler: /usr/bin/gfortran -Wall -g -fno-second-underscore -fPIC -O3 -funroll-loops
+Fortran fix compiler: /usr/bin/gfortran -Wall -g -ffixed-form -fno-second-underscore -Wall -g -fno-second-underscore -fPIC -O3 -funroll-loops
+compile options: '-I/tmp/tmpo0ulkq7s/src.linux-x86\_64-3.4 -I/home/dhavide/anaconda3/lib/python3.4/site-packages/numpy/core/include -I/home/dhavide/anaconda3/include/python3.4m -c'
+gfortran:f77: dprod.f
+/usr/bin/gfortran -Wall -g -Wall -g -shared /tmp/tmpo0ulkq7s/tmp/tmpo0ulkq7s/src.linux-x86\_64-3.4/dprodmodule.o /tmp/tmpo0ulkq7s/tmp/tmpo0ulkq7s/src.linux-x86\_64-3.4/fortranobject.o /tmp/tmpo0ulkq7s/dprod.o -L/home/dhavide/anaconda3/lib -lpython3.4m -lgfortran -o ./dprod.cpython-34m.so
+Removing build directory /tmp/tmpo0ulkq7s
+    \end{Verbatim}
+
+    \paragraph{Using the module from
+Python}\label{using-the-module-from-python}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}158}]:} \PY{k+kn}{import} \PY{n+nn}{dprod}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}159}]:} \PY{n}{help}\PY{p}{(}\PY{n}{dprod}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+Help on module dprod:
+
+NAME
+    dprod
+
+DESCRIPTION
+    This module 'dprod' is auto-generated with f2py (version:2).
+    Functions:
+      y = dprod(x,n=len(x))
+    .
+
+DATA
+    dprod = <fortran object>
+
+VERSION
+    b'\$Revision: \$'
+
+FILE
+    /home/dhavide/repositories/scientific-python-lectures/dprod.cpython-34m.so
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}160}]:} \PY{n}{dprod}\PY{o}{.}\PY{n}{dprod}\PY{p}{(}\PY{n}{arange}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{50}\PY{p}{)}\PY{p}{)}
+\end{Verbatim}
+
+            \begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}160}]:} 6.082818640342675e+62
+\end{Verbatim}
+        
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}161}]:} \PY{c}{\PYZsh{} compare to numpy}
+          \PY{n}{prod}\PY{p}{(}\PY{n}{arange}\PY{p}{(}\PY{l+m+mf}{1.0}\PY{p}{,}\PY{l+m+mf}{50.0}\PY{p}{)}\PY{p}{)}
+\end{Verbatim}
+
+            \begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}161}]:} 6.0828186403426752e+62
+\end{Verbatim}
+        
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}162}]:} \PY{n}{dprod}\PY{o}{.}\PY{n}{dprod}\PY{p}{(}\PY{n}{arange}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{10}\PY{p}{)}\PY{p}{,} \PY{l+m+mi}{5}\PY{p}{)} \PY{c}{\PYZsh{} only the 5 first elements}
+\end{Verbatim}
+
+            \begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}162}]:} 120.0
+\end{Verbatim}
+        
+    Compare performance:
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}163}]:} \PY{n}{xvec} \PY{o}{=} \PY{n}{rand}\PY{p}{(}\PY{l+m+mi}{500}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}164}]:} \PY{n}{timeit} \PY{n}{dprod}\PY{o}{.}\PY{n}{dprod}\PY{p}{(}\PY{n}{xvec}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+The slowest run took 5.61 times longer than the fastest. This could mean that an intermediate result is being cached 
+1000000 loops, best of 3: 1.63 µs per loop
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}165}]:} \PY{n}{timeit} \PY{n}{xvec}\PY{o}{.}\PY{n}{prod}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+The slowest run took 6.64 times longer than the fastest. This could mean that an intermediate result is being cached 
+100000 loops, best of 3: 8.46 µs per loop
+    \end{Verbatim}
+
+    \subsubsection{Example 2: cumulative sum, vector input and vector
+output}\label{example-2-cumulative-sum-vector-input-and-vector-output}
+
+    The cummulative sum function for an array of data is a good example of a
+loop intense algorithm: Loop through a vector and store the cummulative
+sum in another vector.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}166}]:} \PY{c}{\PYZsh{} simple python algorithm: example of a SLOW implementation}
+          \PY{c}{\PYZsh{} Why? Because the loop is implemented in python.}
+          \PY{k}{def} \PY{n+nf}{py\PYZus{}dcumsum}\PY{p}{(}\PY{n}{a}\PY{p}{)}\PY{p}{:}
+              \PY{n}{b} \PY{o}{=} \PY{n}{empty\PYZus{}like}\PY{p}{(}\PY{n}{a}\PY{p}{)}
+              \PY{n}{b}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]} \PY{o}{=} \PY{n}{a}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}
+              \PY{k}{for} \PY{n}{n} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{,}\PY{n+nb}{len}\PY{p}{(}\PY{n}{a}\PY{p}{)}\PY{p}{)}\PY{p}{:}
+                  \PY{n}{b}\PY{p}{[}\PY{n}{n}\PY{p}{]} \PY{o}{=} \PY{n}{b}\PY{p}{[}\PY{n}{n}\PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{]}\PY{o}{+}\PY{n}{a}\PY{p}{[}\PY{n}{n}\PY{p}{]}
+              \PY{k}{return} \PY{n}{b}
+\end{Verbatim}
+
+    Fortran subroutine for the same thing: here we have added the
+\texttt{intent(in)} and \texttt{intent(out)} as comment lines in the
+original fortran code, so we do not need to manually edit the fortran
+module declaration file generated by \texttt{f2py}.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}167}]:} \PY{o}{\PYZpc{}\PYZpc{}}\PY{k}{file} dcumsum.f
+          c File dcumsum.f
+                 subroutine dcumsum(a, b, n)
+                 double precision a(n)
+                 double precision b(n)
+                 integer n
+          cf2py  intent(in) :: a
+          cf2py  intent(out) :: b
+          cf2py  intent(hide) :: n
+          
+                 b(1) = a(1)
+                 do 100 i=2, n
+                     b(i) = b(i\PYZhy{}1) + a(i)
+          100    continue
+                 end
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+Overwriting dcumsum.f
+    \end{Verbatim}
+
+    We can directly compile the fortran code to a python module:
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}168}]:} \PY{o}{!}f2py3 \PYZhy{}c dcumsum.f \PYZhy{}m dcumsum
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+running build
+running config\_cc
+unifing config\_cc, config, build\_clib, build\_ext, build commands --compiler options
+running config\_fc
+unifing config\_fc, config, build\_clib, build\_ext, build commands --fcompiler options
+running build\_src
+build\_src
+building extension "dcumsum" sources
+f2py options: []
+f2py:> /tmp/tmpe46xtmge/src.linux-x86\_64-3.4/dcumsummodule.c
+creating /tmp/tmpe46xtmge/src.linux-x86\_64-3.4
+Reading fortran codes{\ldots}
+	Reading file 'dcumsum.f' (format:fix,strict)
+Post-processing{\ldots}
+	Block: dcumsum
+			Block: dcumsum
+Post-processing (stage 2){\ldots}
+Building modules{\ldots}
+	Building module "dcumsum"{\ldots}
+		Constructing wrapper function "dcumsum"{\ldots}
+		  b = dcumsum(a)
+	Wrote C/API module "dcumsum" to file "/tmp/tmpe46xtmge/src.linux-x86\_64-3.4/dcumsummodule.c"
+  adding '/tmp/tmpe46xtmge/src.linux-x86\_64-3.4/fortranobject.c' to sources.
+  adding '/tmp/tmpe46xtmge/src.linux-x86\_64-3.4' to include\_dirs.
+copying /home/dhavide/anaconda3/lib/python3.4/site-packages/numpy/f2py/src/fortranobject.c -> /tmp/tmpe46xtmge/src.linux-x86\_64-3.4
+copying /home/dhavide/anaconda3/lib/python3.4/site-packages/numpy/f2py/src/fortranobject.h -> /tmp/tmpe46xtmge/src.linux-x86\_64-3.4
+build\_src: building npy-pkg config files
+running build\_ext
+customize UnixCCompiler
+customize UnixCCompiler using build\_ext
+customize Gnu95FCompiler
+Found executable /usr/bin/gfortran
+customize Gnu95FCompiler
+customize Gnu95FCompiler using build\_ext
+building 'dcumsum' extension
+compiling C sources
+C compiler: gcc -pthread -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC
+
+creating /tmp/tmpe46xtmge/tmp
+creating /tmp/tmpe46xtmge/tmp/tmpe46xtmge
+creating /tmp/tmpe46xtmge/tmp/tmpe46xtmge/src.linux-x86\_64-3.4
+compile options: '-I/tmp/tmpe46xtmge/src.linux-x86\_64-3.4 -I/home/dhavide/anaconda3/lib/python3.4/site-packages/numpy/core/include -I/home/dhavide/anaconda3/include/python3.4m -c'
+gcc: /tmp/tmpe46xtmge/src.linux-x86\_64-3.4/dcumsummodule.c
+In file included from /home/dhavide/anaconda3/lib/python3.4/site-packages/numpy/core/include/numpy/ndarraytypes.h:1804:0,
+                 from /home/dhavide/anaconda3/lib/python3.4/site-packages/numpy/core/include/numpy/ndarrayobject.h:17,
+                 from /home/dhavide/anaconda3/lib/python3.4/site-packages/numpy/core/include/numpy/arrayobject.h:4,
+                 from /tmp/tmpe46xtmge/src.linux-x86\_64-3.4/fortranobject.h:13,
+                 from /tmp/tmpe46xtmge/src.linux-x86\_64-3.4/dcumsummodule.c:18:
+/home/dhavide/anaconda3/lib/python3.4/site-packages/numpy/core/include/numpy/npy\_1\_7\_deprecated\_api.h:15:2: warning: \#warning "Using deprecated NumPy API, disable it by " "\#defining NPY\_NO\_DEPRECATED\_API NPY\_1\_7\_API\_VERSION" [-Wcpp]
+ \#warning "Using deprecated NumPy API, disable it by " \textbackslash{}
+  \^{}
+/tmp/tmpe46xtmge/src.linux-x86\_64-3.4/dcumsummodule.c:111:12: warning: ‘f2py\_size’ defined but not used [-Wunused-function]
+ static int f2py\_size(PyArrayObject* var, {\ldots})
+            \^{}
+gcc: /tmp/tmpe46xtmge/src.linux-x86\_64-3.4/fortranobject.c
+In file included from /home/dhavide/anaconda3/lib/python3.4/site-packages/numpy/core/include/numpy/ndarraytypes.h:1804:0,
+                 from /home/dhavide/anaconda3/lib/python3.4/site-packages/numpy/core/include/numpy/ndarrayobject.h:17,
+                 from /home/dhavide/anaconda3/lib/python3.4/site-packages/numpy/core/include/numpy/arrayobject.h:4,
+                 from /tmp/tmpe46xtmge/src.linux-x86\_64-3.4/fortranobject.h:13,
+                 from /tmp/tmpe46xtmge/src.linux-x86\_64-3.4/fortranobject.c:2:
+/home/dhavide/anaconda3/lib/python3.4/site-packages/numpy/core/include/numpy/npy\_1\_7\_deprecated\_api.h:15:2: warning: \#warning "Using deprecated NumPy API, disable it by " "\#defining NPY\_NO\_DEPRECATED\_API NPY\_1\_7\_API\_VERSION" [-Wcpp]
+ \#warning "Using deprecated NumPy API, disable it by " \textbackslash{}
+  \^{}
+compiling Fortran sources
+Fortran f77 compiler: /usr/bin/gfortran -Wall -g -ffixed-form -fno-second-underscore -fPIC -O3 -funroll-loops
+Fortran f90 compiler: /usr/bin/gfortran -Wall -g -fno-second-underscore -fPIC -O3 -funroll-loops
+Fortran fix compiler: /usr/bin/gfortran -Wall -g -ffixed-form -fno-second-underscore -Wall -g -fno-second-underscore -fPIC -O3 -funroll-loops
+compile options: '-I/tmp/tmpe46xtmge/src.linux-x86\_64-3.4 -I/home/dhavide/anaconda3/lib/python3.4/site-packages/numpy/core/include -I/home/dhavide/anaconda3/include/python3.4m -c'
+gfortran:f77: dcumsum.f
+/usr/bin/gfortran -Wall -g -Wall -g -shared /tmp/tmpe46xtmge/tmp/tmpe46xtmge/src.linux-x86\_64-3.4/dcumsummodule.o /tmp/tmpe46xtmge/tmp/tmpe46xtmge/src.linux-x86\_64-3.4/fortranobject.o /tmp/tmpe46xtmge/dcumsum.o -L/home/dhavide/anaconda3/lib -lpython3.4m -lgfortran -o ./dcumsum.cpython-34m.so
+Removing build directory /tmp/tmpe46xtmge
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}169}]:} \PY{k+kn}{import} \PY{n+nn}{dcumsum}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}170}]:} \PY{n}{a} \PY{o}{=} \PY{n}{array}\PY{p}{(}\PY{p}{[}\PY{l+m+mf}{1.0}\PY{p}{,}\PY{l+m+mf}{2.0}\PY{p}{,}\PY{l+m+mf}{3.0}\PY{p}{,}\PY{l+m+mf}{4.0}\PY{p}{,}\PY{l+m+mf}{5.0}\PY{p}{,}\PY{l+m+mf}{6.0}\PY{p}{,}\PY{l+m+mf}{7.0}\PY{p}{,}\PY{l+m+mf}{8.0}\PY{p}{]}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}171}]:} \PY{n}{py\PYZus{}dcumsum}\PY{p}{(}\PY{n}{a}\PY{p}{)}
+\end{Verbatim}
+
+            \begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}171}]:} array([  1.,   3.,   6.,  10.,  15.,  21.,  28.,  36.])
+\end{Verbatim}
+        
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}172}]:} \PY{n}{dcumsum}\PY{o}{.}\PY{n}{dcumsum}\PY{p}{(}\PY{n}{a}\PY{p}{)}
+\end{Verbatim}
+
+            \begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}172}]:} array([  1.,   3.,   6.,  10.,  15.,  21.,  28.,  36.])
+\end{Verbatim}
+        
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}173}]:} \PY{n}{cumsum}\PY{p}{(}\PY{n}{a}\PY{p}{)}
+\end{Verbatim}
+
+            \begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}173}]:} array([  1.,   3.,   6.,  10.,  15.,  21.,  28.,  36.])
+\end{Verbatim}
+        
+    Benchmark the different implementations:
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}174}]:} \PY{n}{a} \PY{o}{=} \PY{n}{rand}\PY{p}{(}\PY{l+m+mi}{10000}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}175}]:} \PY{n}{timeit} \PY{n}{py\PYZus{}dcumsum}\PY{p}{(}\PY{n}{a}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+100 loops, best of 3: 5.41 ms per loop
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}176}]:} \PY{n}{timeit} \PY{n}{dcumsum}\PY{o}{.}\PY{n}{dcumsum}\PY{p}{(}\PY{n}{a}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+10000 loops, best of 3: 18.5 µs per loop
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}177}]:} \PY{n}{timeit} \PY{n}{a}\PY{o}{.}\PY{n}{cumsum}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+The slowest run took 17.25 times longer than the fastest. This could mean that an intermediate result is being cached 
+10000 loops, best of 3: 47 µs per loop
+    \end{Verbatim}
+
+    \subsubsection{Further reading}\label{further-reading}
+
+    \begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  http://www.scipy.org/F2py
+\item
+  http://dsnra.jpl.nasa.gov/software/Python/F2PY\_tutorial.pdf
+\item
+  http://www.shocksolution.com/2009/09/f2py-binding-fortran-python/
+\end{enumerate}
+
+    \subsection{C}\label{c}
+
+    \subsection{ctypes}\label{ctypes}
+
+    ctypes is a Python library for calling out to C code. It is not as
+automatic as \texttt{f2py}, and we manually need to load the library and
+set properties such as the functions return and argument types. On the
+otherhand we do not need to touch the C code at all.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}178}]:} \PY{o}{\PYZpc{}\PYZpc{}}\PY{k}{file} functions.c
+          
+          \PYZsh{}include \PYZlt{}stdio.h\PYZgt{}
+          
+          void hello(int n);
+          
+          double dprod(double *x, int n);
+          
+          void dcumsum(double *a, double *b, int n);
+          
+          void
+          hello(int n)
+          \PYZob{}
+              int i;
+              
+              for (i = 0; i \PYZlt{} n; i++)
+              \PYZob{}
+                  printf(\PYZdq{}C says hello\PYZbs{}n\PYZdq{});
+              \PYZcb{}
+          \PYZcb{}
+          
+          
+          double 
+          dprod(double *x, int n)
+          \PYZob{}
+              int i;
+              double y = 1.0;
+              
+              for (i = 0; i \PYZlt{} n; i++)
+              \PYZob{}
+                  y *= x[i];
+              \PYZcb{}
+          
+              return y;
+          \PYZcb{}
+          
+          void
+          dcumsum(double *a, double *b, int n)
+          \PYZob{}
+              int i;
+              
+              b[0] = a[0];
+              for (i = 1; i \PYZlt{} n; i++)
+              \PYZob{}
+                  b[i] = a[i] + b[i\PYZhy{}1];
+              \PYZcb{}
+          \PYZcb{}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+Overwriting functions.c
+    \end{Verbatim}
+
+    Compile the C file into a shared library:
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}179}]:} \PY{o}{!}gcc \PYZhy{}c \PYZhy{}Wall \PYZhy{}O2 \PYZhy{}Wall \PYZhy{}ansi \PYZhy{}pedantic \PYZhy{}fPIC \PYZhy{}o functions.o functions.c
+          \PY{o}{!}gcc \PYZhy{}o libfunctions.so \PYZhy{}shared functions.o
+\end{Verbatim}
+
+    The result is a compiled shared library \texttt{libfunctions.so}:
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}180}]:} \PY{o}{!}file libfunctions.so
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+libfunctions.so: ELF 64-bit LSB  shared object, x86-64, version 1 (SYSV), dynamically linked, BuildID[sha1]=8e644d6e751685aa836f078d4caf1734f3d01eb4, not stripped
+    \end{Verbatim}
+
+    Now we need to write wrapper functions to access the C library: To load
+the library we use the ctypes package, which included in the Python
+standard library (with extensions from numpy for passing arrays to C).
+Then we manually set the types of the argument and return values (no
+automatic code inspection here!).
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}181}]:} \PY{o}{\PYZpc{}\PYZpc{}}\PY{k}{file} functions.py
+          
+          import numpy
+          import ctypes
+          
+          \PYZus{}libfunctions = numpy.ctypeslib.load\PYZus{}library(\PYZsq{}libfunctions\PYZsq{}, \PYZsq{}.\PYZsq{})
+          
+          \PYZus{}libfunctions.hello.argtypes = [ctypes.c\PYZus{}int]
+          \PYZus{}libfunctions.hello.restype  =  ctypes.c\PYZus{}void\PYZus{}p
+          
+          \PYZus{}libfunctions.dprod.argtypes = [numpy.ctypeslib.ndpointer(dtype=numpy.float), ctypes.c\PYZus{}int]
+          \PYZus{}libfunctions.dprod.restype  = ctypes.c\PYZus{}double
+          
+          \PYZus{}libfunctions.dcumsum.argtypes = [numpy.ctypeslib.ndpointer(dtype=numpy.float), numpy.ctypeslib.ndpointer(dtype=numpy.float), ctypes.c\PYZus{}int]
+          \PYZus{}libfunctions.dcumsum.restype  = ctypes.c\PYZus{}void\PYZus{}p
+          
+          def hello(n):
+              return \PYZus{}libfunctions.hello(int(n))
+          
+          def dprod(x, n=None):
+              if n is None:
+                  n = len(x)
+              x = numpy.asarray(x, dtype=numpy.float)
+              return \PYZus{}libfunctions.dprod(x, int(n))
+          
+          def dcumsum(a, n):
+              a = numpy.asarray(a, dtype=numpy.float)
+              b = numpy.empty(len(a), dtype=numpy.float)
+              \PYZus{}libfunctions.dcumsum(a, b, int(n))
+              return b
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+Overwriting functions.py
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}182}]:} \PY{o}{\PYZpc{}\PYZpc{}}\PY{k}{file} run\PYZus{}hello\PYZus{}c.py
+          
+          import functions
+          
+          functions.hello(3)
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+Overwriting run\_hello\_c.py
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}183}]:} \PY{o}{!}python run\PYZus{}hello\PYZus{}c.py
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+C says hello
+C says hello
+C says hello
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}184}]:} \PY{k+kn}{import} \PY{n+nn}{functions}
+\end{Verbatim}
+
+    \subsubsection{Product function:}\label{product-function}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}185}]:} \PY{n}{functions}\PY{o}{.}\PY{n}{dprod}\PY{p}{(}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{,}\PY{l+m+mi}{3}\PY{p}{,}\PY{l+m+mi}{4}\PY{p}{,}\PY{l+m+mi}{5}\PY{p}{]}\PY{p}{)} 
+\end{Verbatim}
+
+            \begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}185}]:} 120.0
+\end{Verbatim}
+        
+    \subsubsection{Cumulative sum:}\label{cumulative-sum}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}186}]:} \PY{n}{a} \PY{o}{=} \PY{n}{rand}\PY{p}{(}\PY{l+m+mi}{100000}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}187}]:} \PY{n}{res\PYZus{}c} \PY{o}{=} \PY{n}{functions}\PY{o}{.}\PY{n}{dcumsum}\PY{p}{(}\PY{n}{a}\PY{p}{,} \PY{n+nb}{len}\PY{p}{(}\PY{n}{a}\PY{p}{)}\PY{p}{)} 
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}188}]:} \PY{n}{res\PYZus{}fortran} \PY{o}{=} \PY{n}{dcumsum}\PY{o}{.}\PY{n}{dcumsum}\PY{p}{(}\PY{n}{a}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}189}]:} \PY{n}{res\PYZus{}c} \PY{o}{\PYZhy{}} \PY{n}{res\PYZus{}fortran}
+\end{Verbatim}
+
+            \begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}189}]:} array([ 0.,  0.,  0., {\ldots},  0.,  0.,  0.])
+\end{Verbatim}
+        
+    \subsubsection{Simple benchmark}\label{simple-benchmark}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}190}]:} \PY{n}{timeit} \PY{n}{functions}\PY{o}{.}\PY{n}{dcumsum}\PY{p}{(}\PY{n}{a}\PY{p}{,} \PY{n+nb}{len}\PY{p}{(}\PY{n}{a}\PY{p}{)}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+1000 loops, best of 3: 517 µs per loop
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}191}]:} \PY{n}{timeit} \PY{n}{dcumsum}\PY{o}{.}\PY{n}{dcumsum}\PY{p}{(}\PY{n}{a}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+1000 loops, best of 3: 247 µs per loop
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}192}]:} \PY{n}{timeit} \PY{n}{a}\PY{o}{.}\PY{n}{cumsum}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+1000 loops, best of 3: 517 µs per loop
+    \end{Verbatim}
+
+    \subsubsection{Further reading}\label{further-reading}
+
+    \begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  http://docs.python.org/2/library/ctypes.html
+\item
+  http://www.scipy.org/Cookbook/Ctypes
+\end{itemize}
+
+    \subsection{Cython}\label{cython}
+
+    A hybrid between python and C that can be compiled: Basically Python
+code with type declarations.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}193}]:} \PY{o}{\PYZpc{}\PYZpc{}}\PY{k}{file} cy\PYZus{}dcumsum.pyx
+          
+          cimport numpy
+          
+          def dcumsum(numpy.ndarray[numpy.float64\PYZus{}t, ndim=1] a, numpy.ndarray[numpy.float64\PYZus{}t, ndim=1] b):
+              cdef int i, n = len(a)
+              b[0] = a[0]
+              for i from 1 \PYZlt{}= i \PYZlt{} n:
+                  b[i] = b[i\PYZhy{}1] + a[i]
+              return b
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+Overwriting cy\_dcumsum.pyx
+    \end{Verbatim}
+
+    A build file for generating C code and compiling it into a Python
+module.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}194}]:} \PY{o}{\PYZpc{}\PYZpc{}}\PY{k}{file} setup.py
+          import numpy
+          from distutils.core import setup
+          from distutils.extension import Extension
+          from Cython.Distutils import build\PYZus{}ext
+          
+          setup(
+              cmdclass = \PYZob{}\PYZsq{}build\PYZus{}ext\PYZsq{}: build\PYZus{}ext\PYZcb{},
+              ext\PYZus{}modules = [Extension(\PYZdq{}cy\PYZus{}dcumsum\PYZdq{}, [\PYZdq{}cy\PYZus{}dcumsum.pyx\PYZdq{}], include\PYZus{}dirs=[numpy.get\PYZus{}include()]),
+              ],
+          )
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+Overwriting setup.py
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}195}]:} \PY{o}{!}python setup.py build\PYZus{}ext \PYZhy{}\PYZhy{}inplace
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+running build\_ext
+cythoning cy\_dcumsum.pyx to cy\_dcumsum.c
+building 'cy\_dcumsum' extension
+gcc -pthread -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -I/home/dhavide/anaconda3/lib/python3.4/site-packages/numpy/core/include -I/home/dhavide/anaconda3/include/python3.4m -c cy\_dcumsum.c -o build/temp.linux-x86\_64-3.4/cy\_dcumsum.o
+In file included from /home/dhavide/anaconda3/lib/python3.4/site-packages/numpy/core/include/numpy/ndarraytypes.h:1804:0,
+                 from /home/dhavide/anaconda3/lib/python3.4/site-packages/numpy/core/include/numpy/ndarrayobject.h:17,
+                 from /home/dhavide/anaconda3/lib/python3.4/site-packages/numpy/core/include/numpy/arrayobject.h:4,
+                 from cy\_dcumsum.c:257:
+/home/dhavide/anaconda3/lib/python3.4/site-packages/numpy/core/include/numpy/npy\_1\_7\_deprecated\_api.h:15:2: warning: \#warning "Using deprecated NumPy API, disable it by " "\#defining NPY\_NO\_DEPRECATED\_API NPY\_1\_7\_API\_VERSION" [-Wcpp]
+ \#warning "Using deprecated NumPy API, disable it by " \textbackslash{}
+  \^{}
+In file included from /home/dhavide/anaconda3/lib/python3.4/site-packages/numpy/core/include/numpy/ndarrayobject.h:26:0,
+                 from /home/dhavide/anaconda3/lib/python3.4/site-packages/numpy/core/include/numpy/arrayobject.h:4,
+                 from cy\_dcumsum.c:257:
+/home/dhavide/anaconda3/lib/python3.4/site-packages/numpy/core/include/numpy/\_\_multiarray\_api.h:1629:1: warning: ‘\_import\_array’ defined but not used [-Wunused-function]
+ \_import\_array(void)
+ \^{}
+In file included from /home/dhavide/anaconda3/lib/python3.4/site-packages/numpy/core/include/numpy/ufuncobject.h:317:0,
+                 from cy\_dcumsum.c:258:
+/home/dhavide/anaconda3/lib/python3.4/site-packages/numpy/core/include/numpy/\_\_ufunc\_api.h:241:1: warning: ‘\_import\_umath’ defined but not used [-Wunused-function]
+ \_import\_umath(void)
+ \^{}
+gcc -pthread -shared -L/home/dhavide/anaconda3/lib -Wl,-rpath=/home/dhavide/anaconda3/lib,--no-as-needed build/temp.linux-x86\_64-3.4/cy\_dcumsum.o -L/home/dhavide/anaconda3/lib -lpython3.4m -o /home/dhavide/repositories/scientific-python-lectures/cy\_dcumsum.cpython-34m.so
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}196}]:} \PY{k+kn}{import} \PY{n+nn}{cy\PYZus{}dcumsum}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}197}]:} \PY{n}{a} \PY{o}{=} \PY{n}{array}\PY{p}{(}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{,}\PY{l+m+mi}{3}\PY{p}{,}\PY{l+m+mi}{4}\PY{p}{]}\PY{p}{,} \PY{n}{dtype}\PY{o}{=}\PY{n+nb}{float}\PY{p}{)}
+          \PY{n}{b} \PY{o}{=} \PY{n}{empty\PYZus{}like}\PY{p}{(}\PY{n}{a}\PY{p}{)}
+          \PY{n}{cy\PYZus{}dcumsum}\PY{o}{.}\PY{n}{dcumsum}\PY{p}{(}\PY{n}{a}\PY{p}{,}\PY{n}{b}\PY{p}{)}
+          \PY{n}{b}
+\end{Verbatim}
+
+            \begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}197}]:} array([  1.,   3.,   6.,  10.])
+\end{Verbatim}
+        
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}198}]:} \PY{n}{a} \PY{o}{=} \PY{n}{array}\PY{p}{(}\PY{p}{[}\PY{l+m+mf}{1.0}\PY{p}{,} \PY{l+m+mf}{2.0}\PY{p}{,} \PY{l+m+mf}{3.0}\PY{p}{,} \PY{l+m+mf}{4.0}\PY{p}{,} \PY{l+m+mf}{5.0}\PY{p}{,} \PY{l+m+mf}{6.0}\PY{p}{,} \PY{l+m+mf}{7.0}\PY{p}{,} \PY{l+m+mf}{8.0}\PY{p}{]}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}199}]:} \PY{n}{b} \PY{o}{=} \PY{n}{empty\PYZus{}like}\PY{p}{(}\PY{n}{a}\PY{p}{)}
+          \PY{n}{cy\PYZus{}dcumsum}\PY{o}{.}\PY{n}{dcumsum}\PY{p}{(}\PY{n}{a}\PY{p}{,} \PY{n}{b}\PY{p}{)}
+          \PY{n}{b}
+\end{Verbatim}
+
+            \begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}199}]:} array([  1.,   3.,   6.,  10.,  15.,  21.,  28.,  36.])
+\end{Verbatim}
+        
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}200}]:} \PY{n}{py\PYZus{}dcumsum}\PY{p}{(}\PY{n}{a}\PY{p}{)}
+\end{Verbatim}
+
+            \begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}200}]:} array([  1.,   3.,   6.,  10.,  15.,  21.,  28.,  36.])
+\end{Verbatim}
+        
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}201}]:} \PY{n}{a} \PY{o}{=} \PY{n}{rand}\PY{p}{(}\PY{l+m+mi}{100000}\PY{p}{)}
+          \PY{n}{b} \PY{o}{=} \PY{n}{empty\PYZus{}like}\PY{p}{(}\PY{n}{a}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}202}]:} \PY{n}{timeit} \PY{n}{py\PYZus{}dcumsum}\PY{p}{(}\PY{n}{a}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+10 loops, best of 3: 72.7 ms per loop
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}203}]:} \PY{n}{timeit} \PY{n}{cy\PYZus{}dcumsum}\PY{o}{.}\PY{n}{dcumsum}\PY{p}{(}\PY{n}{a}\PY{p}{,}\PY{n}{b}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+1000 loops, best of 3: 469 µs per loop
+    \end{Verbatim}
+
+    \subsubsection{Cython in the IPython
+notebook}\label{cython-in-the-ipython-notebook}
+
+    When working with the IPython (especially in the notebook), there is a
+more convenient way of compiling and loading Cython code. Using the
+\texttt{\%\%cython} IPython magic (command to IPython), we can simply
+type the Cython code in a code cell and let IPython take care of the
+conversion to C code, compilation and loading of the function. To be
+able to use the \texttt{\%\%cython} magic, we first need to load the
+extension \texttt{cythonmagic}:
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}204}]:} \PY{o}{\PYZpc{}}\PY{k}{load\PYZus{}ext} Cython
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+The Cython extension is already loaded. To reload it, use:
+  \%reload\_ext Cython
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}205}]:} \PY{o}{\PYZpc{}\PYZpc{}}\PY{k}{cython}
+          
+          cimport numpy
+          
+          def cy\PYZus{}dcumsum2(numpy.ndarray[numpy.float64\PYZus{}t, ndim=1] a, numpy.ndarray[numpy.float64\PYZus{}t, ndim=1] b):
+              cdef int i, n = len(a)
+              b[0] = a[0]
+              for i from 1 \PYZlt{}= i \PYZlt{} n:
+                  b[i] = b[i\PYZhy{}1] + a[i]
+              return b
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}206}]:} \PY{n}{timeit} \PY{n}{cy\PYZus{}dcumsum2}\PY{p}{(}\PY{n}{a}\PY{p}{,}\PY{n}{b}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+1000 loops, best of 3: 552 µs per loop
+    \end{Verbatim}
+
+    \subsubsection{Further reading}\label{further-reading}
+
+    \begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  http://cython.org
+\item
+  http://docs.cython.org/src/userguide/tutorial.html
+\item
+  http://wiki.cython.org/tutorials/numpy
+\end{itemize}
+
+
+    % Add a bibliography block to the postdoc
+    
+    
+    
+    \end{document}

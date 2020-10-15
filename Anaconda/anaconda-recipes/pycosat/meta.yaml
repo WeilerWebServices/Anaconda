@@ -1,0 +1,38 @@
+package:
+  name: pycosat
+  version: 0.6.2
+
+source:
+  git_url: https://github.com/ContinuumIO/pycosat.git
+  git_tag: 0.6.2
+
+build:
+  detect_binary_files_with_prefix: False
+
+requirements:
+  build:
+    - python
+  run:
+    - python
+
+test:
+  files:
+    - qg3-08.cnf
+    - uf20-098.cnf
+    - sudoku.py
+  imports:
+    - pycosat
+
+about:
+  home: https://github.com/ContinuumIO/pycosat
+  license: MIT
+  license_file: LICENSE
+  summary: Python bindings to the picosat SAT solver
+  description: |
+    PicoSAT is a popular SAT solver written by Armin Biere in pure C. This
+    package provides efficient Python bindings to picosat on the C level, i.e.
+    when importing pycosat, the picosat solver becomes part of the Python
+    process itself.
+  doc_url: https://github.com/ContinuumIO/pycosat/blob/master/README.rst
+  doc_source_url: https://github.com/ContinuumIO/pycosat/blob/master/README.rst
+  dev_url: https://github.com/ContinuumIO/pycosat

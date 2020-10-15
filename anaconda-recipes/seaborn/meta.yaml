@@ -1,0 +1,40 @@
+package:
+  name: seaborn
+  version: 0.8
+
+source:
+  fn: seaborn-0.8.tar.gz
+  url: https://pypi.python.org/packages/d6/13/dd3da2cd6e03e522bbd389735d3adcb47d7a4470a968ebc3348fbac8eddd/seaborn-0.8.tar.gz
+  md5: f3fc1e2687705f6dfe9b98c441dbf619
+
+build:
+  number: 0
+  script: python setup.py install --single-version-externally-managed --record record.txt
+
+requirements:
+  build:
+    - python
+    - setuptools
+  run:
+    - python
+    - numpy
+    - matplotlib
+    - scipy
+    - pandas
+    - statsmodels
+
+test:
+  imports:
+    - seaborn
+
+about:
+  home: http://stanford.edu/~mwaskom/software/seaborn/
+  license: BSD
+  license_file: LICENSE
+  summary: Statistical data visualization
+  description: |
+    Seaborn is a Python visualization library based on matplotlib. It
+    provides a high-level interface for drawing attractive statistical graphics.
+  doc_url: http://seaborn.pydata.org/index.html
+  doc_source_url: https://github.com/mwaskom/seaborn/blob/master/doc/index.rst
+  dev_url: https://github.com/mwaskom/seaborn

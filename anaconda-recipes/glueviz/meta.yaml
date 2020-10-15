@@ -1,0 +1,49 @@
+# NOTE: this is a meta-package that includes the core glue code as well
+# as stable plugins. This is the main conda package we want in the Navigator,
+# so we add the app: entry here and not in the glue-core package.
+
+package:
+  name: glueviz
+  version: 0.10.4
+
+source:
+  fn: glueviz-0.10.4.tar.gz
+  url: https://pypi.io/packages/source/g/glueviz/glueviz-0.10.4.tar.gz
+  md5: 94f1774e3c379403966ca217bbe36d7a
+
+requirements:
+  build:
+    - python
+    - setuptools
+  run:
+    - python
+    - glue-core >=0.10.4             [not win]
+    - glue-vispy-viewers >=0.7.2
+
+app:
+  entry: glue
+  icon: logo.png
+  summary: Multi-dimensional linked data exploration
+  type: desk
+
+test:
+  imports:
+    - glue
+    - glue.core
+    - glue.app.qt            [not win]
+  commands:
+    - glue --version
+    - glue-deps list         [not win]
+
+about:
+  home: http://glueviz.org/
+  license: 3-clause BSD License
+  license_family: BSD
+  license_file: LICENSE
+  summary: Multi-dimensional linked data exploration
+  description: |
+    Glue is a Python library to explore relationships within and among related
+    datasets. Its main features include Linked Statistical Graphics, flexible
+    linking across data and full scripting capability.
+  doc_url: http://www.glueviz.org/
+  dev_url: https://github.com/glue-viz/glueviz-meta

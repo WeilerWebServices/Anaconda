@@ -1,0 +1,50 @@
+package:
+  name: qtconsole
+  version: 4.3.1
+
+source:
+  fn: qtconsole-4.3.1.tar.gz
+  url: https://pypi.python.org/packages/68/48/ed0e8989b7376704ecb8faa782384de98cc108de522ad8d21f449484de9a/qtconsole-4.3.1.tar.gz
+  md5: 42df4f81f0b78706d87f759e5c8d6b39
+
+build:
+  entry_points:
+    - jupyter-qtconsole = qtconsole.qtconsoleapp:main
+
+requirements:
+  build:
+    - python
+  run:
+    - python
+    - pyqt 5.*
+    - traitlets
+    - ipython_genutils
+    - jupyter_core
+    - jupyter_client >=4.1
+    - pygments
+    - ipykernel >=4.1
+
+app:
+  entry: jupyter-qtconsole
+  icon: jupyter.png
+  summary: Jupyter Qt console
+  type: desk
+
+test:
+  imports:
+    - qtconsole
+
+about:
+  home: http://jupyter.org
+  license: Modified BSD License
+  license_family: BSD
+  license_file: COPYING.md
+  summary: Jupyter Qt Console
+  description: |
+    The Qt console is a very lightweight application that largely feels like a terminal, but provides
+    a number of enhancements only possible in a GUI, such as inline figures,
+    proper multiline editing with syntax highlighting, graphical calltips and
+    more.
+  doc_url: https://qtconsole.readthedocs.org/en/stable/
+  doc_source_url: https://github.com/jupyter/qtconsole/blob/master/docs/source/index.rst
+  dev_url: https://github.com/jupyter/qtconsole

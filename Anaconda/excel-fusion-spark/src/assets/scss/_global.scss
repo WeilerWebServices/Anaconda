@@ -1,0 +1,1067 @@
+/******************************************************************************/
+/* GLOBALS
+/*     These are styles that will be available on every page to any component.
+/***********************************/
+
+// Imports
+@import "~src/assets/scss/variables";
+@import '~bootstrap/scss/functions', '~bootstrap/scss/variables', '~bootstrap/scss/mixins';
+@import "~ngx-toastr/toastr-bs4-alert";
+// @import "~dc/style/dc";
+
+
+text {
+    font-size: .55em;
+}
+
+path.line
+{
+    fill: none;
+}
+// Defaults
+a,
+.is-clickable {
+    cursor: pointer;
+}
+.noscroll {
+    overflow-y: hidden;
+}
+.noselect {
+    user-select: none;
+}
+.nowrap {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.nowrap-left {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    direction: rtl;
+    text-align: left;
+}
+:disabled,
+.noclick {
+    pointer-events: none;
+    cursor: not-allowed;
+}
+.force-word-break {
+    display: block;
+    /* These are technically the same, but use both */
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    /* This is the dangerous one in WebKit, as it breaks things wherever */
+    word-break: break-all;
+    /* Instead use this non-standard one: */
+    word-break: break-word;
+    /* Adds a hyphen where the word breaks, if supported (No Blink) */
+    hyphens: auto;
+}
+td.force-word-break {
+    display: table-cell;
+}
+
+// Taken from: https://css-tricks.com/centering-css-complete-guide/
+.center-both-directions-flex {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.center-both-directions-absolute {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    align-items: center;
+    text-align: center;
+}
+
+
+// Right Nav
+#nav-primary,
+#main {
+	/* Force Hardware Acceleration */
+	transform: translateZ(0);
+    // ONLY transition the transform (this way #main doesn't animate when you simply resize the browser)
+    transition: transform;
+    transition-duration: .3s;
+}
+// Right Nav is open
+body.rightnav-is-open {
+    #main,
+    #nav-primary {
+        transform: translate3d(-$ae-nav-right-width,0,0);
+    }
+    #nav-right {
+        transform: translate3d(0,0,0);
+        opacity: 1;
+    }
+}
+// Should we remove the docked stuff? We don't really use it and it makes no sense with height:100%;
+// Right Nav is docked
+// body.rightnav-is-docked {
+//     #nav-right {
+//         z-index: 1029;
+//     }
+//     #nav-secondary {
+//         right:$ae-nav-right-width;
+//     }
+//     #main {
+//         margin-right:$ae-nav-right-width;
+//         #content {
+//             right:$ae-nav-right-width;
+//             width:calc(100% - #{$ae-nav-right-width});
+//         }
+//     }
+//
+// }
+//
+
+// SUBNAV
+.nav.subNav {
+    padding-left: 2em;
+}
+
+#content {
+    position: absolute; // IE11 doesn't like position: fixed + translate3d
+    right: 0;
+    top: calc(#{$ae-nav-primary-height} + #{$ae-nav-secondary-height}); // Must interpolate vars inside calc() with #{};
+    bottom: 0;
+    overflow: auto;
+    background-color: $white;
+    //padding: 1rem 1rem 1rem 1rem;
+
+    &.public {
+        background-color: $ae-gray-2;
+        top: $ae-nav-secondary-height;
+    }
+}
+
+#content-new {
+    position: absolute; // IE11 doesn't like position: fixed + translate3d
+    right: 0;
+    left: 0;
+    top: calc(#{$ae-nav-primary-height} + #{$ae-nav-secondary-height}); // Must interpolate vars inside calc() with #{};
+    bottom: 0;
+    overflow: auto;
+    background-color: $white;
+}
+
+#content-child {
+    position: absolute; // IE11 doesn't like position: fixed + translate3d
+    right: 0;
+    top: calc(#{$ae-nav-secondary-height}); // Must interpolate vars inside calc() with #{};
+    bottom: 0;
+    overflow: auto;
+    background-color: $white;
+    padding: 1rem 1rem 1rem 1rem;
+
+    &.public {
+        background-color: $ae-gray-2;
+        top: $ae-nav-secondary-height;
+    }
+}
+// Nested pages like Deployments in Projects
+#content #content-inner #content-child {
+    top: 0;
+    background-color: $ae-gray-2;
+}
+
+// Override the #content width for sm and lower
+// (see nav-tertiary for corresponding nav styles)
+@include media-breakpoint-down(sm) {
+    #content.col-11 {
+        flex: 0 0 calc(100% - #{$ae-nav-primary-height});
+        max-width: calc(100% - #{$ae-nav-primary-height});
+    }
+}
+#content-inner {
+    min-height: 100%;
+    background-color:$white;
+    padding:1rem;
+    overflow-x:auto;
+}
+#content-inner-child {
+    min-height: 100%;
+    background-color:$white;
+    padding:1rem;
+    overflow-x:auto;
+}
+
+// No Content
+// If no content on top level #content
+#content.nocontent {
+    background-color: $ae-gray-2;
+    #content-inner {
+        background-color: $ae-gray-2;
+    }
+}
+// If no content is on a child of #content
+#content #content-inner .nocontent {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: $ae-gray-2;
+}
+.nocontent-message {
+    color: $ae-green;
+}
+
+// Page
+.page {
+    position: relative;
+    height: 100%;
+    padding: calc(#{$ae-nav-primary-height} + 1rem) 1rem 0rem 1rem; // Must interpolate vars inside calc() with #{}
+}
+.page.with-nav-secondary {
+    padding-top: calc(#{$ae-nav-primary-height} + #{$ae-nav-secondary-height} + 1rem); // Must interpolate vars inside calc() with #{}
+}
+.page.with-nav-tertiary {
+    #content {
+        background-color: $ae-gray-2;
+    }
+}
+
+// iFrame
+.iframe-wrapper {
+    position: absolute;
+    .iframe-content {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: 0;
+    }
+}
+.iframe-wrapper-full {
+    height: 100%;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+.iframe-wrapper-inset {
+    top: 1rem;
+    bottom: 1rem;
+    left: 1rem;
+    right: 1rem;
+}
+
+// Line Clamps
+.line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    /* autoprefixer: ignore next */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+.line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    /* autoprefixer: ignore next */
+     -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+.line-clamp-4 {
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    /* autoprefixer: ignore next */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+td.line-clamp-2 {
+    height: 4.2rem;
+}
+td.line-clamp-3 {
+    height: 5.7rem;
+}
+td.line-clamp-4 {
+    height: 7.2rem;
+}
+
+
+// Z-Depth (based off Material Design)
+.z-depth-half {
+    box-shadow: 0 1px 4px rgba(0,0,0,0.3);
+}
+/* from material shadows https://github.com/mrmlnc/material-shadows */
+.z-depth-1 {
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.16), 0 2px 10px rgba(0, 0, 0, 0.12)
+}
+.z-depth-1-top {
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.12)
+}
+.z-depth-1-bottom {
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.16)
+}
+.z-depth-2 {
+    box-shadow: 0 8px 17px rgba(0, 0, 0, 0.2), 0 6px 20px rgba(0, 0, 0, 0.19)
+}
+.z-depth-2-top {
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.19)
+}
+.z-depth-2-bottom {
+    box-shadow: 0 8px 17px rgba(0, 0, 0, 0.2)
+}
+.z-depth-3 {
+    box-shadow: 0 12px 15px rgba(0, 0, 0, 0.24), 0 17px 50px rgba(0, 0, 0, 0.19)
+}
+.z-depth-3-top {
+    box-shadow: 0 17px 50px rgba(0, 0, 0, 0.19)
+}
+.z-depth-3-bottom {
+    box-shadow: 0 12px 15px rgba(0, 0, 0, 0.24)
+}
+.z-depth-4 {
+    box-shadow: 0 16px 28px rgba(0, 0, 0, 0.22), 0 25px 55px rgba(0, 0, 0, 0.21)
+}
+.z-depth-4-top {
+    box-shadow: 0 25px 55px rgba(0, 0, 0, 0.21)
+}
+.z-depth-4-bottom {
+    box-shadow: 0 16px 28px rgba(0, 0, 0, 0.22)
+}
+.z-depth-5 {
+    box-shadow: 0 27px 24px rgba(0, 0, 0, 0.2), 0 40px 77px rgba(0, 0, 0, 0.22)
+}
+.z-depth-5-top {
+    box-shadow: 0 40px 77px rgba(0, 0, 0, 0.22)
+}
+.z-depth-5-bottom {
+    box-shadow: 0 27px 24px rgba(0, 0, 0, 0.2)
+}
+.z-depth-animation .z-depth-1,
+.z-depth-animation .z-depth-2,
+.z-depth-animation .z-depth-3,
+.z-depth-animation .z-depth-4,
+.z-depth-animation .z-depth-5 {
+    transition: box-shadow .3s cubic-bezier(0.4, 0, 0.2, 1)
+}
+
+// Effects
+.effect-fadein {
+    transition: opacity;
+    transition-duration: .3s;
+    opacity:1;
+}
+.effect-fadein.end {
+    opacity:1;
+}
+
+// Error Message Content
+.error-message {
+    font-weight: 400;
+}
+.error-details {
+    margin-top: 25px;
+    pre {
+        padding: 5px;
+        border: 1px solid $ae-gray-3;
+        background-color: $ae-gray-2;
+        border-radius: 3px;
+    }
+}
+
+// Error pages such as 404, 403
+// Eventually this should go in src/app/shared/components/error/error.component.scss
+// once that component handles all errors
+.error-page {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow-y: auto;
+    margin-left: auto;
+    margin-right: auto;
+    background-color:$ae-blue-dark;
+    color: rgba($white,.8);
+    // animation stuff
+    animation-duration: 1s;
+    animation-fill-mode: both;
+    animation-name: fadeIn;
+    @keyframes fadeIn {
+        0% {opacity: 0;}
+        100% {opacity: 1;}
+    }
+
+    // default values
+    > .center-both-directions-flex > div {
+        width: 90%;
+    }
+    img {
+        height: 12rem;
+        width: 12rem;
+    }
+    .display-1 {
+        font-weight: $font-weight-bold;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+    }
+    .display-2 {
+        font-size: 4rem;
+        font-weight: $font-weight-bold;
+    }
+    a,
+    a:visited {
+        color: rgba($white,.8);
+    }
+    a:hover {
+        color: rgba($white,1)
+    }
+    pre.log-text {
+        position: absolute;
+        left: 1rem;
+        right: 1rem;
+        width: auto;
+        border: 0;
+        padding: 1rem;
+        margin-bottom: 5rem;
+        text-align: left;
+        background-color: #000000;
+        // force wrap, so no scrolling
+        white-space: pre-wrap;
+        word-wrap: break-word;
+    }
+
+    // md or up values
+    @include media-breakpoint-up(md) {
+        > .center-both-directions-flex > div {
+            width: 50%;
+        }
+        pre.log-text {
+            left: 5rem;
+            right: 5rem;
+            margin-bottom: 5rem;
+        }
+    }
+}
+
+// Pagination (from: http://michaelbromley.github.io/ngx-pagination/#/)
+pagination-controls {
+    margin-left: auto;
+    margin-right: auto;
+    ul {
+        padding-start: 0;
+    }
+    ul.ngx-pagination {
+
+        .current {
+            background: $ae-green;
+        }
+    }
+}
+pagination-controls.pagination-top .ngx-pagination {
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+pagination-controls.pagination-bottom .ngx-pagination {
+    margin-top: 1rem;
+    margin-bottom: 0;
+}
+
+// Toggle button (Container a href for Font Awesome toggle icon + text)
+a.btn-toggle {
+    i.fa {
+        vertical-align: middle
+    }
+}
+
+// Tooltips
+.tooltip > div {
+    animation-name: delayedFadeIn;
+    animation-duration: 1s; /* Adjust this duration */
+}
+@keyframes delayedFadeIn {
+    0% {opacity: 0;}
+    75% {opacity: 0;} /* Set this to 99% for no fade-in. */
+    100% {opacity: 1;}
+}
+
+.delayed-2.tooltip > div {
+  animation-name: delayedFadeIn;
+  animation-duration: 2s; /* Adjust this duration */
+}
+.delayed-3.tooltip > div {
+  animation-name: delayedFadeIn;
+  animation-duration: 3s; /* Adjust this duration */
+}
+
+// Tooltips in notifications dispay the notification.message value which could have
+// anchor tags which get styled where they are unreadable. This fixes that.
+.tooltip-inner {
+    a {
+        color: $tooltip-color;
+    }
+}
+
+// Nav-primary
+#nav-primary {
+    left: 0;
+    padding: 0 1rem 0 0;
+    background-color: $ae-blue-dark;
+    transition: all;
+    transition-duration: .3s;
+
+    .navbar-brand {
+        height: $ae-nav-primary-height;
+        padding: 0.775rem 0.875rem;
+        margin-right: 0;
+
+        &.public {
+            img {
+                height: $ae-nav-primary-height-public;
+            }
+        }
+    }
+
+    // This ensures the help and menu icons are in a row vs column
+    .navbar-nav {
+        flex-direction: row;
+
+        .search {
+            padding: .5rem;
+            @include media-breakpoint-down(md) {
+                padding: .5rem 0rem;
+            }
+            input {
+                transition: all .6s;
+                background-color: rgba($ae-gray-2,.45);
+                border: none;
+            }
+            input:focus {
+                background-color: $white;
+            }
+        }
+        .nav-link {
+            height: $ae-nav-primary-height;
+            padding: 1.25rem .85rem;
+
+            span:not(.badge) {
+                display: none;
+            }
+        }
+        .badge-notification {
+            top: 1rem;
+            right: .5rem;
+        }
+    }
+    &.navbar-dark {
+        .search {
+            input {
+                background-color: rgba($ae-gray-2,.10);
+            }
+            input::placeholder {
+                color:rgba($white,.5);
+            }
+        }
+    }
+
+}
+
+
+// Admin route
+// :host-context(.is-admin) { // host-context doesn't work unless you have a component
+body.is-admin {
+    #nav-primary,
+    #nav {
+        background-color: $black;
+    }
+}
+
+// Main
+#main {
+    position: relative;
+    height: 100vh;
+    min-height: 100vh;
+    padding-left: $ae-nav-full-size;
+    transition: all .3s ease;
+    padding-left: 0;
+
+    // If the nav has different widths, use this...
+    // @include media-breakpoint-between(md, xl) {
+    //     padding-left: $ae-nav-collapsed-size;
+    // }
+    // @include media-breakpoint-down(md) {
+    //     padding-left: 0;
+    // }
+}
+// If the nav has different widths, use this...
+// body.nav-is-open {
+//     #main {
+//         @include media-breakpoint-between(md, xl) {
+//             padding-left: $ae-nav-full-size;
+//         }
+//         @include media-breakpoint-down(md) {
+//             padding-left: 0;
+//         }
+//     }
+// }
+
+
+// Loading spinner
+// :host-context(.is-loading) { // host-context doesn't work unless you have a component
+body.is-loading {
+    overflow-y: hidden;
+    //filter: blur(.1rem);
+    //transition: 200ms all linear;
+}
+
+#loading,
+#output-loading,
+#iframe-loading {
+    position: absolute;
+    z-index: $zindex-tooltip;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(255,255,255,.7);
+    transition: background-color 1000ms linear;
+    .loading-wrapper {
+        position: absolute;
+        width:100%;
+        top:calc(50% - (#{$ae-spinner-height} / 2)); // Must interpolate vars inside calc() with #{}
+    }
+    .loading-spinner,
+    .loading-spinner:after {
+        margin-left:auto;
+        margin-right:auto;
+        border-radius: 50%;
+        width: $ae-spinner-height;
+        height: $ae-spinner-height;
+    }
+    .loading-spinner {
+        border-top: .5rem solid rgba(0, 0, 0, 0.1);
+        border-right: .5rem solid rgba(0, 0, 0, 0.1);
+        border-bottom: .5rem solid rgba(0, 0, 0, 0.1);
+        border-left: .5rem solid $ae-green;
+        transform: translateZ(0);
+        animation: load8 1.1s infinite linear;
+    }
+    .loading-message {
+        text-align: center;
+        margin-top: 1rem;
+        font-weight: $font-weight-normal;
+        text-shadow: 0 0 .4rem $white;
+        a {
+            text-decoration: underline;
+        }
+    }
+}
+@keyframes load8 {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+#output-loading,
+#output-loading .loading-wrapper {
+    position: relative;
+}
+
+#output-loading {
+    &.hidden {
+        display: none;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+// PUT THIS STUFF IN NAV-PRIMARY
+.logo {
+    img {
+        height: calc(#{$ae-page-header-size} *.6);
+        margin: .7rem .5rem;
+    }
+    // auto switch the logo based on the navbar-light/dark
+    .navbar-light & {
+        .logo-for-dark {
+            display: none;
+        }
+        .logo-for-light {
+            display: block;
+        }
+    }
+    .navbar-dark & {
+        .logo-for-light {
+            display: none;
+        }
+        .logo-for-dark {
+            display: block;
+        }
+    }
+}
+
+.leftnav-trigger {
+    position: relative;
+    min-height: calc(#{$ae-page-header-size} - 1px);
+    width: 100%;
+    width: $ae-nav-collapsed-size;
+    background-color: transparent;
+    overflow: hidden;
+    text-indent: 100%;
+    white-space: nowrap;
+    transition: transform 0.5s;
+
+    &:before {
+        /* circle background behind icon/trigger */
+        content: "";
+        position: absolute;
+        top: .4rem;
+        left: .4rem;
+        width: 3rem;
+        height: 3rem;
+        border-radius: 50%;
+        background-color: rgba($ae-gray-2,.45);
+        transition: all;
+        transition-duration: 0.3s;
+        backface-visibility: hidden;
+        transform: scale(0);
+        z-index: 0;
+        .navbar-dark & {
+            background-color: rgba($ae-gray-2,.10);
+        }
+    }
+
+    .leftnav-icon {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        bottom: auto;
+        right: auto;
+        transform: translateX(-50%) translateY(-50%);
+        width: 1.375rem;
+        height: 2px;
+        background-color: $ae-black;
+
+        &:before,
+        &:after {
+            /* upper and lower lines of the menu icon */
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            background-color: inherit;
+            /* Force Hardware Acceleration in WebKit */
+            transform: translateZ(0);
+            backface-visibility: hidden;
+            transition: transform 0.5s, width 0.5s, top 0.3s;
+        }
+        &:before {
+            transform-origin: right top;
+            transform: translateY(-6px);
+        }
+        &:after {
+            transform-origin: right bottom;
+            transform: translateY(6px);
+        }
+        .navbar-dark & {
+            background-color: $white;
+        }
+    }
+}
+
+
+body.nav-is-open {
+    .leftnav-trigger {
+        /* rotate trigger when navigation becomes visible */
+        transform: rotate(180deg);
+        &:before {
+            transform: scale(1);
+        }
+        .leftnav-icon {
+            &:before,
+            &:after {
+                /* animate arrow --> from hamburger to arrow */
+                width: 50%;
+                transition: transform 0.5s, width 0.5s;
+            }
+            &:before {
+                transform: rotate(45deg);
+            }
+            &:after {
+                transform: rotate(-45deg);
+            }
+        }
+    }
+}
+
+// ---------------------------------------------------------
+// nav (default is small/collapsed)
+// ---------------------------------------------------------
+#nav {
+    position: fixed;
+    top: $ae-page-header-size;
+    bottom: 0;
+    display: block;
+    background-color: $ae-blue-dark;
+    overflow: hidden;
+    padding: 0;
+    transition: all .3s ease;
+    width: $ae-nav-full-size;
+    z-index: 1000;
+    ul {
+        list-style-type: none;
+    }
+
+    left: -$ae-nav-full-size;
+    a.nav-toggle {
+        display: none;
+    }
+    // Defaults for md to xl (the smaller compact size that is docked)
+    // @include media-breakpoint-between(md, xl) {
+    //     width: $ae-nav-collapsed-size;
+    //     #nav-inner {
+    //         #nav-header {
+    //             border-bottom: 1px solid transparent;
+    //         }
+    //         .nav-content {
+    //             overflow-x: hidden;
+    //             > li {
+    //                 > a {
+    //                     .title {
+    //                         display: none;
+    //                     }
+    //                 }
+    //             }
+    //             li {
+    //                 .arrow {
+    //                     opacity: 0;
+    //                 }
+    //             }
+    //         }
+    //         #nav-footer {
+    //             a.nav-toggle {
+    //                 left: calc(#{$ae-nav-collapsed-size} - .5rem);
+    //             }
+    //
+    //         }
+    //     }
+    // }
+    // Defaults for sm and below (hidden until you click, then full size)
+    // @include media-breakpoint-down(md) {
+    //     left: -$ae-nav-full-size;
+    //     a.nav-toggle {
+    //         display: none;
+    //     }
+    // }
+}
+
+body.nav-is-open #nav {
+    width: $ae-nav-full-size;
+    #nav-inner {
+        #nav-header {
+            border-bottom: 1px solid $border-color;
+        }
+        .nav-content {
+            > li {
+                > a {
+                    .title {
+                        display: inline-block;
+                    }
+                }
+            }
+            li {
+                .arrow {
+                    opacity: 1;
+                }
+            }
+        }
+        #nav-footer {
+            a.nav-toggle {
+                left: calc(#{$ae-nav-full-size} - .5rem);
+            }
+        }
+    }
+    left: 0;
+    // for small sizes
+    // @include media-breakpoint-down(md) {
+    //     left: 0;
+    // }
+}
+
+// ---------------------------------------------------------
+// nav-inner
+// ---------------------------------------------------------
+#nav-inner {
+    position: relative;
+    height: 100%;
+}
+
+// ---------------------------------------------------------
+// nav-header
+// ---------------------------------------------------------
+#nav-header {
+    border-bottom: 1px solid $border-color;
+    line-height: 0;
+    transition: all .3s ease;
+    padding: 0;
+    margin: 0;
+}
+
+// ---------------------------------------------------------
+// nav-nav
+// ---------------------------------------------------------
+#nav-nav {
+    > li {
+        > a {
+            transition: all .3s;
+            position: relative;
+            height: 2.75rem;
+            padding: .7rem;
+            margin: .5rem;
+            display: block;
+            position: relative;
+            text-decoration: none;
+            white-space: nowrap;
+            border-radius: .5rem;
+            background-color: rgba(0,0,0,1);
+            color: $white;
+            &:hover {
+                background-color: $ae-green;
+            }
+            i {
+                margin-right: 1rem;
+            }
+            .title {
+                display: none;
+                // Hold my beer, this is some cool sass trickery
+                body.nav-is-open & {
+                    display: inline-block
+                }
+            }
+        }
+    }
+}
+
+// ---------------------------------------------------------
+// nav-content-wrapper
+//
+// **NOTE: consider making this display: flex with flex-row
+// so that I don't need to specify the left on the .nav-content.nested-* classes
+// ---------------------------------------------------------
+#nav-content-wrapper {
+    @include clearfix;
+    position: relative;
+    height: calc(100vh - (#{$ae-page-header-size}*2 - 3px));
+    transition: all .3s ease;
+    left: 0;
+    &.nested-one-active {
+        left: calc(-#{$ae-nav-full-size}*1);
+    }
+    &.nested-two-active {
+        left: calc(-#{$ae-nav-full-size}*2);
+    }
+    &.nested-three-active {
+        left: calc(-#{$ae-nav-full-size}*3);
+    }
+}
+
+// ---------------------------------------------------------
+// nav-content
+// ---------------------------------------------------------
+.nav-content {
+    @include clearfix;
+    position: absolute;
+    width: 100%;
+    //position: relative;
+    //height: calc(100vh - (#{$ae-page-header-size}*2 - 3px));
+    transition: all .3s ease;
+    list-style: none;
+    margin: 0;
+    overflow: auto;
+    padding: 0;
+    left: 0;
+    &.nested-one {
+        left: calc(#{$ae-nav-full-size}*1);
+    }
+    &.nested-two {
+        left: calc(#{$ae-nav-full-size}*2);
+    }
+    &.nested-three {
+        left: calc(#{$ae-nav-full-size}*3);
+    }
+
+    li {
+        position: relative;
+        .arrow {
+            position: absolute;
+            right: 1rem;
+            transition: all .05s ease-in;
+            i {
+                margin-right: 0 !important;
+            }
+            @include media-breakpoint-down(md) {
+                right: .75rem;
+            }
+        }
+        a {
+            &:focus,
+            &:hover {
+                text-decoration: none;
+            }
+        }
+    }
+    > li {
+        // regular menu items
+        > a {
+            display: block;
+            height: $ae-nav-collapsed-size;
+            padding: 1.2rem;
+            position: relative;
+            white-space: nowrap;
+            i {
+                margin-right: 1rem;
+            }
+        }
+        > a:hover {
+        }
+        &.active {
+            a {
+            }
+        }
+    }
+}
+
+
+// REFACTOR: Fusion Spark Hack. We need to modify header. Best method to
+// target new header (for AnacondaCON) is to add class to body for now.
+body.fusion {
+    #nav-primary {
+        .navitem {
+            // .nav-link .leftnav-icon,
+            // &.search,
+            // &.nav-help,
+            // &.nav-notifications,
+            .leftnav-trigger .leftnav-icon,
+            &:first-child,
+            &.dropdown {
+                display: none;
+            }
+
+            .logo {
+                margin-left: 1rem;
+            }
+        }
+    }
+}

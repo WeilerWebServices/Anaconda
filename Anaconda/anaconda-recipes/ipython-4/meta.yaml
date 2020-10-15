@@ -1,0 +1,51 @@
+package:
+  name: ipython
+  version: 4.2.0
+
+source:
+  fn: ipython-4.2.0.tar.gz
+  url: https://pypi.python.org/packages/4e/c7/519b95112dba6f3ae91530bcb8564454c575fcb1fdb323b2b0ee9eff1227/ipython-4.2.0.tar.gz
+  md5: 9c7c28eddbc39eb874d2c22025772d63
+
+build:
+  number: 1                              [osx]
+  entry_points:
+    - ipython = IPython:start_ipython
+    - ipython2 = IPython:start_ipython   [py2k]
+    - ipython3 = IPython:start_ipython   [py3k]
+  osx_is_app: True
+
+requirements:
+  build:
+    - python
+  run:
+    - python
+    - decorator
+    - pickleshare
+    - simplegeneric >0.8
+    - traitlets
+    - get_terminal_size
+    - pexpect                            [unix]
+    - appnope                            [osx]
+    - pyreadline                         [win]
+    - python.app                         [osx]
+
+test:
+  commands:
+    - ipython -h
+    - ipython2 -h                        [py2k]
+    - ipython3 -h                        [py3k]
+  imports:
+    - IPython
+
+about:
+  home: http://ipython.org/
+  license: BSD
+  license_file: COPYING.rst
+  summary: Productive Interactive Computing
+  description: |
+    IPython provides a rich architecture for interactive computing with
+    a powerful interactive shell, a kernel for Jupyter, high performance
+    tools for parallel computing, and more.
+  doc_url: http://ipython.org/documentation.html
+  dev_url: https://github.com/ipython/ipython

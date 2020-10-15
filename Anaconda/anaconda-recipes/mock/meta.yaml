@@ -1,0 +1,36 @@
+package:
+  name: mock
+  version: 2.0.0
+
+source:
+  fn: mock-2.0.0.tar.gz
+  url: https://pypi.python.org/packages/source/m/mock/mock-2.0.0.tar.gz
+  md5: 0febfafd14330c9dcaa40de2d82d40ad
+
+requirements:
+  build:
+    - python
+    - setuptools
+    - pbr
+  run:
+    - python
+    - funcsigs >=1.0        [py < 33]
+    - pbr
+    - six
+
+test:
+  imports:
+    - mock
+
+about:
+  home: http://www.voidspace.org.uk/python/mock/
+  license: BSD
+  license_file: LICENSE.txt
+  summary: A Python mocking and patching library for testing
+  description: |
+    mock is a library for testing in Python. It allows you to replace parts of
+    your system under test with mock objects and make assertions about how they
+    have been used.
+    doc_url: https://docs.python.org/dev/library/unittest.mock.html
+  doc_source_url: https://github.com/testing-cabal/mock
+  dev_url: https://github.com/testing-cabal/mock

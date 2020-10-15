@@ -1,0 +1,42 @@
+1.1.0-dev (Next Release)
+------------------------
+
+1.0.0 (2014-02-02)
+------------------
+
+- Dropped support for Python versions before 2.6.
+
+- Added support for Python 3.2 and 3.3.
+
+0.5 (2010-02-20)
+----------------
+
+- Improved parsing of arguments in the supervisorctl plugin.
+
+0.4 (2009-11-21)
+----------------
+
+- We no longer bundle ez_setup to bootstrap setuptools installation.
+
+0.3 (2009-06-07)
+----------------
+
+- Added ez_setup.py to bootstrap setuptools installation.
+
+0.2 (2009-06-03)
+----------------
+
+- Supervisor 3.0a6 or later is now required.
+
+- Added a plugin for supervisorctl that provides commands for
+  exercising all of the cache functionality.
+
+- Added a new RPC method cache.getCount() that returns a count of
+  all items in the cache.
+
+- Improved Python 2.3 compatibility.
+
+0.1 (2007-11-05)
+----------------
+
+- First release.

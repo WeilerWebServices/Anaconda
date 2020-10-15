@@ -1,0 +1,75 @@
+2016-04-06: 1.15.0
+-------------------
+* Tagged build log sections to show in Repository more context
+  around each section of build script output
+* Added DockerFile for new Centos 32- and 64-bit linux docker workers
+* Added more regression tests of build commands
+* Added a `worker_stats` function to collect software, memory,
+  and disk usage data for display in Repository
+* Added `--tail` argument to `anaconda build submit/trigger` to
+  automatically `anaconda build tail -f` a build that is submitted
+  or triggered.
+* Bug fixes: 1) related to envvars in .binstar.yml, 2) related to
+  github url pattern for `anaconda build submit`
+* Added `--build-host` and `--dist` arguments to `anaconda build
+  trigger` (filter which workers run the build)
+
+2016-03-09: 0.14.1:
+-------------------
+* Speed up a test of build script related to env variables
+* Add datestamp to build logs
+* Use BINSTAR_CONFIG_DIR in build scripts for anaconda config
+  settings like endpoint url
+* Bug fixes related to working directory definition for docker workers
+* Prevent registration of the same worker --name by users
+  who share an organization(s)
+
+2016-02-11: 0.14.0:
+-------------------
+* Each build now launches with a new process group (Linux) or job object (Windows) to improve cleanup of resources
+* Add additional channels to `conda config` with the new `install_channels` configuration option
+* Redact lines ending with `\r` from the build log with the new `quiet` configuration option
+* Worker configuration is fetched from the server rather than stored locally (#154)
+* Additional bug fixes (Anaconda-Server/docs.anaconda.org#182)
+
+2013-09-05: 0.3.1:
+-----------------
+* fix attribute error on Windows
+
+2013-08-26: 0.3.0:
+-----------------
+* added collections feature
+* updated client for public packages
+* updated authentication feature
+
+2013-07-18: 0.2.2:
+------------------
+  * remove setuptools run-time dependency
+
+2013-07-16: 0.2.1:
+------------------
+  * fixed windows upload
+  * removed 32bit osx
+  * added version check and warning
+
+2013-07-014: 0.2.0:
+------------------
+  * allow uploading of source tarballs
+  * updated upload api to version 0.2.0
+
+2013-07-01:  0.1.2:
+-------------------
+  * change default of interactive upload (default is now non-interactive)
+  * fixed upload on Windows
+  * documentation improvements
+
+
+2013-06-21:  0.1.1:
+-------------------
+  * added documentation
+  * remove external appdirs dependency
+
+
+2013-06-07:  0.1.0:
+-------------------
+  * Initial release

@@ -1,0 +1,41 @@
+package:
+  name: astroid
+  version: 1.5.3
+
+source:
+  fn: astroid-1.5.3.tar.gz
+  url: https://pypi.python.org/packages/d7/b7/112288f75293d6f12b1e41bac1e822fd0f29b0f88e2c4378cdd295b9d838/astroid-1.5.3.tar.gz
+  md5: 6f65e4ea8290ec032320460905afb828
+
+requirements:
+  build:
+    - python
+    - setuptools
+    - six
+    - wrapt
+    - lazy-object-proxy
+  run:
+    - python
+    - six
+    - wrapt
+    - lazy-object-proxy
+    - setuptools
+    - singledispatch
+    - enum34                 [py < 34]
+    - functools_lru_cache    [py < 33]
+
+test:
+  imports:
+    - astroid
+
+about:
+  home: https://www.astroid.org/
+  license: LGPL version 2.1
+  license_family: LGPL
+  license_file: COPYING
+  summary: abstract syntax tree for Python with inference support
+  description: |
+    Astroid provide a common base representation of python source code for projects such as pychecker, pyreverse, pylint.
+  doc_url: http://astroid.readthedocs.io/en/latest/?badge=latest
+  doc_source_url: https://github.com/PyCQA/astroid/blob/master/doc/index.rst
+  dev_url: https://github.com/pycqa/astroid

@@ -1,0 +1,21 @@
+name: StocksLive
+
+commands:
+  stocks_live:
+    notebook: stocks_live.ipynb
+
+# packages that apply to all env specs
+packages:
+- notebook=4
+- bokeh=0.12
+- tornado=4.4
+- pandas
+
+env_specs:
+  default:
+    channels: []
+    packages: []
+platforms:
+- linux-64
+- osx-64
+- win-64

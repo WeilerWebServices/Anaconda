@@ -1,0 +1,35 @@
+package:
+  name: gevent-websocket
+  version: 0.10.1
+
+source:
+  fn: gevent-websocket-0.10.1.tar.gz
+  url: https://pypi.python.org/packages/98/d2/6fa19239ff1ab072af40ebf339acd91fb97f34617c2ee625b8e34bf42393/gevent-websocket-0.10.1.tar.gz
+  md5: e095bf3358175489a956949c1b4de9ff
+
+build:
+  number: 0
+
+requirements:
+  build:
+    - python
+    - setuptools
+    - gevent
+  run:
+    - python
+    - gevent
+
+test:
+  imports:
+    - geventwebsocket
+
+about:
+  home: https://bitbucket.org/noppo/gevent-websocket
+  license: Apache
+  license_file: LICENSE
+  summary: Websocket handler for the gevent pywsgi server, a Python network library
+  description: |
+    Gevent-websocket is a framework for WebSocket servers and WebSocket subprotocols.
+  doc_url: https://pypi.python.org/pypi/gevent-websocket/
+  doc_source_url: https://gitlab.com/noppo/gevent-websocket/blob/master/docs/index.rst
+  dev_url: https://bitbucket.org/noppo/gevent-websocket

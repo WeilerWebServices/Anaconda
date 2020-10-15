@@ -1,0 +1,29 @@
+package:
+  name: patch
+  version: 2.5.9
+
+build:
+  number: 1   [win]
+
+source:
+  url: http://downloads.sourceforge.net/sourceforge/gnuwin32/patch/2.5.9-7/patch-2.5.9-7-bin.zip
+  fn: patch-2.5.9-7-bin.zip
+  md5: b9c8b31d62f4b2e4f1887bbb63e8a905
+
+test:
+  commands:
+    - patch --help            [win]
+  files:
+    - testfile
+    - testfile2
+    - testfile.patch
+
+about:
+  home: http://savannah.gnu.org/projects/patch/
+  license: GPL2
+  summary: Native Win32 versions of common unix tools
+  description: |
+    Patch takes a patch file containing a difference listing produced by the
+    diff program and applies those differences to one or more original files,
+    producing patched versions.
+  dev_url: http://git.savannah.gnu.org/cgit/patch.git

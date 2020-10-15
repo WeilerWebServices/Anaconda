@@ -1,0 +1,35 @@
+package:
+  name: partd
+  version: 0.3.8
+
+source:
+  fn: partd-0.3.8.tar.gz
+  url: https://pypi.python.org/packages/e7/0c/b257648852230acf169c60283e59475727b156ee1a0a3a6b5527af745f15/partd-0.3.8.tar.gz
+  md5: 554d0e6511c0df4c907f034858be847f
+
+requirements:
+  build:
+    - python
+    - setuptools
+    - locket
+    - toolz
+  run:
+    - python
+    - locket
+    - toolz
+
+test:
+  imports:
+    - partd
+
+about:
+  home: https://github.com/dask/partd
+  license: BSD
+  license_file: LICENSE.txt
+  summary: Appendable key-value byte store
+  description: |
+    Partd stores key-value pairs. Values are raw bytes. It excels at shuffling
+    operations.
+  doc_url: https://pypi.python.org/pypi/partd/
+  doc_source_url: https://github.com/dask/partd/blob/master/README.rst
+  dev_url: https://github.com/dask/partd

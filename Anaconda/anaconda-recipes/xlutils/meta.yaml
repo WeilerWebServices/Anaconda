@@ -1,0 +1,45 @@
+package:
+  name: xlutils
+  version: 2.0.0
+
+source:
+  fn: xlutils-2.0.0.tar.gz
+  url: https://pypi.python.org/packages/93/fe/af6d73e4bc7b0ce359d34bebb2e8d4d129763acfecd66a3a7efc587e54c9/xlutils-2.0.0.tar.gz
+  md5: 7a6a339ddaacabce244341582ee61353
+
+build:
+  entry_points:
+    - margins = xlutils.margins:main
+
+requirements:
+  build:
+    - python
+    - setuptools
+  run:
+    - python
+    - xlrd >=0.7.2
+    - xlwt >=0.7.4
+
+test:
+  commands:
+    - margins --help
+  imports:
+    - xlutils
+    - xlutils.copy
+    - xlutils.display
+    - xlutils.filter
+    - xlutils.margins
+    - xlutils.save
+    - xlutils.styles
+
+about:
+  home: http://www.python-excel.org/
+  license: MIT
+  license_file: docs/license.rst
+  summary: Utilities for working with Excel files
+  description: |
+    xlutils provides a collection of utilities for working with Excel files.
+    Since these utilities may require either or both of the xlrd and xlwt packages,
+    they are collected together here, separate from either package.
+  doc_url: http://xlutils.readthedocs.io/en/latest/
+  doc_source_url: https://github.com/python-excel/xlutils/blob/master/docs/index.rst

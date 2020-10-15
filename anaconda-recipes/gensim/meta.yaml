@@ -1,0 +1,45 @@
+package:
+  name: gensim
+  version: 2.3.0
+
+source:
+  fn: gensim-2.3.0.tar.gz
+  url: https://pypi.python.org/packages/bc/ed/fbbb2cc3f37a39cc4ff8e5f667374478fb852b384840aa7feb9608144290/gensim-2.3.0.tar.gz
+  md5: bbe21a252916f154253ae6be625ae802
+
+build:
+  detect_binary_files_with_prefix: False
+
+requirements:
+  build:
+    - python
+    - setuptools
+    - cython
+    - numpy x.x
+    - scipy
+    - six
+  run:
+    - python
+    - numpy x.x
+    - scipy >=0.19.0
+    - six
+    - smart_open >=1.2.1
+
+test:
+  imports:
+    - gensim
+    - gensim.models.doc2vec_inner
+    - gensim.models.word2vec_inner
+
+about:
+  home: http://radimrehurek.com/gensim
+  license: GNU Lesser General Public License v2 or later
+  license_family: LGPL
+  license_file: COPYING
+  summary: Topic Modelling in Python
+  description: |
+    Gensim is a free Python library designed to automatically extract semantic
+    topics from documents, as efficiently (computer-wise) and painlessly (human-wise) as possible.
+  doc_url: http://radimrehurek.com/gensim/tutorial.html
+  doc_source_url: https://github.com/RaRe-Technologies/gensim/blob/develop/docs/src/tutorial.rst
+  dev_url: https://github.com/piskvorky/gensim

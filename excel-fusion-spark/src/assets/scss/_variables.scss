@@ -1,0 +1,178 @@
+/******************************************************************************/
+/* VARIABLES
+/*     These are variables from BOTH Anaconda and ones we wish to
+/*     customize from Bootstrap. The Anaconda ones are prefixed "$ae-".
+/*     We must include this file before Bootstrap according to:
+/*     https://getbootstrap.com/docs/4.0/getting-started/theming/
+/***********************************/
+
+
+// Colors
+// http://www.colourlovers.com/palette/2236415/Winter
+$winter-gray-1: rgba(230,232,227,1);
+$winter-gray-2: rgba(215,218,207,1);
+$winter-gray-3: rgba(190,195,188,1);
+$winter-gray-4: rgba(143,154,156,1);
+$winter-gray-5: rgba(101,114,122,1);
+
+// http://www.colourlovers.com/palette/1085043/Sleeping_Waves
+$sleep-blue-1: rgba(117,211,250,1); // #75D3FA
+$sleep-blue-2: rgba(0,184,247,1); // #00B8F7
+$sleep-blue-3: rgba(1,135,184,1); // #0187B8
+$sleep-blue-4: rgba(0,98,152,1); // #006298
+$sleep-blue-5: rgba(1,58,94,1); // #013A5E
+
+// Perfect blend: https://meyerweb.com/eric/tools/color-blend/#F0F0F0:444444:3:rgbd
+$blend-gray-1: rgba(240,240,240,1);
+$blend-gray-2: rgba(197,197,197,1);
+$blend-gray-3: rgba(154,154,154,1);
+$blend-gray-4: rgba(111,111,111,1);
+$blend-gray-5: rgba(68,68,68,1);
+
+// http://www.colourlovers.com/palette/484814/33-Grayscale_008#
+$light-gray-1: rgba(248,248,248,1); // #F8F8F8
+$light-gray-2: rgba(240,240,240,1); // #F0F0F0
+$light-gray-3: rgba(232,232,232,1); // #E8E8E8
+$light-gray-4: rgba(224,224,224,1); // #E0E0E0
+$light-gray-5: rgba(65,64,66,1); // #414042
+
+// From Marketing: https://company-107779.frontify.com/d/DVXoiJr2B1kF/anaconda-style-guide#/basics/color-palette
+// Green Shades
+$ae-green-shade-1: rgba(33,156,36,1);
+$ae-green-shade-2: rgba(7,142,7,1);
+$ae-green-shade-3: rgba(4,119,4,1);
+$ae-green-shade-4: rgba(2,92,2,1);
+$ae-green-shade-5: rgba(0,60,0,1);
+// Green Tints
+$ae-green-tint-1: rgba(182,216,171,1);
+$ae-green-tint-2: rgba(148,200,137,1);
+$ae-green-tint-3: rgba(113,187,102,1);
+$ae-green-tint-4: rgba(67,176,42,1);
+// Black Tints
+$ae-black-tint-1: rgba(238,238,238,1);
+$ae-black-tint-2: rgba(204,204,204,1);
+$ae-black-tint-3: rgba(167,169,172,1);
+$ae-black-tint-4: rgba(109,110,113,1);
+$ae-black-tint-5: rgba(88,89,91,1);
+// Extras
+$ae-black: rgba(65,64,66,1);
+$ae-purple: rgba(5,37,159,1);
+$ae-pink: rgba(216,47,173,1);
+$ae-blue: rgba(1,98,152,1); // What about the style guide that says #006298??
+$ae-martinique: rgba(75,64,113,1);
+// From style guide
+$ae-blue-dark: #213D5A;
+$ae-red: #BA0C2F;
+$ae-yellow: #f4d742;
+$ae-red-light: #f0a9b8;
+$ae-red-dark: #960824;
+
+// Assign to values
+$ae-gray-1: $light-gray-1;
+$ae-gray-2: $light-gray-2;
+$ae-gray-3: $light-gray-3;
+$ae-gray-4: $light-gray-4;
+$ae-gray-5: $light-gray-5;
+$ae-green: $ae-green-tint-4;
+$primary: $ae-green;
+$secondary: $ae-blue;
+$danger: $ae-red;
+$warning: $ae-yellow;
+$success: $ae-green-tint-4;
+$white: #fff;
+$black: $ae-black;
+$dark: $ae-black;
+$light: $ae-gray-1;
+
+// Fonts
+$fa-font-path : '../../../node_modules/font-awesome/fonts';
+// BS 4 does a pretty cool native font stack (not sure if sans-serif triggers this): https://getbootstrap.com/docs/4.0/content/reboot/#native-font-stack
+$font-family-base: 'Nunito Sans', sans-serif;
+$font-weight-light: 200;
+$font-weight-normal: 400;
+$font-weight-bold: 700;
+$font-weight-base: $font-weight-light; // used to be $font-weight-normal
+$text-muted: $ae-black-tint-2;
+
+// Misc
+$border-radius: 3px;
+
+// Links
+$link-color: $ae-black;
+
+// Buttons and Forms
+$input-padding-y: .5rem;
+$input-padding-x: .625rem;
+// The input's font weight is set in bootstrap-overrides.scss (see .form-control)
+// The input-height and input-height-inner is taken from Bootstrap 4.3.1, until we can fully upgrade to it,
+// b/c 4.2.1 exhibits the bug AENT-4938
+$input-height: calc(1.5 * 1em + #{$input-padding-y * 2} + 2px);
+$input-height-inner: 2.5rem;
+
+// Navs
+$nav-link-padding-y: .5rem;
+$nav-link-padding-x: .625rem;
+
+$navbar-dark-color: rgba($white, .9);
+$navbar-dark-hover-color: rgba($white, 1);
+$navbar-dark-active-color: $white;
+$navbar-dark-disabled-color: rgba($white, .25);
+$navbar-dark-toggler-border-color: tranparent;
+
+$navbar-light-color: rgba($black, 1);
+$navbar-light-hover-color: rgba($black, .5);
+$navbar-light-active-color: rgba($black, 1);
+$navbar-light-disabled-color: rgba($black, .3);
+$navbar-light-toggler-border-color: transparent;
+
+$navbar-toggler-border-radius: 1rem;
+
+
+
+$ae-nav-collapsed-size: 3.75rem;
+$ae-nav-full-size: 13rem;
+$ae-page-header-size: 3.75rem;
+
+// Old sizes...
+$ae-nav-primary-height: 3.75rem;
+$ae-nav-primary-height-public: 2.35rem;
+$ae-nav-primary-height-expanded: 30rem;
+$ae-nav-secondary-height: 3.75rem;
+$ae-nav-right-width: 20rem;
+
+$ae-nav-link-text-padding: 1.1rem;
+$ae-nav-link-icon-padding: $nav-link-padding-x;
+
+// Cards
+$card-cap-bg: $ae-gray-1;
+
+// Modals
+$modal-inner-padding: 1.25rem;
+$modal-content-bg: $ae-gray-1;
+$modal-content-border-color: $ae-gray-3;
+
+// Tables
+$table-head-color: $ae-gray-5;
+
+// Breadcrumbs
+$breadcrumb-padding-y: .5rem;
+
+// Grid breakpoints
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1600px // xl: 1200px was the default
+);
+
+// Grid containers
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1540px // xl: 1140px was the default
+);
+
+// Loading spinner
+$ae-spinner-height: 5rem;

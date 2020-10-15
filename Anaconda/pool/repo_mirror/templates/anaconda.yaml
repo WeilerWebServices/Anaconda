@@ -1,0 +1,6 @@
+mirror_dir: {{ mirror_dir }}/main
+{% extends "base.yaml" %}
+{% block channels %}
+  - https://repo.anaconda.com/pkgs/main/
+  - https://repo.anaconda.com/pkgs/pro/
+{% endblock %}

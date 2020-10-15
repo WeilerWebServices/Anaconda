@@ -1,0 +1,38 @@
+package:
+  name: pycrypto
+  version: 2.6.1
+
+source:
+  fn: pycrypto-2.6.1.tar.gz
+  url: https://pypi.io/packages/source/p/pycrypto/pycrypto-2.6.1.tar.gz
+  md5: 55a61a054aa66812daf5161a0d5d7eda
+  patches:
+    - python3-windows.patch
+    - python3-stdint-windows.patch
+    - CVE-2013-7459.patch
+
+build:
+  number: 6
+  detect_binary_files_with_prefix: False
+
+requirements:
+  build:
+    - python
+  run:
+    - python
+
+test:
+  imports:
+    - Crypto
+
+about:
+  home: http://www.pycrypto.org/
+  license: Public-Domain
+  license_file: COPYRIGHT
+  summary: Cryptographic modules for Python
+  description: |
+    pycrpto, the Python Cryptography Toolkit, is a collection of cryptographic
+    modules implementing various algorithms and protocols.
+  doc_url: https://www.dlitz.net/software/pycrypto/api/current/
+  doc_source_url: https://github.com/dlitz/pycrypto/tree/master/Doc
+  dev_url: https://github.com/dlitz/pycrypto

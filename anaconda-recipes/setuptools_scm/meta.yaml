@@ -1,0 +1,33 @@
+package:
+  name: setuptools_scm
+  version: 1.15.0
+
+source:
+  fn: setuptools_scm-1.15.0.tar.gz
+  url: https://pypi.python.org/packages/80/b7/31b6ae5fcb188e37f7e31abe75f9be90490a5456a72860fa6e643f8a3cbc/setuptools_scm-1.15.0.tar.gz
+  md5: b6916c78ed6253d6602444fad4279c5b
+
+requirements:
+  build:
+    - python
+    - setuptools
+  run:
+    - python
+    - setuptools
+
+test:
+  imports:
+    - setuptools_scm
+
+about:
+  home: https://github.com/pypa/setuptools_scm
+  license: MIT
+  license_file: LICENSE
+  summary: Manage your versions by scm tags
+  description: |
+    setuptools_scm handles managing your python package versions in scm
+    metadata instead of declaring them as the version argument or in a scm
+    managed file.
+  doc_url: https://pypi.python.org/pypi/setuptools_scm/1.0.0
+  doc_source_url: https://github.com/pypa/setuptools_scm
+  dev_url: https://github.com/pypa/setuptools_scm

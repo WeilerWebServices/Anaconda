@@ -1,0 +1,39 @@
+package:
+  name: atom
+  version: 0.3.10
+
+source:
+  git_url: https://github.com/nucleic/atom.git
+  git_tag: 0.3.10
+  patches:
+    - setup.patch
+
+build:
+  detect_binary_files_with_prefix: False
+
+requirements:
+  build:
+    - python
+    - setuptools
+  run:
+    - python
+    - setuptools
+
+test:
+  imports:
+    - atom
+    - atom.catom
+    - atom.datastructures.sortedmap
+
+about:
+  home: https://github.com/nucleic/atom
+  license: BSD
+  license_file: COPYING.txt
+  summary:  Framework for creating memory efficient Python objects
+  description: |
+    Atom is a framework for creating memory efficient Python objects
+    with enhanced features such as dynamic initialization, validation, and
+    change notification for object attributes.
+  doc_url: http://flight-manual.atom.io/
+  doc_source_url: https://github.com/atom/flight-manual.atom.io/blob/master/README.md
+  dev_url: https://github.com/nucleic/atom

@@ -1,0 +1,82 @@
+{% set version = "2.30.0" %}
+
+package:
+  name: distributed
+  version: {{ version }}
+
+source:
+  url: https://pypi.io/packages/source/d/distributed/distributed-{{ version }}.tar.gz
+  sha256: 3eb8e4173625cea6ebda2f0a079b813eeabbffd1b24584855cf063ed1cca60b3
+
+build:
+  number: 0
+  entry_points:
+    - dask-scheduler=distributed.cli.dask_scheduler:go
+    - dask-ssh=distributed.cli.dask_ssh:go
+    - dask-worker=distributed.cli.dask_worker:go
+  script: {{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv
+  skip: true  # [py<36]
+
+requirements:
+  host:
+    - python
+    - pip
+
+  run:
+    - python
+    - click >=6.6
+    - cloudpickle >=1.5.0
+    - contextvars  # [py==36]
+    - cytoolz >=0.8.2
+    - dask-core >=2.9.0
+    - msgpack-python >=0.6.0
+    - psutil >=5.0
+    - pyyaml
+    - sortedcontainers !=2.0.0,!=2.0.1
+    - tblib >=1.6.0
+    - toolz >=0.8.2
+    - tornado >=5  # [py<38]
+    - tornado >=6.0.3  # [py>=38]
+    - zict >=0.1.3
+    - setuptools
+
+  run_constrained:
+    - openssl !=1.1.1e
+
+test:
+  imports:
+    - distributed
+    - distributed.cli
+    - distributed.comm
+    - distributed.deploy
+    - distributed.diagnostics
+    - distributed.protocol
+  commands:
+    - dask-scheduler --help
+    - dask-ssh --help
+    - dask-worker --help
+
+about:
+  home: http://distributed.readthedocs.io/en/latest/
+  license: BSD-3-Clause
+  license_file: LICENSE.txt
+  license_family: BSD
+  summary: Distributed computing with Dask
+  description: |
+    Distributed is a lightweight library for distributed computing in Python.
+    It extends both the concurrent.futures and dask APIs to moderate sized
+    clusters.
+  doc_url: https://distributed.dask.org
+  doc_source_url: https://github.com/dask/distributed/blob/master/docs/source/index.rst
+  dev_url: https://github.com/dask/distributed
+
+extra:
+  recipe-maintainers:
+    - mrocklin
+    - jcrist
+    - martindurant
+    - jakirkham
+    - marcelotrevisani
+    - ogrisel
+    - tomaugspurger
+    - jrbourbeau

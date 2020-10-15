@@ -1,0 +1,27 @@
+package:
+  name: xz
+  version: 5.2.3
+
+source:
+  fn: xz-5.2.3.tar.gz
+  url: http://tukaani.org/xz/xz-5.2.3.tar.gz
+  sha256: 71928b357d0a09a12a4b4c5fafca8c31c19b0e7d3b8ebb19622e96f26dbf28cb
+
+test:
+  commands:
+    - xz --help
+    - unxz --help
+
+about:
+  home: http://tukaani.org/xz/
+  license: Public-Domain, GPL
+  license_family: GPL2
+  license_file: all-licenses.txt
+  summary: Data compression software with high compression ratio
+  description: |
+    XZ Utils is free general-purpose data compression software with a high
+    compression ratio. XZ Utils were written for POSIX-like systems, but also
+    work on some not-so-POSIX systems.
+  doc_url: http://tukaani.org/xz/
+  doc_source_url: https://github.com/xz-mirror/xz/blob/master/README
+  dev_url: http://git.tukaani.org/

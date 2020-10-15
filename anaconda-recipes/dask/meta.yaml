@@ -1,0 +1,39 @@
+package:
+  name: dask
+  version: 0.15.2
+
+source:
+  fn: dask-0.15.2.tar.gz
+  url: https://pypi.python.org/packages/b3/eb/39a0d4c4fc0e34cad9d82c5b6a6dcf150f6d6b93b3c1201045eb4fbb8090/dask-0.15.2.tar.gz
+  md5: 2a5df0e7ab9942515f948f648982b7db
+
+requirements:
+  build:
+    - python
+    - setuptools
+  run:
+    - python
+    - bokeh
+    - cloudpickle >=0.2.1
+    - numpy
+    - pandas >=0.19.0
+    - partd >=0.3.8
+    - toolz >=0.7.3
+
+test:
+  imports:
+    - dask
+    - dask.core
+    - dask.array
+    - dask.bag
+
+about:
+  home: http://dask.pydata.org/en/latest/
+  license: BSD
+  license_file: LICENSE.txt
+  summary: Task scheduling and blocked algorithms for parallel processing
+  description: |
+    Dask is a flexible parallel computing library for analytic computing.
+  doc_url: http://dask.pydata.org
+  doc_source_url: https://github.com/dask/dask/blob/master/docs/source/index.rst
+  dev_url: https://github.com/dask/dask

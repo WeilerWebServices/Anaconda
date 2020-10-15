@@ -1,0 +1,12 @@
+name: Prefect
+description: A simple Prefect test
+commands:
+  default:
+    unix: bash prefect_run.sh
+env_specs:
+  default:
+    channels:
+    - defaults
+    - conda-forge
+    packages:
+    - prefect

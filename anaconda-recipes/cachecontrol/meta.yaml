@@ -1,0 +1,41 @@
+package:
+  name: cachecontrol
+  version: 0.12.3
+
+source:
+  fn: CacheControl-0.12.3.tar.gz
+  url: https://pypi.python.org/packages/a3/b3/6bb6c1535a283f01fe0c4e9644784756fee2ec080e2a6097f1c59325609e/CacheControl-0.12.3.tar.gz
+  md5: 45bf98a2e3435438dcee89e519b34195
+
+build:
+  entry_points:
+    - doesitcache = cachecontrol._cmd:main
+
+requirements:
+  build:
+    - python
+    - setuptools
+    - requests
+  run:
+    - python
+    - requests
+    - msgpack-python
+
+test:
+  commands:
+    - doesitcache -h
+  imports:
+    - cachecontrol
+
+about:
+  home: https://github.com/ionrock/cachecontrol
+  license: Apache Software License
+  license_family: Apache
+  license_file: LICENSE.txt
+  summary: httplib2 caching algorithms for use with requests
+  description: |
+    CacheControl is a port of the caching algortihms in httplib2
+    for use with requests session object.
+  doc_url: http://cachecontrol.readthedocs.org
+  doc_source_url: https://github.com/ionrock/cachecontrol/blob/master/docs/index.rst
+  dev_url: https://github.com/ionrock/cachecontrol

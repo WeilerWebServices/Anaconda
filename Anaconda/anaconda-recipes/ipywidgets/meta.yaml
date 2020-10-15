@@ -1,0 +1,38 @@
+package:
+  name: ipywidgets
+  version: 6.0.0
+
+source:
+  fn: ipywidgets-6.0.0.tar.gz
+  url: https://pypi.python.org/packages/99/26/daf5c44c8b2a4cbe80b4cafced8cc2c3c2a4b8f035e4ef53b037f47e8897/ipywidgets-6.0.0.tar.gz
+  md5: 245c978e0ca64b9e686b716c71efb675
+
+build:
+  number: 0
+
+requirements:
+  build:
+    - python
+    - notebook
+    - widgetsnbextension
+  run:
+    - python
+    - ipython >=4.0.0
+    - ipykernel >=4.5.1
+    - traitlets >=4.3.1
+    - widgetsnbextension >=2.0.0
+
+test:
+  imports:
+    - ipywidgets
+
+about:
+  home: https://github.com/ipython/ipywidgets
+  license: BSD 3-clause
+  license_family: BSD
+  license_file: COPYING.md
+  summary: Widgets for the Jupyter Notebook
+  description: |
+    ipywidgets are interactive HTML widgets for Jupyter notebooks and the IPython kernel.
+  doc_url: https://ipywidgets.readthedocs.io/en/latest/
+  doc_source_url: https://github.com/jupyter-widgets/ipywidgets/blob/master/docs/source/index.rst

@@ -1,0 +1,37 @@
+package:
+  name: smart_open
+  version: 1.5.3
+
+source:
+  fn: smart_open-1.5.3.tar.gz
+  url: https://pypi.python.org/packages/26/2b/d04b2ca735d731b13af9fdf4203c4c335e67fb39367ae2ecfd916e04776d/smart_open-1.5.3.tar.gz
+  md5: bab309ed64bed9e5e9dcd4f6940dd26e
+
+requirements:
+  build:
+    - python
+    - setuptools
+    - boto >=2.32
+    - bz2file
+    - requests
+  run:
+    - python
+    - boto >=2.32
+    - bz2file
+    - requests
+
+test:
+  imports:
+    - smart_open
+
+about:
+  home: https://github.com/piskvorky/smart_open
+  license: MIT
+  license_file: LICENSE
+  summary: library for streaming large files
+  description: |
+    smart_open is a Python library for efficient streaming of
+    very large files from/to S3, HDFS, WebHDFS or local (compressed) files.
+  doc_url: https://pypi.python.org/pypi/smart_open
+  doc_source_url: https://github.com/RaRe-Technologies/smart_open/blob/master/README.rst
+  dev_url: https://github.com/piskvorky/smart_open

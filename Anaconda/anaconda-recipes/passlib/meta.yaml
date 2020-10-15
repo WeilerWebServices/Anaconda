@@ -1,0 +1,31 @@
+package:
+  name: passlib
+  version: 1.7.1
+
+source:
+  fn: passlib-1.7.1.tar.gz
+  url: https://pypi.python.org/packages/25/4b/6fbfc66aabb3017cd8c3bd97b37f769d7503ead2899bf76e570eb91270de/passlib-1.7.1.tar.gz
+  md5: 254869dae3fd9f09f0746a3cb29a0b15
+
+requirements:
+  build:
+    - python
+    - setuptools
+  run:
+    - python
+
+test:
+  imports:
+    - passlib
+
+about:
+  home: https://bitbucket.org/ecollins/passlib/wiki/Home
+  license: BSD
+  license_file: LICENSE
+  summary: Password hashing library for Python
+  description: |
+    Passlib provides cross-platform implementations of over 30 password hashing algorithms, as
+    well as a framework for managing existing password hashes.
+  doc_url: https://passlib.readthedocs.io/en/stable/
+  doc_source_url: https://bitbucket.org/ecollins/passlib/src/849ab1e6b5d4ace4c727a63d4adec928d6d72c13/docs/index.rst
+  dev_url: https://bitbucket.org/ecollins/passlib/wiki/Home

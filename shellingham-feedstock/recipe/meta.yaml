@@ -1,0 +1,36 @@
+{% set version = "1.3.1" %}
+
+package:
+  name: shellingham
+  version: {{ version }}
+
+source:
+  url: https://pypi.io/packages/source/s/shellingham/shellingham-{{ version }}.tar.gz
+  sha256: 985b23bbd1feae47ca6a6365eacd314d93d95a8a16f8f346945074c28fe6f3e0
+
+build:
+  number: 0
+  noarch: python
+  script: "{{ PYTHON }} -m pip install . --no-deps -vv"
+
+requirements:
+  host:
+    - python
+    - pip
+  run:
+    - python
+
+test:
+  imports:
+    - shellingham
+    - shellingham.posix
+
+about:
+  home: https://pypi.org/project/shellingham
+  license: ISC (ISCL)
+  license_file: LICENSE
+  summary: Tool to Detect Surrounding Shell
+
+extra:
+  recipe-maintainers:
+    - ocefpaf

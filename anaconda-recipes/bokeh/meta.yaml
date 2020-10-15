@@ -1,0 +1,66 @@
+package:
+  name: bokeh
+  version: 0.12.7
+
+source:
+  fn: bokeh-0.12.7.tar.gz
+  url: https://pypi.python.org/packages/a8/07/180695d26a55c4c4f4ed1deb0b46bb47297032b37ae007b690fd56dffbfc/bokeh-0.12.7.tar.gz
+  md5: dbc77b423ef5329b5f93bc597a531f9d
+
+build:
+  entry_points:
+    - bokeh = bokeh.__main__:main
+
+requirements:
+  build:
+    - python
+    - setuptools
+    - six
+    - requests
+    - pyyaml
+    - python-dateutil >=2.1
+    - jinja2 >=2.7
+    - numpy
+    - tornado >=4.3
+    - bkcharts >=0.2
+    - futures >=3.0.3        [py27]
+  run:
+    - python
+    - six >=1.5.2
+    - requests >=1.2.3
+    - pyyaml >=3.10
+    - python-dateutil >=2.1
+    - jinja2 >=2.7
+    - numpy
+    - tornado >=4.3
+    - bkcharts >=0.2
+    - futures >=3.0.3        [py27]
+
+test:
+  commands:
+    - bokeh -h
+  imports:
+    - bokeh
+    - bokeh.application
+    - bokeh.models
+    - bokeh.models.widgets
+    - bokeh.sampledata
+    - bokeh.server
+    - bokeh.sphinxext
+    - bokeh.util
+
+about:
+  home: http://bokeh.pydata.org/
+  license: BSD
+  license_file: LICENSE.txt
+  summary: Python interactive visualization library for modern web browsers
+  description: |
+    Bokeh is a Python interactive visualization library that targets
+    modern web browsers for presentation. Its goal is to provide elegant,
+    concise  construction of novel graphics in the style of D3.js, and to
+    extend this capability with high-performance interactivity over very
+    large or streaming datasets. Bokeh can help anyone who would like to
+    quickly and easily create interactive plots, dashboards, and data
+    applications.
+  doc_url: http://bokeh.pydata.org/en/latest/docs/user_guide.html
+  dev_url: http://github.com/bokeh/bokeh

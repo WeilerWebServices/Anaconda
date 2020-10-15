@@ -1,0 +1,40 @@
+package:
+  name: ecos
+  version: 2.0.4
+
+source:
+  fn: ecos-2.0.4.tar.gz
+  url: https://pypi.python.org/packages/source/e/ecos/ecos-2.0.4.tar.gz
+  md5: 39cc4c4a5598cc51ca4dc9aec810f41a
+  patches:
+    - win.patch       [win]
+
+build:
+  detect_binary_files_with_prefix: False
+
+requirements:
+  build:
+    - python
+    - setuptools
+    - numpy
+    - scipy
+  run:
+    - python
+    - numpy
+    - scipy
+
+test:
+  imports:
+    - ecos
+    - _ecos
+
+about:
+  home: https://www.embotech.com/ECOS
+  license: GPL3
+  summary: Embedded Conic Solver (ECOS)
+  description: |
+    ecos is a numerical software package for computing solutions
+    to (or certifying infeasibility of) of conic optimization problems.
+  doc_url: https://www.embotech.com/ECOS
+  doc_source_url: https://github.com/embotech/ecos/blob/develop/README.md
+  dev_url: https://github.com/embotech/ecos

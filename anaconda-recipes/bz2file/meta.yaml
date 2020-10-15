@@ -1,0 +1,30 @@
+package:
+  name: bz2file
+  version: 0.98
+
+source:
+  fn: bz2file-0.98.tar.gz
+  url: https://pypi.python.org/packages/source/b/bz2file/bz2file-0.98.tar.gz
+  md5: 27d6f711ae0db6cfd1eb37f95621dfb5
+
+requirements:
+  build:
+    - python
+  run:
+    - python
+
+test:
+  imports:
+    - bz2file
+
+about:
+  home: https://github.com/nvawda/bz2file
+  license: Apache License, Version 2.0
+  license_family: Apache
+  summary: library for reading and writing bzip2-compressed files
+  description: |
+    bz2file provides a comprehensive interface for compressing and
+    decompressing data using the bzip2 compression algorithm.
+  doc_url: https://docs.python.org/dev/library/bz2.html
+  doc_source_url: https://github.com/python/cpython/blob/master/Doc/library/bz2.rst
+  dev_url: https://github.com/nvawda/bz2file

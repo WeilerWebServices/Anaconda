@@ -1,0 +1,30 @@
+package:
+  name: jmespath
+  version: 0.9.0
+
+source:
+  git_url: https://github.com/jmespath/jmespath.py.git
+  git_tag: 0.9.0
+
+requirements:
+  build:
+    - python
+    - setuptools
+  run:
+    - python
+
+test:
+  imports:
+    - jmespath
+
+about:
+  home: http://jmespath.org/
+  license: MIT
+  license_file: LICENSE.txt
+  summary: Query language for JSON
+  description: |
+    JMESPath allows you to declaratively specify how to extract elements from
+    a JSON document.
+  doc_url: http://jmespath.org/tutorial.html
+  doc_source_url: https://github.com/jmespath/jmespath.py/tree/develop/docs
+  dev_url: https://github.com/jmespath/jmespath.py

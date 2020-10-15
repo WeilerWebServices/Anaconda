@@ -1,0 +1,40 @@
+package:
+  name: holoviews
+  version: 1.8.3
+
+source:
+  git_url: https://github.com/ioam/holoviews.git
+  git_tag: v1.8.3
+
+build:
+  entry_points:
+    - holoviews = holoviews.util.command:main
+
+requirements:
+  build:
+    - python
+    - numpy
+    - param
+  run:
+    - python
+    - numpy
+    - param >=1.5,<2.0
+
+test:
+  commands:
+    - holoviews -h
+  imports:
+    - holoviews
+
+about:
+  home: http://holoviews.org/
+  license: BSD
+  license_file: LICENSE.txt
+  summary: stop plotting your data - annotate your data and let it visualize itself
+  description: |
+    HoloViews is a Python library that makes analyzing and visualizing
+    scientific or engineering data much simpler, more intuitive, and more
+    easily reproducible.
+  doc_url: http://holoviews.org/Reference_Manual/index.html
+  doc_source_url: https://github.com/ioam/holoviews/blob/master/doc/Reference_Manual/index.rst
+  dev_url: https://github.com/ioam/holoviews

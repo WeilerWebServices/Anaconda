@@ -1,0 +1,32 @@
+package:
+  name: pexpect
+  version: 4.2.1
+
+source:
+  fn: pexpect-4.2.1.tar.gz
+  url: https://pypi.python.org/packages/e8/13/d0b0599099d6cd23663043a2a0bb7c61e58c6ba359b2656e6fb000ef5b98/pexpect-4.2.1.tar.gz
+  md5: 3694410001a99dff83f0b500a1ca1c95
+
+requirements:
+  build:
+    - python
+  run:
+    - python
+    - ptyprocess >=0.5
+
+test:
+  imports:
+    - pexpect
+
+about:
+  home: http://pexpect.readthedocs.org/
+  license: ISC
+  license_family: Other
+  license_file: LICENSE
+  summary: Pexpect allows easy control of interactive console applications
+  description: |
+    Pexpect is a pure Python module for spawning child applications;
+    controlling them; and responding to expected patterns in their output.
+  doc_url: http://pexpect.readthedocs.org/
+  doc_source_url: https://github.com/pexpect/pexpect/blob/master/doc/index.rst
+  dev_url: https://github.com/pexpect/pexpect

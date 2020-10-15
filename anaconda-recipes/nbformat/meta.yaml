@@ -1,0 +1,35 @@
+package:
+  name: nbformat
+  version: 4.4.0
+
+source:
+  fn: nbformat-4.4.0.tar.gz
+  url: https://pypi.python.org/packages/6e/0e/160754f7ae3e984863f585a3743b0ed1702043a81245907c8fae2d537155/nbformat-4.4.0.tar.gz
+  md5: 2d5f873138d9fbc2a3f9eaaebca3b8a1
+
+requirements:
+  build:
+    - python
+  run:
+    - python
+    - ipython_genutils
+    - traitlets >=4.1
+    - jsonschema >=2.4,!=2.5.0
+    - jupyter_core
+
+test:
+  commands:
+    - jupyter-trust -h        [not win]
+  imports:
+    - nbformat
+
+about:
+  home: http://jupyter.org
+  license: BSD
+  license_file: COPYING.md
+  summary: reference implementation of the Jupyter Notebook format
+  description: |
+    nbformat contains the reference implementation of the Jupyter Notebook
+    format, and Python APIs for working with notebooks.
+  doc_url: http://nbformat.readthedocs.org
+  dev_url: https://github.com/jupyter/nbformat

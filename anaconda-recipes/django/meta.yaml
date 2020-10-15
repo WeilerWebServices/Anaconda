@@ -1,0 +1,41 @@
+package:
+  name: django
+  version: 1.11.3
+
+source:
+  fn: Django-1.11.3.tar.gz
+  url: https://pypi.python.org/packages/45/23/a5dbb0cfee731549032034d2666cabba47a447f811f706cff82fd1947efc/Django-1.11.3.tar.gz
+  md5: fe23bb9ae450698451ac82cb636bb882
+
+build:
+  entry_points:
+    - django-admin = django.core.management:execute_from_command_line
+    - django-admin.py = django.core.management:execute_from_command_line
+
+requirements:
+  build:
+    - python
+    - setuptools
+    - pytz
+  run:
+    - python
+    - pytz
+
+test:
+  commands:
+    - django-admin --version
+  imports:
+    - django
+    - django.http
+
+about:
+  home: http://www.djangoproject.com/
+  license: BSD
+  license_file: LICENSE
+  summary: Web framework that encourages rapid development
+  description: |
+    django takes care of much of the hassle of Web development, so you can focus on
+    writing your app without needing to reinvent the wheel.
+  doc_url: https://docs.djangoproject.com/en/1.10/contents/
+  doc_source_url: https://github.com/django/django/blob/master/docs/contents.txt
+  dev_url: https://github.com/django

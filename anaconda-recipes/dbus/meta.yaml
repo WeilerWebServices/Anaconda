@@ -1,0 +1,30 @@
+package:
+  name: dbus
+  version: 1.10.20
+
+source:
+  url: http://dbus.freedesktop.org/releases/dbus/dbus-1.10.20.tar.gz
+  md5: 94c991e763d4f9f13690416b2dcd9411
+
+build:
+  number: 0
+  detect_binary_files_with_prefix: true
+
+requirements:
+  build:
+    - expat
+    - python
+  run:
+    - expat
+
+test:
+  commands:
+    - dbus-daemon --version
+    - dbus-uuidgen
+
+about:
+  summary: message bus system, a simple way for applications to talk to one another
+  license: GPL2
+  home: http://www.freedesktop.org/wiki/Software/dbus/
+  doc_url: https://www.freedesktop.org/wiki/IntroductionToDBus/
+  doc_source_url: https://github.com/posborne/dbus-python/tree/master/doc

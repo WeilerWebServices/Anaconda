@@ -1,0 +1,36 @@
+package:
+  name: jupyter_console
+  version: 5.2.0
+
+source:
+  fn: jupyter_console-5.2.0.tar.gz
+  url: https://pypi.python.org/packages/cd/bb/fa8901715c009a00ea4c42897da8585189d4781c64f4617a8bd65ca01a3a/jupyter_console-5.2.0.tar.gz
+  md5: 175953df3c76ffa6d4d5cb23198ab324
+
+requirements:
+  build:
+    - python
+  run:
+    - python
+    - jupyter_client
+    - ipython
+    - ipykernel
+    - prompt_toolkit >=1.0,<2.0
+    - pygments
+
+test:
+  commands:
+    - jupyter-console -h
+  imports:
+    - jupyter_console
+
+about:
+  home: http://jupyter.org
+  license: BSD
+  license_file: COPYING.md
+  summary: Jupyter terminal console
+  description: |
+    Jupyter console is a terminal frontend for kernels using the Jupyter protocol.
+  doc_url: http://jupyter-console.readthedocs.org/
+  doc_source_url: https://github.com/jupyter/jupyter_console/blob/master/docs/index.rst
+  dev_url: https://github.com/jupyter/jupyter_console

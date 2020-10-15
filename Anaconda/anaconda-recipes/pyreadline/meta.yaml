@@ -1,0 +1,29 @@
+package:
+  name: pyreadline
+  version: "2.1"
+
+source:
+  fn: pyreadline-2.1.zip
+  url: https://pypi.python.org/packages/source/p/pyreadline/pyreadline-2.1.zip
+  md5: c389f357ff598f3f82749372d58f2f95
+
+requirements:
+  build:
+    - python
+    - sphinx
+  run:
+    - python
+
+test:
+  imports:
+    - pyreadline
+
+about:
+  home: http://ipython.org/pyreadline.html
+  license: BSD
+  summary: python implementation of GNU readline
+  description: |
+    Pyreadline is a package inspired by GNU readline which aims to improve the command line editing experience.
+  doc_url: https://pythonhosted.org/pyreadline/
+  doc_source_url: https://github.com/pyreadline/pyreadline/blob/master/doc/source/index.rst
+  dev_url: https://github.com/pyreadline/pyreadline

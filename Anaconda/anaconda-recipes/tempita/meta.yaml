@@ -1,0 +1,31 @@
+package:
+  name: tempita
+  version: 0.5.3
+
+source:
+  fn: Tempita-0.5.3dev.tar.gz
+  url: https://pypi.python.org/packages/source/T/Tempita/Tempita-0.5.3dev.tar.gz
+  md5: 365c3b4f36435e2178902d5619301140
+
+requirements:
+  build:
+    - python
+    - setuptools
+  run:
+    - python
+
+test:
+  imports:
+    - tempita
+
+about:
+  home: http://pythonpaste.org/tempita/
+  license: MIT
+  summary: A very small text templating language
+  description: |
+    This language implements if/elif/else, for/continue/break, expressions
+    and blocks of Python code.It is small, it embeds Python in strings, and it
+    does not do much else.
+  doc_url: https://pypi.python.org/pypi/Tempita
+  doc_source_url: https://bitbucket.org/ianb/tempita/src/97392d008cc8
+  dev_url: https://bitbucket.org/ianb/tempita

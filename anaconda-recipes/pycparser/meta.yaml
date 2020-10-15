@@ -1,0 +1,31 @@
+package:
+  name: pycparser
+  version: 2.18
+
+source:
+  fn: pycparser-2.18.tar.gz
+  url: https://pypi.python.org/packages/8c/2d/aad7f16146f4197a11f8e91fb81df177adcc2073d36a17b1491fd09df6ed/pycparser-2.18.tar.gz
+  md5: 72370da54358202a60130e223d488136
+
+requirements:
+  build:
+    - python
+  run:
+    - python
+
+test:
+  imports:
+    - pycparser
+
+about:
+  home: https://github.com/eliben/pycparser
+  license: BSD
+  license_family: BSD
+  license_file: LICENSE
+  summary: C parser in Python
+  description: |
+    pycparser is written in pure Python using the PLY parsing library.
+    It parses C code into an AST and can serve as a front-end for C compilers
+    or analysis tools.
+  doc_url: https://pypi.python.org/pypi/pycparser
+  doc_source_url: https://github.com/eliben/pycparser

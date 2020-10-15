@@ -1,0 +1,155 @@
+body.nbp-sorting {
+  #notebook_panel {
+    margin-bottom: @sorter-height;
+  }
+
+  .nbp-sorter-drawer {
+    padding-top: 0;
+    transition: padding-top @tx-dur @tx-fn;
+  }
+}
+
+body.nbp-presenting{
+  .nbp-sorter-drawer {
+    opacity: 0.75;
+  }
+}
+
+body.nbp-presenting.nbp-sorting{
+  .nbp-present {
+    box-shadow: @z-shadow;
+    transition: box-shadow @tx-dur @tx-fn;
+  }
+}
+
+body.nbp-presenting:not(.nbp-sorting){
+  .nbp-present {
+    box-shadow: none;
+    transition: box-shadow @tx-dur @tx-fn;
+  }
+}
+
+.nbp-sorter-drawer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  right: @app-bar-width;
+  height: @sorter-height;
+
+  z-index: @z-sorter;
+  padding-top: @sorter-height;
+  transition: padding-top @tx-dur @tx-fn;
+
+  .nbp-sorter{
+    .nbp-ui();
+
+    position: absolute;
+    width: 100%;
+    height: @sorter-height;
+
+    color: @jpy-brand;
+    box-shadow: @z-shadow;
+    background-color: @ui-bg;
+    opacity: 0.9;
+
+    h2 {
+      font-size: 18px;
+      margin: 0;
+      padding: 10px;
+    }
+
+    .nbp-sorter-label {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+    }
+
+    .nbp-sorter-empty {
+      display: none;
+
+      a, .btn {
+        color: @jpy-brand;
+        background-color: transparent;
+      }
+
+      .btn {
+        border: solid 1px @jpy-brand;
+      }
+    }
+
+    &.empty .nbp-sorter-empty {
+      display: block;
+      position: absolute;
+      top: 0;
+      text-align: center;
+      padding: 10px;
+
+      .nbp-empty-intro {
+        width: @sorter-slide-width * 1.6;
+        padding: 0px 30px 0 0;
+      }
+
+      i {
+        vertical-align: middle;
+      }
+
+      .nbp-tomes {
+        position: absolute;
+        left: @sorter-slide-width * 1.6;
+        top: 0;
+        right: 0;
+        display: flex;
+
+        .nbp-tome {
+          flex: 1;
+          text-align: center;
+          padding: 5px;
+        }
+      }
+    }
+
+    .nbp-region-toolbar{
+      position: absolute;
+      display: none;
+      top: 0;
+      left: 50%;
+
+      opacity: 0;
+
+      text-align: center;
+    }
+
+    .nbp-slides-wrap {
+      overflow-x: auto;
+      overflow-y: hidden;
+      position: relative;
+      width: 100%;
+      padding-top: @btn-titled-height;
+      height: @sorter-height;
+
+      .empty {
+        position: absolute;
+      }
+
+      .slide.nbp-mini {
+        position: absolute;
+        .nbp-region {
+          background-size: cover;
+        }
+      }
+    }
+  }
+}
+
+.nbp-slide-theme-picker{
+  .nbp-ui();
+
+  background-color: @ui-bg;
+  position: fixed;
+  bottom: @sorter-height;
+  right: @app-bar-width;
+  z-index: @z-sorter;
+  top: 0;
+  overflow-y: auto;
+  padding-left: 5px;
+}

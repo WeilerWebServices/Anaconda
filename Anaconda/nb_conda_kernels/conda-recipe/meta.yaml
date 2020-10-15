@@ -1,0 +1,42 @@
+{% set data = load_setup_py_data() %}
+
+package:
+  name: nb_conda_kernels
+  version: {{ data.get('version') }}
+
+source:
+  path: ../
+
+build:
+  number: 0
+
+requirements:
+  host:
+    - python
+    - pip
+  run:
+    - python
+    - pywin32 # [win]
+    - jupyter_client >=4.2
+
+test:
+  source_files:
+    - setup.cfg
+    - tests
+  requires:
+    - backports.functools_lru_cache # [py2k]
+    - pytest
+    - pytest-cov
+    - ipykernel
+    - notebook
+    - requests
+    - mock
+  commands:
+    - python -m nb_conda_kernels list # [py3k]
+    - python -m pytest -v --cov=nb_conda_kernels tests
+
+about:
+  home: https://github.com/Anaconda-Platform/nb_conda_kernels
+  license: BSD 3-Clause
+  license_file: LICENSE
+  summary: 'Launch Jupyter kernels for any installed conda environment.'

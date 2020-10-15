@@ -1,0 +1,13 @@
+{% block platforms %}
+platforms:
+  - osx-64
+  - win-64
+  - linux-64
+  - noarch
+{% endblock %}
+fetch_installers: False
+verify_checksum: True
+log_dir: {{ log_dir }}
+log_level: {{ log_level }}
+max_retries: 5
+channels: {% block channels %}{% endblock %}

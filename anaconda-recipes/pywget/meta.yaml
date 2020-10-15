@@ -1,0 +1,31 @@
+# This is legacy recipe, which has not been tested using conda-build.
+# See: https://github.com/ContinuumIO/anaconda-recipes/blob/master/LEGACY.md
+
+package:
+  name: pywget
+  version: 2.2
+
+source:
+  fn: wget-2.2.tar.gz
+  url: https://pypi.python.org/packages/source/w/wget/wget-2.2.tar.gz
+  md5: 1ffdf1a214aa0d30edb0fc8b2a628738
+
+requirements:
+  build:
+    - python
+  run:
+    - python
+
+test:
+  imports:
+    - wget
+
+about:
+  home: http://bitbucket.org/techtonik/python-wget/
+  license: Public-Domain
+  summary: Pure Python download utility
+  description: |
+    Wget package contains a utility useful for non-interactive downloading of files from the Web.
+  doc_url: https://pypi.python.org/pypi/wget
+  doc_source_url: https://bitbucket.org/techtonik/python-wget/overview
+  dev_url: https://bitbucket.org/techtonik/python-wget/src

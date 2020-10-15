@@ -1,0 +1,19 @@
+before_install:
+  - wget http://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -O ~/miniconda.sh;
+  - bash ~/miniconda.sh -b -p $HOME/miniconda
+  - export PATH="$HOME/miniconda/bin:$PATH"
+  - hash -r
+  - conda config --set always_yes yes --set changeps1 no --set show_channel_urls yes
+  - conda config --add channels asmeurer
+  - conda update -q conda
+  - conda info -a
+  - conda install conda-build;
+  - conda create -q -n build-environment -c asmeurer conda-docs-deps python=3;
+  - source activate build-environment
+  - conda update --all
+
+script:
+  - make html
+
+notifications:
+  email: false

@@ -1,0 +1,35 @@
+package:
+  name: kealib
+  version: 1.4.6
+
+source:
+  fn: kealib-1.4.6.tar.gz
+  url: https://bitbucket.org/chchrsc/kealib/downloads/kealib-1.4.6.tar.gz
+  md5: 789174bd519736ac1e726613b6eb7672
+
+build:
+  features:
+    - vc9    [win and py27]
+    - vc10   [win and py34]
+    - vc14   [win and (py35 or py36)]
+
+requirements:
+  build:
+    - python              [win]
+    - cmake
+    - hdf5 1.8.17         [unix]
+    - hdf5 1.8.15.1       [win]
+  run:
+    - hdf5 1.8.17         [unix]
+    - hdf5 1.8.15.1       [win]
+
+about:
+  home: http://kealib.org
+  license: MIT
+  summary: An implementation of the GDAL data model
+  description: |
+    KEALib format supports raster attribute tables,image pyramids,meta-data and in-built
+    statistics while also handling very large files and compression throughout.
+  doc_url: http://kealib.org/
+  doc_source_url: https://bitbucket.org/chchrsc/kealib/overview
+  dev_url: https://bitbucket.org/chchrsc/kealib

@@ -1,0 +1,31 @@
+package:
+  name: futures
+  version: 3.1.1
+
+source:
+  fn: futures-3.1.1.tar.gz
+  url: https://pypi.python.org/packages/cc/26/b61e3a4eb50653e8a7339d84eeaa46d1e93b92951978873c220ae64d0733/futures-3.1.1.tar.gz
+  md5: 77f261ab86cc78efa2c5fe7be27c3ec8
+
+requirements:
+  build:
+    - python
+  run:
+    - python
+
+test:
+  imports:
+    - concurrent
+    - concurrent.futures
+
+about:
+  home: http://code.google.com/p/pythonfutures
+  license: PSF
+  license_file: LICENSE
+  summary: A Java-style futures package for Python
+  description: |
+    concurrent.futures module provides a high-level interface for
+    asynchronously executing callables.
+  doc_url: https://docs.python.org/dev/library/concurrent.futures.html
+  doc_source_url: https://github.com/python/cpython/blob/master/Doc/library/concurrent.futures.rst
+  dev_url: https://github.com/agronholm/pythonfutures

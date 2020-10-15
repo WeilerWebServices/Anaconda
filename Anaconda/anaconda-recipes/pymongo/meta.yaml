@@ -1,0 +1,38 @@
+package:
+  name: pymongo
+  version: 3.4.0
+
+source:
+  fn: pymongo-3.4.0.tar.gz
+  url: https://pypi.io/packages/source/p/pymongo/pymongo-3.4.0.tar.gz
+  md5: aa77f88e51e281c9f328cea701bb6f3e
+
+build:
+  detect_binary_files_with_prefix: False
+
+requirements:
+  build:
+    - python
+    - setuptools
+  run:
+    - python
+
+test:
+  imports:
+    - bson
+    - gridfs
+    - pymongo
+    - bson._cbson
+    - pymongo._cmessage
+
+about:
+  home: http://github.com/mongodb/mongo-python-driver
+  license: Apache
+  license_file: LICENSE
+  summary: Python driver for MongoDB
+  description: |
+    PyMongo is a Python distribution containing tools for working with MongoDB
+    and is the recommended way to work with MongoDB from Python.
+  doc_url: http://api.mongodb.org/python/
+  doc_source_url: https://github.com/mongodb/mongo-python-driver/blob/master/doc/index.rst
+  dev_url: https://github.com/mongodb/mongo-python-driver

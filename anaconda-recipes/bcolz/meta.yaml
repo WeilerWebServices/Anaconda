@@ -1,0 +1,43 @@
+package:
+  name: bcolz
+  version: 1.0.0
+
+source:
+  fn: bcolz-1.0.0.tar.gz
+  url: https://pypi.python.org/packages/source/b/bcolz/bcolz-1.0.0.tar.gz
+  md5: 5cb296938db4f26ee28729db2dd6547b
+  patches:
+    - test.patch
+
+build:
+  detect_binary_files_with_prefix: False
+
+requirements:
+  build:
+    - python
+    - setuptools
+    - setuptools_scm
+    - cython
+    - numpy
+  run:
+    - python
+    - numpy
+
+test:
+  requires:
+    - mock             [py >= 27]
+  imports:
+    - bcolz
+    - bcolz.carray_ext
+
+about:
+  home: http://bcolz.blosc.org/
+  license: BSD
+  summary: provides columnar, chunked and compressable data containers.
+  description: |
+    bcolz provides columnar and compressed data containers.
+    Column storage allows for efficiently querying tables with a large number of columns.
+    It also allows for cheap addition and removal of column.
+  doc_url: http://bcolz.blosc.org/en/latest/
+  doc_source_url: https://github.com/Blosc/bcolz/blob/master/docs/index.rst
+  dev_url: https://github.com/Blosc/bcolz

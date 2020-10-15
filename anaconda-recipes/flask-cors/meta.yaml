@@ -1,0 +1,39 @@
+package:
+  name: flask-cors
+  version: 3.0.3
+
+source:
+  fn: Flask-Cors-3.0.3.tar.gz
+  url: https://pypi.python.org/packages/64/e8/e6bcf79dcad7b7c10f8c8c35d78b5710f2ddcd8ed38e607dd6a4853ab8a8/Flask-Cors-3.0.3.tar.gz
+  md5: ddc12bdf8fa19a4ce1504ab9d0b0a8bc
+
+requirements:
+  build:
+    - python
+    - setuptools
+    - flask >=0.9
+    - six
+  run:
+    - python
+    - flask >=0.9
+    - six
+
+test:
+  requires:
+    - nose
+  imports:
+    - flask_cors
+
+about:
+  home: https://github.com/corydolphin/flask-cors
+  license: MIT
+  license_file: LICENSE
+  summary: Flask extension adding a decorator for CORS support
+  description: |
+    A Flask extension for handling Cross Origin Resource Sharing (CORS),
+    making cross-origin AJAX possible. This package exposes a Flask extension
+    which by default enables CORS support on all routes, for all origins and
+    methods.
+  doc_url: http://flask-cors.corydolphin.com/en/latest/api.html#extension
+  doc_source_url: https://github.com/corydolphin/flask-cors/blob/master/docs/index.rst
+  dev_url: https://github.com/corydolphin/flask-cors

@@ -1,0 +1,19 @@
+name: plot_notebook
+description: A simple notebook with a plot.
+
+commands:
+  default:
+    notebook: plot.ipynb
+
+channels: []
+packages: []
+
+env_specs:
+  anaconda44_py35:
+    channels: []
+    packages:
+      - ipykernel=4.6.1
+      - matplotlib=2.0.2
+      - notebook=5.0.0
+      - numpy=1.12.1
+      - python=3.5.3

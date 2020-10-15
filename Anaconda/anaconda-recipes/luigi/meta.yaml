@@ -1,0 +1,57 @@
+package:
+  name: luigi
+  version: 2.3.0
+
+source:
+  fn: luigi-2.3.0.tar.gz
+  url: https://pypi.python.org/packages/25/64/5383d94b5b44e9c1443c1a6b857210ace8205954359f8353a50c16deb664/luigi-2.3.0.tar.gz
+  md5: 3b7e0b4c8d684a168c97a4fb2d9340ca
+
+build:
+  entry_points:
+    - luigi = luigi.cmdline:luigi_run
+    - luigid = luigi.cmdline:luigid
+    - luigi-grep = luigi.tools.luigi_grep:main
+    - luigi-deps = luigi.tools.deps:main
+    - luigi-deps-tree = luigi.tools.deps_tree:main
+    - luigi-migrate = luigi.tools.migrate:main
+
+requirements:
+  build:
+    - python
+    - setuptools
+    - tornado >=4.0,<5
+    - python-daemon <3.0        [unix]
+    - docutils
+  run:
+    - python
+    - setuptools
+    - tornado >=4.0,<5
+    - python-daemon <3.0        [unix]
+
+test:
+  commands:
+    - luigi --help
+    - luigid -h
+    - luigi-grep -h
+    - luigi-deps --help
+    - luigi-deps-tree --help
+  imports:
+    - luigi
+    - luigi.contrib
+    - luigi.contrib.hdfs
+    - luigi.tools
+
+about:
+  home: https://github.com/spotify/luigi
+  license: Apache Software License
+  license_family: Apache
+  license_file: LICENSE
+  summary: Build complex pipelines of batch jobs
+  description: |
+    Luigi handles dependency resolution, workflow management, visualization,
+    handling failures, command line integration, and much more. It also comes
+    with Hadoop support built in.
+  doc_url: http://luigi.readthedocs.org/
+  doc_source_url: https://github.com/spotify/luigi/blob/b26ce627e65d36b455724fcb53872866055c431f/doc/index.rst
+  dev_url: https://github.com/spotify/luigi

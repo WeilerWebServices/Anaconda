@@ -1,0 +1,66 @@
+package:
+  name: spyder
+  version: 3.2.1
+
+source:
+  fn: spyder-3.2.1.tar.gz
+  url: https://pypi.io/packages/source/s/spyder/spyder-3.2.1.tar.gz
+  sha256: fb888ca28391153055c57d9a3e4edebe53b323bc8b785b1fa5696d405d107ce0
+
+build:
+  number: 0
+  entry_points:
+    - spyder = spyder.app.start:main
+  osx_is_app: True
+
+requirements:
+  build:
+    - python
+    - sphinx
+  run:
+    - python
+    - pyqt
+    - qtpy >=1.1
+    - qtawesome >=0.4.1
+    - rope
+    - pyflakes
+    - jedi >=0.9
+    - qtconsole >=4.2
+    - pickleshare
+    - nbconvert
+    - pygments >=2.0
+    - sphinx
+    - pycodestyle
+    - psutil
+    - pylint
+    - pyzmq
+    - chardet >=2.0.0
+    - numpydoc
+    - python.app     [osx]
+
+app:
+  entry: spyder
+  icon: logo.png
+  summary: Scientific Python Development Environment
+  type: desk
+
+test:
+  commands:
+    - spyder -h
+  imports:
+    - spyder
+
+about:
+  home: https://github.com/spyder-ide/spyder
+  license: MIT
+  license_file: LICENSE
+  summary: Scientific PYthon Development EnviRonment
+  description: |
+    Spyder is a powerful interactive development environment for the Python
+    language with advanced editing, interactive testing, debugging and
+    introspection features. Additionally, Spyder is a numerical computing
+    environment thanks to the support of IPython and popular Python libraries
+    such as NumPy, SciPy, or matplotlib.
+  doc_url: http://pythonhosted.org/spyder/
+  doc_source_url: https://github.com/spyder-ide/spyder/blob/master/doc/index.rst
+  dev_url: https://github.com/spyder-ide/spyder

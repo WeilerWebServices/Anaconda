@@ -1,0 +1,6 @@
+{
+    "name":"terminal", 
+    "title": "Terminal App",
+    "command_list": ["POST_INSTALL_ENV_PLACEHOLDER/bin/tty.js", "--url_prefix=%(urlPrefix)s", "--cwd=%(projectHome)s", "--port=%(port)s"]
+}
+

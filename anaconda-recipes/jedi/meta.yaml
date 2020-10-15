@@ -1,0 +1,40 @@
+package:
+  name: jedi
+  version: 0.10.2
+
+source:
+  fn: v0.10.2.tar.gz
+  url: https://github.com/davidhalter/jedi/archive/v0.10.2.tar.gz
+  md5: 878b95a8d03496253fbd96da8bc540c4
+
+build:
+  number: 2
+
+requirements:
+  build:
+    - python
+    - setuptools
+  run:
+    - python
+
+test:
+  imports:
+    - jedi
+    - jedi.api
+    - jedi.evaluate
+    - jedi.evaluate.compiled
+    - jedi.parser
+    - jedi.parser.pgen2
+    - jedi.parser.python
+
+about:
+  home: http://jedi.jedidjah.ch/
+  license: MIT
+  license_file: LICENSE.txt
+  summary: Autocompletion and static analysis library for Python
+  description: |
+    Jedi can be used in IDEs/editors.It understands Python on a deeper level
+    than all other static analysis frameworks for Python.
+  doc_url: http://jedi.readthedocs.io/en/latest/
+  doc_source_url: https://github.com/davidhalter/jedi/blob/master/docs/index.rst
+  dev_url: https://github.com/davidhalter/jedi

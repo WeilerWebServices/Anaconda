@@ -1,0 +1,34 @@
+package:
+  name: dnspython
+  version: 1.14.0
+
+source:
+  git_url: https://github.com/rthalley/dnspython.git
+  git_tag: v1.14.0
+
+requirements:
+  build:
+    - python
+    - setuptools
+  run:
+    - python
+
+test:
+  imports:
+    - dns
+    - dns.rdtypes
+
+about:
+  home: http://www.dnspython.org/
+  license: BSD-style
+  license_url: http://www.dnspython.org/LICENSE
+  license_family: BSD
+  license_file: LICENSE
+  summary: DNS toolkit for Python
+  description: |
+    dnspython can be used for queries,
+    zone transfers, and dynamic updates. It supports
+    TSIG authenticated messages and EDNS0.
+  doc_url: http://www.dnspython.org/docs/1.12.0/
+  doc_source_url: https://github.com/rthalley/dnspython/tree/master/doc
+  dev_url: https://github.com/rthalley/dnspython

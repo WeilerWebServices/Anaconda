@@ -1,0 +1,35 @@
+package:
+  name: anaconda-verify
+  version: 1.3.8
+
+source:
+  git_url: https://github.com/ContinuumIO/anaconda-verify.git
+  git_tag: 1.3.8
+
+build:
+  entry_points:
+    - anaconda-verify = anaconda_verify.main:main
+
+requirements:
+  build:
+    - python
+  run:
+    - python
+    - pyyaml
+
+test:
+  commands:
+    - anaconda-verify
+  imports:
+    - anaconda_verify
+
+about:
+  home: https://github.com/ContinuumIO/anaconda-verify
+  license: BSD
+  license_file: LICENSE.txt
+  summary: tool for (passively) verifying conda recipes and conda packages
+  description: |
+    anaconda-verify is a tool for verifying conda recipes and conda packages.
+    All Anaconda recipes, as well as the Anaconda packages, need to pass this tool before they are made publicly available.
+  doc_url: https://www.continuum.io/blog/developer-blog/verifying-conda-recipes-and-packages-anaconda-verify
+  doc_source_url: https://github.com/ContinuumIO/anaconda-verify/blob/master/README.md

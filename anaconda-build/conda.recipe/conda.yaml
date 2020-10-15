@@ -1,0 +1,20 @@
+
+package:
+  name: binstar-build
+  version: 0.0.0
+build:
+  number: 0
+  pin_depends: record
+
+requirements:
+  build:
+    - python
+    - setuptools
+  run:
+    - python
+    - anaconda-client
+    - pywin32 [win]
+
+about:
+  home: http://github.com/Binstar/binstar_client
+  license: MIT

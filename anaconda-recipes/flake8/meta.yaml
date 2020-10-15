@@ -1,0 +1,51 @@
+package:
+  name: flake8
+  version: 3.3.0
+
+source:
+  fn: flake8-3.3.0.tar.gz
+  url: https://pypi.python.org/packages/47/64/382631de5fd8dab367bedeff6b5b55fd9a7c883daa44f4032636e2d203ca/flake8-3.3.0.tar.gz
+  md5: 3df622aac9bad27c04f34164609bbed8
+
+build:
+  entry_points:
+    - flake8 = flake8.main.cli:main
+  preserve_egg_dir: True
+
+requirements:
+  build:
+    - python
+    - setuptools
+    - pytest-runner
+    - pyflakes
+    - pycodestyle
+    - mccabe
+  run:
+    - python
+    - setuptools
+    - pyflakes >=1.5.0,<1.6.0
+    - pycodestyle >=2.0.0,<2.4.0
+    - mccabe >=0.6.0,<0.7.0
+    - configparser                       [py2k]
+    - enum34                             [py < 34]
+
+test:
+  files:
+    - test_file.py
+  commands:
+    - flake8 --version
+    - flake8 test_file.py
+  imports:
+    - flake8
+
+about:
+  home: http://bitbucket.org/tarek/flake8
+  license: MIT
+  license_file: LICENSE
+  summary: Modular source code checker for pep8, pyflakes and co
+  description: |
+    Flake8 is a Tool For Style Guide Enforcement. It is a wrapper around
+    Pyflakes, pep8, and Ned Batchelder's McCabe script.
+  doc_url: http://flake8.readthedocs.org/en/latest/
+  doc_source_url: https://github.com/pycqa/flake8/blob/master/docs/source/index.rst
+  dev_url: https://gitlab.com/pycqa/flake8

@@ -1,0 +1,46 @@
+language: python
+
+dist: precise
+sudo: false
+
+python:
+  - "2.7"
+  - "3.6"
+
+env:
+  - NUMPY_VERSION='1.10'
+  - NUMPY_VERSION='1.12'
+  - NUMPY_VERSION='1.13'
+
+
+matrix:
+  exclude:
+  # no numpy 1.10 on python 3.6 in miniconda.
+  - python: "3.6"
+    env: NUMPY_VERSION='1.10'
+    
+install:
+  # Install Miniconda
+  - if [[ "$TRAVIS_PYTHON_VERSION" == "2.7" ]]; then
+      wget http://repo.continuum.io/miniconda/Miniconda2-latest-Linux-x86_64.sh -O miniconda.sh;
+    else
+      wget http://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -O miniconda.sh;
+    fi
+  - bash miniconda.sh -b -p $HOME/miniconda
+  - export PATH="$HOME/miniconda/bin:$PATH"
+  - hash -r
+  - conda config --set always_yes yes --set changeps1 no
+  - conda update -q conda
+  # useful for debugging purposes
+  - conda info -a
+
+  # Setup environment
+  - conda create -q -n test-environment  python=${TRAVIS_PYTHON_VERSION:0:3} numpy=${NUMPY_VERSION} nose mkl
+  - source activate test-environment
+
+  # Build extensions without silencing compile errors
+  - python setup.py install
+
+script:
+  - cd ~ ; python -m gulinalg.testing -b
+

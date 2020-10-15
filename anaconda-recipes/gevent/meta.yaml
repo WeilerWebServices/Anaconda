@@ -1,0 +1,35 @@
+package:
+  name: gevent
+  version: 1.2.2
+
+source:
+  fn: gevent-1.2.2.tar.gz
+  url: https://pypi.python.org/packages/1b/92/b111f76e54d2be11375b47b213b56687214f258fd9dae703546d30b837be/gevent-1.2.2.tar.gz
+  md5: 7f0baf355384fe5ff2ecf66853422554
+
+build:
+  detect_binary_files_with_prefix: False
+
+requirements:
+  build:
+    - python
+    - setuptools
+    - greenlet
+  run:
+    - python
+    - greenlet >=0.4.10
+
+test:
+  imports:
+    - gevent
+
+about:
+  home: http://www.gevent.org/
+  license: MIT
+  license_file: LICENSE
+  summary: Coroutine-based Python network library
+  description: |
+    Gevent uses greenlet to provide a high-level synchronous API on top of the libev event loop.
+  doc_url: http://www.gevent.org/contents.html
+  doc_source_url: https://github.com/gevent/gevent/blob/master/doc/contents.rst
+  dev_url: https://github.com/gevent/gevent

@@ -1,0 +1,30 @@
+package:
+  name: filelock
+  version: 2.0.7
+
+source:
+  fn: filelock-2.0.7.tar.gz
+  url: https://pypi.python.org/packages/48/f0/77ece9df4df7924ad0d9ba678c8602dd1114348e1c714e4cd10d9fc35ff0/filelock-2.0.7.tar.gz
+  md5: 27962b06bd79282d3aa76122b5bdcbd8
+
+requirements:
+  build:
+    - python
+  run:
+    - python
+
+test:
+  imports:
+    - filelock
+
+about:
+  home: https://github.com/benediktschmitt/py-filelock
+  license: Public Domain
+  license_family: Public-Domain
+  license_file: LICENSE.rst
+  summary: A platform independent file lock.
+  description: |
+    filelock is a single Python module, which implements a platform independent file lock.
+    The lock is thread safe and easy to use.
+  doc_url: https://filelock.readthedocs.io/en/latest/
+  doc_source_url: https://github.com/benediktschmitt/py-filelock/blob/master/docs/source/index.rst

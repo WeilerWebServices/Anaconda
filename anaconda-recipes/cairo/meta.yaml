@@ -1,0 +1,46 @@
+package:
+  name: cairo
+  version: 1.14.8
+
+source:
+  url: http://cairographics.org/releases/cairo-1.14.8.tar.xz
+  md5: 4ef0db2eacb271c74f8a3fd87822aa98
+
+build:
+  detect_binary_files_with_prefix: False
+  features:
+    - vc9                [win and py27]
+    - vc10               [win and py34]
+    - vc14               [win and py35]
+
+requirements:
+  build:
+    # HACK: The python dep is here to get vc features to work
+    - python                       [win]
+    - pkg-config                   [osx]
+    - xz                           [unix]
+    - freetype      2.5.*          [unix]
+    - fontconfig    2.12.*         [unix]
+    - pixman        0.34.*
+    - libpng        >=1.6.27,<1.7
+    - zlib          1.2.*
+  run:
+    - freetype      2.5.*          [unix]
+    - fontconfig    2.12.*         [unix]
+    - libpng        >=1.6.27,<1.7
+    - pixman        0.34.*
+    - zlib          1.2.*
+
+about:
+  home: http://cairographics.org/
+  license: LGPL 2.1, MPL 1.1
+  license_family: LGPL
+  license_file: COPYING
+  summary: A 2D graphics library with support for multiple output devices
+  description: |
+    Cairo is a powerful 2d graphics library with support for multiple output devices.
+    It is implemented as a library written in the C programming language,
+    but bindings are available for several different programming languages.
+  doc_url: http://cairographics.org/documentation/
+  doc_source_url: https://github.com/bonzini/cairo/tree/master/doc
+  dev_url: https://cgit.freedesktop.org/cairo/

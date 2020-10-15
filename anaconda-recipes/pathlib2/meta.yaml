@@ -1,0 +1,35 @@
+package:
+  name: pathlib2
+  version: 2.3.0
+
+source:
+  fn: pathlib2-2.3.0.tar.gz
+  url: https://pypi.python.org/packages/a1/14/df0deb867c2733f7d857523c10942b3d6612a1b222502fdffa9439943dfb/pathlib2-2.3.0.tar.gz
+  md5: 89c90409d11fd5947966b6a30a47d18c
+
+requirements:
+  build:
+    - python
+    - setuptools
+    - six
+    - scandir          [py < 35]
+  run:
+    - python
+    - six
+    - scandir          [py < 35]
+
+test:
+  imports:
+    - pathlib2
+
+about:
+  home: https://pypi.python.org/pypi/pathlib2/
+  license: MIT
+  license_file: LICENSE.rst
+  summary: object-oriented filesystem paths
+  description: |
+    The goal of pathlib2 is to provide a backport of standard pathlib module which
+    tracks the standard library module, so all the newest features of the standard
+    pathlib can be used also on older Python versions.
+  doc_url: https://pypi.python.org/pypi/pathlib2/
+  doc_source_url: https://github.com/mcmtroffaes/pathlib2/blob/develop/README.rst

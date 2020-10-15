@@ -1,0 +1,7 @@
+SQL:
+    # Query for EOD data for list of entities
+    eod_stock:
+        conditionals:
+
+        query: >
+            SELECT * FROM STOCKS LIMIT 3

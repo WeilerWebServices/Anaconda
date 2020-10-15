@@ -1,0 +1,33 @@
+language: python
+python:
+  # We don't actually use the system Python but this keeps it organized.
+  - "2.7"
+  #- "3.4" # comment python 3 for now (a few upstream libs don't support it.)
+install:
+  - if [[ "$TRAVIS_PYTHON_VERSION" == "2.7" ]]; then
+      wget http://repo.continuum.io/miniconda/Miniconda-latest-Linux-x86_64.sh -O miniconda.sh;
+    else
+      wget http://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -O miniconda.sh;
+    fi
+  - bash miniconda.sh -b -p $HOME/miniconda
+  - export PATH="$HOME/miniconda/bin:$PATH"
+  - conda config --set always_yes yes
+  - conda install conda-env
+  - conda env create
+  - source activate topik
+  - conda install -c wakari1 pandoc
+  - python -m textblob.download_corpora
+  - pip install coverage==3.7.1 jsonpickle python-coveralls
+  - pip install .
+
+services:
+  - elasticsearch
+
+script:
+    nosetests --with-coverage --with-doctest --cover-package=topik
+
+notifications:
+    flowdock: 8736cc7601ed0761f6c9339ec747ded6
+
+after_success:
+  - coveralls

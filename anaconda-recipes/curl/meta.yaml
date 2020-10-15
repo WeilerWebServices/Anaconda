@@ -1,0 +1,50 @@
+package:
+  name: curl
+  version: 7.54.1
+
+source:
+  fn: curl-7.54.1.tar.gz
+  url: https://curl.haxx.se/download/curl-7.54.1.tar.gz
+  md5: 21a6e5658fd55103a90b11de7b2a8a8c
+
+build:
+  detect_binary_files_with_prefix: True
+  features:
+    - vc9       [win and py27]
+    - vc10      [win and py34]
+    - vc14      [win and py>34]
+
+requirements:
+  build:
+    - pkg-config      [unix]
+    - openssl         [unix]
+    - zlib
+    - krb5
+    - libssh2
+    - python          [win]
+  run:
+    - openssl 1.0.2*  [unix]
+    - zlib 1.2.*
+#    - krb5 1.13.*
+    - libssh2 1.8.*
+#    - vc 9            [win and py27]
+#    - vc 14           [win and py>34]
+
+test:
+  commands:
+    - curl --help
+    - curl-config --features       [unix]
+    - curl-config --protocols      [unix]
+
+about:
+  home: http://curl.haxx.se/
+  license: MIT/X derivate
+  license_url: http://curl.haxx.se/docs/copyright.html
+  license_family: MIT
+  license_file: COPYING
+  summary: Tool and library for transferring data with URL syntax
+  description: |
+    Curl is an open source software which is used in command lines or scripts to transfer data.
+  doc_url: https://curl.haxx.se/docs/
+  doc_source_url: https://github.com/curl/curl/tree/master/docs
+  dev_url: https://github.com/curl/curl

@@ -1,0 +1,41 @@
+package:
+  name: plotly
+  version: 2.0.11
+
+source:
+  fn: plotly-2.0.11.tar.gz
+  url: https://pypi.io/packages/source/p/plotly/plotly-2.0.11.tar.gz
+  md5: a7c70c4e7db3a182fc446328bcfe532e
+
+requirements:
+  build:
+    - python
+    - setuptools
+    - requests
+    - six
+    - pytz
+  run:
+    - python
+    - setuptools
+    - requests
+    - decorator >=4.0.6
+    - nbformat >=4.2
+    - six
+    - pytz
+
+test:
+  imports:
+    - plotly
+    - plotly.graph_objs
+    - plotly.grid_objs
+    - plotly.offline
+    - plotly.plotly
+
+about:
+  home: https://plot.ly/python/
+  license: MIT
+  summary: plotting library for collaborative, interactive, publication-quality graphs
+  description: |
+    Plotly is the collaboration platform for modern data science.
+  doc_url: https://plot.ly/api/
+  doc_source_url: https://github.com/plotly/documentation/blob/master/README.md

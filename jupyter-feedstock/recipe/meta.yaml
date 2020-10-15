@@ -1,0 +1,47 @@
+{% set version = "1.0.0" %}
+
+package:
+  name: jupyter
+  version: {{ version }}
+
+source:
+  fn: jupyter-{{ version }}.tar.gz
+  url: https://pypi.python.org/packages/source/j/jupyter/jupyter-{{ version }}.tar.gz
+  sha256: d9dc4b3318f310e34c82951ea5d6683f67bed7def4b259fafbfe4f1beb1d8e5f
+
+build:
+  number: 7
+
+requirements:
+  host:
+    - python
+    - pip
+  run:
+    - python
+    - notebook
+    - qtconsole   # [not ppc64le]
+    - jupyter_console
+    - nbconvert
+    - ipykernel
+    - ipywidgets
+
+test:                  # [not win]
+  commands:            # [not win]
+    - jupyter --help   # [not win]
+
+about:
+  home: http://jupyter.org
+  license: BSD 3-Clause
+  license_file: LICENSE
+  summary: 'Jupyter metapackage. Install all the Jupyter components in one go.'
+  description: |
+    Jupyter Notebook is a web application, a browser-based tool for interactive authoring of documents
+    which combine explanatory text, mathematics, computations and their rich media output.
+  doc_url: http://jupyter.readthedocs.org/
+  doc_source_url: https://github.com/jupyter/notebook/blob/master/docs/source/index.rst
+  dev_url: https://github.com/jupyter/jupyter
+
+extra:
+  recipe-maintainers:
+    - minrk
+    - ocefpaf

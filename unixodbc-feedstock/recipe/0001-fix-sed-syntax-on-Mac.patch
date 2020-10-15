@@ -1,0 +1,33 @@
+From 406aee8122074eaea28ea30ef8eb9a610e8bf792 Mon Sep 17 00:00:00 2001
+From: Michael Sarahan <msarahan@gmail.com>
+Date: Tue, 3 Apr 2018 16:25:00 -0500
+Subject: [PATCH] fix sed syntax on Mac
+
+---
+ exe/Makefile | 8 +++++++-
+ 1 file changed, 7 insertions(+), 1 deletion(-)
+
+diff --git a/exe/Makefile b/exe/Makefile
+index 9cd1c17..4c8a3f3 100644
+--- a/exe/Makefile
++++ b/exe/Makefile
+@@ -747,9 +747,15 @@ uninstall-am: uninstall-binPROGRAMS
+ 	mostlyclean-generic mostlyclean-libtool pdf pdf-am ps ps-am \
+ 	tags tags-am uninstall uninstall-am uninstall-binPROGRAMS
+ 
++UNAME_S := $(shell uname -s)
++ifeq ($(UNAME_S),Darwin)
++		EREGEX = -i ""
++else
++		EREGEX = -i
++endif
+ 
+ all-am:
+-	@sed -i -e "s![@]ODBC_ULEN[@]!`$(CURDIR)/odbc_config$(EXEEXT) --ulen`!" \
++	@sed $(EREGEX) -e "s![@]ODBC_ULEN[@]!`$(CURDIR)/odbc_config$(EXEEXT) --ulen`!" \
+ 		-e "s![@]ODBC_CFLAGS[@]!`$(CURDIR)/odbc_config$(EXEEXT) --cflags | sed 's/ -I.*//'`!" \
+ 		$(top_builddir)/DriverManager/odbc.pc
+ 
+-- 
+2.11.1
+

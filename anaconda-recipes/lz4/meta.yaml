@@ -1,0 +1,36 @@
+package:
+  name: lz4
+  version: 0.10.1
+
+source:
+  fn: lz4-0.10.1.tar.gz
+  url: https://pypi.python.org/packages/f5/c6/ef2890b5e287735576e15c1389aa0b9032c9d78ed72385fbd1149af593cd/lz4-0.10.1.tar.gz
+  md5: 1b8de6217e0785e92f457056c053e058
+
+build:
+  detect_binary_files_with_prefix: False
+
+requirements:
+  build:
+    - python
+    - setuptools_scm
+    - nose
+  run:
+    - python
+
+test:
+  imports:
+    - lz4
+
+about:
+  home: https://github.com/steeve/python-lz4
+  license: BSD
+  license_file: LICENSE
+  summary: Bindings for the lz4 compression library
+  description: |
+    Provides a Python interface for the LZ4 compression library.
+    LZ4 library provides support for three specifications-
+    frame format,block format and stream format.
+  doc_url: http://python-lz4.readthedocs.io/en/latest/
+  doc_source_url: https://github.com/python-lz4/python-lz4/blob/master/docs/index.rst
+  dev_url: https://github.com/steeve/python-lz4

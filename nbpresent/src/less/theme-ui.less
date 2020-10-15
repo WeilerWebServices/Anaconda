@@ -1,0 +1,75 @@
+body:not(.nbp-theming) {
+  .nbp-theme-manager {
+    margin-top: -@theme-mgr-height;
+    transition: margin-top @tx-dur @tx-fn;
+  }
+}
+
+.nbp-theme-manager {
+  .nbp-ui();
+
+  position: fixed;
+  height: @theme-mgr-height;
+  z-index: @z-theme-mgr;
+  right: @app-bar-width;
+  left: 0;
+  bottom: 0;
+  top: 0;
+  background-color: @ui-bg-alpha;
+
+  margin-top: 0;
+  transition: margin-top @tx-dur @tx-fn;
+
+  .nbp-toolbar{
+    float: left;
+  }
+
+  h2 {
+    margin: 0;
+    padding: 0;
+    color: @jpy-brand;
+    text-align: center;
+    font-size: 18px;
+  }
+
+  .nbp-theme-previews {
+    position: absolute;
+    left: @app-bar-width;
+    height: @theme-mgr-height;
+    right: 250px;
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    .nbp-theme-preview {
+      float: left;
+      position: relative;
+
+      .nbp-default-theme {
+        position: absolute;
+        bottom: 4px;
+        right: 4px;
+      }
+
+      &.nbp-theme-preview-current .nbp-theme-preview-card{
+        border: solid 3px @jpy-brand;
+      }
+    }
+  }
+
+  .nbp-theme-previews-canned{
+    position: absolute;
+    right: 0;
+    height: @theme-mgr-height;
+    width: 220px;
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    .nbp-theme-preview-canned {
+      float: right;
+      opacity: 0.5;
+      &:hover {
+        opacity: 1.0;
+      }
+    }
+  }
+}

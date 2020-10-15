@@ -1,0 +1,56 @@
+﻿/*-----------------------------------------------------------------------------
+| Copyright (c) 2014, Nucleic Development Team.
+|
+| Distributed under the terms of the Modified BSD License.
+|
+| The full license is in the file COPYING.txt, distributed with this software.
+|----------------------------------------------------------------------------*/
+.p-PushButton {
+    min-width: 73px;
+    padding: 2px 6px;
+    text-align: center;
+    border: 1px solid #ACACAC;
+    background-color: #F0F0F0;
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.0), rgba(0, 0, 0, 0.05));
+    cursor: default;
+    -webkit-transition: background-color 300ms, border-color 300ms;
+    -moz-transition: background-color 300ms, border-color 300ms;
+    -o-transition: background-color 300ms, border-color 300ms;
+    transition: background-color 300ms, border-color 300ms;
+}
+
+.p-PushButton:hover,
+.p-PushButton.p-pressed {
+    border-color: #61AAF3;
+    background-color: #EDF3F7;
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.0), rgba(0, 0, 150, 0.05));
+}
+
+.p-PushButton.p-pressed:hover {
+    border-color: #569DE5;
+    background-color: #DAECFC;
+    -webkit-transition: background-color 150ms, border-color 150ms;
+    -moz-transition: background-color 150ms, border-color 150ms;
+    -o-transition: background-color 150ms, border-color 150ms;
+    transition: background-color 150ms, border-color 150ms;
+}
+
+.p-PushButton-text,
+.p-PushButton-image {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.p-PushButton-text:only-child {
+    vertical-align: baseline;
+}
+ 
+.p-PushButton-image {
+    float: left;
+    margin-right: 2px;
+}
+
+.p-PushButton-image:only-child {
+    float: none;
+    margin-right: 0px;
+}

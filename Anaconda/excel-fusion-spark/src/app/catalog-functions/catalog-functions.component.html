@@ -1,0 +1,71 @@
+lasmdgmadsg
+
+<!-- container -->
+<div class="container">
+  <!-- <div id="loading" *ngIf="isLoading">
+    <div class="loading-wrapper">
+      <div class="loading-spinner"></div>
+      <div class="loading-message">Loading...</div>
+    </div>
+  </div> -->
+
+  <!-- container--content -->
+  <div class="container--content" *ngIf="!isLoading">
+    
+      <!-- GRID VIEW -->
+      <div class="row" *ngIf="isDataLoaded">
+        <div class="col-sm-12 col-md-6 col-lg-6 col-xl-4" *ngFor="let item of data">
+          
+            <div class="card mt-3 mb-3">
+              <a routerLink="/functions/{{ item.name }}" class="z-depth-animation z-depth-1" title="Link to Function, {{ item.name }}">
+              <div class="card-header d-flex">
+                <div class="header-text mr-auto">
+                  {{ item.name }}
+                </div>
+              </div>
+              <div class="card-body">
+                <div class="card-body--description">
+                  <p>Description:</p>
+                  <p>{{ item.description }}</p>
+                  <!-- 
+                  <div *ngIf="item.showMoreOrLess">
+                    <div class="learnmore-holder" *ngIf="item.learnMore">
+                      <a href="#" data-id="{{ item.name }}" (click)="showMore($event)">Show More</a>
+                    </div>
+                    <div class="learnmore-holder" *ngIf="!item.learnMore">
+                      <a href="#" data-id="{{ item.name }}" (click)="showLess($event)">Show Less</a>
+                    </div>
+                  </div> 
+                  -->
+                </div>
+                <!-- 
+                <div class="card-body--url">
+                  <p>URL:</p>
+                  <p>{{ item.url }}</p>
+                </div>
+                -->
+                <div class="card-body--url" *ngIf="item.tags?.length > 0">
+                  <p>Tags:</p>
+                  <p><span class="badge badge-pill badge-primary" *ngFor="let tag of item.tags">{{ tag }}</span></p>
+                </div>
+              </div>
+              </a>
+            </div>
+          
+        </div>
+      </div>
+      <!--END .row-->
+
+      <!-- empty-state -->
+      <div class="empty-state row" *ngIf="!isDataLoaded">
+        <div class="col-lg-12">
+          <p>There are no functions on this Jupyter Notebook.</p>
+        </div>
+      </div>
+      <!-- END .empty-state -->
+
+  </div>
+  <!-- END .container--content -->
+
+</div>
+<!-- END .container -->

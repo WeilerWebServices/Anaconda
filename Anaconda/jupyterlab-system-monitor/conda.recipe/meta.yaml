@@ -1,0 +1,37 @@
+{% set name = "jupyterlab-system-monitor" %}
+{% set version = "0.5.4" %}
+
+package:
+  name: {{ name|lower }}
+  version: {{ version }}
+
+source:
+  path: ../
+
+build:
+  number: 1
+  noarch: python
+
+requirements:
+  build:
+    - jupyterlab
+    - jupyterlab-topbar
+    - nodejs
+  run:
+    - jupyterlab
+    - jupyterlab-topbar
+    - nodejs
+
+test:
+  commands:
+    - jupyter labextension list
+
+about:
+  home: https://github.com/AnacondaPlatform/jupyterlab-system-monitor
+  license: BSD 3-Clause
+  license_family: BSD
+  summary: JupyterLab extension to display system metrics
+
+extra:
+  recipe-maintainers:
+    - AlbertDeFusco

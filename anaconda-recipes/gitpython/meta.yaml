@@ -1,0 +1,39 @@
+package:
+  name: gitpython
+  version: 2.1.3
+
+source:
+  fn: GitPython-2.1.3.tar.gz
+  url: https://pypi.python.org/packages/e8/87/a1cdd8b210e4b825ec34fef996d2680dc00ee9517379c167e9a57af0664e/GitPython-2.1.3.tar.gz
+  md5: 6cd18008c03a767740f3bf6d89ef79bc
+
+requirements:
+  build:
+    - python
+    - setuptools
+    - gitdb2 >=2.0.0
+  run:
+    - python
+    - gitdb2 >=2.0.0
+
+test:
+  imports:
+    - git
+    - git.index
+    - git.objects
+    - git.objects.submodule
+    - git.refs
+    - git.repo
+    - git.test
+    - git.test.lib
+    - git.test.performance
+  requires:
+    - nose
+    - mock
+
+about:
+  home: https://github.com/gitpython-developers/GitPython
+  license: BSD License
+  license_family: BSD
+  license_file: LICENSE
+  summary: Python Git Library

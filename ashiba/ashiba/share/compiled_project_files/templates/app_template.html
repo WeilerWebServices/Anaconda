@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Ashiba: {{ app_name }}</title>
+  <link rel="stylesheet" href="static/css/bootstrap.css">
+  {%- if theme %}
+  <link rel="stylesheet" href="static/css/{{ theme }}.css" />
+  {%- endif %}
+  <link rel="stylesheet" href="static/css/ashiba.css" />
+  <link rel="icon" type="image/png" href="{{ favicon }}" />
+  {%- block header %}{%- endblock %}
+</head>
+
+<body class="bg-clouds">
+  <div id="maincontainer" class="container roundedcorners pretty-border">
+    {% block content %}{% endblock %}
+  </div><!-- #maincontainer -->
+</body>
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script 
+  src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/js/bootstrap.min.js">
+</script>
+<link rel="stylesheet" type="text/css" 
+href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css"/>
+<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+<script src="static/ashiba.js"></script>
+<script src="static/ashiba_compiled.js?uuid={{ uuid }}"></script>
+{% block footer %}{% endblock %}

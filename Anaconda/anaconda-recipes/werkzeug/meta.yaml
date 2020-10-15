@@ -1,0 +1,35 @@
+package:
+  name: werkzeug
+  version: 0.12.2
+
+source:
+  fn: Werkzeug-0.12.2.tar.gz
+  url: https://pypi.python.org/packages/56/41/c095a77eb2dd69bf278dd664a97d3416af04e9ba1a00b8c138f772741d31/Werkzeug-0.12.2.tar.gz
+  md5: e385b2c5a7193cff24c689b31e1124dc
+
+requirements:
+  build:
+    - python
+    # the reason we use setuptools here is because otherwise the package data
+    # files don't get installed
+    - setuptools
+  run:
+    - python
+
+test:
+  imports:
+    - werkzeug
+    - werkzeug.debug
+    - werkzeug.contrib
+
+about:
+  home: http://werkzeug.pocoo.org/
+  license: BSD
+  license_file: LICENSE
+  summary: A WSGI utility library for Python
+  description: |
+    WSGI itself is a protocol or convention that ensures that your web application
+    can speak with the webserver and more importantly that web applications work nicely together.
+  doc_url: http://werkzeug.pocoo.org/docs/0.11/
+  doc_source_url: https://github.com/pallets/werkzeug/tree/master/docs
+  dev_url: https://github.com/pallets/werkzeug

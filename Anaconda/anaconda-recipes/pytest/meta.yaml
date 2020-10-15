@@ -1,0 +1,45 @@
+package:
+  name: pytest
+  version: 3.2.1
+
+source:
+  fn: pytest-3.2.1.tar.gz
+  url: https://pypi.python.org/packages/6d/9f/1fbd50be4deaa4007ef4ed8f84f888c6613c629e1f46e979ffb9d82a7324/pytest-3.2.1.tar.gz
+  md5: 635976c2a9b2c2599d69fb0ad5abaf7d
+
+build:
+  entry_points:
+    - pytest = pytest:main
+    - py.test = pytest:main
+
+requirements:
+  build:
+    - python
+    - setuptools
+    - setuptools_scm
+    - py
+    - colorama          [win]
+  run:
+    - python
+    - setuptools
+    - py >=1.4.33
+    - colorama          [win]
+
+test:
+  commands:
+    - pytest -h
+    - py.test -h
+  imports:
+    - pytest
+
+about:
+  home: http://pytest.org/
+  license: MIT
+  license_file: LICENSE
+  summary: Simple and powerful testing with Python
+  description: |
+    The pytest framework makes it easy to write small tests, yet scales to
+    support complex functional testing for applications and libraries.
+  doc_url: https://docs.pytest.org/en/latest/contents.html#toc
+  doc_source_url: https://github.com/pytest-dev/pytest/blob/master/doc/en/contents.rst
+  dev_url: https://github.com/pytest-dev/pytest/

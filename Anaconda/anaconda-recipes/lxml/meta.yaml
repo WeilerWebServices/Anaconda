@@ -1,0 +1,47 @@
+# This is legacy recipe, which has not been tested using conda-build.
+# See: https://github.com/ContinuumIO/anaconda-recipes/blob/master/LEGACY.md
+
+package:
+  name: lxml
+  version: 3.8.0
+
+source:
+  fn: lxml-3.8.0.tar.gz                              [unix]
+  md5: e54e2fae44d684d6b9c636fe189e93ff              [unix]
+  fn: lxml-3.8.0-cp27-cp27m-win32.whl                [win32 and py27]
+  fn: lxml-3.8.0-cp27-cp27m-win_amd64.whl            [win64 and py27]
+  fn: lxml-3.8.0-cp34-cp34m-win32.whl                [win32 and py34]
+  fn: lxml-3.8.0-cp34-cp34m-win_amd64.whl            [win64 and py34]
+  fn: lxml-3.8.0-cp35-cp35m-win32.whl                [win32 and py35]
+  fn: lxml-3.8.0-cp35-cp35m-win_amd64.whl            [win64 and py35]
+  fn: lxml-3.8.0-cp36-cp36m-win32.whl                [win32 and py36]
+  fn: lxml-3.8.0-cp36-cp36m-win_amd64.whl            [win64 and py36]
+
+requirements:
+  build:
+    - python
+    - libxml2      [unix]
+    - libxslt      [unix]
+  run:
+    - python
+    - libxml2      [unix]
+    - libxslt      [unix]
+
+test:
+  imports:
+    - lxml
+    - lxml.etree
+    - lxml.objectify
+
+about:
+  home: http://lxml.de/
+  license: BSD
+  summary: XML and HTML with Python
+  description: |
+    The lxml toolkit is a Pythonic binding for the C libraries libxml2 and
+    libxslt. It is unique in that it combines the speed and XML feature
+    completeness of these libraries with the simplicity of a native Python API,
+    mostly compatible but superior to the well-known ElementTree API.
+  doc_url: http://lxml.de/index.html#documentation
+  doc_source_url: https://github.com/lxml/lxml/tree/master/doc
+  dev_url: https://github.com/lxml/lxml

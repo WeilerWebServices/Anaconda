@@ -1,0 +1,132 @@
+From a0aac93c9ff107e0718aee430933bb3eb15ca028 Mon Sep 17 00:00:00 2001
+From: Nehal J Wani <nehaljw.kkd1@gmail.com>
+Date: Fri, 24 Aug 2018 03:11:38 -0500
+Subject: [PATCH] Add support for editline
+
+---
+ configure.ac | 36 +++++++++++++++++++++++++++++++++++-
+ exe/isql.c   |  9 ++++++---
+ exe/iusql.c  |  5 ++++-
+ 3 files changed, 45 insertions(+), 5 deletions(-)
+
+diff --git a/configure.ac b/configure.ac
+index b515e78..a03c13b 100644
+--- a/configure.ac
++++ b/configure.ac
+@@ -42,7 +42,15 @@ AC_ARG_ENABLE( readline,
+     *) AC_MSG_ERROR(bad value ${enableval} for --enable-readline) ;;
+     esac],[readline=true])
+ 
+-AC_ARG_ENABLE( inicaching, 
++AC_ARG_ENABLE( editline,
++[  --enable-editline       build with editline  support [default=no]],
++[ case "${enableval}" in
++    yes) editline=true ;;
++    no) editline=false ;;
++    *) AC_MSG_ERROR(bad value ${enableval} for --enable-editline) ;;
++    esac],[editline=true])
++
++AC_ARG_ENABLE( inicaching,
+ [  --enable-inicaching     build with ini file caching  support [default=yes]],
+ [ case "${enableval}" in
+     yes) inicaching=true ;;
+@@ -235,6 +243,32 @@ AC_SUBST(LIBADD_CRYPT)
+ AC_CHECK_LIB(m, pow, [ LIBADD_POW="-lm" ], )
+ AC_SUBST(LIBADD_POW)
+ 
++have_editline="no"
++
++if test "x$editline" = "xtrue"; then
++  AC_CHECK_LIB_NOC(edit, readline,
++  [
++      READLINE=-ledit
++      have_editline="yes"
++  ],
++  [
++      dnl try with -lcurses
++      AC_CHECK_LIB_NOC(edit, readline,
++      [
++          READLINE="-ledit -lcurses"
++          have_editline="yes"
++      ],
++      [
++      ],
++      -lcurses )
++  ])
++
++  if test "x$have_editline" = "xyes"; then
++      AC_CHECK_HEADERS(editline/readline.h, [AC_DEFINE([HAVE_EDITLINE], [1], [Add editline support])])
++      readline=false
++  fi
++fi
++
+ have_readline="no"
+ 
+ if test "x$readline" = "xtrue"; then
+diff --git a/exe/isql.c b/exe/isql.c
+index 32c57e8..4e5a361 100644
+--- a/exe/isql.c
++++ b/exe/isql.c
+@@ -17,6 +17,9 @@
+     #include <readline/readline.h>
+     #include <readline/history.h>
+ #endif
++#ifdef HAVE_EDITLINE
++    #include <editline/readline.h>
++#endif
+ 
+ #ifdef HAVE_SETLOCALE
+     #ifdef HAVE_LOCALE_H
+@@ -74,7 +77,7 @@ int main( int argc, char *argv[] )
+     int     line_buffer_size = 9000;
+     int     bufpos,linen;
+     char    prompt[24];
+-#ifdef HAVE_READLINE
++#if defined(HAVE_EDITLINE) || defined(HAVE_READLINE)
+     char    *rlhistory; /* readline history path */
+ 
+     rlhistory = strdup(getenv("HOME"));
+@@ -253,7 +256,7 @@ int main( int argc, char *argv[] )
+ 
+         if ( !bBatch )
+         {
+-#ifdef HAVE_READLINE
++#if defined(HAVE_EDITLINE) || defined(HAVE_READLINE)
+             line=readline( prompt );
+             if ( !line )        /* EOF - ctrl D */
+             {
+@@ -497,7 +500,7 @@ int main( int argc, char *argv[] )
+      * DISCONNECT
+      ***************************/
+ 
+-#ifdef HAVE_READLINE
++#if defined(HAVE_EDITLINE) || defined(HAVE_READLINE)
+     write_history(rlhistory);
+ #endif
+ 
+diff --git a/exe/iusql.c b/exe/iusql.c
+index 484a889..ce3d39a 100644
+--- a/exe/iusql.c
++++ b/exe/iusql.c
+@@ -19,6 +19,9 @@
+     #include <readline/readline.h>
+     #include <readline/history.h>
+ #endif
++#ifdef HAVE_EDITLINE
++    #include <editline/readline.h>
++#endif
+ 
+ #ifdef HAVE_SETLOCALE
+     #ifdef HAVE_LOCALE_H
+@@ -199,7 +202,7 @@ int main( int argc, char *argv[] )
+     do
+     {
+         if ( !bBatch )
+-#ifndef HAVE_READLINE
++#if !defined(HAVE_EDITLINE) && !defined(HAVE_READLINE)
+             printf( "SQL> " );
+ #else
+         {
+-- 
+1.9.5 (Apple Git-50.3)
+

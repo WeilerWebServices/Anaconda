@@ -1,0 +1,5 @@
+name: nbsetuptools
+dependencies:
+  - funcsigs
+  - notebook
+  - python

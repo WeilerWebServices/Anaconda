@@ -1,0 +1,33 @@
+package:
+  name: greenlet
+  version: 0.4.12
+
+source:
+  fn: greenlet-0.4.12.tar.gz
+  url: https://pypi.python.org/packages/be/76/82af375d98724054b7e273b5d9369346937324f9bcc20980b45b068ef0b0/greenlet-0.4.12.tar.gz
+  md5: e8637647d58a26c4a1f51ca393e53c00
+
+build:
+  detect_binary_files_with_prefix: False
+
+requirements:
+  build:
+    - python
+  run:
+    - python
+
+test:
+  imports:
+    - greenlet
+
+about:
+  home: https://github.com/python-greenlet/greenlet
+  license: MIT
+  license_file: LICENSE
+  summary: Lightweight in-process concurrent programming
+  description: |
+    greenlet is a spin-off of Stackless, a version of CPython that supports micro-threads called "tasklets".
+    Tasklets run pseudo-concurrently and are synchronized with data exchanges on "channels".
+  doc_url: http://greenlet.readthedocs.org/en/latest/
+  doc_source_url: https://github.com/python-greenlet/greenlet/blob/master/doc/index.txt
+  dev_url: https://github.com/python-greenlet/greenlet

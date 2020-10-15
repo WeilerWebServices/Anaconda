@@ -1,0 +1,55 @@
+Name:           anaconda-enterprise-postgres-58857557d-ctbfs
+Namespace:      default
+Node:           172.31.43.51/172.31.43.51
+Start Time:     Fri, 19 Apr 2019 13:28:52 +0000
+Labels:         app=postgres
+                pod-template-hash=144131138
+Annotations:    kubernetes.io/psp=anaconda-enterprise-kube-router
+Status:         Running
+IP:             10.244.69.36
+Controlled By:  ReplicaSet/anaconda-enterprise-postgres-58857557d
+Containers:
+  postgres:
+    Container ID:   docker://fd234fad0a538a302ac68d0f260a155950b4b8c7afca3176fcb25d1d799b045e
+    Image:          leader.telekube.local:5000/postgres:9.6
+    Image ID:       docker-pullable://leader.telekube.local:5000/postgres@sha256:86a7984760c1d36c7c9ebec73706f05d76e7615937a45ae0d110b2112fd5cbfa
+    Port:           5432/TCP
+    Host Port:      0/TCP
+    State:          Running
+      Started:      Fri, 19 Apr 2019 13:29:04 +0000
+    Ready:          True
+    Restart Count:  0
+    Requests:
+      cpu:        100m
+    Liveness:     exec [pg_isready -U postgres] delay=30s timeout=3s period=10s #success=1 #failure=3
+    Readiness:    exec [pg_isready -U postgres] delay=30s timeout=3s period=10s #success=1 #failure=3
+    Environment:  <none>
+    Mounts:
+      /var/lib/postgresql/data from storage (rw)
+      /var/run/secrets/kubernetes.io/serviceaccount from anaconda-enterprise-token-wdgqn (ro)
+Conditions:
+  Type              Status
+  Initialized       True
+  Ready             True
+  ContainersReady   True
+  PodScheduled      True
+Volumes:
+  storage:
+    Type:          HostPath (bare host directory volume)
+    Path:          /opt/anaconda/storage/pgdata
+    HostPathType:  DirectoryOrCreate
+  anaconda-enterprise-token-wdgqn:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  anaconda-enterprise-token-wdgqn
+    Optional:    false
+QoS Class:       Burstable
+Node-Selectors:  app_role=storage
+Tolerations:     <none>
+Events:
+  Type    Reason     Age   From                   Message
+  ----    ------     ----  ----                   -------
+  Normal  Scheduled  30m   default-scheduler      Successfully assigned default/anaconda-enterprise-postgres-58857557d-ctbfs to 172.31.43.51
+  Normal  Pulling    30m   kubelet, 172.31.43.51  pulling image "leader.telekube.local:5000/postgres:9.6"
+  Normal  Pulled     30m   kubelet, 172.31.43.51  Successfully pulled image "leader.telekube.local:5000/postgres:9.6"
+  Normal  Created    30m   kubelet, 172.31.43.51  Created container
+  Normal  Started    30m   kubelet, 172.31.43.51  Started container

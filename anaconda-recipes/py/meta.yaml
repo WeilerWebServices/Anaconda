@@ -1,0 +1,35 @@
+package:
+  name: py
+  version: 1.4.34
+
+source:
+  fn: py-1.4.34.tar.gz
+  url: https://pypi.python.org/packages/68/35/58572278f1c097b403879c1e9369069633d1cbad5239b9057944bb764782/py-1.4.34.tar.gz
+  md5: d9c3d8f734b0819ff48e355d77bf1730
+
+requirements:
+  build:
+    - python
+    - setuptools
+  run:
+    - python
+
+test:
+  imports:
+    - py
+
+about:
+  home: http://pylib.readthedocs.org/
+  license: MIT
+  license_file: LICENSE
+  summary: Library with cross-python path, ini-parsing, io, code, log facilities
+  description: |
+    The py lib is a Python development support library featuring the following
+    tools and modules:
+    py.path: uniform local and svn path objects
+    py.apipkg: explicit API control and lazy-importing
+    py.iniconfig: easy parsing of .ini files
+    py.code: dynamic code generation and introspection
+  doc_url: http://py.readthedocs.io/en/latest/
+  doc_source_url: https://github.com/pytest-dev/py/blob/master/doc/index.txt
+  dev_url: https://bitbucket.org/pytest-dev/py

@@ -1,0 +1,25 @@
+package:
+  name: nb_anaconda_theme
+  version: "0.1.1"
+
+build:
+  number: {{ environ.get('GIT_DESCRIBE_NUMBER', 0) }}
+  string: py{{ environ.get('PY_VER').replace('.', '') }}_{{ environ.get('GIT_BUILD_STR', '0') }}
+
+requirements:
+  build:
+    - python
+  run:
+    - python
+    - nb_config_manager
+
+test:
+  requires:
+    - nose
+
+source:
+  path: ../
+
+about:
+  home: https://github.com/Anaconda-Server/nb_anaconda_theme
+  license: BSD

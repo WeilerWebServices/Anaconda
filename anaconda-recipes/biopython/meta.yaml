@@ -1,0 +1,37 @@
+package:
+  name: biopython
+  version: 1.69
+
+source:
+  fn: biopython-1.69.tar.gz
+  url: https://pypi.io/packages/source/b/biopython/biopython-1.69.tar.gz
+  md5: 18ad299569eea79febf4641cce840db0
+
+build:
+  detect_binary_files_with_prefix: False
+
+requirements:
+  build:
+    - python
+    - numpy x.x
+  run:
+    - python
+    - numpy x.x
+
+test:
+  imports:
+    - Bio
+    - BioSQL
+
+about:
+  home: http://biopython.org/
+  license: Biopython or BSD 3-Clause
+  license_family: BSD
+  license_file: LICENSE
+  summary: Freely available tools for biological computation
+  description: |
+    Biopython Project is an international association of developers of freely
+    available Python tools for computational molecular biology.
+  doc_url: http://biopython.org/wiki/Documentation
+  doc_source_url: https://github.com/biopython/biopython.github.io/edit/master/index.md
+  dev_url: https://github.com/biopython/biopython

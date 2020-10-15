@@ -1,0 +1,40 @@
+package:
+  name: pystan
+  version: 2.14.0.0
+
+source:
+  fn: pystan-2.14.0.0.tar.gz
+  url: https://pypi.python.org/packages/79/96/51a8857564e68f92ee33b2c53baee5435fcd5569dd9778f3e0efc67dae6e/pystan-2.14.0.0.tar.gz
+  md5: ab3bc05a6f05411bc2a85e4d877351b3
+
+build:
+  detect_binary_files_with_prefix: False
+
+requirements:
+  build:
+    - python
+    - numpy
+    - cython
+  run:
+    - python
+    - numpy
+    - cython >=0.22,!=0.25.1
+
+test:
+  imports:
+    - pystan
+    - pystan._api
+    - pystan._chains
+    - pystan._misc
+
+about:
+  home: https://github.com/stan-dev/pystan
+  license: GPL3
+  license_file: LICENSE
+  summary: Python interface to Stan
+  description: |
+    PyStan a package for Bayesian inference using the No-U-Turn sampler, a variant of Hamiltonian
+    Monte Carlo.
+  doc_url: https://pystan.readthedocs.io/en/latest/
+  doc_source_url: https://github.com/stan-dev/pystan/blob/readthedocs/doc/index.rst
+  dev_url: https://github.com/stan-dev/pystan

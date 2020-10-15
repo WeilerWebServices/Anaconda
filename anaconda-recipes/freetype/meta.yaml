@@ -1,0 +1,46 @@
+package:
+  name: freetype
+  version: 2.5.5
+
+source:
+  fn: freetype-2.5.5.tar.bz2
+  url:  http://download.savannah.gnu.org/releases/freetype/freetype-2.5.5.tar.bz2
+  sha1: 7b7460ef51a8fdb17baae53c6658fc1ad000a1c2
+  patches:
+    - subpixel.patch
+
+build:
+  number: 2
+  features:
+    - vc9     [win and py27]
+    - vc10    [win and py34]
+    - vc14    [win and (py35 or py36)]
+
+requirements:
+  build:
+    - python  [win]
+    - cmake
+    - zlib 1.2.*
+    - libpng >=1.6.27,<1.7
+    - bzip2 1.0.6
+  run:
+    - zlib 1.2.*
+    - libpng >=1.6.27,<1.7
+
+test:
+  commands:
+    - freetype-config --ftversion        [unix]
+
+about:
+  home: http://freetype.sourceforge.net/index2.html
+  license: FreeType License
+  license_url: http://freetype.sourceforge.net/FTL.TXT
+  license_family: Other
+  summary: A Free, High-Quality, and Portable Font Engine
+  description: |
+    FreeType is designed to be small, efficient, highly customizable
+    and portable while capable of producing high-quality output (glyph images)
+    of most vector and bitmap font formats.
+  doc_url: http://freetype.sourceforge.net/freetype2/documentation.html
+  doc_source_url: https://sourceforge.net/projects/freetype/?source=navbar
+  dev_url: http://git.savannah.gnu.org/cgit/freetype/

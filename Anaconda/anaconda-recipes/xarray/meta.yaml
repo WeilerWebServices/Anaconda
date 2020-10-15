@@ -1,0 +1,39 @@
+package:
+  name: xarray
+  version: 0.9.6
+
+source:
+  git_url: https://github.com/pydata/xarray.git
+  git_tag: v0.9.6
+
+requirements:
+  build:
+    - python
+    - setuptools
+    - numpy
+    - pandas >=0.15
+  run:
+    - python
+    - setuptools
+    - numpy
+    - pandas >=0.15
+
+test:
+  imports:
+    - xarray
+    - xarray.backends
+    - xarray.core
+    - xarray.plot
+
+about:
+  home: http://xarray.pydata.org/en/stable/
+  license: Apache
+  license_file: LICENSE
+  summary: N-D labeled arrays and datasets in Python
+  description: |
+    xarray is an open source project and Python package that aims to bring
+    the labeled data power of pandas to the physical sciences, by providing
+    N-dimensional variants of the core pandas data structures.
+  doc_url: http://xarray.pydata.org/en/stable/
+  doc_source_url: https://github.com/pydata/xarray/blob/stable/doc/index.rst
+  dev_url: https://github.com/pydata/xarray

@@ -1,0 +1,61 @@
+{% set name = "Flask" %}
+{% set version = "1.1.2" %}
+
+package:
+  name: {{ name|lower }}
+  version: {{ version }}
+
+source:
+  fn: {{ name }}-{{ version }}.tar.gz
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  sha256: 4efa1ae2d7c9865af48986de8aeb8504bf32c7f3d6fdc9353d34b21f4b127060
+
+build:
+  number: 0
+  script: {{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv
+  entry_points:
+    - flask = flask.cli:main
+  noarch: python
+
+requirements:
+  host:
+    - python
+    - pip
+    - setuptools
+
+  run:
+    - python
+    - click >=5.1
+    - itsdangerous >=0.24
+    - jinja2 >=2.10.1
+    - werkzeug >=0.15
+
+test:
+  imports:
+    - flask
+    - flask.json
+
+  commands:
+    - flask --help
+
+about:
+  home: http://flask.pocoo.org
+  license: BSD 3-Clause
+  license_family: BSD
+  license_file: LICENSE.rst
+  summary: A microframework based on Werkzeug, Jinja2 and good intentions.
+  description: |
+    Flask is a microframework for Python based on Werkzeug and Jinja2. It's
+    intended for getting started very quickly and was developed with best
+    intentions in mind.
+  doc_url: http://flask.pocoo.org/docs/1.0/
+  doc_source_url: https://github.com/pallets/flask/blob/master/docs/index.rst
+  dev_url: https://github.com/pallets/flask
+
+extra:
+  recipe-maintainers:
+    - goanpeca
+    - nehaljwani
+    - ukaratay
+    - marcelotrevisani
+    - xylar

@@ -1,0 +1,40 @@
+package:
+  name: pyflakes
+  version: 1.6.0
+
+source:
+  fn: pyflakes-1.6.0.tar.gz
+  url: https://pypi.python.org/packages/26/85/f6a315cd3c1aa597fb3a04cc7d7dbea5b3cc66ea6bd13dfa0478bf4876e6/pyflakes-1.6.0.tar.gz
+  md5: b385b0e4cd40a522553e97cd2d83573e
+
+build:
+  entry_points:
+    - pyflakes = pyflakes.api:main
+
+requirements:
+  build:
+    - python
+  run:
+    - python
+
+test:
+  commands:
+    - pyflakes test_file.py      [not (win and py3k)]
+    - pyflakes --version
+  files:
+    - test_file.py
+  imports:
+    - pyflakes
+
+about:
+  home: https://launchpad.net/pyflakes
+  license: MIT
+  license_file: LICENSE
+  summary: passive checker of Python programs
+  description: |
+    Pyflakes analyzes programs and detects various errors. It works by parsing
+    the source file, not importing it, so it is safe to use on modules with side
+    effects. It is also much faster.
+  doc_url: https://pypi.python.org/pypi/pyflakes
+  doc_source_url: https://github.com/PyCQA/pyflakes/blob/master/README.rst
+  dev_url: https://github.com/pyflakes/pyflakes

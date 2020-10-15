@@ -1,0 +1,26 @@
+package:
+  name: openmpi
+  version: 1.6.3
+
+source:
+  fn: openmpi-1.6.3.tar.bz2
+  url: http://www.open-mpi.org/software/ompi/v1.6/downloads/openmpi-1.6.3.tar.bz2
+  md5: eedb73155a7a40b0b07718494298fb25
+
+build:
+  detect_binary_files_with_prefix : True
+  number: 1
+
+about:
+  home: http://www.open-mpi.org/
+  license: 3-clause BSD
+  license_url: http://www.open-mpi.org/community/license.php
+  license_family: BSD
+  license_file: LICENSE
+  summary: A High Performance Message Passing Library
+  description: |
+    Open MPI is able to combine the expertise, technologies, and resources
+    from all across the High Performance Computing community in order to build
+    the best MPI library available.
+  doc_url: https://www.open-mpi.org/projects/user-docs/
+  dev_url: https://github.com/open-mpi/ompi

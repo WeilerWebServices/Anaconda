@@ -1,0 +1,29 @@
+package:
+  name: ipaddress
+  version: 1.0.18
+
+source:
+  fn: ipaddress-1.0.18.tar.gz
+  url: https://pypi.python.org/packages/4e/13/774faf38b445d0b3a844b65747175b2e0500164b7c28d78e34987a5bfe06/ipaddress-1.0.18.tar.gz
+  md5: 310c2dfd64eb6f0df44aa8c59f2334a7
+
+requirements:
+  build:
+    - python
+  run:
+    - python
+
+test:
+  imports:
+    - ipaddress
+
+about:
+  home: https://github.com/phihag/ipaddress
+  license: Python Software Foundation License
+  license_family: PSF
+  license_file: LICENSE
+  summary: IPv4/IPv6 manipulation library
+  description: |
+    Python 3.3's ipadress for older Python versions
+  doc_url: https://pypi.python.org/pypi/ipaddress
+  doc_source_url: https://github.com/phihag/ipaddress/blob/master/README.md

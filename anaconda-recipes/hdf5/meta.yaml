@@ -1,0 +1,36 @@
+package:
+  name: hdf5
+  version: 1.8.17
+
+source:
+  fn: hdf5-1.8.17.tar.gz
+  url: https://ftp.hdfgroup.org/ftp/HDF5/releases/hdf5-1.8/hdf5-1.8.17/src/hdf5-1.8.17.tar.gz
+  md5: 7d572f8f3b798a628b8245af0391a0ca
+
+build:
+  number: 2
+  features:
+    - vc9        [win and py27]
+    - vc10       [win and py34]
+    - vc14       [win and (py35 or py36)]
+
+requirements:
+  build:
+    - python     [win]
+    - cmake      [win]
+    - zlib 1.2.*
+  run:
+    - zlib 1.2.*
+
+about:
+  home: http://www.hdfgroup.org/HDF5/
+  license: BSD-like
+  license_family: BSD
+  license_url: http://www.hdfgroup.org/ftp/HDF5/current/src/unpacked/COPYING
+  license_file: COPYING
+  summary:  A data model, library, and file format for storing and managing data
+  description: |
+    HDF5 supports an unlimited variety of datatypes, and is designed for
+    flexible and efficient I/O and for high volume and complex data.
+  doc_url: https://www.hdfgroup.org/HDF5/doc/
+  dev_url: https://www.hdfgroup.org/HDF5/release/obtain5.html

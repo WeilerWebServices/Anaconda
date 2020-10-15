@@ -1,0 +1,36 @@
+package:
+  name: whoosh
+  version: 2.7.4
+
+source:
+  fn: Whoosh-2.7.4.tar.gz
+  url: https://pypi.python.org/packages/25/2b/6beed2107b148edc1321da0d489afc4617b9ed317ef7b72d4993cad9b684/Whoosh-2.7.4.tar.gz
+  md5: c2710105f20b3e29936bd2357383c325
+
+requirements:
+  build:
+    - python
+    - setuptools
+  run:
+    - python
+
+test:
+  imports:
+    - whoosh
+    - whoosh.fields
+    - whoosh.index
+
+about:
+  home: http://bitbucket.org/mchaput/whoosh
+  license: Two-clause BSD license
+  license_family: BSD
+  license_file: LICENSE.txt
+  summary: Full-text indexing and searching library
+  description: |
+    Whoosh is a fast, featureful full-text indexing and searching library
+    implemented in pure Python. Programmers can use it to easily add search
+    functionality to their applications and websites. Every part of how Whoosh
+    works can be extended or replaced to meet your needs exactly.
+  doc_url: http://whoosh.readthedocs.org/en/latest/
+  doc_source_url: https://bitbucket.org/mchaput/whoosh/src/default/docs/source/index.rst?fileviewer=file-view-default
+  dev_url: https://bitbucket.org/mchaput/whoosh/wiki/Home

@@ -1,0 +1,93 @@
+{% set name = "cryptography" %}
+{% set version = "1.8.1" %}
+{% set sha256 = "323524312bb467565ebca7e50c8ae5e9674e544951d28a2904a50012a8828190" %}
+
+package:
+  name: {{ name|lower }}
+  version: {{ version }}
+
+source:
+  fn: {{ name }}-{{ version }}.tar.gz
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  sha256: {{ sha256 }}
+
+build:
+  number: 0
+
+requirements:
+  build:
+    # This requirement is due to using CFFI. If we were not cross-compiling
+    # then it should be a 'host:' requirement, otherwise a 'build:' one.
+    # This would be good to encode into the 'pin_downstream' logic of CB3.
+    - {{ compiler('c') }}
+
+  host:
+    - python
+    - setuptools
+    - idna >=2.1
+    - asn1crypto >=0.21.0
+    - packaging
+    - six >=1.4.1
+    - setuptools >=11.3
+    - cffi >=1.4.1
+
+  run:
+    - python
+    - setuptools
+    - idna >=2.1
+    - asn1crypto >=0.21.0
+    - packaging
+    - six >=1.4.1
+    - setuptools >=11.3
+    - cffi >=1.4.1
+
+#test:
+#  # Some package might need a `test/commands` key to check CLI.
+#  # List all the packages/modules that `run_test.py` imports.
+#  imports:
+#    - cryptography
+#    - cryptography.hazmat
+#    - cryptography.hazmat.backends
+#    - cryptography.hazmat.backends.commoncrypto
+#    - cryptography.hazmat.backends.openssl
+#    - cryptography.hazmat.bindings
+#    - cryptography.hazmat.bindings.commoncrypto
+#    - cryptography.hazmat.bindings.openssl
+#    - cryptography.hazmat.primitives
+#    - cryptography.hazmat.primitives.asymmetric
+#    - cryptography.hazmat.primitives.ciphers
+#    - cryptography.hazmat.primitives.interfaces
+#    - cryptography.hazmat.primitives.kdf
+#    - cryptography.hazmat.primitives.twofactor
+#    - cryptography.x509
+#
+#  requires:
+#    - cryptography_vectors ==1.8.1
+#    - hypothesis >=1.11.4
+#    - iso8601
+#    - pretend
+#    - pytest >=2.9.0
+#    - pytz
+about:
+  home: https://github.com/pyca/cryptography
+  license: Apache Software License or BSD License
+  license_family: BSD
+  summary: 'cryptography is a package which provides cryptographic recipes and primitives to Python developers.'
+
+  # The remaining entries in this section are optional, but recommended
+  description: |
+    cryptography is a package which provides cryptographic recipes and
+    primitives to Python developers. Our goal is for it to be your
+    "cryptographic standard library". It supports Python 2.6-2.7,
+    Python 3.3+, and PyPy 2.6+.
+    cryptography includes both high level recipes, and low level
+    interfaces to common cryptographic algorithms such as symmetric
+    ciphers, message digests and key derivation functions. For example,
+    to encrypt something with cryptography's high level symmetric
+    encryption recipe:
+  doc_url: http://cryptography.readthedocs.io/
+  dev_url: https://github.com/pyca/cryptography
+
+extra:
+  recipe-maintainers:
+    - mingwandroid

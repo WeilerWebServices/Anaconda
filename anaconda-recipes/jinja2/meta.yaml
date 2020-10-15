@@ -1,0 +1,35 @@
+package:
+  name: jinja2
+  version: 2.9.6
+
+source:
+  fn: Jinja2-2.9.6.tar.gz
+  url: https://pypi.python.org/packages/90/61/f820ff0076a2599dd39406dcb858ecb239438c02ce706c8e91131ab9c7f1/Jinja2-2.9.6.tar.gz
+  md5: 6411537324b4dba0956aaa8109f3c77b
+
+requirements:
+  build:
+    - python
+    - setuptools
+    - markupsafe
+  run:
+    - python
+    - setuptools
+    - markupsafe >=0.23
+
+test:
+  imports:
+    - jinja2
+
+about:
+  home: http://jinja.pocoo.org
+  license: BSD
+  license_file: LICENSE
+  summary: An easy to use stand-alone template engine written in pure python.
+  description: |
+    Jinja2 is a full featured template engine for Python. It has full unicode
+    support, an optional integrated sandboxed execution environment, widely
+    used and BSD licensed.
+  doc_url: http://jinja.pocoo.org/docs/2.9/
+  doc_source_url: https://github.com/pallets/jinja/blob/master/docs/index.rst
+  dev_url: https://github.com/pallets/jinja

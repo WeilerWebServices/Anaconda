@@ -1,0 +1,58 @@
+<div class="bg-light border-fit">
+    <ng-select
+        [searchable]="true"
+        [items]="dataSet"
+        [loading]="loading"
+        [typeahead]="typeaheadEmitter"
+        bindLabel="name"
+        placeholder="{{ searchPlaceholder }}"
+        loadingText="Searching ..."
+        class="w-100"
+    >
+        <ng-template ng-option-tmp let-item="item">
+            <div class="d-flex flex-row search-option-item" (click)="goToDetail(item)" >
+                    <div class="d-flex type flex-column">
+                        <div ngbTooltip="Package"  container="body" placement="bottom" class="my-auto" *ngIf="item.iconType == 0 || item.name === 'numpy'"><i class="fal fa-fw fa-sm fa-boxes"></i></div>
+                        <div ngbTooltip="Deployment"  container="body" placement="bottom" class="my-auto" *ngIf="item.iconType == 1 && item.name !== 'numpy'"><i class="fal fa-fw fa-sm fa-chart-network"></i></div>
+                        <div ngbTooltip="Project"  container="body" placement="bottom" class="my-auto" *ngIf="item.iconType == 2 && item.name !== 'numpy'"><i class="fal fa-fw fa-sm fa-file-code"></i></div>
+                        <!-- <div ngbTooltip="Package"  container="body" placement="bottom" class="my-auto mx-auto"><small class="text-center">Package</small></div> -->
+                    </div>
+                    <div class="d-flex flex-column col-10" container="body" placement="bottom">
+                        <div class="mr-auto">
+                            <strong>{{item.name}}</strong>
+                            <span class="badge badge-sm badge-dark ml-2">{{item.type}}</span>
+                        </div>
+                        <div class="d-flex">
+                            <small class="mr-auto d-inline-block text-truncate">
+                                {{item.summary}}
+                            </small>
+                        </div>
+                    </div>
+                    <div class="d-flex flex-row ml-auto">
+                        <div class="d-flex my-auto">
+                            <span class="badge badge-sm badge-dark">{{item.version}}</span>
+                        </div>
+                    </div>
+            </div>
+        </ng-template>
+    </ng-select>
+</div>
+
+
+<!-- <div class="d-flex flex-row" (click)="goToDetail(item)" [ngbTooltip]="item.summary" container="body" placement="bottom">
+    <div class="d-flex flex-column col-11">
+        <div class="col">
+            <span class="mr-auto">
+                <strong>{{item.name}}</strong>
+                <span class="badge badge-primary ml-2">{{item.type}}</span>
+            </span>
+        </div>
+        <div class="col">
+            <span class="mr-auto">
+            {{item.summary}}
+            </span>
+        </div>
+    </div>
+    <div class="d-flex flex-column justify-content-start col-1">
+        <span class="badge badge-secondary">{{item.version}}</span>
+    </div> -->

@@ -1,0 +1,36 @@
+package:
+  name: bottlechest
+  version: 0.7.1
+
+source:
+  fn: Bottlechest-0.7.1.tar.gz
+  url: https://pypi.python.org/packages/source/B/Bottlechest/Bottlechest-0.7.1.tar.gz
+  md5: 272a8d9e65ee6e8b072d5da5656337e8
+
+build:
+  detect_binary_files_with_prefix: False
+
+requirements:
+  build:
+    - python
+    - numpy
+    - setuptools
+  run:
+    - python
+    - numpy
+    - scipy
+
+test:
+  imports:
+    - bottlechest
+
+about:
+  home: https://github.com/biolab/bottlechest
+  license: BSD
+  license_file: bottlechest/LICENSE
+  summary: fast NumPy array functions specialized for use in Orange
+  description: |
+    Bottlechest is a fork of Bottleneck, a collection of fast NumPy array
+    functions written in Cython. It is specialized for use in Orange.
+  doc_url: https://pypi.python.org/pypi/Bottlechest
+  dev_url: https://github.com/biolab/bottlechest

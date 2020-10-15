@@ -1,0 +1,35 @@
+package:
+  name: openpyxl
+  version: 2.4.8
+
+source:
+  fn: openpyxl-2.4.8.tar.gz
+  url: https://pypi.io/packages/source/o/openpyxl/openpyxl-2.4.8.tar.gz
+  md5: d5260ccb33d44c20d40cc86e41797463
+
+requirements:
+  build:
+    - python
+    - setuptools
+    - jdcal
+    - et_xmlfile
+  run:
+    - python
+    - jdcal
+    - et_xmlfile
+
+test:
+  imports:
+    - openpyxl
+
+about:
+  home: http://openpyxl.readthedocs.org
+  license: MIT
+  license_file: README.rst
+  summary: A Python library to read/write Excel 2010 xlsx/xlsm files
+  description: |
+    Openpyxl was born from lack of existing library to
+    read/write natively from Python the Office Open XML format.
+  doc_url: http://openpyxl.readthedocs.org
+  doc_source_url: https://bitbucket.org/openpyxl/openpyxl/src/6785c41288228c6f2a94698e9c3bf36c9527c730/doc/index.rst
+  dev_url: https://bitbucket.org/openpyxl/openpyxl/src

@@ -1,0 +1,1148 @@
+{
+  "affine": "all", 
+  "aiohttp": [
+    "linux-64:py35", 
+    "osx-64:py35", 
+    "win-64:py35"
+  ], 
+  "alabaster": "all", 
+  "anaconda-clean": "all", 
+  "anaconda-client": "all", 
+  "anaconda-project": "all", 
+  "anaconda-verify": "all", 
+  "ansi2html": "all", 
+  "anyqt": "all", 
+  "appdirs": "all", 
+  "appnope": [
+    "osx-64:py27", 
+    "osx-64:py35"
+  ], 
+  "appscript": [
+    "osx-64:py27", 
+    "osx-64:py35"
+  ], 
+  "apptools": "all", 
+  "apr": "all", 
+  "asn1crypto": "all", 
+  "astroid": "all", 
+  "astropy": "all", 
+  "async-timeout": [
+    "linux-64:py35", 
+    "osx-64:py35", 
+    "win-64:py35"
+  ], 
+  "atom": [
+    "linux-64:py27", 
+    "osx-64:py27", 
+    "win-64:py27"
+  ], 
+  "attrs": "all", 
+  "autoconf": [
+    "linux-64:py27", 
+    "linux-64:py35", 
+    "osx-64:py27", 
+    "osx-64:py35"
+  ], 
+  "automake": [
+    "linux-64:py27", 
+    "linux-64:py35", 
+    "osx-64:py27", 
+    "osx-64:py35"
+  ], 
+  "automat": "all", 
+  "azure": "all", 
+  "babel": "all", 
+  "backports": "all", 
+  "backports_abc": [
+    "linux-64:py27", 
+    "osx-64:py27", 
+    "win-64:py27"
+  ], 
+  "basemap": [
+    "linux-64:py27", 
+    "linux-64:py35", 
+    "osx-64:py27", 
+    "osx-64:py35", 
+    "win-64:py27"
+  ], 
+  "bcolz": "all", 
+  "bcrypt": "all", 
+  "beautifulsoup4": "all", 
+  "biopython": "all", 
+  "bitarray": "all", 
+  "bkcharts": "all", 
+  "blaze": "all", 
+  "bleach": "all", 
+  "blist": "all", 
+  "bokeh": "all", 
+  "boost": "all", 
+  "boto": "all", 
+  "boto3": "all", 
+  "botocore": "all", 
+  "bottlechest": "all", 
+  "bottleneck": "all", 
+  "bsddb": [
+    "linux-64:py27", 
+    "osx-64:py27"
+  ], 
+  "bsdiff4": "all", 
+  "btrees": "all", 
+  "bz2file": "all", 
+  "bzip2": "all", 
+  "cachecontrol": "all", 
+  "cached-property": "all", 
+  "cairo": [
+    "linux-64:py27", 
+    "linux-64:py35"
+  ], 
+  "casuarius": [
+    "linux-64:py27", 
+    "osx-64:py27", 
+    "win-64:py27"
+  ], 
+  "cdecimal": [
+    "linux-64:py27", 
+    "osx-64:py27", 
+    "win-64:py27"
+  ], 
+  "certifi": "all", 
+  "cffi": "all", 
+  "chainer": "all", 
+  "chalmers": "all", 
+  "chameleon": "all", 
+  "chardet": "all", 
+  "cheetah": [
+    "linux-64:py27", 
+    "osx-64:py27", 
+    "win-64:py27"
+  ], 
+  "cherrypy": "all", 
+  "chest": "all", 
+  "chrpath": [
+    "linux-64:py27", 
+    "linux-64:py35"
+  ], 
+  "cio-bt": "all", 
+  "click": "all", 
+  "click-plugins": "all", 
+  "cligj": "all", 
+  "cloudpickle": "all", 
+  "clyent": "all", 
+  "cmake": [
+    "linux-64:py27", 
+    "linux-64:py35", 
+    "osx-64:py27", 
+    "osx-64:py35"
+  ], 
+  "colander": "all", 
+  "colorama": "all", 
+  "colorcet": "all", 
+  "comtypes": [
+    "win-64:py27", 
+    "win-64:py35"
+  ], 
+  "conda": "all", 
+  "conda-build": "all", 
+  "conda-build-all": "all", 
+  "conda-env": "all", 
+  "conda-verify": "all", 
+  "configargparse": "all", 
+  "configobj": "all", 
+  "configparser": [
+    "linux-64:py27", 
+    "osx-64:py27", 
+    "win-64:py27"
+  ], 
+  "console_shortcut": [
+    "win-64:py27", 
+    "win-64:py35"
+  ], 
+  "constantly": "all", 
+  "constructor": "all", 
+  "contextlib2": "all", 
+  "cookies": "all", 
+  "cornice": "all", 
+  "coverage": "all", 
+  "cryptography": "all", 
+  "cssselect": "all", 
+  "csvkit": "all", 
+  "cubes": "all", 
+  "curl": "all", 
+  "cvxcanon": "all", 
+  "cvxopt": [
+    "linux-64:py27", 
+    "linux-64:py35", 
+    "osx-64:py27", 
+    "osx-64:py35"
+  ], 
+  "cycler": "all", 
+  "cymem": [
+    "linux-64:py27", 
+    "linux-64:py35", 
+    "osx-64:py27", 
+    "osx-64:py35"
+  ], 
+  "cython": "all", 
+  "cytoolz": "all", 
+  "dask": "all", 
+  "datashader": "all", 
+  "datashape": "all", 
+  "datrie": "all", 
+  "db": [
+    "linux-64:py27", 
+    "osx-64:py27"
+  ], 
+  "dbf": "all", 
+  "dbus": [
+    "linux-64:py27", 
+    "linux-64:py35"
+  ], 
+  "decorator": "all", 
+  "dill": "all", 
+  "distributed": "all", 
+  "django": "all", 
+  "dnspython": "all", 
+  "docopt": "all", 
+  "docutils": "all", 
+  "ecdsa": "all", 
+  "ecos": "all", 
+  "entrypoints": "all", 
+  "enum34": [
+    "linux-64:py27", 
+    "osx-64:py27", 
+    "win-64:py27"
+  ], 
+  "envisage": "all", 
+  "ephem": [
+    "linux-64:py27", 
+    "linux-64:py35", 
+    "osx-64:py27", 
+    "osx-64:py35"
+  ], 
+  "essbasepy": [
+    "linux-64:py27", 
+    "osx-64:py27", 
+    "win-64:py27"
+  ], 
+  "et_xmlfile": "all", 
+  "execnet": "all", 
+  "expat": [
+    "linux-64:py27", 
+    "linux-64:py35", 
+    "osx-64:py27", 
+    "osx-64:py35"
+  ], 
+  "expressions": "all", 
+  "fabric": [
+    "linux-64:py27", 
+    "osx-64:py27", 
+    "win-64:py27"
+  ], 
+  "fastcache": "all", 
+  "feedparser": "all", 
+  "filelock": "all", 
+  "fiona": [
+    "linux-64:py27", 
+    "linux-64:py35", 
+    "osx-64:py27", 
+    "osx-64:py35"
+  ], 
+  "flake8": "all", 
+  "flask": "all", 
+  "flask-cors": "all", 
+  "flask-login": "all", 
+  "flask-wtf": "all", 
+  "fontconfig": [
+    "linux-64:py27", 
+    "linux-64:py35"
+  ], 
+  "freeglut": [
+    "linux-64:py27", 
+    "linux-64:py35"
+  ], 
+  "freeimage": "all", 
+  "freetype": "all", 
+  "ftfy": [
+    "linux-64:py27", 
+    "linux-64:py35", 
+    "osx-64:py27", 
+    "osx-64:py35"
+  ], 
+  "fuel": "all", 
+  "funcsigs": [
+    "linux-64:py27", 
+    "osx-64:py27", 
+    "win-64:py27"
+  ], 
+  "functools32": [
+    "linux-64:py27", 
+    "osx-64:py27", 
+    "win-64:py27"
+  ], 
+  "functools_lru_cache": [
+    "linux-64:py27", 
+    "osx-64:py27", 
+    "win-64:py27"
+  ], 
+  "future": "all", 
+  "futures": [
+    "linux-64:py27", 
+    "osx-64:py27", 
+    "win-64:py27"
+  ], 
+  "gdal": [
+    "linux-64:py27", 
+    "linux-64:py35", 
+    "osx-64:py27", 
+    "osx-64:py35", 
+    "win-64:py27"
+  ], 
+  "gdata": [
+    "linux-64:py27", 
+    "osx-64:py27", 
+    "win-64:py27"
+  ], 
+  "gdbm": [
+    "linux-64:py27", 
+    "osx-64:py27"
+  ], 
+  "gensim": "all", 
+  "genson": "all", 
+  "geos": [
+    "linux-64:py27", 
+    "linux-64:py35", 
+    "osx-64:py27", 
+    "osx-64:py35", 
+    "win-64:py27"
+  ], 
+  "geotiff": [
+    "linux-64:py27", 
+    "linux-64:py35", 
+    "osx-64:py27", 
+    "osx-64:py35"
+  ], 
+  "get_terminal_size": "all", 
+  "gevent": "all", 
+  "gevent-websocket": "all", 
+  "git": "all", 
+  "gitdb2": "all", 
+  "gitpython": "all", 
+  "glib": [
+    "linux-64:py27", 
+    "linux-64:py35"
+  ], 
+  "glob2": "all", 
+  "glue-core": "all", 
+  "glue-vispy-viewers": "all", 
+  "glueviz": "all", 
+  "googlecl": [
+    "linux-64:py27", 
+    "osx-64:py27", 
+    "win-64:py27"
+  ], 
+  "grako": "all", 
+  "graphite-web": [
+    "linux-64:py27"
+  ], 
+  "graphviz": "all", 
+  "greenlet": "all", 
+  "grin": [
+    "linux-64:py27", 
+    "osx-64:py27", 
+    "win-64:py27"
+  ], 
+  "gst-plugins-base": [
+    "linux-64:py27", 
+    "linux-64:py35"
+  ], 
+  "gstreamer": [
+    "linux-64:py27", 
+    "linux-64:py35"
+  ], 
+  "gunicorn": [
+    "linux-64:py27", 
+    "linux-64:py35", 
+    "osx-64:py27", 
+    "osx-64:py35"
+  ], 
+  "h5py": "all", 
+  "harfbuzz": [
+    "linux-64:py27", 
+    "linux-64:py35"
+  ], 
+  "hdf4": "all", 
+  "hdf5": "all", 
+  "heapdict": "all", 
+  "holoviews": "all", 
+  "hs2client": [
+    "linux-64:py27", 
+    "linux-64:py35"
+  ], 
+  "html5lib": "all", 
+  "humanize": "all", 
+  "hyperlink": "all", 
+  "icu": "all", 
+  "idna": "all", 
+  "imagesize": "all", 
+  "iminuit": [
+    "linux-64:py27", 
+    "osx-64:py27"
+  ], 
+  "incremental": "all", 
+  "inflection": "all", 
+  "ipaddress": [
+    "linux-64:py27", 
+    "osx-64:py27", 
+    "win-64:py27"
+  ], 
+  "ipykernel": "all", 
+  "ipyparallel": "all", 
+  "ipython": "all", 
+  "ipython_genutils": "all", 
+  "ipywidgets": "all", 
+  "iso8601": "all", 
+  "isort": "all", 
+  "itsdangerous": "all", 
+  "javabridge": "all", 
+  "jbig": [
+    "linux-64:py27", 
+    "linux-64:py35", 
+    "osx-64:py27", 
+    "osx-64:py35"
+  ], 
+  "jdcal": "all", 
+  "jedi": "all", 
+  "jinja2": "all", 
+  "jmespath": "all", 
+  "joblib": "all", 
+  "jpeg": "all", 
+  "jsonschema": "all", 
+  "jupyter": "all", 
+  "jupyter_client": "all", 
+  "jupyter_console": "all", 
+  "jupyter_core": "all", 
+  "kealib": "all", 
+  "keyring": "all", 
+  "kiwisolver": [
+    "linux-64:py27", 
+    "osx-64:py27", 
+    "win-64:py27"
+  ], 
+  "krb5": [
+    "linux-64:py27", 
+    "linux-64:py35", 
+    "osx-64:py27", 
+    "osx-64:py35"
+  ], 
+  "lancet": "all", 
+  "lazy-object-proxy": "all", 
+  "ldap3": "all", 
+  "libconda": "all", 
+  "libevent": [
+    "linux-64:py27", 
+    "linux-64:py35", 
+    "osx-64:py27", 
+    "osx-64:py35"
+  ], 
+  "libffi": [
+    "linux-64:py27", 
+    "linux-64:py35"
+  ], 
+  "libgcc": [
+    "linux-64:py27", 
+    "linux-64:py35"
+  ], 
+  "libgdal": [
+    "linux-64:py27", 
+    "linux-64:py35", 
+    "osx-64:py27", 
+    "osx-64:py35", 
+    "win-64:py27"
+  ], 
+  "libgfortran": [
+    "linux-64:py27", 
+    "linux-64:py35"
+  ], 
+  "libgpuarray": "all", 
+  "libhs2client": [
+    "linux-64:py27", 
+    "linux-64:py35"
+  ], 
+  "libiconv": [
+    "linux-64:py27", 
+    "linux-64:py35", 
+    "osx-64:py27", 
+    "osx-64:py35"
+  ], 
+  "libnetcdf": "all", 
+  "libpng": "all", 
+  "libpq": "all", 
+  "libprotobuf": "all", 
+  "libpython": [
+    "win-64:py27"
+  ], 
+  "libsodium": [
+    "linux-64:py27", 
+    "linux-64:py35"
+  ], 
+  "libssh2": "all", 
+  "libtiff": "all", 
+  "libtool": [
+    "linux-64:py27", 
+    "linux-64:py35"
+  ], 
+  "libxcb": [
+    "linux-64:py27", 
+    "linux-64:py35"
+  ], 
+  "libxml2": [
+    "linux-64:py27", 
+    "linux-64:py35", 
+    "osx-64:py27", 
+    "osx-64:py35"
+  ], 
+  "libxslt": [
+    "linux-64:py27", 
+    "linux-64:py35", 
+    "osx-64:py27", 
+    "osx-64:py35"
+  ], 
+  "lighttpd": [
+    "linux-64:py27", 
+    "linux-64:py35", 
+    "osx-64:py27", 
+    "osx-64:py35"
+  ], 
+  "line_profiler": "all", 
+  "llvmlite": "all", 
+  "locket": "all", 
+  "lockfile": "all", 
+  "luigi": "all", 
+  "lxml": "all", 
+  "lz4": "all", 
+  "m4": [
+    "linux-64:py27", 
+    "linux-64:py35", 
+    "osx-64:py27", 
+    "osx-64:py35"
+  ], 
+  "mako": "all", 
+  "markdown": "all", 
+  "markdown2": "all", 
+  "markupsafe": "all", 
+  "matplotlib": "all", 
+  "mayavi": [
+    "linux-64:py27", 
+    "osx-64:py27", 
+    "win-64:py27"
+  ], 
+  "mccabe": "all", 
+  "mdp": "all", 
+  "meld3": "all", 
+  "memory_profiler": "all", 
+  "menuinst": [
+    "win-64:py27", 
+    "win-64:py35"
+  ], 
+  "mercurial": [
+    "linux-64:py27", 
+    "osx-64:py27", 
+    "win-64:py27"
+  ], 
+  "mingw": [
+    "win-64:py27", 
+    "win-64:py35"
+  ], 
+  "mistune": "all", 
+  "mkl-service": "all", 
+  "mock": "all", 
+  "more-itertools": "all", 
+  "mpi4py": "all", 
+  "mpich2": [
+    "linux-64:py27", 
+    "linux-64:py35"
+  ], 
+  "mpmath": "all", 
+  "msgpack-python": "all", 
+  "mtq": [
+    "linux-64:py27", 
+    "osx-64:py27", 
+    "win-64:py27"
+  ], 
+  "multidict": [
+    "linux-64:py35", 
+    "osx-64:py35", 
+    "win-64:py35"
+  ], 
+  "multipledispatch": "all", 
+  "munch": "all", 
+  "murmurhash": [
+    "linux-64:py27", 
+    "linux-64:py35", 
+    "osx-64:py27", 
+    "osx-64:py35"
+  ], 
+  "mysql-connector-python": "all", 
+  "mysql-python": [
+    "linux-64:py27", 
+    "win-64:py27"
+  ], 
+  "natsort": "all", 
+  "nbconvert": "all", 
+  "nbformat": "all", 
+  "ncurses": [
+    "linux-64:py27", 
+    "linux-64:py35", 
+    "osx-64:py27", 
+    "osx-64:py35"
+  ], 
+  "ndg-httpsclient": [
+    "linux-64:py27", 
+    "osx-64:py27", 
+    "win-64:py27"
+  ], 
+  "neon": [
+    "linux-64:py27", 
+    "linux-64:py35", 
+    "osx-64:py27", 
+    "osx-64:py35"
+  ], 
+  "netcdf4": "all", 
+  "networkx": "all", 
+  "nltk": "all", 
+  "nose": "all", 
+  "notebook": "all", 
+  "nsis": [
+    "win-64:py27", 
+    "win-64:py35"
+  ], 
+  "numba": "all", 
+  "numexpr": "all", 
+  "numpy": "all", 
+  "numpydoc": "all", 
+  "odo": "all", 
+  "olefile": "all", 
+  "openblas": [
+    "linux-64:py27", 
+    "linux-64:py35"
+  ], 
+  "openmpi": [
+    "osx-64:py27", 
+    "osx-64:py35"
+  ], 
+  "openpyxl": "all", 
+  "openssl": "all", 
+  "orange3": [
+    "linux-64:py35", 
+    "osx-64:py35", 
+    "win-64:py35"
+  ], 
+  "packaging": "all", 
+  "pandas": "all", 
+  "pandas-datareader": "all", 
+  "pandasql": "all", 
+  "pandocfilters": "all", 
+  "pango": [
+    "linux-64:py27", 
+    "linux-64:py35"
+  ], 
+  "param": "all", 
+  "paramiko": "all", 
+  "parsel": "all", 
+  "partd": "all", 
+  "passlib": "all", 
+  "paste": [
+    "linux-64:py27", 
+    "osx-64:py27", 
+    "win-64:py27"
+  ], 
+  "pastedeploy": "all", 
+  "patchelf": [
+    "linux-64:py27", 
+    "linux-64:py35"
+  ], 
+  "path.py": "all", 
+  "pathlib": "all", 
+  "pathlib2": "all", 
+  "patsy": "all", 
+  "pbr": "all", 
+  "pcre": [
+    "linux-64:py27", 
+    "linux-64:py35", 
+    "osx-64:py27", 
+    "osx-64:py35"
+  ], 
+  "pep381client": [
+    "linux-64:py27", 
+    "osx-64:py27", 
+    "win-64:py27"
+  ], 
+  "pep8": "all", 
+  "persistent": "all", 
+  "petl": [
+    "linux-64:py27", 
+    "linux-64:py35", 
+    "osx-64:py27", 
+    "osx-64:py35"
+  ], 
+  "pexpect": [
+    "linux-64:py27", 
+    "linux-64:py35", 
+    "osx-64:py27", 
+    "osx-64:py35"
+  ], 
+  "phantomjs": [
+    "osx-64:py27", 
+    "osx-64:py35", 
+    "win-64:py27", 
+    "win-64:py35"
+  ], 
+  "picklable-itertools": "all", 
+  "pickleshare": "all", 
+  "pillow": "all", 
+  "pip": "all", 
+  "pivottablejs": "all", 
+  "pixman": [
+    "linux-64:py27", 
+    "linux-64:py35"
+  ], 
+  "pkginfo": "all", 
+  "plac": "all", 
+  "plotly": "all", 
+  "ply": "all", 
+  "pomegranate": "all", 
+  "posix_ipc": [
+    "linux-64:py27", 
+    "linux-64:py35", 
+    "osx-64:py27", 
+    "osx-64:py35"
+  ], 
+  "postgresql": [
+    "linux-64:py27", 
+    "linux-64:py35"
+  ], 
+  "preshed": [
+    "linux-64:py27", 
+    "linux-64:py35", 
+    "osx-64:py27", 
+    "osx-64:py35"
+  ], 
+  "progressbar2": "all", 
+  "proj4": "all", 
+  "prompt_toolkit": "all", 
+  "protobuf": "all", 
+  "psutil": "all", 
+  "psycopg2": "all", 
+  "ptyprocess": [
+    "linux-64:py27", 
+    "linux-64:py35", 
+    "osx-64:py27", 
+    "osx-64:py35"
+  ], 
+  "py": "all", 
+  "pyamg": [
+    "linux-64:py27", 
+    "osx-64:py27", 
+    "win-64:py27"
+  ], 
+  "pyasn1": "all", 
+  "pyasn1-modules": "all", 
+  "pyaudio": [
+    "osx-64:py27"
+  ], 
+  "pycairo": [
+    "linux-64:py27"
+  ], 
+  "pycodestyle": "all", 
+  "pycosat": "all", 
+  "pycparser": "all", 
+  "pycrypto": "all", 
+  "pycurl": "all", 
+  "pydispatcher": "all", 
+  "pyface": "all", 
+  "pyflakes": "all", 
+  "pygments": "all", 
+  "pygpu": "all", 
+  "pyhive": [
+    "linux-64:py27", 
+    "linux-64:py35"
+  ], 
+  "pykerberos": [
+    "linux-64:py27", 
+    "linux-64:py35", 
+    "osx-64:py27", 
+    "osx-64:py35"
+  ], 
+  "pylint": "all", 
+  "pymongo": "all", 
+  "pymysql": "all", 
+  "pyodbc": "all", 
+  "pyopengl": "all", 
+  "pyopengl-accelerate": "all", 
+  "pyopenssl": "all", 
+  "pyparsing": "all", 
+  "pyproj": "all", 
+  "pyqt": "all", 
+  "pyqtgraph": "all", 
+  "pyramid": "all", 
+  "pyreadline": [
+    "win-64:py27", 
+    "win-64:py35"
+  ], 
+  "pysal": "all", 
+  "pysam": [
+    "linux-64:py27", 
+    "osx-64:py27"
+  ], 
+  "pyserial": "all", 
+  "pysnmp": [
+    "linux-64:py27", 
+    "linux-64:py35", 
+    "osx-64:py27", 
+    "osx-64:py35"
+  ], 
+  "pysocks": "all", 
+  "pystan": [
+    "linux-64:py27", 
+    "linux-64:py35", 
+    "osx-64:py27", 
+    "osx-64:py35"
+  ], 
+  "pytables": "all", 
+  "pytest": "all", 
+  "pytest-cache": "all", 
+  "pytest-cov": "all", 
+  "pytest-mock": "all", 
+  "pytest-pep8": "all", 
+  "pytest-runner": "all", 
+  "pytest-timeout": "all", 
+  "python": "all", 
+  "python-daemon": [
+    "linux-64:py27", 
+    "linux-64:py35", 
+    "osx-64:py27", 
+    "osx-64:py35"
+  ], 
+  "python-dateutil": "all", 
+  "python-gdbm": [
+    "linux-64:py27", 
+    "osx-64:py27"
+  ], 
+  "python-graphviz": [
+    "linux-64:py27", 
+    "linux-64:py35", 
+    "osx-64:py27", 
+    "osx-64:py35"
+  ], 
+  "python-ntlm": [
+    "linux-64:py27", 
+    "osx-64:py27", 
+    "win-64:py27"
+  ], 
+  "python-utils": "all", 
+  "python.app": [
+    "osx-64:py27", 
+    "osx-64:py35"
+  ], 
+  "pytz": "all", 
+  "pywavelets": "all", 
+  "pywget": "all", 
+  "pywin32": [
+    "win-64:py27", 
+    "win-64:py35"
+  ], 
+  "pyyaml": "all", 
+  "pyzmq": "all", 
+  "qgrid": "all", 
+  "qt": "all", 
+  "qtawesome": "all", 
+  "qtconsole": "all", 
+  "qtpy": "all", 
+  "quandl": "all", 
+  "queuelib": "all", 
+  "readline": [
+    "linux-64:py27", 
+    "linux-64:py35", 
+    "osx-64:py27", 
+    "osx-64:py35"
+  ], 
+  "redis": [
+    "linux-64:py27", 
+    "linux-64:py35", 
+    "osx-64:py27", 
+    "osx-64:py35"
+  ], 
+  "redis-py": [
+    "linux-64:py27", 
+    "linux-64:py35", 
+    "osx-64:py27", 
+    "osx-64:py35"
+  ], 
+  "regex": "all", 
+  "reportlab": "all", 
+  "repoze.lru": "all", 
+  "requests": "all", 
+  "requests-file": "all", 
+  "requests-ftp": "all", 
+  "requests-kerberos": "all", 
+  "responses": "all", 
+  "rope": "all", 
+  "routes": "all", 
+  "ruamel_yaml": "all", 
+  "runipy": "all", 
+  "s3fs": "all", 
+  "s3transfer": "all", 
+  "sas7bdat": "all", 
+  "sasl": [
+    "linux-64:py27", 
+    "linux-64:py35"
+  ], 
+  "scandir": "all", 
+  "scikit-bio": [
+    "linux-64:py35", 
+    "osx-64:py35"
+  ], 
+  "scikit-image": "all", 
+  "scikit-learn": "all", 
+  "scikit-rf": "all", 
+  "scipy": "all", 
+  "scrapy": "all", 
+  "seaborn": "all", 
+  "semantic_version": "all", 
+  "serf": "all", 
+  "service_identity": "all", 
+  "setuptools": "all", 
+  "setuptools_scm": "all", 
+  "sh": [
+    "linux-64:py27", 
+    "linux-64:py35", 
+    "osx-64:py27", 
+    "osx-64:py35"
+  ], 
+  "shapely": [
+    "linux-64:py27", 
+    "linux-64:py35", 
+    "osx-64:py27", 
+    "osx-64:py35"
+  ], 
+  "simplegeneric": "all", 
+  "simplejson": "all", 
+  "singledispatch": "all", 
+  "sip": "all", 
+  "six": "all", 
+  "smart_open": "all", 
+  "smmap2": "all", 
+  "snakeviz": "all", 
+  "snappy": [
+    "linux-64:py27", 
+    "linux-64:py35", 
+    "osx-64:py27", 
+    "osx-64:py35"
+  ], 
+  "snowballstemmer": "all", 
+  "snuggs": "all", 
+  "sockjs-tornado": "all", 
+  "sortedcollections": "all", 
+  "sortedcontainers": "all", 
+  "spacy": [
+    "linux-64:py27", 
+    "linux-64:py35", 
+    "osx-64:py27", 
+    "osx-64:py35"
+  ], 
+  "sphinx": "all", 
+  "sphinx_rtd_theme": "all", 
+  "sphinxcontrib": "all", 
+  "sphinxcontrib-websupport": "all", 
+  "spyder": "all", 
+  "sqlalchemy": "all", 
+  "sqlite": "all", 
+  "sqlparse": "all", 
+  "ssh": [
+    "linux-64:py27", 
+    "osx-64:py27", 
+    "win-64:py27"
+  ], 
+  "ssl_match_hostname": [
+    "linux-64:py27", 
+    "osx-64:py27", 
+    "win-64:py27"
+  ], 
+  "statsmodels": "all", 
+  "stripe": "all", 
+  "subprocess32": [
+    "linux-64:py27", 
+    "osx-64:py27", 
+    "win-64:py27"
+  ], 
+  "suds-jurko": "all", 
+  "supervisor": [
+    "linux-64:py27", 
+    "osx-64:py27"
+  ], 
+  "svn": "all", 
+  "swig": "all", 
+  "sympy": "all", 
+  "tabpy-client": "all", 
+  "tabpy-server": "all", 
+  "tblib": "all", 
+  "tempita": "all", 
+  "teradata": "all", 
+  "termcolor": "all", 
+  "terminado": [
+    "linux-64:py27", 
+    "linux-64:py35", 
+    "osx-64:py27", 
+    "osx-64:py35"
+  ], 
+  "testpath": "all", 
+  "thinc": [
+    "linux-64:py27", 
+    "linux-64:py35", 
+    "osx-64:py27", 
+    "osx-64:py35"
+  ], 
+  "thrift": [
+    "linux-64:py27", 
+    "linux-64:py35"
+  ], 
+  "thrift_sasl": [
+    "linux-64:py27", 
+    "linux-64:py35"
+  ], 
+  "thriftpy": [
+    "linux-64:py35"
+  ], 
+  "tk": "all", 
+  "toolz": "all", 
+  "tornado": "all", 
+  "tornado-json": "all", 
+  "tqdm": "all", 
+  "traitlets": "all", 
+  "traits": "all", 
+  "traitsui": "all", 
+  "transaction": "all", 
+  "translationstring": "all", 
+  "trollius": "all", 
+  "twisted": "all", 
+  "typing": "all", 
+  "ujson": "all", 
+  "unicodecsv": "all", 
+  "unidecode": "all", 
+  "unixodbc": [
+    "linux-64:py27", 
+    "linux-64:py35", 
+    "osx-64:py27", 
+    "osx-64:py35"
+  ], 
+  "unxutils": [
+    "win-64:py27", 
+    "win-64:py35"
+  ], 
+  "uuid": [
+    "linux-64:py27", 
+    "osx-64:py27", 
+    "win-64:py27"
+  ], 
+  "vc": [
+    "win-64:py27", 
+    "win-64:py35"
+  ], 
+  "vcversioner": "all", 
+  "venusian": "all", 
+  "vs2008_runtime": [
+    "win-64:py27"
+  ], 
+  "vs2015_runtime": [
+    "win-64:py27", 
+    "win-64:py35"
+  ], 
+  "vtk": [
+    "linux-64:py27", 
+    "osx-64:py27", 
+    "win-64:py27"
+  ], 
+  "w3lib": "all", 
+  "waitress": "all", 
+  "wcwidth": "all", 
+  "webob": "all", 
+  "websocket": [
+    "linux-64:py27", 
+    "osx-64:py27", 
+    "win-64:py27"
+  ], 
+  "webtest": "all", 
+  "werkzeug": "all", 
+  "wheel": "all", 
+  "whisper": [
+    "linux-64:py27"
+  ], 
+  "whoosh": "all", 
+  "widgetsnbextension": "all", 
+  "win_inet_pton": [
+    "win-64:py27", 
+    "win-64:py35"
+  ], 
+  "win_unicode_console": [
+    "win-64:py27", 
+    "win-64:py35"
+  ], 
+  "winkerberos": [
+    "win-64:py27", 
+    "win-64:py35"
+  ], 
+  "word2vec": [
+    "linux-64:py27", 
+    "linux-64:py35", 
+    "osx-64:py27", 
+    "osx-64:py35"
+  ], 
+  "workerpool": "all", 
+  "wrapt": "all", 
+  "wtforms": "all", 
+  "xarray": "all", 
+  "xerces-c": "all", 
+  "xlrd": "all", 
+  "xlsxwriter": "all", 
+  "xlutils": "all", 
+  "xlwings": [
+    "osx-64:py27", 
+    "osx-64:py35", 
+    "win-64:py27", 
+    "win-64:py35"
+  ], 
+  "xlwt": "all", 
+  "xz": [
+    "linux-64:py27", 
+    "linux-64:py35", 
+    "osx-64:py27", 
+    "osx-64:py35"
+  ], 
+  "yaml": [
+    "linux-64:py27", 
+    "linux-64:py35", 
+    "osx-64:py27", 
+    "osx-64:py35"
+  ], 
+  "yarl": [
+    "linux-64:py35", 
+    "osx-64:py35", 
+    "win-64:py35"
+  ], 
+  "yt": [
+    "linux-64:py27", 
+    "linux-64:py35", 
+    "osx-64:py27", 
+    "osx-64:py35"
+  ], 
+  "zeromq": [
+    "linux-64:py27", 
+    "linux-64:py35"
+  ], 
+  "zict": "all", 
+  "zlib": "all", 
+  "zope": "all", 
+  "zope.deprecation": "all", 
+  "zope.interface": "all", 
+  "zope.sqlalchemy": "all"
+}

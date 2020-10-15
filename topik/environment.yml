@@ -1,0 +1,17 @@
+name: topik
+channels:
+  - memex
+  - defaults
+dependencies:
+  - blaze
+  - bokeh
+  - numpy
+  - pandas
+  - bokeh
+  - pattern
+  - gensim
+  - textblob
+  - ijson
+  - click
+  - elasticsearch
+  - pyldavis

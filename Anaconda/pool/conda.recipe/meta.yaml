@@ -1,0 +1,54 @@
+# Conda build file for package accord
+# To build: conda build accord
+
+{% set data = load_setup_py_data() %}
+
+package:
+  name: repo_mirror
+  version: {{ data.get('version') }}
+
+source:
+  path: ../
+
+build:
+  number: 1
+  script: python setup.py install --single-version-externally-managed --record=record.txt
+  entry_points:
+    - airgap=repo_mirror.airgap:main
+  noarch: python
+
+requirements:
+  host:
+    - python >=3.6,<3.8
+  #  - setuptools
+        #  - python >=3.6
+        #  - setuptools
+        #  - urllib3
+        #  - ruamel_yaml
+        #  - boto3
+        #  - cas-mirror
+
+  run:
+    - python >=3.6,<3.8
+    - ruamel_yaml
+    - jinja2
+    - boto3
+    - cas-mirror
+    - cytoolz # cas-mirror dependency that doesn't get installed correctly
+
+test:
+  source_files:
+    - tests/*
+  requires:
+    - pytest
+  commands:
+    - pytest
+
+about:
+  home: 'https://github.com/oldarmyc/pool'
+  license: 'Apache License, Version 2.0'
+  license_file: LICENSE
+  license_family: APACHE
+  summary: 'Library to run conda mirrors and generate airgap tarball'
+  description: 'Library to run conda mirrors and generate airgap tarball'
+  dev_url: 'https://github.com/oldarmyc/pool'

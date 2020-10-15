@@ -1,0 +1,32 @@
+package:
+  name: iminuit
+  version: 1.1.1
+
+source:
+  fn: iminuit-1.1.1.tar.gz
+  url: https://pypi.python.org/packages/source/i/iminuit/iminuit-1.1.1.tar.gz
+  md5: d2a05f890eac4bd5a392f49d056ef6a6
+
+requirements:
+  build:
+    - python
+  run:
+    - python
+
+test:
+  imports:
+    - iminuit
+    - iminuit._libiminuit
+
+about:
+  home: https://github.com/iminuit/iminuit
+  license: MIT
+  license_file: LICENSE
+  summary: Interactive Minimization Tools based on MINUIT
+  description: |
+    iminuit is an interactive IPython-friendly mimizer based on SEAL Minuit.
+    iminuit is designed from ground up to be fast, interactive and cython
+    friendly.
+  doc_url: http://iminuit.readthedocs.org/
+  doc_source_url: https://github.com/iminuit/iminuit/blob/master/doc/index.rst
+  dev_url: https://github.com/iminuit/iminuit

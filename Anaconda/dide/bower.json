@@ -1,0 +1,19 @@
+{
+  "name": "dide",
+  "version": "0.0.0",
+  "authors": [
+    "Continuum Analytics"
+  ],
+  "license": "BSD",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "foundation": "~5.5.1"
+  }
+}

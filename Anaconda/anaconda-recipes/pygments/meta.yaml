@@ -1,0 +1,40 @@
+package:
+  name: pygments
+  version: 2.2.0
+
+source:
+  fn: Pygments-2.2.0.tar.gz
+  url: https://pypi.python.org/packages/71/2a/2e4e77803a8bd6408a2903340ac498cb0a2181811af7c9ec92cb70b0308a/Pygments-2.2.0.tar.gz
+  md5: 13037baca42f16917cbd5ad2fab50844
+
+build:
+  entry_points:
+    - pygmentize = pygments.cmdline:main
+
+requirements:
+  build:
+    - python
+  run:
+    - python
+
+test:
+  commands:
+    - pygmentize -h
+  imports:
+    - pygments
+    - pygments.lexers
+    - pygments.formatters
+    - pygments.styles
+    - pygments.filters
+
+about:
+  home: http://pygments.org/
+  license: BSD
+  license_file: LICENSE
+  summary: Generic syntax highlighting package
+  description: |
+    Pygments is suitable for use in code hosting, forums, wikis or other a
+    pplications that need to prettify source code.
+  doc_url: http://pygments.org/docs/
+  doc_source_url: https://bitbucket.org/birkenfeld/pygments-main/src/7941677dc77d4f2bf0bbd6140ade85a9454b8b80/doc/docs/
+  dev_url: https://bitbucket.org/birkenfeld/pygments-main

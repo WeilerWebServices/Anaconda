@@ -1,0 +1,34 @@
+package:
+  name: libxslt
+  version: 1.1.29
+
+source:
+  fn: libxslt-1.1.29.tar.gz
+  url: ftp://xmlsoft.org/libxml2/libxslt-1.1.29.tar.gz
+  md5: a129d3c44c022de3b9dcf6d6f288d72e
+
+build:
+  number: 0
+  detect_binary_files_with_prefix: False
+
+requirements:
+  build:
+    - libxml2 2.9.4
+  run:
+    - libxml2 2.9.4
+
+test:
+  commands:
+    - xsltproc --version
+
+about:
+  home: http://xmlsoft.org/XSLT/
+  license: MIT
+  license_file: COPYING
+  summary: The XSLT C library developed for the GNOME project
+  description: |
+    Libxslt is based on libxml2 the XML C library developed for the GNOME project. It also
+    implements most of the EXSLT set of processor-portable extensions functions
+    and some of Saxon's evaluate and expressions extensions.
+  doc_url: http://xmlsoft.org/XSLT/
+  doc_source_url: https://github.com/GNOME/libxslt/tree/master/doc

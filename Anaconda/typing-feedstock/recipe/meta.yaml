@@ -1,0 +1,46 @@
+{% set version = "3.7.4.3" %}
+
+package:
+  name: typing
+  version: {{ version }}
+
+source:
+  url: https://pypi.io/packages/source/t/typing/typing-{{ version }}.tar.gz
+  sha256: 1187fb9c82fd670d10aa07bbb6cfcfe4bdda42d6fab8d5134f04e8c4d0b71cc9
+
+build:
+  number: 0
+  script: {{ PYTHON }} -m pip install . --no-deps -vv  # [py==27]
+  script: echo "dummy package for python 3"  # [py> 27]
+
+requirements:
+  host:
+    - python
+    - pip
+  run:
+    - python
+
+test:
+  imports:
+    - typing
+
+about:
+  home: https://docs.python.org/3.5/library/typing.html
+  license: PSF
+  license_file: LICENSE
+  summary: Type Hints for Python - backport for Python<3.5
+  description: |
+    This is a backport of the standard library typing module to Python versions
+    older than 3.5. Typing defines a standard notation for Python function and
+    variable type annotations. The notation can be used for documenting code in
+    a concise, standard format, and it has been designed to also be used by
+    static and runtime type checkers, static analyzers, IDEs and other tools.
+
+  doc_url: https://docs.python.org/3.5/library/typing.html
+  dev_url: https://github.com/python/cpython/blob/3.5/Lib/typing.py
+  doc_source_url: https://github.com/python/cpython/tree/3.5/Doc
+
+extra:
+  recipe-maintainers:
+    - msarahan
+    - ocefpaf

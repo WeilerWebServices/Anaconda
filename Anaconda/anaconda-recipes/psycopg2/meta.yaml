@@ -1,0 +1,42 @@
+package:
+  name: psycopg2
+  version: 2.7.1
+
+source:
+  fn: psycopg2-2.7.1.tar.gz
+  url: https://pypi.python.org/packages/f8/e9/5793369ce8a41bf5467623ded8d59a434dfef9c136351aca4e70c2657ba0/psycopg2-2.7.1.tar.gz
+  md5: 67848ac33af88336046802f6ef7081f3
+  patches:
+    - have_openssl.patch
+
+build:
+  detect_binary_files_with_prefix: False
+
+requirements:
+  build:
+    - python
+    - setuptools             [win]
+    - postgresql
+  run:
+    - python
+    - openssl 1.0.2*
+    - libpq
+
+test:
+  imports:
+    - psycopg2
+    - psycopg2._psycopg
+
+about:
+  home: http://initd.org/psycopg/
+  license: LGPL, BSD-like, ZPL
+  license_family: LGPL
+  license_file: LICENSE
+  summary: PostgreSQL database adapter for Python
+  description: |
+    Psycopg is the most popular PostgreSQL adapter for the Python programming
+    language. Its main features are the complete implementation of the Python DB
+    API 2.0 specification and the thread safety.
+  doc_url: http://initd.org/psycopg/docs/
+  doc_source_url: https://github.com/psycopg/psycopg2/blob/master/doc/src/index.rst
+  dev_url: https://github.com/psycopg/psycopg2/

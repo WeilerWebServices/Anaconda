@@ -1,0 +1,48 @@
+package:
+  name: scikit-rf
+  version: 0.14.3
+
+source:
+  fn: scikit-rf-0.14.3.zip
+  url: https://pypi.python.org/packages/6f/af/d499b0a576e37ca08be21e271ab7a68b755a38c96e9cba3f38cfae41e5b9/scikit-rf-0.14.3.zip
+  md5: 3dc7e7aab5e0dd1f5ce692f32b053ec7
+
+requirements:
+  build:
+    - python
+    - setuptools
+    - ipython
+    - numpy
+    - pandas
+    - scipy
+    - matplotlib
+  run:
+    - python
+    - ipython
+    - scipy
+    - pandas
+    - matplotlib
+
+test:
+  imports:
+    - apps
+    - skrf
+    - skrf.calibration
+    - skrf.data
+    - skrf.io
+    - skrf.media
+#    - skrf.src
+    - skrf.vi
+
+about:
+  home: http://scikit-rf.org
+  license: new BSD
+  license_family: BSD
+  summary: Object Oriented RF/Microwave Engineering
+  description: |
+    scikit-rf is an Open Source, BSD-licensed package for RF/Microwave
+    engineering implemented in the Python programming language. It provides
+    a modern, object-oriented library which is both flexible and scalable.
+  doc_url: http://scikit-rf.readthedocs.org/en/latest/
+  doc_source_url: https://github.com/scikit-rf/scikit-rf/blob/master/doc/source/index.rst
+  dev_url: https://github.com/scikit-rf/scikit-rf

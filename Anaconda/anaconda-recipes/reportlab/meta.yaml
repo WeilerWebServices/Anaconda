@@ -1,0 +1,37 @@
+package:
+  name: reportlab
+  version: 3.4.0
+
+source:
+  fn: reportlab-3.4.0.tar.gz
+  url: https://pypi.python.org/packages/87/f9/53b34c58d3735a6df7d5c542bf4de60d699cfa6035e113ca08b3ecdcca3f/reportlab-3.4.0.tar.gz
+  md5: 3f2522cf3b69cd84426c216619bbff53
+
+build:
+  detect_binary_files_with_prefix: False
+
+requirements:
+  build:
+    - python
+  run:
+    - python
+    - pillow >=2.4.0
+
+test:
+  imports:
+    - reportlab
+    - reportlab.graphics._renderPM
+    - reportlab.lib._rl_accel
+    - reportlab.lib.pyHnj                [py27]
+
+about:
+  home: http://www.reportlab.com/
+  license: BSD
+  license_file: LICENSE.txt
+  summary: The ReportLab Toolkit
+  description: |
+    ReportLab Toolkit allows rapid creation of rich PDF documents and also
+    creation of charts in a variety of bitmap and vector formats.
+  doc_url: http://www.reportlab.com/documentation/
+  doc_source_url: https://bitbucket.org/rptlab/reportlab/src/fa1c8635929ea5d32c475638514fe8d7582194fd/docs/source/
+  dev_url: https://bitbucket.org/rptlab/reportlab

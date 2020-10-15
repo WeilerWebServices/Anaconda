@@ -1,0 +1,35 @@
+package:
+  name: unidecode
+  version: 0.04.21
+
+source:
+  fn: Unidecode-0.04.21.tar.gz
+  url: https://pypi.python.org/packages/0e/26/6a4295c494e381d56bba986893382b5dd5e82e2643fc72e4e49b6c99ce15/Unidecode-0.04.21.tar.gz
+  md5: 089031ed00637d7078f33dad9d6a3c12
+
+build:
+  entry_points:
+    - unidecode = unidecode.util:main
+
+requirements:
+  build:
+    - python
+    - setuptools
+  run:
+    - python
+
+test:
+  commands:
+    - unidecode -h
+  imports:
+    - unidecode
+
+about:
+  home: https://pypi.python.org/pypi/Unidecode
+  license: GNU General Public License v2 or later (GPL v2+)
+  license_family: GPL2
+  license_file: LICENSE
+  summary: ASCII transliterations of Unicode text
+  description: |
+    function unidecode() takes Unicode data and tries to represent it in ASCII characters.
+  doc_url: https://pypi.python.org/pypi/Unidecode

@@ -1,0 +1,45 @@
+package:
+  name: twisted
+  version: 17.5.0
+
+source:
+  fn: Twisted-17.5.0.tar.bz2
+  url: https://pypi.python.org/packages/31/bf/7f86a8f8b9778e90d8b2921e9f442a8c8aa33fd2489fc10f236bc8af1749/Twisted-17.5.0.tar.bz2
+  md5: cd5c287802dcbaf7be15cf937c922b71
+
+build:
+  detect_binary_files_with_prefix: False
+
+requirements:
+  build:
+    - python
+    - setuptools
+    - incremental
+    - zope.interface
+  run:
+    - python
+    - zope.interface >=4.0.2
+    - constantly >=15.1
+    - incremental >=16.10.1
+    - automat >=0.3.0
+    - hyperlink >=17.1.1
+    - pywin32                                    [win]
+
+test:
+  imports:
+    - twisted
+    - twisted.test.raiser
+    - twisted.python.sendmsg                     [unix and py2k]
+    - twisted.internet.iocpreactor.iocpsupport   [win]
+
+about:
+  home: http://twistedmatrix.com/
+  license: MIT
+  license_file: LICENSE
+  summary: event-driven networking engine
+  description: |
+    Twisted is an event-driven networking engine written in Python.
+    It runs on Python 2 and an ever growing subset also works with Python 3.
+  doc_url: http://twistedmatrix.com/documents/current/
+  doc_source_url: https://github.com/twisted/twisted/blob/trunk/docs/index.rst
+  dev_url: https://github.com/twisted/twisted

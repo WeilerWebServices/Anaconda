@@ -1,0 +1,38 @@
+package:
+  name: pyodbc
+  version: 4.0.17
+
+source:
+  fn: pyodbc-4.0.17.tar.gz
+  url: https://pypi.python.org/packages/ce/57/6b92aa5b3497dde6be55fd6fcb76c7db215ed1d56fde45c613add4a43095/pyodbc-4.0.17.tar.gz
+  md5: 1560f9c915780237c525b765537d220f
+  patches:
+    - setup.patch        [unix]
+
+build:
+  detect_binary_files_with_prefix: False
+
+requirements:
+  build:
+    - python
+    - unixodbc 2.3.4     [unix]
+  run:
+    - python
+    - unixodbc 2.3.4     [unix]
+
+test:
+  imports:
+    - pyodbc
+
+about:
+  home: http://mkleehammer.github.io/pyodbc/
+  license: MIT
+  license_file: LICENSE.txt
+  summary: DB API Module for ODBC
+  description: |
+    pyodbc is a Python DB API 2 module for ODBC. This project provides an
+    up-to-date, convenient interface to ODBC using native data types like
+    datetime and decimal.
+  doc_url: http://mkleehammer.github.io/pyodbc/
+  doc_source_url: https://github.com/mkleehammer/pyodbc/blob/master/docs/index.md
+  dev_url: https://github.com/mkleehammer/pyodbc

@@ -1,0 +1,13 @@
+diff --git setup.cfg.template setup.cfg.template
+index d2e7db4..099ad47 100644
+--- setup.cfg.template
++++ setup.cfg.template
+@@ -25,7 +25,7 @@
+ # optional. All except tests are installed by default, but that can
+ # be changed here.
+ #
+-#tests = False
++tests = False
+ #sample_data = True
+ #toolkits = True
+ # Tests for the toolkits are only automatically installed

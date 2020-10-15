@@ -1,0 +1,31 @@
+package:
+  name: click
+  version: 6.7
+
+source:
+  fn: click-6.7.tar.gz
+  url: https://pypi.python.org/packages/95/d9/c3336b6b5711c3ab9d1d3a80f1a3e2afeb9d8c02a7166462f6cc96570897/click-6.7.tar.gz
+  md5: fc4cc00c4863833230d3af92af48abd4
+
+requirements:
+  build:
+    - python
+    - setuptools
+  run:
+    - python
+
+test:
+  imports:
+    - click
+
+about:
+  home: http://click.pocoo.org/
+  license: BSD
+  license_file: LICENSE
+  summary: Command line interface creation kit
+  description: |
+    Click is a Python package for creating beautiful command line interfaces
+    in a composable way with as little code as necessary.
+  doc_url: http://click.pocoo.org/
+  doc_source_url: https://github.com/pallets/click/blob/master/docs/index.rst
+  dev_url: https://github.com/mitsuhiko/click

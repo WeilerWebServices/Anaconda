@@ -1,0 +1,37 @@
+# This is legacy recipe, which has not been tested using conda-build.
+# See: https://github.com/ContinuumIO/anaconda-recipes/blob/master/LEGACY.md
+
+package:
+  name: pyopengl-accelerate
+  version: 3.1.1a1
+
+source:
+  fn: PyOpenGL-accelerate-3.1.1a1.tar.gz
+  url: https://pypi.python.org/packages/source/P/PyOpenGL-accelerate/PyOpenGL-accelerate-3.1.1a1.tar.gz
+  md5: 04e52af352dd078275a2d5720c4afea2
+
+requirements:
+  build:
+    - python
+    - cython
+    - numpy
+  run:
+    - python
+    - numpy
+    - pyopengl
+    - freeglut          [linux]
+
+test:
+  imports:
+    - OpenGL_accelerate
+
+about:
+  home: http://pyopengl.sourceforge.net
+  license: BSD
+  license_file: license.txt
+  summary: Acceleration code for PyOpenGL
+  description: |
+    This set of C (Cython) extensions provides acceleration of common operations for slow points in PyOpenGL .
+  doc_url: http://pyopengl.sourceforge.net/documentation/index.html
+  doc_source_url: https://sourceforge.net/projects/pyopengl/
+  dev_url: https://github.com/mcfletch/pyopengl

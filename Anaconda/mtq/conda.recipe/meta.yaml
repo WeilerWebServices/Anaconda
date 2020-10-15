@@ -1,0 +1,30 @@
+
+package:
+  name: mtq
+  version: 0.7.1
+
+build:
+  number: {{environ.get('BINSTAR_BUILD', 1)}}
+  script:
+    - cd $RECIPE_DIR/..
+    - python make_version.py
+    - $PYTHON setup.py install --single-version-externally-managed --record=record.txt
+
+requirements:
+  build:
+    - python
+    - setuptools
+    - pymongo
+    - dateutil
+    - pytz
+  run:
+    - python
+    - pymongo
+    - dateutil
+    - pytz
+
+about:
+  home: https://github.com/Anaconda-Platform/mtq
+  license: UNKNOWN
+
+

@@ -1,0 +1,39 @@
+package:
+  name: boost
+  version: 1.61.0
+
+source:
+  fn:  boost_1_61_0.tar.bz2
+  url: http://sourceforge.net/projects/boost/files/boost/1.61.0/boost_1_61_0.tar.bz2
+  md5: 6095876341956f65f9d35939ccea1a9f
+
+build:
+  features:
+    - vc9               [win and py27]
+    - vc10              [win and py34]
+    - vc14              [win and (py35 or py36)]
+
+requirements:
+  build:
+    - python
+    - icu 54.*          [unix]
+    - bzip2             [unix]
+    - zlib
+  run:
+    # python dependency is here due to libboost-python library that depends on
+    # python version
+    - python
+    - icu 54.*          [unix]
+    - zlib
+
+about:
+  home: http://www.boost.org/
+  license: Boost license
+  license_url: http://www.boost.org/users/license.html
+  license_family: Other
+  summary: Boost provides free peer-reviewed portable C++ source libraries.
+  description: |
+    Boost, a C++ library which enables seamless interoperability between C++ and the Python programming language.
+  doc_url: http://www.boost.org/doc/
+  doc_source_url: https://github.com/boostorg/python/blob/develop/README.md
+  dev_url: http://www.boost.org/development/

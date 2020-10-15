@@ -1,0 +1,12 @@
+{
+	"name": "etl_basics",
+	"label": "ETL Basics",
+	"synopsis": "Introduction to data transformation and loading, basic transformation techniques.",
+	"level": "beginner",
+	"category": "processing",
+
+	"required": [ "python" ],
+	"recommended": ["olap_cubes_introduction"],
+
+	"author": "Continuum Analytics"
+}

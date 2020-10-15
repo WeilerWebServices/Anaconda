@@ -1,0 +1,13 @@
+package:
+  name: vs2015_runtime
+  # version is the update version reported from the registry
+  version: "14.0.25420"
+
+build:
+  number: 0
+  msvc_compiler: 14.0
+
+about:
+  home: http://www.microsoft.com
+  license: Proprietary
+  summary: Bundles of the MSVC 14 (VS 2015) runtime

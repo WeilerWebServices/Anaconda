@@ -1,0 +1,46 @@
+{% set version = "1.7.0" %}
+
+package:
+  name: tblib
+  version: {{ version }}
+
+source:
+  url: https://pypi.org/packages/source/t/tblib/tblib-{{ version }}.tar.gz
+  sha256: 059bd77306ea7b419d4f76016aef6d7027cc8a0785579b5aad198803435f882c
+
+build:
+  number: 0
+  noarch: python
+  script: python -m pip install --no-deps --ignore-installed .
+
+
+requirements:
+  host:
+    - python
+    - pip
+
+  run:
+    - python
+
+test:
+  imports:
+    - tblib
+
+about:
+  home: https://github.com/ionelmc/python-tblib
+  license_file: LICENSE
+  license: BSD 2-Clause
+  license_family: BSD
+  summary: 'Traceback serialization library.'
+  description: |
+    tblib allows you to Pickle tracebacks and raise exceptions with pickled
+    tracebacks in different processes.This allows better error handling when
+    running code over multiple processes.
+  dev_url: https://github.com/ionelmc/python-tblib
+  doc_url: https://python-tblib.readthedocs.io/en/latest/
+  doc_source_url: https://github.com/ionelmc/python-tblib/blob/master/docs/index.rst
+
+extra:
+  recipe-maintainers:
+    - jjhelmus
+    - pmlandwehr

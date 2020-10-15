@@ -1,0 +1,21 @@
+#!/bin/bash
+
+set -e
+set -x
+
+# sentry.conf file.
+SENTRY_DEFAULT_CONFIG_FILE="/opt/sentry.conf.py.mounted"
+SENTRY_DEFAULT_CONFIG_FILE="/opt/sentry.conf.py.default"
+SENTRY_CONFIG_FILE="/opt/sentry.conf.py"
+
+if [ -e "${SENTRY_MOUNTED_CONFIG_FILE}" ]; then
+    cp ${SENTRY_MOUNTED_CONFIG_FILE} ${SENTRY_CONFIG_FILE} || exit 45
+fi
+
+# Use default config file if none are found
+if [ ! -e "${SENTRY_CONFIG_FILE}" ]; then
+    cp ${SENTRY_DEFAULT_CONFIG_FILE} ${SENTRY_CONFIG_FILE} || exit 50
+fi
+
+# Fire up sentry!!
+exec /usr/local/bin/sentry --config=/opt/sentry.conf.py start

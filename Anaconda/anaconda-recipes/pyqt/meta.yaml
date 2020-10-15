@@ -1,0 +1,48 @@
+package:
+  name: pyqt
+  version: 5.6.0
+
+source:
+  fn:   PyQt5_gpl-5.6.zip    [win]
+  url:  http://sourceforge.net/projects/pyqt/files/PyQt5/PyQt-5.6/PyQt5_gpl-5.6.zip   [win]
+  sha1: 63a03d0f6e7f6e2e9dc90311020fbb2a2edc8cf0  [win]
+  fn:   PyQt5_gpl-5.6.tar.gz   [unix]
+  url:  http://sourceforge.net/projects/pyqt/files/PyQt5/PyQt-5.6/PyQt5_gpl-5.6.tar.gz   [unix]
+  sha1: 8920e4094470ff93f79e257c37c46f5cd0bff7ab  [unix]
+
+build:
+  number: 1          [osx]
+  number: 2          [linux or win]
+
+requirements:
+  build:
+    - gcc    [linux]
+    - jom    [win]
+    - python
+    - qt 5.6.*
+    - sip >=4.18
+  run:
+    - libgcc    [linux]
+    - python
+    - qt 5.6.*
+    - sip >=4.18
+
+test:
+  imports:
+    - PyQt5.QtCore
+
+about:
+  home: http://www.riverbankcomputing.co.uk/software/pyqt
+  license: Commercial, GPLv2, GPLv3
+  license_family: GPL3
+  license_file: LICENSE
+  summary: Python binding of the cross-platform GUI toolkit Qt
+  description: |
+    PyQt is a set of Python v2 and v3 bindings for The Qt Company's Qt
+    application framework and runs on all platforms supported by Qt including
+    Windows, MacOS/X and Linux. PyQt5 supports Qt v5. PyQt4 supports Qt v4 and
+    will build against Qt v5. The bindings are implemented as a set of Python
+    modules and contain over 1,000 classes.
+  doc_url: https://www.riverbankcomputing.com/software/pyqt/
+  doc_source_url: https://github.com/pyqt
+  dev_url: https://github.com/pyqt

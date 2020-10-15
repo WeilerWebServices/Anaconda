@@ -1,0 +1,30 @@
+package:
+  name: semantic_version
+  version: 2.6.0
+
+source:
+  fn: semantic_version-2.6.0.tar.gz
+  url: https://pypi.python.org/packages/72/83/f76958017f3094b072d8e3a72d25c3ed65f754cc607fdb6a7b33d84ab1d5/semantic_version-2.6.0.tar.gz
+  md5: 4388a5df93e4dbe7b48767b3694bb761
+
+requirements:
+  build:
+    - python
+    - setuptools
+  run:
+    - python
+
+test:
+  imports:
+    - semantic_version
+
+about:
+  home: https://github.com/rbarrois/python-semanticversion
+  license: BSD
+  license_file: LICENSE
+  summary: A library implementing the 'SemVer' scheme.
+  description: |
+    This small python library provides a few tools to handle SemVer in Python.
+  doc_url: https://python-semanticversion.readthedocs.org/en/latest/
+  doc_source_url: https://github.com/rbarrois/python-semanticversion/blob/master/README.rst
+  dev_url: https://github.com/rbarrois/python-semanticversion

@@ -1,0 +1,63 @@
+package:
+  name: notebook
+  version: 5.0.0
+
+source:
+  fn: notebook-5.0.0.tar.gz
+  url: https://pypi.python.org/packages/e2/71/49a6be47ffa566d925387ba4db1a353824e789cd785c12d2d6e3e2f30892/notebook-5.0.0.tar.gz
+  md5: c2aa6847f5a2c8a7ed497748f0fc220c
+
+build:
+  entry_points:
+    - jupyter-notebook = notebook.notebookapp:main
+    - jupyter-nbextension = notebook.nbextensions:main
+    - jupyter-serverextension = notebook.serverextensions:main
+
+requirements:
+  build:
+    - python
+  run:
+    - python
+    - jinja2
+    - tornado >=4.0
+    - ipython_genutils
+    - traitlets >=4.2.1
+    - jupyter_core
+    - jupyter_client
+    - nbformat
+    - nbconvert
+    - ipykernel
+    - terminado >=0.3.3         [unix]
+
+app:
+  entry: jupyter-notebook                         [not osx]
+  entry: open ${PREFIX}/bin/jupyter_mac.command   [osx]
+  icon: jupyter.png
+  summary: Jupyter Notebook
+  type: web
+  cli_opts:
+    - name: port
+      args: --port %s
+      default: 8080
+      summary: Server port ...
+
+test:
+  commands:
+    - jupyter-notebook -h
+    - jupyter-nbextension -h
+    - jupyter-serverextension -h
+  imports:
+    - notebook
+
+about:
+  home: http://jupyter.org
+  license: BSD
+  license_file: COPYING.md
+  summary: web-based notebook environment for interactive computing
+  description: |
+    Jupyter Notebook is a web application, a browser-based tool for interactive
+    authoring of documents which combine explanatory text, mathematics, computations
+    and their rich media output.
+  doc_url: https://jupyter-notebook.readthedocs.org/en/latest/
+  doc_source_url: https://github.com/jupyter/notebook/blob/master/docs/source/index.rst
+  dev_url: https://github.com/jupyter/notebook

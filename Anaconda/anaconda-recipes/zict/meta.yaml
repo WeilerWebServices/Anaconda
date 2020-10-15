@@ -1,0 +1,33 @@
+package:
+  name: zict
+  version: 0.1.2
+
+source:
+  fn: zict-0.1.2.tar.gz
+  url: https://pypi.python.org/packages/67/46/845afc98272933d61ce95d802a44a38c68d7df0c583eeb872137f349cde6/zict-0.1.2.tar.gz
+  md5: bc359ec283973a7f5053dc59323ce8b6
+
+requirements:
+  build:
+    - python
+    - setuptools
+    - heapdict
+  run:
+    - python
+    - heapdict
+
+test:
+  imports:
+    - zict
+
+about:
+  home: http://github.com/mrocklin/zict/
+  license: BSD
+  license_family: BSD
+  license_file: LICENSE.txt
+  summary: Composable Mutable Mapping tools
+  description: |
+    The dictionary / mutable mapping interface is powerful and multi-faceted.
+  doc_url: http://zict.readthedocs.io/en/latest/
+  doc_source_url: https://github.com/dask/zict/blob/master/doc/source/index.rst
+

@@ -1,0 +1,74 @@
+{% set version = "4.0.2" %}
+
+package:
+  name: astropy
+  version: {{ version }}
+
+source:
+  url: https://pypi.io/packages/source/a/astropy/astropy-{{ version }}.tar.gz
+  sha256: 4014e472cc7d3ca225524bf56bf4087042cc564849cfc528c435414c2f2f4b7e
+
+
+build:
+  detect_binary_files_with_prefix: false
+  entry_points:
+    - fits2bitmap = astropy.visualization.scripts.fits2bitmap:main
+    - fitscheck = astropy.io.fits.scripts.fitscheck:main
+    - fitsdiff = astropy.io.fits.scripts.fitsdiff:main
+    - fitsheader = astropy.io.fits.scripts.fitsheader:main
+    - fitsinfo = astropy.io.fits.scripts.fitsinfo:main
+    - samp_hub = astropy.samp.hub_script:hub_script
+    - volint = astropy.io.votable.volint:main
+    - wcslint = astropy.wcs.wcslint:main
+  number: 0
+  skip: true  # [py27]
+
+requirements:
+  build:
+    - {{ compiler('c') }}
+  host:
+    - python
+    - pip
+    - setuptools
+    - jinja2 2.10.3
+    - cython 0.29.14
+    - numpy 1.16.*  # [py36]
+    - numpy 1.16.*  # [py>=37]
+  run:
+    - python
+    - setuptools
+    - {{ pin_compatible('numpy') }}
+
+
+test:
+  requires:
+    - pytest-astropy
+  commands:
+    - fits2bitmap --help
+    - fitscheck --help
+    - fitsdiff --help
+    - fitsheader --help
+    - fitsinfo --help
+    - samp_hub --help
+    - volint --help
+    - wcslint --help
+  imports:
+    - astropy
+
+about:
+  home: http://www.astropy.org/
+  license: BSD-3-Clause
+  license_file: LICENSE.rst
+  summary: Community-developed Python Library for Astronomy
+  description: |
+    The Astropy Project is a community effort to develop a single package for
+    Astronomy in Python. It contains core functionality and common tools
+    needed for performing astronomy and astrophysics research with Python.
+  doc_url: http://docs.astropy.org/en/stable/
+  dev_url: https://github.com/astropy/astropy
+
+extra:
+  recipe-maintainers:
+    - astrofrog-conda-forge
+    - mwcraig
+    - bsipocz

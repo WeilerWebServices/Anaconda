@@ -1,0 +1,30 @@
+package:
+  name: networkx
+  version: "1.11"
+
+source:
+  fn: networkx-1.11.tar.gz
+  url: https://pypi.python.org/packages/source/n/networkx/networkx-1.11.tar.gz
+  md5: 6ef584a879e9163013e9a762e1cf7cd1
+
+requirements:
+  build:
+    - python
+    - setuptools
+    - decorator
+  run:
+    - python
+    - decorator >=3.4
+
+about:
+  home: http://networkx.lanl.gov/
+  license: BSD
+  license_file: LICENSE.txt
+  summary: Python package for creating and manipulating complex networks
+  description: |
+    With NetworkX you can load and store networks in standard and nonstandard data formats,
+    generate many types of random and classic networks,analyze network structure,
+    build network models, design new network algorithms,draw networks, and much more.
+  doc_url: https://networkx.readthedocs.io/en/stable/
+  doc_source_url: https://github.com/networkx/networkx/blob/v1.11/doc/source/index.rst
+  dev_url: https://github.com/networkx/

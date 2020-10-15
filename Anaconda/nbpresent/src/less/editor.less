@@ -1,0 +1,132 @@
+.nbp-editor {
+  .nbp-ui();
+  position: fixed;
+  bottom: @sorter-height;
+  right: @app-bar-width;
+  left: @editor-sidebar-width;
+  top: 0;
+  background-color: rgba(50, 50, 50, 0.5);
+  z-index: @z-editor;
+  opacity: 0.9;
+
+  .slide_bg {
+    background-color: #fff;
+    position: absolute;
+  }
+
+  .nbp-region {
+    .nbp-region-bg {
+      fill: transparent;
+      opacity: 0.50;
+      stroke: grey;
+      stroke-width: 2px;
+      stroke-dasharray: 5,5;
+    }
+
+    &.nbp-content-source .nbp-region-bg{
+      stroke: @part-source-color;
+      stroke-dasharray: none;
+    }
+
+    &.nbp-content-outputs .nbp-region-bg{
+      stroke: @part-outputs-color;
+      stroke-dasharray: none;
+    }
+
+    &.nbp-content-widgets .nbp-region-bg{
+      stroke: @part-widgets-color;
+      stroke-dasharray: none;
+    }
+
+    &.nbp-content-whole .nbp-region-bg{
+      stroke: @part-whole-color;
+      stroke-dasharray: none;
+    }
+
+
+    &.active .nbp-region-bg{
+      stroke: @jpy-brand;
+      opacity: 0.9;
+      stroke-width: 10px;
+      stroke-dasharray: none;
+    }
+
+  }
+
+}
+
+// TODO: move this?
+.nbp-regiontree {
+  .nbp-ui();
+
+  z-index: @z-regiontree;
+  position: absolute;
+  width: @editor-sidebar-width;
+  bottom: @sorter-height;
+  left: 0;
+  top: 0;
+  background-color: @ui-bg;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-top: @btn-titled-height;
+  opacity: 0.9;
+
+  .nbp-toolbar {
+    position: fixed;
+    top: 0;
+    z-index: @z-regiontree + 1;
+    width: @editor-sidebar-width - 10;
+    background-color: @ui-bg;
+    box-shadow: @z-shadow;
+  }
+
+  .region_info {
+    clear: both;
+    float: left;
+    margin: 10px 0;
+
+    .slide {
+      float: left;
+    }
+
+    .region_attr {
+      float: right;
+      clear: right;
+      width: 140px;
+      text-align: right;
+      background-color: transparent;
+      border: none;
+      color: @jpy-brand;
+      height: 24px;
+      padding: 2px;
+
+      &.input-group-sm > .input-group-addon.attr_ns {
+        background-color: transparent;
+        border: none;
+        color: @jpy-brand;
+        padding: 0;
+        height: 20px;
+      }
+
+      .attr_name{
+        padding: 0 5px;
+        height: 20px;
+        background-color: @jpy-brand;
+        color: black;
+        border-radius: 2px;
+        user-select: none;
+        cursor: ew-resize;
+        border: none;
+      }
+
+      input {
+        height: 20px;
+        text-align: right;
+        background-color: transparent;
+        border: none;
+        color: white;
+        font-weight: bold;
+      }
+    }
+  }
+}

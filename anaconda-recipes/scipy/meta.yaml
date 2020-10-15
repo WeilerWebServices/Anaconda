@@ -1,0 +1,52 @@
+package:
+  name: scipy
+  version: 0.19.1
+
+source:
+  fn: scipy-0.19.1.tar.gz
+  url: https://pypi.python.org/packages/52/67/d9ef9b5058d4a9e3f0ae641ec151790622cbeb37f157de5773358e2bf3da/scipy-0.19.1.tar.gz
+  md5: 6b4d91b62f1926282b127194a06b72b3
+
+build:
+  number: 0
+  detect_binary_files_with_prefix: False
+  ignore_prefix_files: True   [win]
+  features:
+    - nomkl                   [x86 and nomkl]
+
+requirements:
+  build:
+    - python
+    - setuptools
+    - numpy x.x
+    - mkl-devel 2017.0.*      [not nomkl]
+    - openblas 0.2.19         [linux and nomkl]
+    - cio-bt
+  run:
+    - python
+    - numpy x.x
+    - mkl 2017.0.*            [not nomkl]
+    - openblas 0.2.19         [linux and nomkl]
+    - libgfortran 3.0.0       [linux and not ppc64le]
+    - vs2015_runtime          [win and py35]
+    - vs2010_runtime          [win and py34]
+    - vs2008_runtime          [win and py27]
+
+test:
+  requires:
+    - nose
+    - cio-bt
+  imports:
+    - scipy
+
+about:
+  home: http://www.scipy.org/
+  license: BSD
+  license_file: LICENSE.txt
+  summary: Scientific Library for Python
+  description: |
+    SciPy is a collection of mathematical algorithms and convenience functions
+    built on the Numpy extension of Python.
+  doc_url: https://docs.scipy.org/doc/scipy/reference/
+  doc_source_url: https://github.com/scipy/scipy/blob/master/doc/source/index.rst
+  dev_url: https://github.com/scipy/scipy

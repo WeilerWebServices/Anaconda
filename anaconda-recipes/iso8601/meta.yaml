@@ -1,0 +1,30 @@
+package:
+  name: iso8601
+  version: 0.1.12
+
+source:
+  fn: iso8601-0.1.12.tar.gz
+  url: https://pypi.python.org/packages/45/13/3db24895497345fb44c4248c08b16da34a9eb02643cea2754b21b5ed08b0/iso8601-0.1.12.tar.gz
+  md5: 4de940f691c5ea759fb254384c8ddcf6
+
+requirements:
+  build:
+    - python
+    - setuptools
+  run:
+    - python
+
+test:
+  imports:
+    - iso8601
+
+about:
+  home: https://bitbucket.org/micktwomey/pyiso8601/
+  license: MIT
+  license_file: LICENSE
+  summary: simple module to parse ISO 8601 dates
+  description: |
+    This module parses the most common forms of ISO 8601 date strings
+    (e.g. 2007-01-14T20:34:22+00:00) into datetime objects.
+  doc_url: https://pypi.python.org/pypi/iso8601
+  doc_source_url: https://bitbucket.org/micktwomey/pyiso8601/src/43c6749d06c4aac6b1156911e85a0b952ca8a324/docs/index.rst

@@ -1,0 +1,52 @@
+{% set name = "pytest-cov" %}
+{% set version = "2.10.1" %}
+{% set sha256 = "47bd0ce14056fdd79f93e1713f88fad7bdcc583dcd7783da86ef2f085a0bb88e" %}
+
+package:
+  name: {{ name|lower }}
+  version: {{ version }}
+
+source:
+  fn: {{ name }}-{{ version }}.tar.gz
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  sha256: {{ sha256 }}
+
+build:
+  noarch: python
+  script: {{ PYTHON }} -m pip install . --no-deps -vv
+  number: 0
+
+requirements:
+  host:
+    - pip
+    - python
+    - setuptools
+
+  run:
+    - python
+    - setuptools
+    - pytest >=4.6
+    - coverage >=4.4
+
+test:
+  commands:
+    - pytest --traceconfig | grep pytest-cov-{{ version }}
+
+about:
+  home: https://github.com/pytest-dev/pytest-cov
+  license: MIT
+  license_family: MIT
+  license_file: LICENSE
+  summary: Pytest plugin for measuring coverage
+  description: |
+    pytest-cov produces coverage reports.It supports centralised testing and
+    distributed testing in both load and each modes.It also supports coverage
+    of subprocesses.
+  dev_url: https://github.com/pytest-dev/pytest-cov
+  doc_url: https://pytest-cov.readthedocs.io/en/latest/
+  doc_source_url: https://github.com/pytest-dev/pytest-cov/blob/master/docs/index.rst
+
+extra:
+  recipe-maintainers:
+    - dopplershift
+    - nicoddemus

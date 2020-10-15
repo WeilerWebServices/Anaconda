@@ -1,0 +1,30 @@
+package:
+  name: colorcet
+  version: 0.9.1
+
+source:
+  git_url: https://github.com/bokeh/colorcet.git
+  git_tag: 0.9.1
+
+requirements:
+  build:
+    - python
+    - setuptools
+  run:
+    - python
+
+test:
+  imports:
+    - colorcet
+
+about:
+  home: http://github.com/bokeh/colorcet
+  license: Creative Commons Attribution 4.0 International Public License
+  license_family: Other
+  license_file: LICENSE.txt
+  summary: collection of perceptually uniform colormaps
+  description: |
+    colorcet is a collection of perceptually uniform colormaps for use
+    with Python plotting programs like bokeh, matplotlib, holoviews, and datashader.
+  doc_url: https://pypi.python.org/pypi/colorcet/0.9.1
+  doc_source_url: https://github.com/bokeh/colorcet/blob/master/README.md

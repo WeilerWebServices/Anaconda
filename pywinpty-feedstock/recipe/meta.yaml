@@ -1,0 +1,53 @@
+{% set name = "pywinpty" %}
+{% set version = "0.5" %}
+{% set hash = "013e58a93079fb7bc72ba14dd6c86b473ea09797d94629eea1fe3c738f086ad2" %}
+
+package:
+  name: {{ name }}
+  version: {{ version }}
+
+source:
+  fn: {{ name }}-{{ version }}.tar.gz
+  url: https://github.com/spyder-ide/{{ name }}/archive/v{{ version }}.tar.gz
+  sha256: {{ hash }}
+
+build:
+  number: 0
+  skip: True  # [not win]
+
+requirements:
+  build:
+    - cython
+    - python
+    - setuptools
+    - winpty
+    - backports.shutil_which  # [py2k]
+    - vc 14
+  run:
+    - backports.shutil_which  # [py2k]
+    - setuptools  # [py2k]
+    - python
+    - winpty
+    - vs2015_runtime
+
+test:
+  imports:
+    - winpty
+
+about:
+  home: https://github.com/spyder-ide/pywinpty
+  license: MIT
+  summary: 'Python bindings for the winpty library'
+  description: |
+    Python bindings for the winpty pseudo terminal library.
+    It allows to create and communicate with Windows processes that print outputs
+     and recieve inputs via console input and output pipes.
+  doc_url: https://github.com/spyder-ide/pywinpty
+  dev_url: https://github.com/spyder-ide/pywinpty
+
+extra:
+  recipe-maintainers:
+    - blink1073
+    - ccordoba12
+    - andfoy
+    - goanpeca

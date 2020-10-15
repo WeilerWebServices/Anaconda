@@ -1,0 +1,36 @@
+package:
+  name: markdown2
+  version: 2.3.4
+
+source:
+  fn: markdown2-2.3.4.zip
+  url: https://pypi.python.org/packages/f2/3e/8836dd370419e928ac9856ab582d92e46292e09bfa9917bec81ca7444e3a/markdown2-2.3.4.zip
+  md5: fa89c7d410df789866dcf471d321ec5f
+
+build:
+  entry_points:
+    - markdown2 = markdown2:main
+
+requirements:
+  build:
+    - python
+  run:
+    - python
+
+test:
+  commands:
+    - markdown2 --help
+  imports:
+    - markdown2
+
+about:
+  home: http://packages.python.org/Markdown/
+  license: MIT
+  license_file: LICENSE.txt
+  summary: fast and complete Python implementation of Markdown
+  description: |
+    Markdown is a text-to-HTML filter; it translates an easy-to-read / easy-to-write structured
+    text format into HTML.
+  doc_url: https://pypi.python.org/pypi/markdown2
+  doc_source_url: https://github.com/trentm/python-markdown2/blob/master/README.md
+  dev_url: https://github.com/waylan/Python-Markdown

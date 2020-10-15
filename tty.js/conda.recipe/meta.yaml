@@ -1,0 +1,20 @@
+package:
+  name: tty.js 
+  version: 1.0 
+
+build:            # (optional)
+  number: {{environ.get('BINSTAR_BUILD', 1)}}
+
+requirements:
+  build:
+    - python   # needed for node-gyp
+    - nodejs
+  run:
+    - nodejs
+
+test:
+    requires:
+        - python
+about:
+  home: https://github.com/ContinuumIO/tty.js
+  license: MIT 

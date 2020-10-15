@@ -1,0 +1,30 @@
+package:
+  name: widgetsnbextension
+  version: 3.0.2
+
+source:
+  fn: widgetsnbextension-3.0.2.tar.gz
+  url: https://pypi.python.org/packages/5a/ed/77cbdc2e2aae4a006627044a99ed89a89827435150c44f1106f5205f9326/widgetsnbextension-3.0.2.tar.gz
+  md5: a4d5a2848593b6de342aa66fc0bc63a4
+
+requirements:
+  build:
+    - python
+    - setuptools
+    - notebook >=4.4.1
+  run:
+    - python
+    - notebook >=4.4.1
+
+test:
+  imports:
+    - widgetsnbextension
+
+about:
+  home: http://ipython.org
+  license: BSD 3-clause
+  license_family: BSD
+  summary: IPython HTML widgets for Jupyter
+  description: |
+    Interactive HTML widgets for Jupyter notebooks.
+  doc_url: https://pypi.python.org/pypi/widgetsnbextension

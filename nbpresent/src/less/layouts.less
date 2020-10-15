@@ -1,0 +1,49 @@
+.nbp-template-library {
+  .nbp-ui();
+
+  z-index: @z-layouts;
+  position: fixed;
+  bottom: @sorter-height;
+  left: 0;
+  right: @app-bar-width;
+  height: @sorter-height;
+
+  background-color: @ui-bg;
+  opacity: 0.75;
+
+  .npb-template-library-slides {
+    overflow-x: auto;
+    overflow-y: hidden;
+    position: relative;
+    width: 100%;
+    height: 170px;
+    margin-top: 42px;
+  }
+
+
+  .hide_library {
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    background-color: @ui-bg;
+    color: @jpy-brand;
+  }
+
+  .slide {
+    opacity: 80%;
+    position: absolute;
+  }
+
+  h3 {
+    color: @jpy-brand;
+    position: absolute;
+    margin: 0;
+    padding: 10px;
+    &.from_template{
+      top: 5px;
+    }
+    &.from_slide{
+      bottom: 0;
+    }
+  }
+}

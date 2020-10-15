@@ -1,0 +1,18 @@
+{% set data = load_setuptools()%}
+package:
+  name: {{data.get('name')}}
+  version: {{data.get('version')}}
+
+build:
+  number: {{environ.get('BINSTAR_BUILD_MAJOR', 1)}}
+
+requirements:
+  build:
+    - python
+    - setuptools
+  run:
+    - python
+
+about:
+  home: {{data.get('url')}}
+  license: {{data.get('license')}}

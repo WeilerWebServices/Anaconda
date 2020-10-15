@@ -1,0 +1,30 @@
+package:
+  name: clyent
+  version: 1.2.2
+
+source:
+  git_url: https://github.com/Anaconda-Server/clyent.git
+  git_tag: 1.2.2
+
+requirements:
+  build:
+    - python
+    - setuptools
+  run:
+    - python
+    - setuptools
+
+test:
+  imports:
+    - clyent
+
+about:
+  home: https://github.com/Anaconda-Server/clyent
+  license: BSD
+  summary: Command line client library for windows and posix
+  description: |
+    Clyent is a python command line utility library for binstar,
+    binstar-build, and chalmers.
+  doc_url: https://pypi.python.org/pypi/clyent
+  doc_source_url: https://github.com/Anaconda-Platform/clyent/blob/master/README.md
+  dev_url: https://github.com/Anaconda-Server/clyent

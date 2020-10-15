@@ -1,0 +1,42 @@
+package:
+  name: pandas-datareader
+  version: 0.5.0
+
+source:
+  fn: pandas-datareader-0.5.0.tar.gz
+  url: https://pypi.python.org/packages/9b/3b/5fae1f4ba5889468fefbadcefda0389f60f2780eead3a1166415bda4509c/pandas-datareader-0.5.0.tar.gz
+  md5: 77cc22b08b5cac46eb974ac6687d4555
+
+requirements:
+  build:
+    - python
+    - setuptools
+    - pandas
+    - requests
+    - requests-file
+  run:
+    - python
+    - pandas >=0.17.0
+    - requests >=2.3.0
+    - requests-file
+    - requests-ftp
+
+test:
+  imports:
+    - pandas_datareader
+    - pandas_datareader.google
+    - pandas_datareader.io
+    - pandas_datareader.tests
+    - pandas_datareader.yahoo
+
+about:
+  home: https://github.com/pydata/pandas-datareader
+  license: BSD
+  license_file: LICENSE.md
+  summary: data readers extracted from the pandas codebase
+  description: |
+    Up to date remote data access for pandas, works for multiple versions
+    of pandas.
+  doc_url: http://pandas-datareader.readthedocs.org/en/latest/
+  doc_source_url: https://github.com/pydata/pandas-datareader/blob/master/docs/source/index.rst
+  dev_url: https://github.com/pydata/pandas-datareader

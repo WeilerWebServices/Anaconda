@@ -1,0 +1,550 @@
+/******************************************************************************/
+/* BOOTSTRAP-OVERRIDES
+/*     These use basic css, but refer to our _variables.scss partial when
+/*     necessary.
+/*     TODO: Break all these out into partials so components can include when necessary
+/*     vs polluting the global scope when not needed.
+/***********************************/
+
+
+// Body
+body {
+    background-color: $white;
+    color:$ae-black;
+}
+
+// Nav
+// vertical nav
+.nav.flex-column {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+    flex-wrap: nowrap;
+    li.nav-item {
+        a {
+            padding: 1.2rem;
+            display: block;
+            position: relative;
+            text-decoration: none;
+            i {
+                margin-right: 1rem;
+            }
+        }
+        a:hover,
+        &.active,
+        &.active a:hover {
+            background-color: rgba($ae-gray-2,.45);
+        }
+        .navbar-dark & {
+            a:hover,
+            &.active,
+            &.active a:hover {
+                background-color: rgba($ae-gray-2,.10);
+            }
+        }
+    }
+}
+// If the navbar is dark (like admin routes)
+.navbar-dark {
+    .nav-item {
+        a.nav-link {
+            color: $navbar-dark-color;
+        }
+        a.nav-link:hover {
+            color: $navbar-dark-hover-color;
+        }
+    }
+    .nav-item.active {
+        a.nav-link {
+            color: $navbar-dark-active-color;
+        }
+    }
+}
+// Nav Links
+.nav-links {
+    display: flex;
+    flex-basis: auto;
+    flex-grow: 1;
+    align-items: center;
+    .nav-link-group {
+        display: flex;
+    }
+}
+// Nav Tabs
+.nav-tabs {
+    .nav-link {
+        &.disabled {
+            opacity: .5;
+        }
+    }
+}
+
+// Nav Primary styles (could also use :host.is-primary-nav to target)
+#nav-primary {
+    .nav-links {
+        .nav-link-group {
+            flex-direction: row;
+        }
+        // Hide most links when at or below sm size
+        @include media-breakpoint-down(sm) {
+            .user-links,
+            .admin-links {
+                display:none;
+            }
+        }
+        .nav-item {
+            box-shadow: inset 0 0 0 $ae-green;
+            transition: .15s ease-out;
+            a.nav-link {
+                padding: 1.1rem;
+                i {
+                    display:none;
+                }
+            }
+            &:hover,
+            &.active {
+                box-shadow: inset 0 -4px 0 $ae-green;
+                font-weight: $font-weight-normal;
+            }
+        }
+    }
+}
+// Nav styles (could also use :host.is-nav to target)
+#nav {
+    .nav-item {
+        box-shadow: inset 0 0 0 $ae-green;
+        transition: .15s ease-out;
+        &:hover,
+        &.active {
+            box-shadow: inset 4px 0 0 $ae-green;
+        }
+    }
+}
+// Nav Right styles (could also use :host.is-right-nav to target)
+#nav-right {
+    .nav-links {
+        display:block;
+        .nav-link-group {
+            width:100%;
+            flex-direction: column;
+        }
+        .nav-item {
+            a.nav-link {
+                color: $ae-black-tint-2;
+                padding: 1rem 1.25rem 1rem 1.25rem;
+                text-decoration: none;
+                i {
+                    margin-right: 1rem;
+                }
+            }
+
+            a.nav-link.active,
+            a.nav-link.active:hover {
+                font-weight:$font-weight-normal;
+                color:$ae-green;
+                background-color: $ae-black-tint-4;
+            }
+            a.nav-link:hover {
+                color: $white;
+                background-color: rgba($ae-black-tint-4,.45);
+            }
+        }
+        .nav-item.active {
+            font-weight:$font-weight-normal;
+        }
+    }
+}
+
+
+// Cards
+.card {
+    .card-header.is-clickable,
+    .card-header.has-button {
+        color: $ae-black-tint-4;
+        font-weight: $font-weight-normal;
+        padding: 0;
+        .row {
+            margin-left: 0;
+            margin-right: 0;
+        }
+        .btn {
+            padding: .7rem;
+            color: $ae-black-tint-4;
+        }
+        .btn:hover {
+            background-color: $ae-gray-3;
+        }
+        div.header-text {
+            padding: .75rem 1.25rem .75rem 1.25rem;
+            width: 100%;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+    }
+    .card-header.is-clickable {
+        div.header-text:hover {
+            background-color: $ae-gray-2;
+        }
+        div.header-text.text-success {
+            .fa-circle {
+                margin-right: .5rem;
+            }
+        }
+    }
+    .card-link:hover {
+        text-decoration: underline;
+    }
+    .card-footer {
+        padding:.4rem;
+        background-color: $white;
+        text-align: right;
+    }
+    .card-footer.is-clickable:hover {
+        background-color: rgba($ae-green-tint-1,.2);
+    }
+}
+
+// Modals
+.modal-title {
+    font-weight: $font-weight-bold;
+}
+.modal-content {
+    box-shadow: 0px 5px 10px rgba(0,0,0,.26);
+}
+.modal-body {
+    max-height: calc(100vh - 12.5rem);
+    overflow: auto;
+}
+
+// Tables
+.table {
+    margin-bottom:0;
+    thead th {
+        border-top:0;
+        border-bottom: 1px;
+        font-weight:$font-weight-normal;
+        white-space: nowrap;
+    }
+    th,
+    td {
+        vertical-align: middle;
+    }
+    tr.is-clickable:hover {
+        background-color: $ae-gray-1;
+    }
+}
+// custom anaconda styled table
+.table.table-anaconda {
+    tbody tr {
+        cursor: pointer;
+    }
+    tbody tr:hover {
+        background-color:$white;
+    }
+    td {
+        color: $gray-500;
+    }
+    tr td:first-child {
+        color:$primary;
+        font-weight:$font-weight-bold;
+    }
+}
+// sortable table
+.table.sortable {
+    thead th {
+        cursor: pointer;
+        user-select: none;
+    }
+    thead th i.fa {
+        visibility: hidden;
+        margin-left:.25rem;
+    }
+    thead th.active i.fa {
+        visibility: visible;
+    }
+}
+// borderless
+.table.table-borderless td,
+.table.table-borderless th {
+    border-top:none;
+    vertical-align:top;
+}
+// fixed header (con: can't have specific col widths)
+.table-fixed tbody {
+    display: block;
+    max-height: 20vh; // Be sure to override this max-height in each component's scss to tailor a solution
+    overflow: auto;
+}
+.table-fixed thead,
+.table-fixed tbody tr {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+}
+.table-fixed thead {
+    width: calc( 100% - 1rem )
+}
+
+// Faux table
+//     Made with .col and divs. Use when you need collapsible rows (which can't be
+//     done with a table). E.g. Runs list used to have it, but AEUI-695 removed it
+.faux-table {
+    .faux-table-thead {
+        font-weight: $font-weight-bold;
+    }
+    .row {
+        margin-left: 0;
+        margin-right: 0;
+        border-bottom: 1px solid $ae-gray-3;
+        .col {
+            padding: .3rem;
+        }
+    }
+    .row-expanded {
+        padding-left: 2rem;
+        background-color: $ae-gray-1;
+        pre {
+            max-height: 10rem;
+        }
+    }
+}
+.faux-table.faux-table-hover {
+    .row:not(.row-expanded):hover {
+        background-color: $ae-gray-1;
+    }
+}
+
+// Breadcrumb
+.breadcrumb {
+    padding-left: 0;
+    background: none;
+    font-weight: $font-weight-base;
+    .breadcrumb-item[routerLink],
+    .breadcrumb-item[ng-reflect-router-link] {
+        cursor: pointer;
+    }
+    .breadcrumb-item[routerLink]:hover,
+    .breadcrumb-item[ng-reflect-router-link]:hover {
+        text-decoration: underline;
+    }
+    .breadcrumb-item {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        outline: none;
+    }
+}
+
+// Code and Pre
+code, samp, kbd {
+	font-family: "Courier New", Courier, monospace, sans-serif;
+	text-align: left;
+	color: $ae-gray-4;
+}
+pre code {
+	line-height: 1.6rem;
+	font-size: .85rem;
+}
+pre {
+	padding: 0.3rem 0.5rem 0.3rem 0.7rem;
+    border: 1px solid $ae-gray-3;
+    border-radius: 3px;
+    background-color: $ae-gray-2;
+	margin: .25rem;
+	overflow: auto;
+	width: 99%;
+}
+pre.log-text{
+    font-size: .75em;
+    background-color: $ae-black;
+    color: $ae-gray-4;
+}
+
+/* target IE7 and IE6 */
+*:first-child+html pre {
+	padding-bottom: 2rem;
+	overflow-y: hidden;
+	overflow: visible;
+	overflow-x: auto;
+}
+* html pre {
+	padding-bottom: 2rem;
+	overflow: visible;
+	overflow-x: auto;
+}
+
+// FORMS
+// inputs
+.form-control {
+    font-weight: $font-weight-base;
+}
+.form-control:disabled:focus,
+.form-control[readonly]:focus {
+    border-color: $input-border-color;
+    box-shadow: none;
+}
+
+// ng-select (custom anaconda styles) https://github.com/ng-select/ng-select
+// both multi and single line
+.ng-select.ng-single.ng-select-anaconda .ng-control,
+.ng-select.ng-multiple.ng-select-anaconda .ng-control {
+    min-height: 2.625rem;
+    border-radius: $input-border-radius;
+    border-color: $border-color;
+}
+.ng-select.ng-single.ng-select-anaconda.opened .ng-control,
+.ng-select.ng-multiple.ng-select-anaconda.opened .ng-control {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+.ng-select.ng-single.ng-select-anaconda.focused .ng-control,
+.ng-select.ng-multiple.ng-select-anaconda.focused .ng-control {
+    // The snippet below is from Bootstrap's @mixin form-control-focus() mixin.
+    // In main.scss we are importing Bootstrap's mixins via @import "mixins";
+    // This should should allow us to do "@include form-control-focus()" here,
+    // but it doesn't work. Lame lame lame.
+    color: $input-focus-color;
+    background-color: $input-focus-bg;
+    border-color: $input-focus-border-color;
+    outline: 0;
+    // Avoid using mixin so we can pass custom focus shadow properly
+    @if $enable-shadows {
+      box-shadow: $input-box-shadow, $input-focus-box-shadow;
+    } @else {
+      box-shadow: $input-focus-box-shadow;
+    }
+}
+.ng-select.ng-single.ng-select-anaconda .ng-control .ng-value-container .ng-placeholder,
+.ng-select.ng-multiple.ng-select-anaconda .ng-control .ng-value-container .ng-placeholder {
+    top: .5rem;
+    padding-left: .375rem;
+    padding-bottom: .375rem;
+}
+// just single line
+.ng-select.ng-single.ng-select-anaconda .ng-control {
+    height: 2.625rem;
+}
+
+// full width ng-select when used within a Bootstrap input-group. Without this, class
+// the ng-select resizes it's width to fit the selected content
+.ng-select.ng-single.ng-select-anaconda.with-input-group,
+.ng-select.ng-multiple.ng-select-anaconda.with-input-group {
+    flex: 1 1 auto;
+}
+
+// ng-dropdown
+.ng-dropdown-panel {
+    .ng-dropdown-panel-items {
+        .ng-option.selected {
+            background-color: $ae-gray-2;
+        }
+        .ng-option.marked {
+            background-color: $ae-gray-2;
+        }
+    }
+}
+
+// small
+small, .small {
+    font-weight: $font-weight-base;
+}
+// buttons
+// More info on disabled attr. vs class - https://getbootstrap.com/docs/4.1/components/buttons/#disabled-state
+.btn[disabled],
+.btn:disabled,
+.btn.disabled {
+    background-color: $ae-gray-3;
+    border-color: $ae-gray-3 !important;
+    color: $ae-gray-5;
+}
+.btn.btn-primary {
+    border-width:1px;
+    border-color:$ae-green-shade-1;
+}
+.btn.btn-primary:not(.disabled):hover {
+    background-color: $ae-green-shade-4;
+}
+.btn.btn-light {
+    border-width:1px;
+    border-color:$ae-gray-3;
+}
+.btn.btn-danger {
+    border-width:1px;
+    border-color:$ae-red-dark;
+}
+.btn.btn-danger:hover {
+    background-color: #960824;
+}
+.btn.btn-icon:hover {
+    background-color: $ae-gray-2;
+}
+.btn {
+    .dropdown-item {
+        font-weight: $font-weight-base;
+    }
+}
+// Hacky fix for no space between .btn that we're suddenly seeing
+// after Angular 7 upgrade.
+.page {
+    button.btn + button.btn {
+        margin-left: .5rem;
+    }
+}
+
+// Dropdown
+.dropdown-menu {
+    cursor:pointer;
+    .dropdown-item {
+        font-weight:  $font-weight-base;
+    }
+    .dropdown-item.active,
+    a.dropdown-item:active,
+    a.dropdown-item:hover {
+        color:$ae-black;
+        background-color: $ae-gray-2;
+    }
+}
+
+// Badges
+.badge {
+    font-weight: $font-weight-normal;
+}
+.badge-fw {
+    vertical-align: text-bottom !important;
+    max-width: 6rem;
+    width: 6rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.badge-light {
+    background-color: $ae-gray-4;
+}
+
+// Notification Badge (put the .badge-notification on the parent DOM)
+.badge-notification-wrapper {
+   position: relative;
+   .badge-notification {
+       position: absolute;
+       top: 0;
+       right: 0;
+       font-size: 65%;
+   }
+}
+
+// File Upload
+.custom-file {
+    .custom-file-label {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        padding-right: 5rem;
+    }
+}
+
+// Form Errors
+textarea.ng-dirty.ng-invalid,
+.form-control.invalid {
+    border-color: $ae-red;
+}

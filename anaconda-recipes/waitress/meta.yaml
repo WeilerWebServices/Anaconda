@@ -1,0 +1,36 @@
+package:
+  name: waitress
+  version: 1.0.2
+
+source:
+  git_url: https://github.com/Pylons/waitress.git
+  git_tag: v1.0.2
+
+build:
+  entry_points:
+    - waitress-serve = waitress.runner:run
+
+requirements:
+  build:
+    - python
+    - setuptools
+  run:
+    - python
+
+test:
+  imports:
+    - waitress
+
+about:
+  home: https://github.com/Pylons/waitress
+  license: ZPL 2.1
+  license_family: Other
+  license_file: LICENSE.txt
+  summary: Production-quality WSGI server with very acceptable performance
+  description: |
+    Waitress is meant to be a production-quality pure-Python WSGI server with
+    very acceptable performance. It has no dependencies except ones which live
+    in the Python standard library.
+  doc_url: http://docs.pylonsproject.org/projects/waitress/en/latest/
+  doc_source_url: https://github.com/Pylons/waitress/blob/master/docs/index.rst
+  dev_url: https://github.com/Pylons/waitress

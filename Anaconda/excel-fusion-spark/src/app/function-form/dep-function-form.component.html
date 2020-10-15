@@ -1,0 +1,74 @@
+<div id="loading" *ngIf="isLoading">
+    <div class="loading-wrapper">
+        <div class="loading-spinner"></div>
+        <div class="loading-message">Loading...</div>
+    </div>
+</div>
+
+<div class="card mt-3 mb-3" *ngIf="!isLoading">
+  <!-- Card Header -->
+  <div class="card-header d-flex">
+    <div class="header-text mr-auto">
+      <strong>{{ parent.name }}.ipynb:</strong> def {{ main }} ( ... )
+    </div>
+  </div>
+
+  <!-- Card Body -->
+  <div class="card-body">
+    <div class="mini-header">
+      <h4>Input</h4>
+      <div class="input-toggles">
+        <div class="input-excel-sync input-toggle">
+          <span class="switch-label">Excel Sync</span>
+          <label class="switch">
+            <input type="checkbox" name="excel_sync" checked="checked" />
+            <span class="slider" name="excel_sync" (click)="onCheckboxChange($event)"></span>
+          </label>
+        </div>
+        <div class="input-excel-sync input-toggle">
+          <span class="switch-label">Auto Run</span>
+          <label class="switch">
+            <input type="checkbox" name="auto_run">
+            <span class="slider" name="auto_run" (click)="onCheckboxChange($event)"></span>
+          </label>
+        </div>
+      </div>
+    </div>
+    <div class="card--input">
+      <div class="input--fields" *ngFor="let param of params | keyvalue">
+        <div class="field--select">
+          <span>{{ param.key }}</span>
+          <input type="text" (change)="onInputChange($event)" id="{{ param.value }}" name="{{ param.value }}" value="{{ param.value }}" />
+        </div>
+      </div>
+      <!--
+      <div class="input--fields" *ngFor="let field of notebook.fields">
+        <div *ngIf="field.type === 'select'" class="field--select">
+          <span>{{ field.type }}</span>
+          <select (change)="onSelectChange($event)" name="{{ field.field }}">
+            <option *ngFor="let opt of field.options" value="{{ opt }}" [selected]="opt === field.default">{{ opt }}</option>
+          </select>
+        </div>
+        
+        <div *ngIf="field.type === 'input'" class="field--select">
+          <span>{{ field.field }}</span>
+          <input type="text" (change)="onInputChange($event)" id="{{ field.field }}" name="{{ field.field }}" value="{{ field.default }}" />
+        </div>
+      </div>
+      -->
+
+      <a class="btn btn-primary" (click)="handleRun($event)">Run</a>
+    </div>
+  </div>
+
+  <!-- Card Footer -->
+  <div class="card-footer">
+    <div class="mini-header output">
+      <h4>Output</h4>
+      <select>
+        <option value="" selected>Select</option>
+      </select>
+      <input type="text" name="output" value="" />
+    </div>
+  </div>
+</div>

@@ -1,0 +1,74 @@
+package:
+  name: distributed
+  version: 1.18.1
+
+source:
+  fn: distributed-1.18.1.tar.gz
+  url: https://pypi.python.org/packages/e6/19/cf94157ff6155678f31fcdfe5ac340fafd335e16346752b367ea82c775a9/distributed-1.18.1.tar.gz
+  md5: 6fe1042626fc2c6cfbf13bdb5d175bc6
+
+build:
+  detect_binary_files_with_prefix: False
+  entry_points:
+    - dask-scheduler=distributed.cli.dask_scheduler:go
+    - dask-ssh=distributed.cli.dask_ssh:go
+    - dask-worker=distributed.cli.dask_worker:go
+    - dask-remote=distributed.cli.dask_remote:go
+    - dask-submit=distributed.cli.dask_submit:go
+  script: python setup.py install --single-version-externally-managed --record=record.txt
+
+requirements:
+  build:
+    - python
+    - setuptools
+  run:
+    - python
+    - bokeh >=0.12.3
+    - click >=6.6
+    - cloudpickle >=0.2.2
+    - msgpack-python
+    - psutil
+    - six
+    - tblib
+    - toolz >=0.7.4
+    - tornado >=4.4.3
+    - zict >=0.1.2
+    - sortedcontainers
+    - futures                   [py < 30]
+    - singledispatch            [py < 34]
+
+test:
+  requires:
+    - dask >=0.14.1
+  imports:
+    - distributed
+    - distributed.bokeh
+    - distributed.cli
+    - distributed.diagnostics
+    - distributed.http
+  commands:
+    - dask-scheduler --help
+    - dask-ssh --help
+    - dask-worker --help
+
+about:
+  home: http://distributed.readthedocs.io/en/latest/
+  license: BSD 3-Clause
+  license_family: BSD
+  license_file: LICENSE.txt
+  summary: 'Distributed computing'
+  description: |
+    Distributed is a lightweight library for distributed computing in Python.
+    It extends both the concurrent.futures and dask APIs to moderate sized
+    clusters.
+  doc_url: http://distributed.readthedocs.org
+  doc_source_url: https://github.com/dask/distributed/blob/master/docs/source/index.rst
+  dev_url: https://github.com/dask/distributed
+
+extra:
+  recipe-maintainers:
+    - mrocklin
+    - koverholt
+    - pitrou
+    - jcrist
+    - martindurant

@@ -1,0 +1,34 @@
+package:
+  name: lighttpd
+  version: 1.4.45
+
+source:
+  fn: lighttpd-1.4.45.tar.gz
+  url: http://download.lighttpd.net/lighttpd/releases-1.4.x/lighttpd-1.4.45.tar.gz
+  sha256: bfc0d87ff9396185e3556c2bf2e685fc5b28d9461c8ce65e4f88286d4eb0ebc6
+
+build:
+  detect_binary_files_with_prefix: True
+
+test:
+  files:
+    - lighttpd.conf
+  commands:
+    - lighttpd -h
+    - lighttpd -v
+    - lighttpd -t -f lighttpd.conf
+
+about:
+  home: http://www.lighttpd.net/
+  license: BSD
+  license_file: COPYING
+  summary: Light, fast web server
+  description: |
+    Lighttpd is rapidly redefining the efficiency of a webserver. It is
+    designed and optimized for high performance environments. With a small
+    memory footprint compared to other web-servers, effective management of
+    the cpu-load, and an advanced feature set, lighttpd is the perfect
+    solution for every server that is suffering load problems.
+  doc_url: http://redmine.lighttpd.net/projects/lighttpd/wiki
+  doc_source_url: http://redmine.lighttpd.net/projects/lighttpd/repository/revisions/master/show/doc
+  dev_url: https://github.com/lighttpd

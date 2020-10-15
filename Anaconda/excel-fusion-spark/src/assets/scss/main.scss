@@ -1,0 +1,27 @@
+/******************************************************************************/
+/* MAIN
+/*     This is the main SASS file that imports all the partial files (the files
+/*     that have an "_" prefix) as well as the 3rd Party libs. The order of the
+/*     imports is very important. DO NOT rearrange them unless you know what
+/*     you're doing.
+/***********************************/
+
+
+// These must be imported here so that bootstrap-overrides can use our variables
+// and mixins that we created.
+@import "variables";
+@import "mixins";
+
+@import "~bootstrap/scss/bootstrap";
+@import '~ngx-toastr/toastr-bs4-alert';
+
+// Mixins go here if/when we have them
+@import "bootstrap-overrides";
+@import "3rdparty-overrides";
+
+// 3rd party
+@import '@fortawesome/fontawesome-pro/css/all.css';
+@import "~@ng-select/ng-select/themes/default.theme.css";
+@import "fonts";
+
+@import "global";

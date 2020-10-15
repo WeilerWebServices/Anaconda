@@ -1,0 +1,36 @@
+package:
+  name: parsel
+  version: 1.2.0
+
+source:
+  fn: parsel-1.2.0.tar.gz
+  url: https://pypi.python.org/packages/5f/67/f56ec2c9e8e3ac5e1b6c7689eea6e1781701e972514fa344e9fc6409423e/parsel-1.2.0.tar.gz
+  md5: 603e6e5a6263b06f307436abce52eb6d
+  patches:
+    - setup.patch
+
+requirements:
+  build:
+    - python
+    - setuptools
+  run:
+    - python
+    - cssselect >=0.9
+    - lxml
+    - six >=1.5.2
+    - w3lib >=1.8.0
+
+test:
+  imports:
+    - parsel
+
+about:
+  home: https://github.com/scrapy/parsel
+  license: BSD
+  license_file: LICENSE
+  summary: library to extract data from HTML and XML using XPath and CSS selectors
+  description: |
+    Features of parcel are, Extract text using CSS or XPath selectors and
+    Regular expression helper methods.
+  doc_url: https://parsel.readthedocs.io/en/latest/
+  doc_source_url: https://github.com/scrapy/parsel/blob/master/docs/index.rst

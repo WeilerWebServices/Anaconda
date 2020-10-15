@@ -1,0 +1,40 @@
+{% set version = "7.1.2" %}
+
+package:
+  name: click
+  version: {{ version }}
+
+source:
+  url: https://pypi.io/packages/source/c/click/click-{{ version }}.tar.gz
+  sha256: d2b5255c7c6349bc1bd1e59e08cd12acbbd63ce649f2588755783aa94dfb6b1a
+
+build:
+  number: 0
+  noarch: python
+  script: {{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv
+
+requirements:
+  host:
+    - python
+    - pip
+  run:
+    - python
+
+test:
+  imports:
+    - click
+
+about:
+  home: https://palletsprojects.com/p/click
+  license: BSD-3-Clause
+  license_file: LICENSE.rst
+  license_family: BSD
+  summary: Python composable command line interface toolkit
+  dev_url: https://github.com/pallets/click
+  doc_url: https://click.palletsprojects.com
+
+extra:
+  recipe-maintainers:
+    - pmlandwehr
+    - ocefpaf
+    - xylar

@@ -1,0 +1,35 @@
+package:
+  name: snakebite
+  version: 2.11.0
+
+source:
+  fn: snakebite-2.11.0.tar.gz
+  url: https://pypi.python.org/packages/ed/44/d058b322004f7f0254e2848385dba8f180c3913bb833f16b5fffd784ef77/snakebite-2.11.0.tar.gz
+  md5: f841c561c0bdcc243ee8b821a4d4bda5
+
+requirements:
+  build:
+    - python
+    - protobuf
+  run:
+    - python
+    - protobuf
+
+test:
+  imports:
+    - snakebite
+    - snakebite.protobuf
+
+about:
+  home: http://github.com/spotify/snakebite
+  license: Apache License 2.0
+  license_family: Apache
+  license_file: LICENSE
+  summary: Python HDFS client
+  description: |
+    Snakebite is a python library that provides a pure python HDFS client and
+    a wrapper around Hadoops minicluster. The client uses protobuf for
+    communicating with the NameNode and comes in the form of a library and a
+    command line interface.
+  doc_url: http://snakebite.readthedocs.org/en/latest/
+  dev_url: https://github.com/spotify/snakebite

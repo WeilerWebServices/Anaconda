@@ -1,0 +1,36 @@
+package:
+  name: preshed
+  version: 1.0.0
+
+source:
+  fn: preshed-1.0.0.tar.gz
+  url: https://pypi.python.org/packages/1b/ac/7c17b1fd54b60972785b646d37da2826311cca70842c011c4ff84fbe95e0/preshed-1.0.0.tar.gz
+  md5: 55c285d61175391b05d168e4cf3b28a8
+
+build:
+  detect_binary_files_with_prefix: False
+
+requirements:
+  build:
+    - python
+  run:
+    - python
+    - cymem >=1.30,<1.32.0
+
+test:
+  imports:
+    - preshed
+    - preshed.counter
+    - preshed.maps
+
+about:
+  home: https://github.com/syllog1sm/preshed
+  license: MIT
+  license_file: LICENSE
+  summary: Cython hash table that trusts the keys are pre-hashed
+  description: |
+    Simple but high performance Cython hash table mapping pre-randomized keys
+    to void* values.
+  doc_url: https://pypi.python.org/pypi/preshed
+  doc_source_url: https://github.com/explosion/preshed/blob/master/README.rst
+  dev_url: https://github.com/spacy-io/preshed

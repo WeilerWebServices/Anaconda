@@ -1,0 +1,33 @@
+package:
+  name: murmurhash
+  version: 0.28.0
+
+source:
+  fn: murmurhash-0.28.0.tar.gz
+  url: https://pypi.python.org/packages/5e/31/c8c1ecafa44db30579c8c457ac7a0f819e8b1dbc3e58308394fff5ff9ba7/murmurhash-0.28.0.tar.gz
+  md5: 737ae33abb691dd498753e576059806f
+
+build:
+  detect_binary_files_with_prefix: False
+
+requirements:
+  build:
+    - python
+  run:
+    - python
+
+test:
+  imports:
+    - murmurhash
+    - murmurhash.mrmr
+
+about:
+  home: https://github.com/aappleby/smhasher
+  license: MIT
+  license_file: LICENSE
+  summary: A non-cryptographic hash function
+  description: |
+    MurmurHash is a Cython bindings for MurmurHash2.
+  doc_url: https://pypi.python.org/pypi/murmurhash
+  doc_source_url: https://github.com/explosion/murmurhash/blob/master/README.rst
+  dev_url: https://github.com/aappleby/smhasher

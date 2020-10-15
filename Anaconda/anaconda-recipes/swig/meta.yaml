@@ -1,0 +1,40 @@
+package:
+  name: swig
+  version: 3.0.10
+
+source:
+  fn: swig-3.0.10.tar.gz   [unix]
+  url: http://prdownloads.sourceforge.net/swig/swig-3.0.10.tar.gz   [unix]
+  sha256: 2939aae39dec06095462f1b95ce1c958ac80d07b926e48871046d17c0094f44c  [unix]
+  fn: swigwin-3.0.10.zip   [win]
+  url: http://prdownloads.sourceforge.net/swig/swigwin-3.0.10.zip   [win]
+  sha256: 68a202ebfc62647495074a190a115b629e84c56d74d3017ccb43e56a4b9b83f6 [win]
+
+build:
+  detect_binary_files_with_prefix: True    [unix]
+
+requirements:
+  build:
+    - pcre      [unix]
+    - python    [unix]
+  run:
+    - pcre      [unix]
+
+test:
+  commands:
+    - swig -help
+
+about:
+  home: http://www.swig.org/
+  license: GPL3
+  license_file: LICENSE
+  summary: A compiler that integrates C and C++ with a variety of languages
+  description: |
+    SWIG is an interface compiler that connects programs written in C and C++
+    with scripting languages such as Perl, Python, Ruby, and Tcl. It works by
+    taking the declarations found in C/C++ header files and using them to
+    generate the wrapper code that scripting languages need to access the
+    underlying C/C++ code.
+  doc_url: http://www.swig.org/doc.html
+  doc_source_url: https://github.com/swig/swig/tree/master/Doc
+  dev_url: https://github.com/swig/swig

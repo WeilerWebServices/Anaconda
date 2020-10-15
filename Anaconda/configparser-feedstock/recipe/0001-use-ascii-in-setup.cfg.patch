@@ -1,0 +1,13 @@
+diff --git a/setup.cfg b/setup.cfg
+index ae030e7..845ff44 100644
+--- a/setup.cfg
++++ b/setup.cfg
+@@ -5,7 +5,7 @@ universal = 1
+ license_file = LICENSE
+ name = configparser
+ version = 3.7.4
+-author = Łukasz Langa
++author = Lukasz Langa
+ author_email = lukasz@langa.pl
+ maintainer = Jason R. Coombs
+ maintainer_email = jaraco@jaraco.com

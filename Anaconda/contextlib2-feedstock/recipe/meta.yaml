@@ -1,0 +1,50 @@
+{% set name = "contextlib2" %}
+{% set version = "0.6.0.post1" %}
+{% set hash_type = "sha256" %}
+{% set hash_val = "01f490098c18b19d2bd5bb5dc445b2054d2fa97f09a4280ba2c5f3c394c8162e" %}
+
+package:
+  name: {{ name }}
+  version: {{ version }}
+
+source:
+  fn: {{ name }}-{{ version }}.tar.gz
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  {{ hash_type }}: {{ hash_val }}
+
+build:
+  noarch: python
+  number: 0
+  script: {{ PYTHON }} -m pip install . --no-deps -vv
+
+requirements:
+  host:
+    - python
+    - pip
+
+  run:
+    - python
+
+test:
+  imports:
+    - contextlib2
+
+about:
+  home: http://contextlib2.readthedocs.org
+  license: PSF 2
+  license_family: PSF
+  license_file: LICENSE.txt
+  summary: 'Backports and enhancements for the contextlib module'
+  description: |
+    Contextlib2 provides backports of features in the latest version of the
+    standard library's contextlib module to earlier Python versions. It also
+    serves as a real world proving ground for potential future enhancements
+    to that module.
+  dev_url: https://github.com/jazzband/contextlib2
+  doc_url: http://contextlib2.readthedocs.org
+  doc_source_url: https://github.com/jazzband/contextlib2/blob/master/docs/index.rst
+
+extra:
+  recipe-maintainers:
+    - dopplershift
+    - jakirkham

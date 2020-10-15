@@ -1,0 +1,49 @@
+// Rounding the edges of the serch box
+.border-fit {
+    border-radius: 22px;
+}
+
+.search-option-item {
+    .badge-sm {
+        font-size: .6rem;
+    }
+}
+
+.summary {
+    text-overflow: ellipsis;
+}
+
+// .search-option-item .type {
+//     div > small {
+//         display: none;
+//         animation: fadeout .5s;
+//     }
+//
+//     div > i {
+//         animation: fadein .5s;
+//     }
+//
+// }
+//
+// .search-option-item {
+//     &:hover {
+//         .type div > small {
+//             display: flex;
+//             animation: fadeIn .5s;
+//         }
+//         .type div > i {
+//             display: none;
+//             animation: fadeout .5s;
+//         }
+//     }
+// }
+
+@keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+@keyframes fadeout {
+    from { opacity: 1; }
+    to   { opacity: 0; }
+}

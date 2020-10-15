@@ -1,0 +1,43 @@
+package:
+  name: hdf4
+  version: 4.2.12
+
+source:
+  fn: hdf-4.2.12.tar.bz2
+  url: http://www.hdfgroup.org/ftp/HDF/HDF_Current/src/hdf-4.2.12.tar.gz
+  md5: 79fd1454c899c05e34a3da0456ab0c1c
+  patches:
+    - 0001-Win32-Disable-test_longfilename-due-to-MAX_PATH.patch
+
+build:
+  number: 1
+  features:
+    - vc9                 [win and py27]
+    - vc10                [win and py34]
+    - vc14                [win and (py35 or py36)]
+
+requirements:
+  build:
+    - vc 9                [win and py27]
+    - vc 10               [win and py34]
+    - vc 14               [win and (py35 or py36)]
+    - cmake               [win]
+    - jpeg 9*
+    - openssl 1.0.2*      [unix]
+    - zlib 1.2.*
+  run:
+    - jpeg 9*
+    - openssl 1.0.2*      [unix]
+    - zlib 1.2.*
+
+about:
+  home: https://www.hdfgroup.org/products/hdf4/
+  license: BSD-style
+  license_family: BSD
+  license_file: COPYING
+  summary: Manipulate, view, and analyze data in HDF files
+  description: |
+    hdf is a multiobject file format for sharing scientific data in a distributed environment.
+  doc_url: https://support.hdfgroup.org/release4/doc/index.html
+  doc_source_url: https://support.hdfgroup.org/ftp/HDF/HDF_Current/src/
+  dev_url: https://www.hdfgroup.org/ftp/HDF/HDF_Current/

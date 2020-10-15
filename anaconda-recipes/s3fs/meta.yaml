@@ -1,0 +1,30 @@
+package:
+  name: s3fs
+  version: 0.1.2
+
+source:
+  git_url: https://github.com/dask/s3fs.git
+  git_tag: 0.1.2
+
+requirements:
+  build:
+    - python
+    - setuptools
+    - boto3
+  run:
+    - python
+    - boto3
+
+test:
+  imports:
+    - s3fs
+
+about:
+  home: http://s3fs.readthedocs.org/en/latest/
+  license: BSD
+  license_file: LICENSE.txt
+  summary: convenient Filesystem interface over S3
+  description: |
+    S3Fs is a Pythonic file interface to S3. It builds on top of boto3.
+  doc_url: http://s3fs.readthedocs.io/en/latest/
+  doc_source_url: https://github.com/dask/s3fs/blob/master/docs/source/index.rst

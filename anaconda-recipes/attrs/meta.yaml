@@ -1,0 +1,31 @@
+package:
+  name: attrs
+  version: 15.2.0
+
+source:
+  fn: attrs-15.2.0.tar.gz
+  url: https://pypi.python.org/packages/source/a/attrs/attrs-15.2.0.tar.gz
+  md5: b3c460eb6482f6e557c0e4025475c007
+
+requirements:
+  build:
+    - python
+    - setuptools
+  run:
+    - python
+
+test:
+  imports:
+    - attr
+
+about:
+  home: https://attrs.readthedocs.org/
+  license: MIT
+  license_file: LICENSE
+  summary: Implement attribute-related object protocols without boilerplate
+  description: |
+    attrs is the Python package that will bring back the joy of writing classes by relieving you from the drudgery of implementing object protocols.
+    Its main goal is to help you to write concise and correct software without slowing down your code.
+  doc_url: https://attrs.readthedocs.io/en/stable/#user-s-guide
+  doc_source_url: https://github.com/python-attrs/attrs/blob/master/docs/index.rst
+  dev_url: https://github.com/hynek/attrs

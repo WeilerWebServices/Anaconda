@@ -1,0 +1,29 @@
+package:
+  name: ply
+  version: "3.10"
+
+source:
+  fn: ply-3.10.tar.gz
+  url: https://pypi.python.org/packages/ce/3d/1f9ca69192025046f02a02ffc61bfbac2731aab06325a218370fd93e18df/ply-3.10.tar.gz
+  md5: 1d63c166ab250bab87d8dcc42dcca70e
+
+requirements:
+  build:
+    - python
+  run:
+    - python
+
+test:
+  imports:
+    - ply
+
+about:
+  home: http://www.dabeaz.com/ply/
+  license: BSD
+  summary: implementation of Lex and Yacc
+  description: |
+    PLY is a pure-Python implementation of the popular compiler construction tools lex and yacc.
+    The main goal of PLY is to stay fairly faithful to the way in which traditional lex/yacc tools work.
+  doc_url: http://www.dabeaz.com/ply
+  doc_source_url: https://github.com/dabeaz/ply/blob/master/doc/internal.htmls
+  dev_url: https://github.com/dabeaz/ply

@@ -1,0 +1,32 @@
+package:
+  name: sortedcollections
+  version: 0.5.3
+
+source:
+  fn: sortedcollections-0.5.3.tar.gz
+  url: https://pypi.python.org/packages/c4/c3/a3883c9d5ef499e61bf0f7c5561ee13447d00a58392dcd81354ab04d4cf1/sortedcollections-0.5.3.tar.gz
+  md5: 24cee977cdb25e7851f9e35a05a13560
+
+requirements:
+  build:
+    - python
+    - setuptools
+    - sortedcontainers
+  run:
+    - python
+    - sortedcontainers
+
+test:
+  imports:
+    - sortedcollections
+
+about:
+  home: http://www.grantjenks.com/docs/sortedcollections/
+  license: Apache Software License
+  license_family: Apache
+  license_file: LICENSE
+  summary: Python Sorted Collections
+  description: |
+    SortedCollections is a Pure-Python library.It depends on the SortedContainers module.
+  doc_url: http://www.grantjenks.com/docs/sortedcollections/
+  doc_source_url: https://github.com/grantjenks/sortedcollections/blob/master/docs/index.rst

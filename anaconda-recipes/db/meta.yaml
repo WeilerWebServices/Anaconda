@@ -1,0 +1,22 @@
+package:
+  name: db
+  version: 5.3.28
+
+source:
+  fn: db-5.3.28.tar.gz
+  url: http://repo.continuum.io/pkgs/misc/src/db-5.3.28.tar.gz
+  md5: b99454564d5b4479750567031d66fe24
+
+build:
+  number: 1
+
+about:
+  home: http://www.oracle.com/us/products/database/berkeley-db/index.html
+  license: AGPLv3
+  license_family: AGPL
+  license_file: LICENSE
+  summary: Embeddable Databases
+  description: |
+    a db package which makes easier to interact with your databases.
+  doc_url: https://pypi.python.org/pypi/db.py#what-is-it
+  doc_source_url: https://github.com/yhat/db.py/blob/master/README.rst

@@ -1,0 +1,50 @@
+package:
+  name: javabridge
+  version: 1.0.14
+
+source:
+  git_url: https://github.com/LeeKamentsky/python-javabridge.git
+  git_tag: 1.0.14
+  patches:
+    - 0001-Dynamically-load-libjvm.so-before-importing-_javabri.patch
+    - 0002-OS-X-bytes-fix-for-subprocess.check_output.patch
+    - 0003-OS-X-ctypes-Py-3-fix-encode-strings-as-utf-8.patch
+    - 0004-OS-X-10.7-Look-for-the-jvm-dylib-in-more-files.patch
+
+build:
+  detect_binary_files_with_prefix: True
+  preserve_egg_dir: True
+
+requirements:
+  build:
+    - python
+    - cython
+    - setuptools
+    - numpy
+
+  run:
+    - python
+    - setuptools
+    - numpy
+
+test:
+  imports:
+    - javabridge
+    - javabridge.tests
+    - javabridge._javabridge
+  requires:
+    - nose
+
+about:
+  home: https://github.com/LeeKamentsky/python-javabridge
+  license: BSD License
+  summary: 'Python wrapper for the Java Native Interface'
+  description: |
+    Makes it easy to start a Java virtual machine (JVM) from
+    Python and interact with it. Python code can interact
+    with the JVM using a low-level API or a more convenient
+    high-level API.
+  license_family: BSD
+  doc_url: http://pythonhosted.org/javabridge/
+  doc_source_url: https://github.com/LeeKamentsky/python-javabridge/blob/master/docs/index.rst
+  dev_url: https://github.com/LeeKamentsky/python-javabridge
